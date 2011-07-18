@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>UnBBayes - A Simplified Poker Game</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Rommel Novaes Carvalho" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="index.html" id="bannerLeft">
+    
+                                            <img src="images/topBanner-v4.png" alt="" />
+    
+            </a>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2010-03-24
+                      </div>
+            <div class="xright">            <a href="http://sourceforge.net/projects/unbbayes" class="externalLink">UnBBayes Project</a>
+            |
+                <a href="http://sourceforge.net/news/?group_id=47519" class="externalLink">UnBBayes News</a>
+            |
+                <a href="http://unbbayes.wiki.sourceforge.net/" class="externalLink">UnBBayes Wiki</a>
+            |
+                <a href="http://www.pr-owl.org/" class="externalLink">PR-OWL</a>
+            |
+                <a href="http://www.cic.unb.br/" class="externalLink">CIC/UnB</a>
+            |
+                <a href="http://www.unb.br/" class="externalLink">UnB</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Main</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">Overview</a>
+          </li>
+              
+    <li class="none">
+                    <a href="publications.html">Publications</a>
+          </li>
+              
+    <li class="none">
+                    <a href="around_the_world.html">Around the World</a>
+          </li>
+              
+    <li class="none">
+                    <a href="faq.html">FAQ</a>
+          </li>
+          </ul>
+              <h5>Examples</h5>
+            <ul>
+              
+    <li class="none">
+              <strong>Poker Game</strong>
+        </li>
+              
+          
+              
+      
+              
+        <li class="expanded">
+                    <a href="mebn.html">MEBN</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="how_to_model_prowl.html">How to Model Probabilistic Ontologies</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+              <h5>Tutorials</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="https://sourceforge.net/apps/mediawiki/unbbayes/index.php?title=Visit_the_Tutorial" class="externalLink">Wiki Tutorial</a>
+          </li>
+              
+    <li class="none">
+                    <a href="presentations.html">Presentations</a>
+          </li>
+              
+    <li class="none">
+                    <a href="video_tutorial.html">Video Tutorials</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                                 
+                        
+                        
+            <a href="http://sourceforge.net/projects/unbbayes" title="UnBBayes" class="poweredBy">
+                            <img alt="UnBBayes" src="http://sflogo.sourceforge.net/sflogo.php?group_id=47519&type=12" />
+            </a>
+                                
+                        
+                        
+            <a href="https://www.ohloh.net/p/unbbayes" title="Ohloh" class="poweredBy">
+                            <img alt="Ohloh" src="https://www.ohloh.net/p/unbbayes/widgets/project_partner_badge.gif" />
+            </a>
+                                
+                        
+                        
+            <a href="http://mac.softpedia.com/progClean/UnBBayes-Clean-41921.html" title="Softpedia" class="poweredBy">
+                            <img alt="Softpedia" src="http://mac.softpedia.com/base_img/softpedia_free_award_f.gif" />
+            </a>
+                                
+                        
+                        
+            <a href="http://maven.apache.org/" title="Maven" class="poweredBy">
+                            <img alt="Maven" src="http://maven.apache.org/images/logos/maven-feather.png" />
+            </a>
+                               
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>A Simplified Poker Game</h2>
+<p>The poker game we developed uses a simplified poker model, explained here, to add some intelligence to the computer moves. The computer decides what to do based on the UnBBayes API and the poker Bayesian network. The poker game developed is a Computer X User poker game where you can bet, 5 points, or quit.</p>
+<center>
+<img src="images/pokerGame.gif" />
+</center>
+<p>The class diagram of the main classes used is shown here:</p>
+<center>
+<img src="images/pokerClassDiagram.gif" />
+</center>
+<p>Poker is a Bayesian network that models a simplified version of the game of poker. The network can help predict who has the best hand - your or your opponent. </p>
+<p>To download the poker game, please click <a href="/code/poker.zip">here</a>.</p>
+<p>This example originates from the book <a class="externalLink" href="http://developer.hugin.com/links/Books/">An introduction to Bayesian Networks</a>.</p>
+<p>Consider a simplified poker game with the following rules:</p>
+<ul><li>Each player receives three cards and is allowed two rounds of changing cards. In the first round you may discard any number of cards from your hand and get replacements from the pack of cards. In the second round you may discard at most two cards. </li>
+<li>The various types of hands are classified in the following way (in increasing rank): nothing special, 1 ace, 2 of the same value, 2 aces, flush (3 of a suit), straight (3 of consecutive values), 3 of the same value, straight flush.</li>
+<li>The following Bayesian belief network can calculate the probability of you having the best hand after the two rounds of changing, based on the number of cards your opponent has discarded and an assumed strategy of the opponent: 
+</li>
+</ul>
+<center>
+<img src="images/example_pokerBN.gif" />
+</center>
+<p>The nodes OH0 , OH1 and OH2 represent the opponent's hand initially, after the first change (FC) and after the second change (SC) respectively. MH represents my hand before the bidding starts. Note that we have exact knowledge of the state of this node, so the initial distribution is not important.</p>
+<p>Of course the probabilities of the various states of OH2 depend on the presumed strategy of the opponent. </p>
+<p>In the network enclosed, the following strategy for the opponent is assumed:</p>
+<ul><li>If nothing special, then change 3 * If 1 ace, then keep the ace * If 2 of consecutive values or 2 of a suit or 2 of the same value, then discard the third card * If 2 of a suit and 2 of consecutive values, then keep 2 of a suit * If 2 of a suit and 2 of the same value or 2 of consecutive values and 2 of the same value, then keep the 2 of the same value * If flush, straight, 3 of the same value or straight flush, then keep it</li>
+</ul>
+<p>Now you can enter the states of FC , SC and MH and get the probability of you having the best hand. </p>
+<p>This network is available with the game. </p>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2001-2010
+    
+          University of Brasilia - UnB
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

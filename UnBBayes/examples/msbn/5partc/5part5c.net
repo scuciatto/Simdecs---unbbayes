@@ -1,0 +1,104 @@
+net
+{
+    node_size = (100 100);
+    HR_Grid_X = "10";
+    HR_Grid_Y = "10";
+    HR_Grid_GridSnap = "1";
+    HR_Grid_GridShow = "0";
+    HR_Font_Name = "Arial";
+    HR_Font_Size = "-12";
+    HR_Font_Weight = "400";
+    HR_Font_Italic = "0";
+    HR_Propagate_Auto = "0";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_AutoNormal = "1";
+    HR_Compile_TriangMethod = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_Approximate = "0";
+    HR_Compile_ApproxEpsilon = "0.00001";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_InitSD = "2";
+    HR_Color_DiscreteChance = "16";
+    HR_Color_ContinuosChance = "48";
+    HR_Color_Utility = "36";
+    HR_Color_Decision = "17";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Groups_GroupNames = "";
+    HR_Groups_GroupColors = "";
+    UnBBayes_Color_Decision = "-14336";
+    UnBBayes_Color_Utility = "-16711681";
+    UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+    UnBBayes_Color_Probabilistic_Description = "-256";
+    name = "5part5c";
+}
+
+node G
+{
+    label = "G";
+    position = (-20 60);
+    states = ("y" "n");
+}
+
+node var_11
+{
+    label = "var_11";
+    position = (97 0);
+    states = ("y" "n");
+}
+
+node H
+{
+    label = "H";
+    position = (80 150);
+    states = ("y" "n");
+}
+
+node var_10
+{
+    label = "var_10";
+    position = (250 130);
+    states = ("y" "n");
+}
+
+node var_12
+{
+    label = "var_12";
+    position = (260 -10);
+    states = ("y" "n");
+}
+
+potential (G)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (var_11 | G)
+{
+ data = (( 0.9 0.1 )	%  y
+	 ( 0.3 0.7 ));	%  n
+}
+
+potential (H | G)
+{
+ data = (( 0.4 0.6 )	%  y
+	 ( 0.6 0.4 ));	%  n
+}
+
+potential (var_10 | G H)
+{
+ data = ((( 0.05 0.95 )	%  y  y
+	  ( 0.8 0.2 ))	%  y  n
+	 (( 0.7 0.3 )	%  n  y
+	  ( 0.6 0.4 )));	%  n  n
+}
+
+potential (var_12 | var_11 var_10)
+{
+ data = ((( 0.02 0.98 )	%  y  y
+	  ( 0.85 0.15 ))	%  y  n
+	 (( 0.25 0.75 )	%  n  y
+	  ( 0.15 0.85 )));	%  n  n
+}

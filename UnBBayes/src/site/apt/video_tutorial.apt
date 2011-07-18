@@ -1,0 +1,198 @@
+UnBBayes Tutorial
+~~~~~~~~~~~~~~
+
+  Recently we have received a lot of e-mails from users asking us to help them 
+  make the best use of UnBBayes. Since UnBBayes has been developed by Brazilians 
+  from the University of Brasilia (UnB), most of the dissertations, thesis, and 
+  documentation we have are in Portuguese. 
+  
+  Unfortunately, most of UnBBayes' users do not speak Portuguese. Therefore, we 
+  have been working with George Mason University (GMU) on creating/translating 
+  these tutorials in/to English.
+  
+  Part of this effort has been on creating video tutorial to help users get 
+  familiar with UnBBayes even faster.
+
+* Overview
+~~~~~~~~~~~~~~~~~~~~
+
+  In this video we are going to show the basic function we have in UnBBayes. 
+  This is the first of many tutorials we have been creating to support the demand 
+  for documentation on how to use UnBBayes. We hope this will help UnBBayes' user 
+  community to grow even more.
+  
+  <center>
+	  <object width="425" height="344">
+	  	<param name="movie" 
+	  	value="http://www.youtube.com/v/FZa1Obn9qI0&hl=en&fs=1">
+	  	</param>
+	  	<param name="allowFullScreen" value="true">
+	  	</param>
+	  	<param name="allowscriptaccess" value="always">
+	  	</param>
+	  	<embed src="http://www.youtube.com/v/FZa1Obn9qI0&hl=en&fs=1" 
+	  	type="application/x-shockwave-flash" allowscriptaccess="always" 
+	  	allowfullscreen="true" width="425" height="344">
+	  	</embed>
+	  </object>
+  </center>
+
+* Bayesian Network
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we are going to show how to create and compile a Bayesian Network 
+  (BN) in UnBBayes. This is our second of many video tutorials we have been 
+  creating to support the demand for documentation on how to use UnBBayes. 
+  We hope this will help UnBBayes' user community to grow even more.
+  
+  <center>
+	  <object width="425" height="344">
+	  	<param name="movie" 
+	  	value="http://www.youtube.com/v/ExlfjBQfvMk&hl=en&fs=1&">
+	  	</param>
+	  	<param name="allowFullScreen" value="true">
+	  	</param>
+	  	<param name="allowscriptaccess" value="always">
+	  	</param>
+	  	<embed src="http://www.youtube.com/v/ExlfjBQfvMk&hl=en&fs=1&" 
+	  	type="application/x-shockwave-flash" allowscriptaccess="always" 
+	  	allowfullscreen="true" width="425" height="344">
+	  	</embed>
+	  </object>
+  </center>
+  
+* UnBBayes Performance Evaluation for Multi-Sensor Classification Systems
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we are going to show how to do a performance evaluation for 
+  multi-sensor classification systems in UnBBayes. It has been a while we do 
+  not post new videos, but hopefully this third one is just one more of many 
+  tutorials we will have available to support the demand for documentation on 
+  how to use UnBBayes. We hope this will help UnBBayes' user community to grow 
+  even more.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/ypQblbrN3Yo&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ypQblbrN3Yo&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 1 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 1 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/e8NabmtbFNc&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/e8NabmtbFNc&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 2 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 2 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/-HW2b6lqfh0&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/-HW2b6lqfh0&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 3 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 3 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/HJbQsL-haVA&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/HJbQsL-haVA&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 4 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 4 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/wa87iYo6MkU&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/wa87iYo6MkU&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 5 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 5 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/ee6MWB0SX3A&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ee6MWB0SX3A&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 6 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 6 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/k9ReKo5P3X0&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/k9ReKo5P3X0&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 7 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 7 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/q-AV6W7G304&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/q-AV6W7G304&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 8 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 8 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/CJ4b9BrJoGI&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/CJ4b9BrJoGI&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 9 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 9 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/VzozxS2lNJ8&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/VzozxS2lNJ8&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+  
+* Probabilistic Ontology Modeling Using UnBBayes - Part 10 
+~~~~~~~~~~~~~~~~~~~
+
+  In this video we discuss how to model probabilistic ontologies using PR-OWL/MEBN 
+  in UnBBayes. This session was a video conference between PhD students from the 
+  Institute of Business Administration ({{www.iba.edu.pk}}) and Rommel Carvalho from 
+  George Mason University ({{www.gmu.edu}}). Part 10 of 10.
+  
+  <center>
+	  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/t3ZnVrxc6wI&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/t3ZnVrxc6wI&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </center>
+
+

@@ -1,0 +1,142 @@
+% UBF file header
+Version=0.03
+PrOwl="Procurement_Indexes.owl"
+
+% UBF MTheory declaration
+MTheory=DirectingProcurement_MT
+NextMFrag=5
+NextResident=9
+NextInput=9
+NextContext=4
+NextEntity=1
+
+% UBF MFrags and Nodes declaration
+
+% MFrag
+MFrag=ProcurementRequirement_Other_MF
+NextOrdinaryVar=2
+
+% Resident nodes
+
+
+Node=ExperienceInOnlyOneContract
+Type=DomainResidentNode
+Position=313.0,256.0
+Size=35,35
+
+% Input nodes
+
+
+Node=IX6
+Type=GenerativeInputNode
+Position=312.0,162.0
+Size=35,35
+
+% Ordinary Variables
+
+
+Node=proc
+Type=OrdinalVar
+Position=314.0,68.0
+Size=35,35
+
+% MFrag
+MFrag=DirectingProcurement_MF
+NextOrdinaryVar=2
+
+% Resident nodes
+
+
+Node=IsProcurementDirected
+Type=DomainResidentNode
+Position=274.0,185.0
+Size=35,35
+
+% Ordinary Variables
+
+
+Node=proc
+Type=OrdinalVar
+Position=282.0,77.0
+Size=35,35
+
+% MFrag
+MFrag=DirectingProcurementByIndexes_MF
+NextOrdinaryVar=3
+
+% Resident nodes
+
+
+Node=IsProcurementDirectedByIndexes
+Type=DomainResidentNode
+Position=339.0,316.0
+Size=35,35
+
+% Input nodes
+
+
+Node=IX5
+Type=GenerativeInputNode
+Position=338.0,206.0
+Size=35,35
+
+% Ordinary Variables
+
+
+Node=proc
+Type=OrdinalVar
+Position=342.0,83.0
+Size=35,35
+
+% MFrag
+MFrag=ProcurementRequirement_Indexes_MF
+NextOrdinaryVar=3
+
+% Resident nodes
+
+
+Node=IndexType
+Type=DomainResidentNode
+Position=440.0,248.0
+Size=35,35
+
+Node=IndexMinValue
+Type=DomainResidentNode
+Position=262.0,247.0
+Size=35,35
+
+Node=IndexProcurement
+Type=DomainResidentNode
+Position=355.0,302.0
+Size=35,35
+
+% Input nodes
+
+
+Node=IX8
+Type=GenerativeInputNode
+Position=352.0,151.0
+Size=35,35
+
+% Context nodes
+
+
+Node=CX1
+Type=ContextNode
+Position=536.0,72.0
+Size=35,35
+
+% Ordinary Variables
+
+
+Node=ind
+Type=OrdinalVar
+Position=199.0,69.0
+Size=35,35
+
+Node=proc
+Type=OrdinalVar
+Position=342.0,72.0
+Size=35,35
+
+% Object Entity Instances

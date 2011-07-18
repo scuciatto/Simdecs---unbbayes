@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<title>UnBBayes</title>
+		<author email="rommel.carvalho@gmail.com">
+			Rommel Carvalho
+		</author>
+	</properties>
+	<body>
+	
+		<release version="4.10.4" date="2011-06-16" description="Third UnBBayes Plugin Framework release">
+			<action dev="Rommel Carvalho" type="add" issue="3317552">
+				Add transparency and shadow when saving graph.
+			</action>
+		</release>
+	
+		<release version="4.9.4" date="2011-06-14" description="Second UnBBayes Plugin Framework release">
+			<action dev="Shou Matsumoto" type="add" issue="3316013">
+				Refactor SSBN generation algorithm.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="3132338">
+				The "final" mark in some methods were removed, in order to allow overwriting.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3314855">
+				Auto reset / recompile when evidence changed.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3315588">
+				Allow to remove evidence from node.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3315761">
+				Allow the selection of a single cell - CPT.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3315773">
+				Allow copy and paste between CPT and Excel.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3314854">
+				Remove Continuous Node.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3314852">
+				Remove Color Controller & Size Controller.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="3314838">
+				Auto complete probability tables.
+			</action>
+			
+			
+			<action dev="Shou Matsumoto" type="fix" issue="3030178">
+				Wrong message for Dne IO.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="3260712">
+				SSBN is not saved with correct CPT.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="3316012">
+				Bug caused by Xalan.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="3316012">
+				Likelihood lost when new likelihood/evidence is entered.
+			</action>
+		</release>
+	
+		<release version="4.0.0" date="2010-03-23" description="First UnBBayes Plugin Framework release">
+			<action dev="Shou Matsumoto" type="add" issue="2930755">
+				Plugin for forms for discrete nodes' conditional functions.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2928791">
+				Convert PN I/O classes into plugins.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2913286">
+				Plugin support for localization.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2913285">
+				Plugin support for creating a new type of node.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2913283">
+				Plugin support for PN Module's IO.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2908367">
+				GUI Split Pane improvements.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2872601">
+				Change text size in Belief Bar.
+			</action>
+			
+			<action dev="Shou Matsumoto" type="fix" issue="2950752">
+				Chow-Liu learning algorithm was not working at all.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2950741">
+				We cannot invert edge's direction in Learning modules.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2950738">
+				Edge's popup menu is implemented on code, but not working.
+			</action>
+			<action dev="Young Park" type="fix" issue="2941111">
+				Context node not updated.
+			</action>
+			<action dev="Young Park" type="fix" issue="2941107">
+				MEBN node being unselected after change.
+			</action>
+			<action dev="Young Park" type="fix" issue="2941106">
+				Node size not saved/loaded.
+			</action>
+			<action dev="Young Park" type="fix" issue="2941104">
+				Node size is not kept as user defined.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2941102">
+				Cannot remove an edge.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2925264">
+				Cannot load plugin within JAR or ZIP.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2924961">
+				The fit to text popup menu does nothing at OOBN's instances.
+			</action>
+			<action dev="Young Park" type="fix" issue="2922304">
+				Align option is not moving edges.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2922299">
+				ContinuousNode's name and description text field not updated.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2922295">
+				Properties of continuous node.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2918072">
+				Remove separators which are d-separated at ssbn creation.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2916415">
+				Fix StarTrek LPD definitions.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2913241">
+				Error compiling network with utility node.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2910768">
+				Vertexes do not disappear at OOBN module.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2910763">
+				Movable inner oobn nodes.
+			</action>
+		</release>
+	
+		<release version="3.52.7-BETA" date="2009-09-11" description="Fifth UnBBayes-MEBN beta release">
+			<action dev="Rommel Carvalho" type="add" issue="2845145">
+				Show findings in different color in SSBN.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2845109">
+				Add look and feel for current system.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2832727">
+				Add Metaphor, Medical Metaphor, and UnBMiner to UnBBayes.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2826255">
+				Integrate Pruning with Grand BN construction.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2826254">
+				Prune Grand BN using d-separation.
+			</action>
+			<action dev="Laecio Lima" type="add" issue="2826253">
+				New Grand BN construction.
+			</action>
+			<action dev="Aditya Mugali" type="add" issue="2825695">
+				Generic Progress Bar.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2825459">
+				Create XMLBIF version 6.
+			</action>
+			<action dev="Young Park" type="add" issue="2819956">
+				New GUI.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2790229">
+				Allow inference with Gibbs.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2790228">
+				Add simulation to GUI.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2790227">
+				Gibbs Sampling.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2787581">
+				Allow finding in evaluation.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2708052">
+				Implement test case for Evaluation module.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2564961">
+				Compute exact confusion matrix.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2542566">
+				Compute error for evaluation.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2539912">
+				Include Load and Save DNE format in GUI.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2539910">
+				Load and Save DNE format.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2521242">
+				Include PCC marginal improvement and cost rate in GUI.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2521225">
+				Compute evidence cost rate.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2521222">
+				Compute marginal improvement.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2521210">
+				Remove Java 6 dependency.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2286477">
+				Implement OOBN -> MSBN convertion tool.
+			</action>
+			<action dev="Young Park" type="add" issue="1908023">
+				Arrows at node's edge (outer line).
+			</action>
+			<action dev="Young Park" type="add" issue="1908018">
+				Self-resizing nodes.
+			</action>
+			
+			<action dev="Shou Matsumoto" type="fix" issue="2845111">
+				Incorrect OV reference for input nodes in LPD.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2707961">
+				Invert table's variable order in XML-BIF 5 loader.
+			</action>
+			<action dev="Laecio Lima" type="fix" issue="2583323">
+				Bug in listener of changes in Node name.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2539903">
+				Out of bounds when evaluating.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2539894">
+				Monte carlo gives array out of bounds.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2390083">
+				OOBN compile failure on input instantiating input.
+			</action>
+			<action dev="Young Park" type="fix" issue="1954465">
+				Resizing of nodes are not applicable anymore (ordinal BN).
+			</action>
+		</release>
+	
+		<release version="3.27.9-BETA" date="2009-01-12" description="Fourth UnBBayes-MEBN beta release">
+			<action dev="Rommel Carvalho" type="add" issue="2502330">
+				Implement average correct classification probability.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2286514">
+				Net 3rd Spec for OOBN I/O.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2286474">
+				Implement OOBN visual edition.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2286048">
+				Load and Save XMLBIF version 0.5.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2272627">
+				Change CPT edition behaviour.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="2258810">
+				Add delete and reset button to edition of pn's.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2234791">
+				Resize table panel.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2221807">
+				Load and Save BN with continuous node.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2208499">
+				GUI to model continuous node.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2208491">
+				Add continuous node to BN.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2204389">
+				Include Likelihood Weighting in GUI Framework.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2192929">
+				Adjust the divider after compilation.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2192859">
+				Likelihood Weighting Inference.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2190279">
+				Likelihood Weighting Sampling.
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2131239">
+				Evaluate PN by calculating P(T|T).
+			</action>
+			<action dev="Laécio Lima" type="add" issue="2117095">
+				Ordering resident node list in query and finding list.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="2037996">
+				Nested IF for MEBN CPT.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="2027175">
+				Indicate presence of finding.
+			</action>
+			<action dev="Paulo Costa" type="add" issue="1908040">
+				Propose new SSBN algorithm considering evidences "below".
+			</action>
+			
+			<action dev="Rommel Carvalho" type="fix" issue="2380157">
+				Update node index map.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2190264">
+				Node order in evaluation is wrong.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2125443">
+				MC sampler generates state 0 for range from 0.0 to 0.0.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="2125441">
+				MC sampler always generates state 0.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1956734">
+				HarmPotential(ST3,T15) generates unknown error (-1).
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949136">
+				Blue buttons looks horrible in different look'n'feel.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949118">
+				After generating SSBN, the leftmost tree' panel is too small.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949087">
+				Cannot change MTheory's name.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1907274">
+				Strange behavior when query->move node.
+			</action>
+		</release>
+		
+		<release version="3.8.3-BETA" date="2008-07-31" description="Third UnBBayes-MEBN beta release">
+			<action dev="Laécio Lima" type="add" issue="2008231">
+				Implement SSBN algorithm with evidences "below".
+			</action>
+			<action dev="Rommel Carvalho" type="add" issue="2023512">
+				Develop new Web site using Maven.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="2027165">
+				Remove a finding.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="2033356">
+				upgrade in search context node evaluation.
+			</action>
+			
+			<action dev="Shou Matsumoto" type="fix" issue="1994411">
+				Compiler bug when ther are only invalid parents.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="2014574">
+				Compiler doesn't accept complex boolean expression.
+			</action>
+			<action dev="Rommel Carvalho" type="fix" issue="1913724">
+				Web site's Enlgish page is in Portuguese.
+			</action>
+		</release>
+		
+		<release version="3.4.29-BETA" date="2008-05-20"
+			description="Second UnBBayes-MEBN beta release">
+			
+			<action dev="Shou Matsumoto" type="add" issue="1968915">
+				Pseudocode compiler's optimization.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="1951209">
+				Refactor NodeList to ArrayList or List.
+			</action>
+			<action dev="Laécio Lima" type="add" issue="1908011">
+				Button for pre-parsing CPT pseudocode.
+			</action>
+			<action dev="Shou Matsumoto" type="add" issue="1907899">
+				OWL / PR-OWL "compatibility".
+			</action>
+			
+			<action dev="Shou Matsumoto" type="fix" issue="1962006">
+				KB's file chooser's file filter message.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1960679">
+				Problem with the Help Pane.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1956731">
+				Deleting resident and inserting a new one with same name...
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1956730">
+				BottomUpSSBNGenerator doesn't check if node's already there.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1955798">
+				Duplicated names are acept for objects of diferents types.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1954467">
+				Inserting an edge makes isA node to shrink.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1951215">
+				Resident's ArgumentList is not updated properly.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949131">
+				Cannot open "global option" at BN ("normal") edition frame...
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949125">
+				Arguments at CPT edition panel should be from parents.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949121">
+				No text explanation pops up at buttons in resident nodes.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1949113">
+				Stack trace as a user's error message...
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949107">
+				No default distro on CPT edition pane.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949104">
+				CPT edition panel is not inserting commas.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1949101">
+				Where the hell the compiler is reporting parse error?
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949095">
+				Can only insert comments to MFrags and nodes?
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1949094">
+				Compiler (or table edition panel on GUI) crushes.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1949091">
+				Father nodes... Instead of Parents.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1913024">
+				defining the resident node's parameters.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1913020">
+				typo-error 2.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1913015">
+				typo-error 1.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1909774">
+				bug following tutorial.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1909756">
+				MTheory tree collapses after edits.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1907990">
+				Object entities as resident's possible value.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1907974">
+				Problems deleting nodes (MAC).
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1907968">
+				Cannot deselect nodes when using MAC.
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1907954">
+				Changing some elements is not updating GUI (by now, MTheory).
+			</action>
+			<action dev="Laécio Lima" type="fix" issue="1907947">
+				We can't manipulate 2 MTheories at the same time.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1907897">
+				Update GUI when loading PowerLoom findings.
+			</action>
+			<action dev="Shou Matsumoto" type="fix" issue="1907290">
+				Problems when pre-existing OV is resident's argument.
+			</action>
+		</release>
+	</body>
+</document>

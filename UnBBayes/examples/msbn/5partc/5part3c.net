@@ -1,0 +1,123 @@
+net
+{
+     node_size = (0 0);
+     name = "5part3c";
+     tree = "(C0,C1,C2,C3,C4,C5,C6,C7)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+     UnBBayes_Color_Utility = "-16711681";
+     UnBBayes_Color_Decision = "-14336";
+}
+
+node D
+{
+     label = "C0";
+     position = (89 39);
+     states = ("H" "M" "L");
+}
+
+node C
+{
+     label = "C1";
+     position = (55 106);
+     states = ("y" "n");
+}
+
+node var_5
+{
+     label = "C2";
+     position = (165 81);
+     states = ("y" "n");
+}
+
+node E
+{
+     label = "C3";
+     position = (137 180);
+     states = ("y" "n");
+}
+
+node var_6
+{
+     label = "C4";
+     position = (256 89);
+     states = ("y" "n");
+}
+
+node F
+{
+     label = "C5";
+     position = (245 235);
+     states = ("y" "n");
+}
+
+node G
+{
+     label = "C6";
+     position = (358 41);
+     states = ("y" "n");
+}
+
+node H
+{
+     label = "C7";
+     position = (388 207);
+     states = ("y" "n");
+}
+
+potential (D)
+{
+ data = ( 0.33333334 0.33333334 0.33333334 );
+}
+
+potential (C | E)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+
+potential (var_5 | D E)
+{
+ data = ((( 0.9 0.1 )
+( 0.6 0.4 ))
+(( 0.8 0.2 )
+( 0.5 0.5 ))
+(( 0.7 0.3 )
+( 0.4 0.6 )));
+}
+
+potential (E | var_6)
+{
+ data = (( 0.25 0.75 )
+( 0.6 0.4 ));
+}
+
+potential (var_6)
+{
+ data = ( 0.1 0.9 );
+}
+
+potential (F | var_6 E H)
+{
+ data = (((( 0.02 0.98 )
+( 0.35 0.65 ))
+(( 0.15 0.85 )
+( 0.7 0.3 )))
+((( 0.1 0.9 )
+( 0.4 0.6 ))
+(( 0.6 0.4 )
+( 0.8 0.2 ))));
+}
+
+potential (G | var_6)
+{
+ data = (( 0.35 0.65 )
+( 0.95 0.05 ));
+}
+
+potential (H | G)
+{
+ data = (( 0.5 0.5 )
+( 0.5 0.5 ));
+}
+

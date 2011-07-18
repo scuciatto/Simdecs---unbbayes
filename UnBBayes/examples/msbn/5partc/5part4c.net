@@ -1,0 +1,117 @@
+net
+{
+    node_size = (0 0);
+    HR_Grid_X = "10";
+    HR_Grid_Y = "10";
+    HR_Grid_GridSnap = "1";
+    HR_Grid_GridShow = "0";
+    HR_Font_Name = "Arial";
+    HR_Font_Size = "-12";
+    HR_Font_Weight = "400";
+    HR_Font_Italic = "0";
+    HR_Propagate_Auto = "0";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_AutoNormal = "1";
+    HR_Compile_TriangMethod = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_Approximate = "0";
+    HR_Compile_ApproxEpsilon = "0.00001";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_InitSD = "2";
+    HR_Color_DiscreteChance = "16";
+    HR_Color_ContinuosChance = "48";
+    HR_Color_Utility = "36";
+    HR_Color_Decision = "17";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Groups_GroupNames = "";
+    HR_Groups_GroupColors = "";
+    UnBBayes_Color_Decision = "-14336";
+    UnBBayes_Color_Utility = "-16711681";
+    UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+    UnBBayes_Color_Probabilistic_Description = "-256";
+    name = "5part4c";
+}
+
+node C
+{
+    label = "C";
+    position = (124 0);
+    states = ("y" "n");
+}
+
+node var_9
+{
+    label = "var_9";
+    position = (72 84);
+    states = ("y" "n");
+}
+
+node E
+{
+    label = "E";
+    position = (201 78);
+    states = ("y" "n");
+}
+
+node var_8
+{
+    label = "var_8";
+    position = (135 192);
+    states = ("y" "n");
+}
+
+node F
+{
+    label = "F";
+    position = (268 160);
+    states = ("y" "n");
+}
+
+node var_7
+{
+    label = "var_7";
+    position = (0 180);
+    states = ("y" "n");
+}
+
+potential (C | E)
+{
+ data = (( 0.2 0.8 )	%  y
+	 ( 0.1 0.9 ));	%  n
+}
+
+potential (var_9 | C E)
+{
+ data = ((( 0.8 0.2 )	%  y  y
+	  ( 0.6 0.4 ))	%  y  n
+	 (( 0.7 0.3 )	%  n  y
+	  ( 0.05 0.95 )));	%  n  n
+}
+
+potential (E)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (var_8 | E F)
+{
+ data = ((( 0.1 0.9 )	%  y  y
+	  ( 0.25 0.75 ))	%  y  n
+	 (( 0.05 0.95 )	%  n  y
+	  ( 0.8 0.2 )));	%  n  n
+}
+
+potential (F | E)
+{
+ data = (( 0.5 0.5 )	%  y
+	 ( 0.5 0.5 ));	%  n
+}
+
+potential (var_7 | var_9)
+{
+ data = (( 0.15 0.85 )	%  y
+	 ( 0.35 0.65 ));	%  n
+}

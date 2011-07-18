@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<!-- This is a sample configuration for "new node type" plugin. By creating plugins like this, you can
+     add new node types to core (PN module) -->
+<plugin id="unbbayes.prs.extension.impl.ProbabilisticNodePluginStub" version="1.0.0">
+    <requires>
+        <import plugin-id="unbbayes.util.extension.core"/>
+    </requires>
+    <runtime>
+        <library id="ProbabilisticNodePluginStub" path="classes/" type="code">
+            <export prefix="*" />
+        </library>
+        <library type="resources" path="icons/" id="ProbabilisticNodePluginStub_icons" />
+    </runtime>
+    <extension plugin-id="unbbayes.util.extension.core" point-id="PluginNode" id="ProbabilisticNodePluginStub">
+        <parameter id="class" value="unbbayes.prs.extension.impl.ProbabilisticNodePluginStub" />
+        <parameter id="shapeClass" value="unbbayes.draw.extension.impl.DefaultPluginUShape" />
+        <parameter id="name" value="Boolean Node For Plugin Test" />
+        <parameter id="panelBuilder" value= "unbbayes.gui.table.extension.StubPanelBuilder" />
+        <parameter id="description" value="This is a stub in order to test plugins" />
+		<parameter id="icon" value="icon_stub.gif" />
+		<parameter id="cursor" value="cursor_stub.gif" />
+    </extension>
+</plugin>

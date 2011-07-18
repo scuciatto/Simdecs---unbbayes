@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+
+
+<!-- Images -->
+
+
+<!-- Topics -->
+
+   <mapID target="Decision_Tree_Learning" url="HTML/Decision_Tree_Learning.htm"/>
+   <mapID target="Decision_Tree_User_Interface" url="HTML/Decision_Tree_User_Interface.htm"/>
+   <mapID target="Documentation" url="HTML/Documentation.htm"/>
+   <mapID target="Id3_Example" url="HTML/Id3_Example.htm"/>
+
+<!-- Index Bookmarks -->
+
+
+</map>

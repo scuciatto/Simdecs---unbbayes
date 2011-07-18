@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>ALGORITMO K2</TITLE>
+<META NAME="ProgId" CONTENT="FrontPage.Editor.Document">
+<META HTTP-EQUIV="Content-Language" CONTENT="pt-br"></HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<FONT COLOR="#0000ff"><P ALIGN="CENTER">ALGORITMO B</P>
+</FONT><P>&nbsp;&nbsp;&nbsp; O algoritmo B aprende uma <FONT COLOR="#ff0000">rede bayesiana</FONT> a partir de um m&eacute;todo de busca e pontua&ccedil;&atilde;o. Neste, &eacute; utilizado &eacute; construido um modelo representativo dos dados atrav&eacute;s de um m&eacute;todo&nbsp; heur&iacute;stico e &eacute; utilizada uma m&eacute;trica de pontua&ccedil;&atilde;o para avali&aacute;-lo.</P>
+<P>&nbsp;&nbsp; Tal m&eacute;todo necessita de uma banco da casos que representa o universo a ser aprendido, e da ordena&ccedil;&atilde;o total das vari&aacute;veis que representam os atributos desse banco de casos, como informa&ccedil;&atilde;o &agrave; priori. Tal informa&ccedil;&atilde;o representa a cren&ccedil;a a priori sobre as rela&ccedil;&otilde;es de depend&ecirc;ncia das referidas vari&aacute;veis.</P>
+<P>O algoritmo B &eacute; o seguite:</P>
+<P>&nbsp; </P>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5 WIDTH=791>
+<TR><TD VALIGN="TOP">
+<P>Pold,Pnew, epsilon, parentsLength;</P>
+<P>ContinueFalse=false;</P>
+<P>ConstructPredecessores(vectorVariaveis);</P>
+<P>Para i=0 at&eacute;numero de vari&aacute;veis fa&ccedil;a{</P>
+<P>ContinueFlag = true;</P>
+<P>Variavel=vetorVariaveis.get(i);</P>
+<P>POld=getG(variavel,null);</P>
+<P>ParentsLength=variavel.getNumeroMaximoPais();</P>
+<P>Enquanto(continueFlag &amp;&amp; tamanho de pais &lt; patentsLength){</P>
+<P>pNew,z= getZMax(variavel);</P>
+<P>Se (pNew-pOld&gt;epsilon){</P>
+<P>Pold=pNew;</P>
+<P>Variaveis.getPais().add(z);</P>
+<P>} sen&atilde;o </P>
+<P>continueFlag=false;</P>
+<P>}</P>
+<P>} </TD>
+</TR>
+</TABLE>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Em que &eacute; recebido com entrada o band de casos, um conjunto de vari&aacute;veis, um vetor de freq&uuml;&ecirc;ncia e a ordena&ccedil;&atilde;o das vari&aacute;veis. Como sa&iacute;da &eacute; dada a rede bayesiana.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">&nbsp;</P></BODY>
+</HTML>

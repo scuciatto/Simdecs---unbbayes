@@ -1,0 +1,26 @@
+
+<p><font size="4"><b>Critério de Parada</b></font></p>
+<p class="MsoBodyText">Não existe um critério de parada bem-definido que
+estabeleça quando o algoritmo de retropropagação deve ser encerrado, na
+verdade não se pode nem afirmar se o algoritmo convergiu ou não.</p>
+<p class="MsoBodyText">O melhor que se pode fazer é explorar propriedades únicas
+da superfície de erro gerada pela rede. A superfície de erro é uma visualização
+da soma dos erros médios quadrados sobre a amostra de treinamento, que pode ser
+definida como uma função dos parâmetros livres da rede.</p>
+<p class="MsoBodyText">Para que a rede melhore o seu desempenho ao longo do
+tempo, o erro quadrado médio deve ser movido para baixo sucessivamente em direção
+a um ponto mínimo superfície, podendo ser um ponto de mínimo local ou global.
+O algoritmo de aprendizagem é capaz de fazer isso com a informação útil que
+ele tem sobre o gradiente da superfície de erro. O gradiente de uma superfície
+de erro em qualquer ponto é um vetor que aponta na direção da descida mais íngreme.</p>
+<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;
+mso-bidi-language:AR-SA">Utilizando-se um vetor de peso <b style="mso-bidi-font-weight:
+normal">w</b> para representar um ponto de mínimo, local ou global, tem-se que
+a medida do erro médio <i style="mso-bidi-font-style:normal">E<sub>med</sub></i>(<b style="mso-bidi-font-weight:normal">w</b>)
+é estacionária neste ponto. Assim pode-se considerar que o algoritmo de
+retropropagação tenha convergido quando a taxa absoluta de variação do erro
+médio quadrado por época for suficientemente pequena. Esta taxa de variação
+do erro médio, em geral, é considerada suficientemente pequena se ela estiver
+no intervado de 0,1 a 1 por cento, por época. Porém esse critério pode em
+alguns casos resultar em um encerramento precoce do processo de treinamento.</span>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<index>
+	<indexitem text="Ajuda do UnBBayes">
+		<indexitem text="Introducao" target="introducao"/>
+		<indexitem text="Componentes" target="controles">
+			<indexitem text="Comandos da Rede">
+				<indexitem text="Nova Rede" target="novarede"/>
+				<indexitem text="Abrir Rede" target="abrirrede"/>
+				<indexitem text="Salvar Rede" target="salvarrede"/>
+				<indexitem text="Compilar Rede" target="compilarrede"/>
+			</indexitem>
+			<indexitem text="Criando uma Rede Bayesiana">
+				<indexitem text="Inserir No" target="inserirno"/>
+				<indexitem text="Inserir Arco" target="inserirarco"/>
+			</indexitem>
+			<indexitem text="Opcoes Globais" target="opcoesglobais"/>
+			<indexitem text="Aprendizagem" target="aprendizagem"/>
+			<indexitem text="Look-and-Feel">
+				<indexitem text="Metal" target="metal"/>
+				<indexitem text="Motif" target="motif"/>
+				<indexitem text="Windows" target="windows"/>
+			</indexitem>
+		</indexitem>
+	</indexitem>
+</index>

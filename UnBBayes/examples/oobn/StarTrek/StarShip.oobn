@@ -1,0 +1,196 @@
+class StarShip
+{
+	 inputs =  ( StarShip_ZoneFShips StarShip_ZoneEShips Starship_DistFromOwn );
+	 outputs =  ( CloakMode OperatorSpecies StarshipClass HarmPotential );
+     node_size = (40 40);
+     name = "StarShip";
+     tree = "()";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+     UnBBayes_Color_Utility = "-16711681";
+     UnBBayes_Color_Decision = "-14336";
+
+node StarShip_ZoneFShips
+{
+     label = "StarShip_ZoneFShips";
+     position = (455 72);
+     states = ("C0" "C1" "C2" "C3" "MoreThan3");
+}
+
+node StarShip_ZoneEShips
+{
+     label = "StarShip_ZoneEShips";
+     position = (280 73);
+     states = ("C0" "C1" "C2" "C3" "MoreThan3");
+}
+
+node Starship_DistFromOwn
+{
+     label = "Starship_DistFromOwn";
+     position = (130 181);
+     states = ("Phaser2Range" "Phaser1Range" "TorpedoRange" "OutOfRange" "PulseCanonRange" "Absurd");
+}
+
+node CloakMode
+{
+     label = "CloakMode";
+     position = (405 374);
+     states = ("True" "False" "Absurd");
+}
+
+node OperatorSpecies
+{
+     label = "OperatorSpecies";
+     position = (357 183);
+     states = ("Romulan" "Friend" "Cardassian" "Klingon" "Absurd" "Unknown");
+}
+
+node StarshipClass
+{
+     label = "StarshipClass";
+     position = (255 283);
+     states = ("Absurd" "WarBird" "Frigate" "Freighter" "Cruiser" "Explorer");
+}
+
+node HarmPotential
+{
+     label = "HarmPotential";
+     position = (149 387);
+     states = ("True" "False" "Absurd");
+}
+
+potential (StarShip_ZoneFShips)
+{
+ data = ( 0.2 0.2 0.2 0.2 0.2 );
+}
+
+potential (StarShip_ZoneEShips)
+{
+ data = ( 0.2 0.2 0.2 0.2 0.2 );
+}
+
+potential (Starship_DistFromOwn)
+{
+ data = ( 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 );
+}
+
+potential (CloakMode | OperatorSpecies StarshipClass)
+{
+ data = ((( 0.0 1.0 0.0 )
+( 0.9 0.1 0.0 )
+( 0.7 0.3 0.0 )
+( 0.2 0.8 0.0 )
+( 0.8 0.2 0.0 )
+( 0.6 0.4 0.0 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.0 1.0 0.0 )
+( 0.35 0.65 0.0 )
+( 0.15 0.85 0.0 )
+( 0.99 0.01 0.0 )
+( 0.35 0.65 0.0 )
+( 0.05 0.95 0.0 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.0 1.0 0.0 )
+( 0.01 0.99 0.0 )
+( 0.0050 0.995 0.0 )
+( 5.0E-4 0.9995 0.0 )
+( 0.01 0.99 0.0 )
+( 0.0050 0.995 0.0 )));
+}
+
+potential (OperatorSpecies | StarShip_ZoneFShips StarShip_ZoneEShips)
+{
+ data = ((( 0.0 0.0 0.0 0.0 1.0 0.0 )
+( 0.3 0.0 0.5 0.15 0.0 0.05 )
+( 0.3 0.0 0.45 0.15 0.0 0.1 )
+( 0.28 0.0 0.4 0.2 0.0 0.12 )
+( 0.27 0.0 0.35 0.23 0.0 0.15 ))
+(( 0.15 0.5 0.0 0.3 0.0 0.05 )
+( 0.1 0.3 0.3 0.2 0.0 0.1 )
+( 0.15 0.3 0.25 0.18 0.0 0.12 )
+( 0.26 0.28 0.25 0.16 0.0 0.05 )
+( 0.16 0.18 0.13 0.18 0.2 0.15 ))
+(( 0.1 0.5 0.0 0.3 0.0 0.1 )
+( 0.28 0.25 0.2 0.15 0.0 0.12 )
+( 0.13 0.27 0.27 0.18 0.0 0.15 )
+( 0.27 0.25 0.19 0.14 0.0 0.15 )
+( 0.15 0.24 0.26 0.2 0.0 0.15 ))
+(( 0.1 0.55 0.0 0.2 0.0 0.15 )
+( 0.26 0.25 0.18 0.16 0.0 0.15 )
+( 0.19 0.27 0.25 0.14 0.0 0.15 )
+( 0.15 0.25 0.25 0.2 0.0 0.15 )
+( 0.17 0.23 0.25 0.2 0.0 0.15 ))
+(( 0.1 0.55 0.0 0.2 0.0 0.15 )
+( 0.18 0.23 0.18 0.26 0.0 0.15 )
+( 0.2 0.26 0.24 0.15 0.05 0.1 )
+( 0.2 0.25 0.23 0.17 0.0 0.15 )
+( 0.15 0.25 0.23 0.22 0.0 0.15 )));
+}
+
+potential (StarshipClass | OperatorSpecies)
+{
+ data = (( 0.0 0.6 0.0 0.1 0.0 0.3 )
+( 0.0 0.1 0.2 0.15 0.3 0.25 )
+( 0.0 0.4 0.4 0.1 0.1 0.0 )
+( 0.0 0.25 0.0 0.1 0.5 0.15 )
+( 1.0 0.0 0.0 0.0 0.0 0.0 )
+( 0.0 0.1 0.1 0.35 0.1 0.35 ));
+}
+
+potential (HarmPotential | StarshipClass Starship_DistFromOwn)
+{
+ data = ((( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 1.0 0.0 0.0 )
+( 1.0 0.0 0.0 )
+( 1.0 0.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.4 0.6 0.0 )
+( 1.0 0.0 0.0 )
+( 0.1 0.9 0.0 )
+( 0.0 1.0 0.0 )
+( 1.0 0.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.05 0.95 0.0 )
+( 1.0 0.0 0.0 )
+( 0.01 0.99 0.0 )
+( 0.0 1.0 0.0 )
+( 0.2 0.8 0.0 )
+( 0.0 1.0 0.0 ))
+(( 1.0 0.0 0.0 )
+( 1.0 0.0 0.0 )
+( 0.8 0.2 0.0 )
+( 0.0 1.0 0.0 )
+( 1.0 0.0 0.0 )
+( 0.0 1.0 0.0 ))
+(( 0.6 0.4 0.0 )
+( 0.95 0.05 0.0 )
+( 0.3 0.7 0.0 )
+( 0.0 1.0 0.0 )
+( 1.0 0.0 0.0 )
+( 0.0 1.0 0.0 )));
+}
+
+} % class StarShip

@@ -1,0 +1,625 @@
+// ~->[DNET-1]->~
+
+// File created by LaskeyK at GMU using Netica 1.12
+// on Feb 18, 2005 at 11:05:19.
+
+bnet VehiclesSSBN {
+whenchanged = 1108645056;
+
+visual V2 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (-4, -23, 952, 480);
+	resolution = 72;
+	drawingbounds = (1260, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node TerrainType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = ();
+	probs = 
+		// Road         OffRoad      VeryRough    
+		  (0.4066666,   0.3066666,   0.2866667);
+	title = "TerrainType(Rgn)";
+	whenchanged = 1105503156;
+	visual V2 {
+		center = (306, 204);
+		dispform = LABELBOX;
+		height = 2;
+		};
+	};
+
+node ObjectType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	parents = (TerrainType);
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle   // TerrainType 
+		 ((0.1229508,   0.2213115,   0.6557377),    // Road        
+		  (0.0978261,   0.0326087,   0.8695652),    // OffRoad     
+		  (0.06976745,  0,           0.9302325));   // VeryRough   ;
+	title = "ObjectType(Obj1)";
+	whenchanged = 1105503156;
+	visual V2 {
+		center = (420, 180);
+		dispform = LABELBOX;
+		height = 16;
+		};
+	};
+
+node Speed {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	parents = (ObjectType, TerrainType);
+	probs = 
+		// Stationary   Slow         Medium       Fast         VeryFast        // ObjectType     TerrainType 
+		(((0.01,        0.3,         0.69,        0,           0),             // TrackedVehicle Road        
+		  (0.05,        0.94,        0.01,        0,           0),             // TrackedVehicle OffRoad     
+		  (0.2,         0.8,         0,           0,           0)),            // TrackedVehicle VeryRough   
+		 ((0.01,        0.05,        0.25,        0.65,        0.04),          // WheeledVehicle Road        
+		  (0.4,         0.6,         0,           0,           0),             // WheeledVehicle OffRoad     
+		  (0.2,         0.2,         0.2,         0.2,         0.2)),          // WheeledVehicle VeryRough   
+		 ((0.99,        0.01,        0,           0,           0),             // NonVehicle     Road        
+		  (0.99,        0.01,        0,           0,           0),             // NonVehicle     OffRoad     
+		  (0.99,        0.01,        0,           0,           0)));           // NonVehicle     VeryRough   ;
+	title = "Speed(Obj1,1)";
+	whenchanged = 1105502761;
+	visual V2 {
+		center = (402, 324);
+		dispform = LABELBOX;
+		height = 3;
+		};
+	};
+
+node Speed2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	inputs = (ObjectType, TerrainType, Speed1);
+	parents = (ObjectType, TerrainType, Speed);
+	probs = 
+		//  Stationary   Slow         Medium       Fast         VeryFast         // ObjectType     TerrainType Speed1     
+		((((0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Stationary 
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Slow       
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Medium     
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Fast       
+		   (0.01,        0.3,         0.69,        0,           0)),             // TrackedVehicle Road        VeryFast   
+		  ((0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Stationary 
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Slow       
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Medium     
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Fast       
+		   (0.05,        0.94,        0.01,        0,           0)),             // TrackedVehicle OffRoad     VeryFast   
+		  ((0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Stationary 
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Slow       
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Medium     
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Fast       
+		   (0.2,         0.8,         0,           0,           0))),            // TrackedVehicle VeryRough   VeryFast   
+		 (((0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Stationary 
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Slow       
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Medium     
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Fast       
+		   (0.01,        0.05,        0.25,        0.65,        0.04)),          // WheeledVehicle Road        VeryFast   
+		  ((0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Stationary 
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Slow       
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Medium     
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Fast       
+		   (0.4,         0.6,         0,           0,           0)),             // WheeledVehicle OffRoad     VeryFast   
+		  ((0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Stationary 
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Slow       
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Medium     
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Fast       
+		   (0.2,         0.2,         0.2,         0.2,         0.2))),          // WheeledVehicle VeryRough   VeryFast   
+		 (((0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     Road        VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     OffRoad     VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Fast       
+		   (0.99,        0.01,        0,           0,           0))));           // NonVehicle     VeryRough   VeryFast   ;
+	numcases = 1;
+	title = "Speed(Obj1,2)";
+	whenchanged = 1105502775;
+	visual V2 {
+		center = (546, 324);
+		dispform = LABELBOX;
+		height = 4;
+		};
+	};
+
+node Speed3 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	inputs = (ObjectType, TerrainType, Speed1);
+	parents = (ObjectType, TerrainType, Speed2);
+	probs = 
+		//  Stationary   Slow         Medium       Fast         VeryFast         // ObjectType     TerrainType Speed1     
+		((((0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Stationary 
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Slow       
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Medium     
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Fast       
+		   (0.01,        0.3,         0.69,        0,           0)),             // TrackedVehicle Road        VeryFast   
+		  ((0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Stationary 
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Slow       
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Medium     
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Fast       
+		   (0.05,        0.94,        0.01,        0,           0)),             // TrackedVehicle OffRoad     VeryFast   
+		  ((0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Stationary 
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Slow       
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Medium     
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Fast       
+		   (0.2,         0.8,         0,           0,           0))),            // TrackedVehicle VeryRough   VeryFast   
+		 (((0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Stationary 
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Slow       
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Medium     
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Fast       
+		   (0.01,        0.05,        0.25,        0.65,        0.04)),          // WheeledVehicle Road        VeryFast   
+		  ((0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Stationary 
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Slow       
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Medium     
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Fast       
+		   (0.4,         0.6,         0,           0,           0)),             // WheeledVehicle OffRoad     VeryFast   
+		  ((0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Stationary 
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Slow       
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Medium     
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Fast       
+		   (0.2,         0.2,         0.2,         0.2,         0.2))),          // WheeledVehicle VeryRough   VeryFast   
+		 (((0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     Road        VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     OffRoad     VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Fast       
+		   (0.99,        0.01,        0,           0,           0))));           // NonVehicle     VeryRough   VeryFast   ;
+	numcases = 1;
+	title = "Speed(Obj1,3)";
+	whenchanged = 1105502780;
+	visual V2 {
+		center = (690, 324);
+		dispform = LABELBOX;
+		height = 5;
+		link 2 {
+			path = ((334, 214), (661, 315));
+			};
+		};
+	};
+
+node ObjectType1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	inputs = (TerrainType);
+	parents = (TerrainType);
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle   // TerrainType 
+		 ((0.1229508,   0.2213115,   0.6557377),    // Road        
+		  (0.0978261,   0.0326087,   0.8695652),    // OffRoad     
+		  (0.06976745,  0,           0.9302325));   // VeryRough   ;
+	title = "ObjectType(Obj2)";
+	whenchanged = 1105504392;
+	visual V2 {
+		center = (450, 150);
+		dispform = LABELBOX;
+		height = 15;
+		};
+	};
+
+node Speed1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	inputs = (ObjectType, TerrainType);
+	parents = (ObjectType1, TerrainType);
+	probs = 
+		// Stationary   Slow         Medium       Fast         VeryFast        // ObjectType     TerrainType 
+		(((0.01,        0.3,         0.69,        0,           0),             // TrackedVehicle Road        
+		  (0.05,        0.94,        0.01,        0,           0),             // TrackedVehicle OffRoad     
+		  (0.2,         0.8,         0,           0,           0)),            // TrackedVehicle VeryRough   
+		 ((0.01,        0.05,        0.25,        0.65,        0.04),          // WheeledVehicle Road        
+		  (0.4,         0.6,         0,           0,           0),             // WheeledVehicle OffRoad     
+		  (0.2,         0.2,         0.2,         0.2,         0.2)),          // WheeledVehicle VeryRough   
+		 ((0.99,        0.01,        0,           0,           0),             // NonVehicle     Road        
+		  (0.99,        0.01,        0,           0,           0),             // NonVehicle     OffRoad     
+		  (0.99,        0.01,        0,           0,           0)));           // NonVehicle     VeryRough   ;
+	title = "Speed(Obj2,1)";
+	whenchanged = 1105504420;
+	visual V2 {
+		center = (474, 288);
+		dispform = LABELBOX;
+		height = 9;
+		};
+	};
+
+node Speed4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	inputs = (ObjectType, TerrainType, Speed1);
+	parents = (ObjectType1, TerrainType, Speed1);
+	probs = 
+		//  Stationary   Slow         Medium       Fast         VeryFast         // ObjectType     TerrainType Speed1     
+		((((0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Stationary 
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Slow       
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Medium     
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Fast       
+		   (0.01,        0.3,         0.69,        0,           0)),             // TrackedVehicle Road        VeryFast   
+		  ((0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Stationary 
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Slow       
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Medium     
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Fast       
+		   (0.05,        0.94,        0.01,        0,           0)),             // TrackedVehicle OffRoad     VeryFast   
+		  ((0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Stationary 
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Slow       
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Medium     
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Fast       
+		   (0.2,         0.8,         0,           0,           0))),            // TrackedVehicle VeryRough   VeryFast   
+		 (((0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Stationary 
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Slow       
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Medium     
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Fast       
+		   (0.01,        0.05,        0.25,        0.65,        0.04)),          // WheeledVehicle Road        VeryFast   
+		  ((0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Stationary 
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Slow       
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Medium     
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Fast       
+		   (0.4,         0.6,         0,           0,           0)),             // WheeledVehicle OffRoad     VeryFast   
+		  ((0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Stationary 
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Slow       
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Medium     
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Fast       
+		   (0.2,         0.2,         0.2,         0.2,         0.2))),          // WheeledVehicle VeryRough   VeryFast   
+		 (((0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     Road        VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     OffRoad     VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Fast       
+		   (0.99,        0.01,        0,           0,           0))));           // NonVehicle     VeryRough   VeryFast   ;
+	numcases = 1;
+	title = "Speed(Obj2,2)";
+	whenchanged = 1105504429;
+	visual V2 {
+		center = (618, 288);
+		dispform = LABELBOX;
+		height = 10;
+		};
+	};
+
+node Speed5 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	inputs = (ObjectType, TerrainType, Speed1);
+	parents = (ObjectType1, TerrainType, Speed4);
+	probs = 
+		//  Stationary   Slow         Medium       Fast         VeryFast         // ObjectType     TerrainType Speed1     
+		((((0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Stationary 
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Slow       
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Medium     
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road        Fast       
+		   (0.01,        0.3,         0.69,        0,           0)),             // TrackedVehicle Road        VeryFast   
+		  ((0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Stationary 
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Slow       
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Medium     
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad     Fast       
+		   (0.05,        0.94,        0.01,        0,           0)),             // TrackedVehicle OffRoad     VeryFast   
+		  ((0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Stationary 
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Slow       
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Medium     
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough   Fast       
+		   (0.2,         0.8,         0,           0,           0))),            // TrackedVehicle VeryRough   VeryFast   
+		 (((0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Stationary 
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Slow       
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Medium     
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road        Fast       
+		   (0.01,        0.05,        0.25,        0.65,        0.04)),          // WheeledVehicle Road        VeryFast   
+		  ((0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Stationary 
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Slow       
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Medium     
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad     Fast       
+		   (0.4,         0.6,         0,           0,           0)),             // WheeledVehicle OffRoad     VeryFast   
+		  ((0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Stationary 
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Slow       
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Medium     
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough   Fast       
+		   (0.2,         0.2,         0.2,         0.2,         0.2))),          // WheeledVehicle VeryRough   VeryFast   
+		 (((0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road        Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     Road        VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad     Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     OffRoad     VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough   Fast       
+		   (0.99,        0.01,        0,           0,           0))));           // NonVehicle     VeryRough   VeryFast   ;
+	numcases = 1;
+	title = "Speed(Obj2,3)";
+	whenchanged = 1105504433;
+	visual V2 {
+		center = (762, 288);
+		dispform = LABELBOX;
+		height = 11;
+		link 2 {
+			path = ((354, 214), (713, 279));
+			};
+		};
+	};
+
+node GISReport1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	inputs = (TerrainType);
+	parents = (TerrainType);
+	probs = 
+		// Road         OffRoad      VeryRough      // TerrainType 
+		 ((0.85,        0.1,         0.05),         // Road        
+		  (0.05,        0.85,        0.1),          // OffRoad     
+		  (0.05,        0.1,         0.85));        // VeryRough   ;
+	numcases = 1;
+	title = "GISReport(RG1)";
+	whenchanged = 1105502408;
+	visual V2 {
+		center = (204, 252);
+		dispform = LABELBOX;
+		height = 1;
+		};
+	};
+
+node Weather {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Clear, Cloudy);
+	parents = ();
+	probs = 
+		// Clear        Cloudy       
+		  (0.75,        0.25);
+	title = "Weather(Rgn)";
+	whenchanged = 1105502358;
+	visual V2 {
+		center = (630, 102);
+		dispform = LABELBOX;
+		height = 18;
+		};
+	};
+
+node ImageTypeReport1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Tracked, Wheeled, NonVehicle);
+	inputs = (ObjectType, Weather);
+	parents = (ObjectType, Weather);
+	probs = 
+		// Tracked      Wheeled      NonVehicle      // ObjectType     Weather 
+		(((0.8,         0.15,        0.05),          // TrackedVehicle Clear   
+		  (0.6,         0.3,         0.1)),          // TrackedVehicle Cloudy  
+		 ((0.1,         0.8,         0.1),           // WheeledVehicle Clear   
+		  (0.2,         0.6,         0.2)),          // WheeledVehicle Cloudy  
+		 ((0.05,        0.05,        0.9),           // NonVehicle     Clear   
+		  (0.15,        0.15,        0.7)));         // NonVehicle     Cloudy  ;
+	numcases = 1;
+	title = "ImageTypeReport(RI1)";
+	whenchanged = 1105502542;
+	visual V2 {
+		center = (576, 216);
+		dispform = LABELBOX;
+		height = 17;
+		};
+	};
+
+node MTI {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	parents = (Speed);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM11)";
+	whenchanged = 1105503200;
+	visual V2 {
+		center = (402, 414);
+		dispform = LABELBOX;
+		height = 6;
+		};
+	};
+
+node MTI2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	inputs = (Speed);
+	parents = (Speed2);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM12)";
+	whenchanged = 1105503219;
+	visual V2 {
+		center = (546, 414);
+		dispform = LABELBOX;
+		height = 7;
+		};
+	};
+
+node MTI1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	inputs = (Speed);
+	parents = (Speed3);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM13)";
+	whenchanged = 1105503232;
+	visual V2 {
+		center = (690, 414);
+		dispform = LABELBOX;
+		height = 8;
+		};
+	};
+
+node MTI5 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	inputs = (Speed);
+	parents = (Speed5);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM23)";
+	whenchanged = 1105503341;
+	visual V2 {
+		center = (762, 378);
+		dispform = LABELBOX;
+		height = 14;
+		};
+	};
+
+node ImageTypeReport {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Tracked, Wheeled, NonVehicle);
+	parents = (ObjectType1, Weather);
+	probs = 
+		// Tracked      Wheeled      NonVehicle      // ObjectType1    Weather 
+		(((0.8,         0.15,        0.05),          // TrackedVehicle Clear   
+		  (0.6,         0.3,         0.1)),          // TrackedVehicle Cloudy  
+		 ((0.1,         0.8,         0.1),           // WheeledVehicle Clear   
+		  (0.2,         0.6,         0.2)),          // WheeledVehicle Cloudy  
+		 ((0.05,        0.05,        0.9),           // NonVehicle     Clear   
+		  (0.15,        0.15,        0.7)));         // NonVehicle     Cloudy  ;
+	numcases = 1;
+	title = "ImageTypeReport(RI2)";
+	whenchanged = 1108645056;
+	visual V2 {
+		center = (618, 168);
+		dispform = LABELBOX;
+		height = 19;
+		};
+	};
+
+node MTI3 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	parents = (Speed1);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed1     
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM21)";
+	whenchanged = 1105503329;
+	visual V2 {
+		center = (474, 378);
+		dispform = LABELBOX;
+		height = 12;
+		};
+	};
+
+node MTI4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	inputs = (Speed);
+	parents = (Speed4);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(RM22)";
+	whenchanged = 1105503336;
+	visual V2 {
+		center = (618, 378);
+		dispform = LABELBOX;
+		height = 13;
+		};
+	};
+};

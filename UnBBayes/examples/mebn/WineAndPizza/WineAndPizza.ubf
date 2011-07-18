@@ -1,0 +1,176 @@
+% Cabeçalho UBF
+Version=0.03
+PrOwl="WineAndPizza.owl"
+
+% Declaração de MTheory - UBF
+MTheory=NovaMEBN
+NextMFrag=10
+NextResident=24
+NextInput=22
+NextContext=8
+NextEntity=1
+
+% Declaração de MFrags e nós UBF
+
+% MFrag
+MFrag=Wine_MFrag
+NextOrdinaryVar=5
+
+% Nós Residentes
+
+
+Node=WineType
+Type=DomainResidentNode
+Position=397.0,385.0
+Size=35,35
+
+% nós Input
+
+
+Node=IX19
+Type=GenerativeInputNode
+Position=326.0,258.0
+Size=35,35
+
+Node=IX20
+Type=GenerativeInputNode
+Position=476.0,258.0
+Size=35,35
+
+Node=IX18
+Type=GenerativeInputNode
+Position=165.0,259.0
+Size=35,35
+
+Node=IX21
+Type=GenerativeInputNode
+Position=616.0,259.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=w
+Type=OrdinalVar
+Position=403.0,112.0
+Size=35,35
+
+% MFrag
+MFrag=Pizza_MFrag
+NextOrdinaryVar=7
+
+% Nós Residentes
+
+
+Node=PizzaTopping
+Type=DomainResidentNode
+Position=467.0,265.0
+Size=35,35
+
+Node=WineBody
+Type=DomainResidentNode
+Position=153.0,385.0
+Size=35,35
+
+Node=WineFlavour
+Type=DomainResidentNode
+Position=293.0,384.0
+Size=35,35
+
+Node=PizzaBase
+Type=DomainResidentNode
+Position=154.0,251.0
+Size=35,35
+
+Node=WineSugar
+Type=DomainResidentNode
+Position=676.0,388.0
+Size=35,35
+
+Node=WineColour
+Type=DomainResidentNode
+Position=481.0,385.0
+Size=35,35
+
+% Nós de Contexto
+
+
+Node=CX1
+Type=ContextNode
+Position=298.0,154.0
+Size=35,35
+
+Node=CX7
+Type=ContextNode
+Position=523.0,157.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=218.0,55.0
+Size=35,35
+
+Node=t
+Type=OrdinalVar
+Position=559.0,54.0
+Size=35,35
+
+Node=w
+Type=OrdinalVar
+Position=397.0,51.0
+Size=35,35
+
+% MFrag
+MFrag=ServedTogether_MFrag
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=ServedTogether
+Type=DomainResidentNode
+Position=308.0,252.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=181.0,121.0
+Size=35,35
+
+Node=w
+Type=OrdinalVar
+Position=445.0,123.0
+Size=35,35
+
+% MFrag
+MFrag=ToppedBy_MFrag
+NextOrdinaryVar=4
+
+% Nós Residentes
+
+
+Node=ToppedBy
+Type=DomainResidentNode
+Position=412.0,267.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=257.0,145.0
+Size=35,35
+
+Node=t
+Type=OrdinalVar
+Position=515.0,145.0
+Size=35,35
+
+% Instâncias de Entidades Objetos

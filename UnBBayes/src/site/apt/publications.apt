@@ -1,0 +1,137 @@
+ -----
+ Publications
+ -----
+ The UnBBayes Team
+ -----
+
+Publications
+~~~~~~~~~~~~
+
+  Here are the main publications related to UnBBayes:
+  
+      * Carvalho, Rommel N.; Laskey, Kathryn B.; Costa, Paulo Cesar G.; Ladeira, Marcelo; 
+      Santos, Laecio L.; Matsumoto, Shou (2010) \
+      <<UnBBayes: Modeling Uncertainty for Plausible Reasoning in the Semantic Web>>. \
+      Chapter in Semantic Web. 1-28. \
+      Gang Wu (Ed.) \
+      ISBN 978-953-7619-54-1 \
+      IntechWeb, Croatia. January, 2010. \
+      {{http://sciyo.com/books/show/title/semantic-web?PHPSESSID=gkrvuf0ttf0q2gvgdp2cq4bet2}}
+      
+      * Carvalho, Rommel N.; Laskey, Kathryn B.; Costa, Paulo Cesar G.; Ladeira, Marcelo; 
+      Santos, Laecio L.; Matsumoto, Shou (2009) \
+      <<Probabilistic Ontology and Knowledge Fusion for Procurement Fraud Detection in Brazil>>. \
+      In Proceedings of the 5th Uncertainty Reasoning for the Semantic Web (URSW 2009) on \
+      the 8th International Semantic Web Conference (ISWC 2009). \
+      Chantilly, Virginia, USA, 2009. \
+      {{http://data.semanticweb.org/workshop/ursw/2009/paper/main/5/html}}
+  
+      * Carvalho, Rommel N.; Chang, Kuo-Chu (2009) \
+      <<A Performance Evaluation Tool for Multi-Sensor Classification Systems>>. \
+      In Proceedings of the 12th International Conference on Information Fusion (FUISION 2009). 
+      Seattle, Washington, USA. July 6-9, 2009. \
+      <<Best Student Paper Award>> \
+      {{http://isif.org/fusion2009.htm}}
+      
+      * Costa, Paulo Cesar G.; Laskey, Kathryn B.; Chang, Kuo-Chu; Carvalho, Rommel N. (2009) \
+      <<A Multi-Disciplinary Approach to High Level Fusion in Predictive Situational Awareness Presentation>>. \
+      In Proceedings of the 12th International Conference on Information Fusion (FUISION 2009). 
+      Seattle, Washington, USA. July 6-9, 2009. \
+      {{http://isif.org/fusion2009.htm}}
+ 
+      * Costa, Paulo Cesar G.; Carvalho, Rommel N.; Santos, Laecio L.; Matsumoto, Shou; 
+      Ladeira, Marcelo; Laskey, Kathryn B. (2008) \
+      <<A First-Order Bayesian Tool for Probabilistic Ontologies>>. \
+      In Proceedings of the 13th Uncertain Reasoning Special Track (UR'2008) at the 21st 
+      International Florida Artificial Intelligence Research Society Conference (FLAIRS-21). 
+      Coconut Grove, Florida, USA. May 15-17, 2008. \
+      Published by The AAAI Press, Menlo Park, California, USA, 631-637. \
+      {{http://www.aaai.org/Library/FLAIRS/flairs08contents.php}}
+      
+      
+      * Carvalho, Rommel N.; Santos, Laecio L.; Matsumoto, Shou; Ladeira, Marcelo; 
+      Costa, Paulo Cesar G. (2008) \
+      <<UnBBayes-MEBN: Comments on Implementing a Probabilistic Ontology Tool>>. \
+      In IADIS Applied Computing 2008 conference. Algarve, Portugal. April 10-13, 2008. \
+      {{http://www2.computer.org/portal/web/csdl/doi/10.1109/ISDA.2007.127}}
+      
+      
+      * Carvalho, Rommel N.; Santos, Laecio L.; Matsumoto, Shou; Ladeira, Marcelo; 
+      Costa, Paulo Cesar G. (2008) \
+      <<A GUI Tool for Plausible Reasoning in the Semantic Web Using MEBN>>. \
+      Chapter in Innovative Applications in Data Mining. \
+      Studies in Computational Science, Vol. 169/2009, pp. 17-45. \
+      Springer-Verlag: Berlin/Heidelberg. \
+      {{http://www.springer.com/engineering/book/978-3-540-88044-8?detailsPage=toc}}
+      
+      
+      
+      * Carvalho, Rommel N.; Santos, Laecio L.; Ladeira, Marcelo; 
+      Costa, Paulo Cesar G. (2007) \
+      <<A GUI Tool for Plausible Reasoning in the Semantic Web using MEBN>>. \
+      In Seventh International Conference on Intelligent Systems Design and Applications (ISDA). 
+      Rio de Janeiro, Brazil. \
+      {{http://csdl2.computer.org/persagen/DLAbsToc.jsp?resourcePath=/dl/proceedings/isda/&toc=comp/proceedings/isda/2007/2976/00/2976toc.xml&PageNumber=381}}
+      
+      
+      * Matsumoto, Shou; Carvalho, Rommel N.; Santos, Laecio L.; Ladeira, Marcelo; 
+      Costa, Paulo Cesar G. (2007) \
+      <<Consistency Algorithm for MEBN>>. \
+      In 4o Congresso de Iniciacao Cientifica do DF, and XIII Congresso de Iniciacao Cientifica da UnB. 
+      University of Brasilia - UnB, Universitary Center of Brasilia - UniCEUB, and 
+      Research and Education Fundation in Health Science of the Federal District - FEPECS/ESCS: Brasilia, Brazil.
+      
+      
+      * Santos, Laecio L.; Carvalho, Rommel N.; Matsumoto, Shou; Ladeira, Marcelo; 
+      Costa, Paulo Cesar G.; Tiussi, Bruno S. (2007) \
+      <<GUI for Creating MEBN>>. \
+      In 4o Congresso de Iniciacao Cientifica do DF, and XIII Congresso de Iniciacao Cientifica da UnB. 
+      University of Brasilia - UnB, Universitary Center of Brasilia - UniCEUB, and 
+      Research and Education Fundation in Health Science of the Federal District - FEPECS/ESCS: Brasilia, Brazil.
+      
+      * Fernandes, Cleuber M.; da Silva, Wagner T.; Ladeira, Marcelo (2004)\
+      <<An Algorithm to Handle Structural Uncertainties in Learning Bayesian Network>>. \
+      In JIISIC 2004. \
+      {{http://grise.upm.es/rearviewmirror/conferencias/jiisic04/Papers/32.pdf}}
+      
+      * Fernandes, Cleuber M.; da Silva, Wagner T.; Ladeira, Marcelo (2004) \
+      <<Based solution in Bayesian Networks for Prevention of Frauds in Credit Cards>>. \
+      In Brazilian Symposium of Information Systems, Porto Alegre, Brazil.
+      
+      * Fernandes, Cleuber M.; da Silva, Wagner T.; Ladeira, Marcelo (2003) \
+      <<Structural Learning in Bayesian Networks Using Small Data sets>>. \ 
+      M.Sc. thesis, Dept. of Computer Science, University of Brasilia. Brasilia, DF, Brazil.
+      
+      * Carvalho, Rommel N.; Ladeira, Marcelo; Teixeira, Raphael S.; 
+      Martins, Thelmo E. S.; Domingues, Bruno G. P. (2003) \
+      <<UnBBayes with support for intranet/internet and wireless devices - UnBBayesServer>>. \
+      In 9o Congresso de Iniciacao Cientifica da UnB. University of Brasilia. Brasilia, DF, Brazil.
+      
+      
+      * Carvalho, Rommel N.; Onishi, Michael S. (2003) \
+      <<Framework and API for Intelligent Systems Design Based on Influence Diagram 
+      and Multiply Sectioned Bayesian Network>>. \
+      Graduation Project, Department of Computer Science. \
+      University of Brasilia: Brasilia, Brazil. 
+      
+      
+      * Ladeira, Marcelo; Carvalho, Rommel N.; Silva, Danilo C.; 
+      Vieira, Mario H. P,; Onishi, Michael S.; Silva, Wagner T. (2003) \
+      <<Open and Platform Independent Tool For Probabilistic Networks>>. \
+      In Anais do XXIII Congresso da Sociedade Brasileira de Computacao, 2003. v. I, p. 220-220. 
+      Campinas, SP, Brazil.
+      
+      * Ladeira, Marcelo; Vicari, Rosa M.; Coelho, Helder (2002) \
+      <<Multiagent Bayesian Networks (Redes Bayesianas Muiltiagentes)>>
+      In Sociedade Brasileira de Computacao, Revista Eletronica de Iniciacao Científica. \
+      ISSN 1519-8219. \
+      Year II, Volume II, Number I, March, 2002. \
+      {{http://www.sbc.org.br/reic/edicoes/2002e1/tutoriais/Edicao_Marco_2002_Artigo13_Resumo.htm}}
+      
+      
+      * Carvalho, Rommel N.; Onishi, Michael S.; Ladeira, Marcelo (2002) \
+      <<Development of the Java version of the UnBBayes Framework for probabilistic reasoning>>. \
+      In Congresso de Iniciacao Cientifica da UnB. University of Brasilia: Brasilia, DF, Brazil.
+      
+ 
+ 

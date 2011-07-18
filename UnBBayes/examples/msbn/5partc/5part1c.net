@@ -1,0 +1,88 @@
+net
+{
+    node_size = (0 0);
+    HR_Grid_X = "10";
+    HR_Grid_Y = "10";
+    HR_Grid_GridSnap = "1";
+    HR_Grid_GridShow = "0";
+    HR_Font_Name = "Arial";
+    HR_Font_Size = "-12";
+    HR_Font_Weight = "400";
+    HR_Font_Italic = "0";
+    HR_Propagate_Auto = "0";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_AutoNormal = "1";
+    HR_Compile_TriangMethod = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_Approximate = "0";
+    HR_Compile_ApproxEpsilon = "0.00001";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_InitSD = "2";
+    HR_Color_DiscreteChance = "16";
+    HR_Color_ContinuosChance = "48";
+    HR_Color_Utility = "36";
+    HR_Color_Decision = "17";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Groups_GroupNames = "";
+    HR_Groups_GroupColors = "";
+    UnBBayes_Color_Decision = "-14336";
+    UnBBayes_Color_Utility = "-16711681";
+    UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+    UnBBayes_Color_Probabilistic_Description = "-256";
+    name = "5part1c";
+}
+
+node var_0
+{
+    label = "var_0";
+    position = (0 2);
+    states = ("y" "n");
+}
+
+node A
+{
+    label = "C1";
+    position = (45 93);
+    states = ("y" "n");
+}
+
+node var_1
+{
+    label = "var_1";
+    position = (144 0);
+    states = ("y" "n");
+}
+
+node B
+{
+    label = "C3";
+    position = (187 75);
+    states = ("y" "n");
+}
+
+potential (var_0)
+{
+ data = ( 0.4 0.6 );
+}
+
+potential (A | var_0 var_1)
+{
+ data = ((( 0.3 0.7 )	%  y  y
+	  ( 0.2 0.8 ))	%  y  n
+	 (( 0.6 0.4 )	%  n  y
+	  ( 0.7 0.3 )));	%  n  n
+}
+
+potential (var_1)
+{
+ data = ( 0.2 0.8 );
+}
+
+potential (B | var_0)
+{
+ data = (( 0.9 0.1 )	%  y
+	 ( 0.6 0.4 ));	%  n
+}

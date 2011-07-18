@@ -1,0 +1,719 @@
+net
+{
+     node_size = (25 25);
+     name = "";
+     tree = "(Exames Complementares(Raio X(Raio X mostrando erosão dos arcos costais,RX com cardiomegalia,RX com dilatação do tronco pulmonar,RX com cardiomegalia e sinais de aumento do VE,RX com hiperfluxo pulmonar,Coração em bota ao RX),ECG(ECG com padrão de hemibloqueio anterior esquerdo,ECG com hipertrofia ventricular esquerda,ECG com sinais de bloqueio do ramo direito,ECG mostrando crescimento biventricular,ECG mostrando crescimento VD,ECG com crescimento VE)),História Clinica(Outras Doenças Associadas(Síndrome de Down),Sintomas(Crises de Cianose,Lipotímias)),Exame Físico(Ausculta(Estalido meso-sistólico,Sopro sistólico,Rolar diastólico de fluxo em área de VE,Sopro holossistólico em faixa,Sopro contínuo em região intra-clavicular esquerda,Estalido sistólico,Sopro sistólico de ejeção rude em área aórtica,Sopro sistólico de ejeção rude em área pulmonar,Rolar diastólico de fluxo em área de VD,B2 com desdobramento fixo,Sopro sistólico de ejeção tipo fluxo aumentado),Sinais(Posição de cócoras,Cianose,Ausência de pulsos em membros inferiores,Hipertensão arterial sistêmica,Pulsos hipercinéticos)))";
+     HR_Color_Utility = "10";
+     HR_Color_Decision = "30";
+}
+
+node Frase_18
+{
+     label = "Síndrome de Down";
+     position = (12 1035);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_137
+{
+     label = "ECG com padrão de hemibloqueio anterior esquerdo";
+     position = (19 1100);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_107
+{
+     label = "RX com cardiomegalia";
+     position = (166 1100);
+     states = ("Sim     " "Não     ");
+}
+
+node DSAV
+{
+     label = "Defeito do Septo Atrioventricular";
+     position = (177 1028);
+     states = ("Sim     " "Não     ");
+     %descricao "    Acomete de 4 a 5% dos pacientes com doença cardíaca congênita.##    Cerca de 40% dos pacientes com Síndrome de Down têm doença #cardíaca congênita e destes, aproximadamente 40% tem DSAV, #geralmente na forma completa.##   Classifica-se em parcial e completo.##a) DSAV Parcial: ##    O anel da valva AV esquerda e direita são separados. Comunicação #interatrial  'ostium primum' com  'cleft'  do folheto anterior da valva AV #esquerda são as alterações mais comuns. ##    Os sintomas comumente decorrem da associação com insuficiência da #valva AV esquerda ou múltiplos defeitos cardíacos associados e são, #principalmente, insuficiência cardíaca congestiva, dispnéia, fadiga e #infecções respiratórias recorrentes.##    No exame físico podem estar presentes hiperatividade cardíaca e #impulso ventricular direito e esquerdo. A ausculta pode revelar  #desdobramento fixo da B2 e sopro holossistólico de regurgitação da valva #AV esquerda . ##b) DSAV Completo##    Defeito septal com componentes interatrial e interventricular; a #valva atrioventricular é comum, geralmente regurgitante.##    Os sintomas geralmente iniciam mais precocemente como resultado do #aumento do fluxo sangüíneo e frequentemente são complicações da #insuficiência da valva AV comum. Ocorre principalmente insuficiência #cardíaca congestiva, infecções respiratórias de repetição e baixo ganho #ponderal.##    Os pacientes geralmente são desnutridos. Na ausculta cardíaca a B1 #pode ser acentuada. Pode ser auscultado um sopro holossistólico na #borda esternal esquerda inferior e no ápice cardíaco, resultado da #insuficiência da valva AV esquerda. Também pode-se auscultar um sopro #sistólico crescendo-decrescendo na borda esternal esquerda superior #como resultado de um fluxo aumentado de sangue pela artéria pulmonar #dilatada. "
+     %frase "Síndrome de Down" "2" "    Cerca de 40% dos pacientes com Sindrome de Down tem doença#cardíaca congênita e destes, aproximadamente 40% tem DSAV,#geralmente na forma completa."
+     %frase "ECG com padrão de hemibloqueio anterior esquerdo" "1" "    Freqüentemente há intervalo PR prolongado e o ritmo é sinusal. 50% dos#pacientes apresentam crescimento de átrio direito, crescimento de átrio#esquerdo, ou ambos. O eixo médio do QRS é em torno de -30 graus a#-120 graus. Crescimento ventricular direito e padrão de bloqueio de ramo#direito são observados.##DSAV completo:#    Normalmente o ritmo é sinusal. O intervalo PR é prolongado. Há#evidências de crescimento atrial direito, crescimento de átrio direito, átrio#esquerdo ou ambos. O eixo do QRS varia de -60 a -135 graus. 2/3 dos#pacientes apresentam: rSR', RSR' ou rR' em V1 e 1/3 apresentam: qR ou#R em V1, ambos indicadores de hipertrofia ventricular direita."
+     %frase "ECG com sinais de bloqueio do ramo direito" "4" ""
+     %frase "ECG com crescimento VE" "4" ""
+     %frase "ECG com hipertrofia ventricular esquerda" "4" ""
+     %frase "ECG mostrando crescimento biventricular" "4" ""
+     %frase "ECG mostrando crescimento VD" "4" ""
+     %frase "RX com cardiomegalia" "0" "DSAV parcial:#    Pode ocorrer cardiomegalia,##DSAV completo:#    Cardiomegalia está sempre presente, Artéria pulmonar é proeminente."
+     %frase "RX com hiperfluxo pulmonar" "3" "A circulação pulmonar é proeminente"
+}
+
+node Frase_83
+{
+     label = "B2 com desdobramento fixo";
+     position = (387 1103);
+     states = ("Sim     " "Não     ");
+}
+
+node CIA
+{
+     label = "Comunicação Interatrial";
+     position = (541 1111);
+     states = ("Sim     " "Não     ");
+     %descricao "    Comunicação interatrail é um defeito congênito relativamente comum.Freqüentemente ocorre como um defeito isolado. Classifica-se de acordo com sua localização em:##- Óstio secundum: na região da fossa oval- Forame oval patente: na região da fossa oval#- Óstio primum: defeitos anteriores a fossa oval e frequentemente #associados #com 'cleft' do folheto anterior da vávula mitral.#- Seio venoso: defeito posterior a fossa oval, geralemnte associada com #drenagem venosa pulmonar anômala."
+     %frase "B2 com desdobramento fixo" "0" "    No exame fixo também pode-se encontrar dedobramento fixo de B2."
+     %frase "RX com hiperfluxo pulmonar" "0" "    No Raio X de tórax evidencia-se cardiomegalia (índice cardiotorácico #maior do que 0,5), aumento de AD e VD, arco aórtico pequeno e #ausência da imagem da veia cava superior. Além disso, a circulação #pulmonar é aumentada e o tronco da artéria pulmonar dilatado (tornando o #formato cardíaco triangular)."
+     %frase "Sopro sistólico de ejeção rude em área aórtica" "4" ""
+     %frase "Sopro sistólico de ejeção tipo fluxo aumentado" "1" "    No exame físico também pode-se encontar um  sopro sistólico #crescendo-decrescendo suave em foco pulmonar."
+     %frase "ECG com sinais de bloqueio do ramo direito" "3" "    O eletrocardiograma apresenta com freqüência um desvio do eixo QRS #para a direita, intervalo p-R prolongado (BAV de 1o. grau) e bloqueio #incompleto de ramo (rSR' ou RSR') direito. Em 50% dos pacientes há #alterações na onda P que sugere crescimento de AD. "
+     %frase "ECG mostrando crescimento biventricular" "4" ""
+     %frase "Rolar diastólico de fluxo em área de VD" "3" "    No exame físico pode-se encontrar impulso cardíaco hiperdinâmico (em #crianças, velhos e adultos e quando presente é grande),  impluso sistólico #proeminente (relacionado ao VD) e um rolar diastólico em VD (sopro #pré-meso diastólico em foco tricúspide)."
+}
+
+node Frase_71
+{
+     label = "Rolar diastólico de fluxo em área de VD";
+     position = (674 1110);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_145
+{
+     label = "ECG com sinais de bloqueio do ramo direito";
+     position = (661 1057);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_55
+{
+     label = "Sopro sistólico de ejeção tipo fluxo aumentado";
+     position = (568 1027);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_104
+{
+     label = "RX com hiperfluxo pulmonar";
+     position = (333 979);
+     states = ("Sim     " "Não     ");
+}
+
+node CIV
+{
+     label = "Comunicação Interventricular";
+     position = (382 818);
+     states = ("Sim     " "Não     ");
+     %descricao "    A patologia Comunicação Interventricular incide em 1,5 a 3,5 por 1000 #nascidos vivos a termo e 4,5 a 7,0 por 1000 em prematuros, sendo #levemente mais freqüente em pacientes do sexo feminino.##    O quadro clínico depende do tamanho do defeito e da resistência #vascular pulmonar. A CIV pode ser classificada em CIV pequena, CIV #moderada e CIV grande."
+     %frase "ECG mostrando crescimento biventricular" "1" "    Pacientes que apresentam CIV pequena geralmente são assintomáticos #e a ECG apresenta normal. Alguns pacientes demonstram rsr' em V1 ou #V4R.##    Na CIV moderada e grande os pacientes apresentam no ECG #hipertrofia biventricular."
+     %frase "Sopro holossistólico em faixa" "2" "    Na CIV pequena, a atividade pré-cordial é normal. O sopro é #holossistólico grau IV a VII, e pode envolver o componente aórtico da B2, #localiza-se na horda esternal esquerda estendendo-se por toda região #paraesternal esquerda em alguns pacientes.#"
+     %frase "Rolar diastólico de fluxo em área de VE" "3" "    Na CIV moderada, a atividade pré-cordial é acentuada. O sopro #holossistólico rude, mais proeminente na horda esternal esquerda inferior. #Uma B3 proeminente com um curto rolar diastólico frequntemente é #audível no ápice. A B2 usualmente desdobrada.##    A CIV grande apresenta moderada elevação da resistência vascular #pulmonar. O sopro sistólico em decrescendo é máximo ao longo da borda #esternal esquerda e desaparece durante o terço tardio da sístole antes do #fechamento da valva aórtica. O componente pulmonar da B2 é lento. #Ausculta-se uma R2 e rolar diastólico."
+     %frase "RX com hiperfluxo pulmonar" "0" "    Na CIV pequena o Raio X apresenta coração de volume e circulação #normais.##    Na CIV moderada, apresenta cardiomegalia variável com aumento do #VE e AE, hiper fluxo pulmonar e proeminência do tronco da AP.##    Na CIV grande cardiomegalia (hipertrofia de VD), hiperfluxo pulmonar e #proeminência do tronco da AP são achados radiológicos."
+}
+
+node Frase_70
+{
+     label = "Rolar diastólico de fluxo em área de VE";
+     position = (479 764);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_60
+{
+     label = "Sopro holossistólico em faixa";
+     position = (514 816);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_132
+{
+     label = "ECG mostrando crescimento biventricular";
+     position = (465 864);
+     states = ("Sim     " "Não     ");
+}
+
+node Cardiopatia
+{
+     label = "Cardiopatias Congênitas";
+     position = (381 634);
+     states = ("Estado 0");
+     %descricao ""
+}
+
+node PCA
+{
+     label = "Persistência do Canal Arterial";
+     position = (823 918);
+     states = ("Estado 0" "Não     ");
+     %descricao "    A incidência de PCA isolado em crianças a termo é em torno de 1 em #2000 nascidos vivos, e representa em torno  de 5 a 10% de todos os tipos #de cardiopatia congênita.##    A clínica é determinada basicamente pelo tamanho do canal patente. #Classifica-se em: PCA pequeno, PCA moderado e PCA grande."
+     %frase "Sopro contínuo em região intra-clavicular esquerda" "2" "    No PCA pequeno poucas crianças são sintomáticas. O único achado #anormal pode ser um sopro sistólico curto audível transitoriamente na #infância precoce que pode progredir para um sopro contínuo típico. Este #sopro é melhor audível no 2o. espaço intercostal esquerdo que se #acentua quando o paciente está destado ou em inspiração.##    No PCA moderado, o sopro é contínuo e em geral bem audível #posteriormente. Este tem qualidade áspera e com componentes de baixa #freqüência, adquirindo uma qualidade em 'maquinaria' por causa do #grande fluxo e turulência di mesmo.##    No PCA grande a primeira e segunda bulhas são acentuadas e a #terceira bulha é ordinariamente audível na ápice, ocasionalmente, #especialmente com falência cardíaca severa não se ausculta sopros. #Quando a falência ventricular esquerda é controlada, ausculta-se um sopro #sistólico mais audível  em foco pulmonar, com pico na sístole e #prolongação varaiável na diástole, comumente termina no terço #inicial da diástole."
+     %frase "Pulsos hipercinéticos" "3" "    No PCA moderado geralmente as crianças têm algum défcit de #desenvolvimento, mas pacientes um pouco mais velhos pode haver #fadiga e pulsos periféricos são amplos."
+     %frase "RX com hiperfluxo pulmonar" "0" "    Os achados radiológicos podem ser cardiomegalia, crescimento do #ventrículo esquerdo e átrio esquerdo, proeminência do tronco da artéria #pulmonar, aumento da vascularização pulmonar, proeminência da aorta #ascendente e hiperfluxo pulmonar."
+}
+
+node Frase_75
+{
+     label = "Sopro contínuo em região intra-clavicular esquerda";
+     position = (898 963);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_35
+{
+     label = "Pulsos hipercinéticos";
+     position = (864 858);
+     states = ("Sim     " "Não     ");
+}
+
+node FALLOT
+{
+     label = "Tetralogia de Fallot";
+     position = (145 712);
+     states = ("Estado 0" "Não     ");
+     %descricao "    É considerada a cardiopatia congênita isomática mais comum, #representa cerca de 10% de todas as cardiopatias congênitas, com leve #predominância do sexo masculino."
+     %frase "Cianose" "0" "    Cianose generalizada, que quando leve pode ser evidente somente nos #lábios, membranas, mucosas ou leito lingual."
+     %frase "Sopro sistólico de ejeção rude em área pulmonar" "0" "    A maioria dos pacientes tem um sopro sistólico na borda esternal #esquerda média a alta, gerado na orla pulmonar. Este sopro é #crescendo-decrescendo e parasistólico."
+     %frase "Coração em bota ao RX" "1" "    O coração é de tamanho normal ou pequeno em casos não operados, #frequentemente em 'bota'. A presença de cardiomegalia sugere #fortemente contra o diagnóstico. 1/5 dos pacietnes têm arco aórtico a #direita. A circulação é normal a diminuída."
+     %frase "Posição de cócoras" "2" "    É comum a criança com tetralogia de Fallot apresentar posição de #cócoras, principalmente após esforços."
+     %frase "Raio X mostrando erosão dos arcos costais" "1" "    Em recém nascidos, os achados radiologicos são cardiomegalia #moderada a severa, aumento da vascularização pulmonar e congestão #venosa.##    Em crianças, área cardíaca aumentada, CP normal, contorno anormal #do arco aórtico (identação localizada na aorta no sítio da coarctação - #sinal do três invertido) e proeminência da aorta descendente.##    Em pacientes acima de 5 anos é comum visualizar-se erosões dos #arcos costais."
+     %frase "Crises de Cianose" "3" "    Crises de cianose caracterizam-se por episódios de cianose intensa#acompanhada de respirações anormais e alteração do nível de#consciência."
+}
+
+node Frase_56
+{
+     label = "Sopro sistólico de ejeção rude em área pulmonar";
+     position = (195 779);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_8
+{
+     label = "Cianose";
+     position = (91 793);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_195
+{
+     label = "Coração em bota ao RX";
+     position = (17 762);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_13
+{
+     label = "Posição de cócoras";
+     position = (35 705);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_12
+{
+     label = "Crises de Cianose";
+     position = (46 652);
+     states = ("Sim     " "Não     ");
+}
+
+node EAO
+{
+     label = "Estenose Aórtica";
+     position = (699 698);
+     states = ("Sim     " "Não     ");
+     %descricao "    Incide em cerca de 3 a 6 % dos pacientes com cardiopatia congênita, #havendo um predomínio 3 a 5 vezes maior no sexo masculino. ##    Associação com malformações cardíacas está presente em mais de #20% dos casos, masi freqüentemente, Persistência do canal arterial (PCA), #coarctação da Aorta (COAO) e Comunicação interventricular (CIV). "
+     %frase "Estalido sistólico" "0" "    60% a 90% dos pacientes apresentam estalido de ejeção, que é mais #proeminente na borda inferior esquerda ou porta do coração. É gerado #pela abertura da válvula aórtica e seu desaparecimento sugere #progressão da estenose."
+     %frase "Sopro sistólico de ejeção rude em área aórtica" "0" "    Sopro clássico é um sopro sistólico ejetivo rude, #crescendo-decrescendo, logo após B1 ou imediatamente após o click de #ejeção, se presente. ##    Ausculta-se melhor na base do coração (borda superior esquerda em #lactentes e na direita em crianças maiores) 15-25% dos pacientes têm #sopro sistólico de insuficiência aórtica, o qual é mais pronunciado em #pacinetes com estenose de grau leve ou moderado."
+     %frase "RX com cardiomegalia e sinais de aumento do VE" "1" "Pacientes abaixo de 1 ano:#- a maioria tem cardiomegalia#- congestão pulmonar em 30-50% dos casos#- aorta ascendente não é visível##Pacientes acima de 1 ano:#- menos de 10% dos casos tem cardiomegalia (com gradiente VE-AO "
+     %frase "ECG com crescimento VE" "2" "    Raramente é normal. Os achados podem variar com a severidade da #obstrução.##- Abaixo de 30 dias: hipertrofia de VD##- Abaixo de 2 anos: hipertrofia de VE ou anormalidade da onda T são #sensíveis para estimar o grau de severidade da estenose##- Acima de 2 anos: o ECG é moderadamente útill em distingüir o grau de #severidade da EAO.##   -   EAO Severa:  - HVE ("
+     %frase "Lipotímias" "3" "    A maioria dos pacientes com EAO são assintomáticos. Destes, 95% #apresentando crescimento e desenvolvimento normais. Quando os #sintomas ocorrem,síncope, angina pré-cordial, dispnéia aos exercícios e #fadiga são os mais comuns. Menos freqüentemente pode ocorrer dor #abdominal, epistaxe e sudorese."
+     %frase "RX com cardiomegalia" "4" ""
+}
+
+node Frase_24
+{
+     label = "Estalido sistólico";
+     position = (762 785);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_57
+{
+     label = "Sopro sistólico de ejeção rude em área aórtica";
+     position = (817 742);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_114
+{
+     label = "RX com cardiomegalia e sinais de aumento do VE";
+     position = (838 702);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_130
+{
+     label = "ECG com crescimento VE";
+     position = (840 653);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_192
+{
+     label = "Lipotímias";
+     position = (774 608);
+     states = ("Sim     " "Não     ");
+}
+
+node COAO
+{
+     label = "Coarctação da Aorta";
+     position = (526 416);
+     states = ("Sim     " "Não     ");
+     %descricao "    É uma mal formação vascular, cujo defeito ocorre na camada média da #aorta. Na maioria dos pacientes é justa-ductal, ou seja, estenose da aorta #torácica opostamente a inserção do canal esternal.##    Está presente em cerca de 6 a 8% dos pacientes com cardiopatia #congênita, sendo mais comum em homens (1,5:1). Ocorre #aproximadamente em 35% dos pacientes com síndrome de Turner."
+     %frase "ECG com hipertrofia ventricular esquerda" "3" "    No recém nascido, o ECG inicialmente é normal. Com o passar do #tempo evidencia-se hipertrofia ventricular esquerda."
+     %frase "Sopro sistólico" "0" "    B1 e B2 são normais. Um sopro sistólico ejetivo audível na borda #esternal superior esquerda irradiando-se para área interescapular #esquerda e dorso."
+     %frase "Ausência de pulsos em membros inferiores" "1" "    O acahdo clínico característico é a ausência de pulsos nos membros #inferiores. Além disso  há discrepância entre a pressão arterial medida nos #membros superiores e inferiores, podendo variar até 70-80 mmHg em #repouso."
+     %frase "Hipertensão arterial sistêmica" "2" "    Além disso, há discrepância entre a pressão arterial medida nos #membros superiores e inferiores, podendo variar até 70-80 mmHg em #repouso."
+     %frase "Raio X mostrando erosão dos arcos costais" "3" "    Em recém nascidos, os achados radiologicos são cardiomegalia #moderada a severa, aumento da vascularização pulmonar e congestão #venosa.##    Em crianças, área cardíaca aumentada, CP normal, contorno anormal #do arco aórtico (identação localizada na aorta no sítio da coarctação - #sinal do três invertido) e proeminência da aorta descendente.##    Em pacientes acima de 5 anos é comum visualizar-se erosões dos #arcos costais."
+     %frase "ECG com padrão de hemibloqueio anterior esquerdo" "4" ""
+}
+
+node Frase_21
+{
+     label = "Sopro sistólico";
+     position = (355 386);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_32
+{
+     label = "Ausência de pulsos em membros inferiores";
+     position = (419 334);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_36
+{
+     label = "Hipertensão arterial sistêmica";
+     position = (533 301);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_126
+{
+     label = "Raio X mostrando erosão dos arcos costais";
+     position = (643 337);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_211
+{
+     label = "ECG com hipertrofia ventricular esquerda";
+     position = (702 385);
+     states = ("Sim     " "Não     ");
+}
+
+node EP
+{
+     label = "Estenose Pulmonar";
+     position = (192 499);
+     states = ("Estado 0" "Não     ");
+     %descricao "    A prevalência de EP isolada com septo íntegro é estimada em 7 a 12%. #Ocorrência familiar tem sido estudada, sendo relatado que a probabilidade #de recorrência em gêmeos é de 2,2 a 2,9%.##    A maioria dos pacientes são assintomáticos e com freqüência é um #achado durante avaliação de rotina. Para melhor compreensão doo #quadro clínico é melhor dividi-la em dois grupos:##a) estenose pulmonar leve a moderada e#b) estenose pumonar severa."
+     %frase "Estalido meso-sistólico" "1" "    Na estenose pulmonar leve a moderada, durante o exame físico ouve-se #freqüentemente um "
+     %frase "RX com dilatação do tronco pulmonar" "2" "    O achado radiológico mais consistente é tronco artéria pulmonar #proeminente secundário a dilatação pós estenótica do tronco pulmonar e #da artéria pulmonar esquerda proximal . (presente em mais de 90% dos #casos, podendo estar ausente em crianças pequenas, lactentes e #aqueles com vávula displácica."
+     %frase "ECG mostrando crescimento VD" "3" "    O eletrocardiograma (ECG) permite estimar a severidade da obstrução #da via de saída do VD através de vários graus de hipertrofia ventricular #direita. Pode ser normal em 30-65% dos casos de estenose leve; 10% dos #casos, de moderada e em estenose severa usualmente é anormal.##Leve: #          - pequeno desvio do eixo DRS para a direita#          - "
+     %frase "Sopro sistólico de ejeção rude em área pulmonar" "0" "    No exame físico ausculta-se um sopro sistólico ejetivo proeminente, que #com freqüência termina antes do fechamento da vávula aórtica. O sopro #tem intensidade máxima no 2o. espaço intercostal esquerdo (EICE), sendo # irradiado para o dorso, o pescoço e todo pré córdio. "
+}
+
+node Frase_26
+{
+     label = "Estalido meso-sistólico";
+     position = (31 511);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_111
+{
+     label = "RX com dilatação do tronco pulmonar";
+     position = (68 455);
+     states = ("Sim     " "Não     ");
+}
+
+node Frase_131
+{
+     label = "ECG mostrando crescimento VD";
+     position = (137 402);
+     states = ("Sim     " "Não     ");
+}
+
+potential (Frase_18)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_137)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_107)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (DSAV | Cardiopatia Frase_104 Frase_107 Frase_18 Frase_137)
+{
+ data = (((((( 1.0 0.0 )
+( 0.4 0.6 ))
+(( 0.85 0.15 )
+( 0.1 0.9 )))
+((( 1.0 0.0 )
+( 0.5 0.5 ))
+(( 0.825 0.175 )
+( 0.1 0.9 ))))
+(((( 0.95 0.05 )
+( 0.5 0.5 ))
+(( 0.85 0.15 )
+( 0.1 0.9 )))
+((( 0.95 0.05 )
+( 0.3 0.7 ))
+(( 0.8 0.2 )
+( 0.0 1.0 ))))));
+}
+
+potential (Frase_83)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (CIA | Cardiopatia Frase_145 Frase_71 Frase_104 Frase_83 Frase_55)
+{
+ data = ((((((( 1.0 0.0 )
+( 0.95 0.05 ))
+(( 0.5 0.5 )
+( 0.5 0.5 )))
+((( 0.875 0.125 )
+( 0.825 0.175 ))
+(( 0.4 0.6 )
+( 0.2 0.8 ))))
+(((( 0.925 0.075 )
+( 0.85 0.15 ))
+(( 0.2 0.8 )
+( 0.1 0.9 )))
+((( 0.875 0.125 )
+( 0.825 0.175 ))
+(( 0.2 0.8 )
+( 0.1 0.9 )))))
+((((( 0.95 0.05 )
+( 0.875 0.125 ))
+(( 0.4 0.6 )
+( 0.25 0.75 )))
+((( 0.85 0.15 )
+( 0.8 0.2 ))
+(( 0.2 0.8 )
+( 0.1 0.9 ))))
+(((( 0.9 0.1 )
+( 0.825 0.175 ))
+(( 0.4 0.6 )
+( 0.0 1.0 )))
+((( 0.85 0.15 )
+( 0.8 0.2 ))
+(( 0.2 0.8 )
+( 0.0 1.0 )))))));
+}
+
+potential (Frase_71)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_145)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_55)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_104)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (CIV | Cardiopatia Frase_104 Frase_132 Frase_70 Frase_60)
+{
+ data = (((((( 1.0 0.0 )
+( 0.9 0.1 ))
+(( 0.7 0.3 )
+( 0.4 0.6 )))
+((( 0.95 0.05 )
+( 0.7 0.3 ))
+(( 0.7 0.3 )
+( 0.1 0.9 ))))
+(((( 0.825 0.175 )
+( 0.7 0.3 ))
+(( 0.7 0.3 )
+( 0.1 0.9 )))
+((( 0.8 0.2 )
+( 0.7 0.3 ))
+(( 0.6 0.4 )
+( 0.0 1.0 ))))));
+}
+
+potential (Frase_70)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_60)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_132)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Cardiopatia)
+{
+ data = ( 1.0 );
+}
+
+potential (PCA | Cardiopatia Frase_104 Frase_75 Frase_35)
+{
+ data = ((((( 1.0 0.0 )
+( 0.9 0.1 ))
+(( 0.2 0.8 )
+( 0.0 1.0 )))
+((( 0.9 0.1 )
+( 0.88889 0.11111 ))
+(( 0.1 0.9 )
+( 0.0 1.0 )))));
+}
+
+potential (Frase_75)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_35)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (FALLOT | Cardiopatia Frase_12 Frase_195 Frase_13 Frase_8 Frase_56)
+{
+ data = ((((((( 1.0 0.0 )
+( 0.8 0.2 ))
+(( 1.0 0.0 )
+( 0.0 1.0 )))
+((( 1.0 0.0 )
+( 0.8 0.2 ))
+(( 0.95 0.05 )
+( 0.8 0.2 ))))
+(((( 0.95 0.05 )
+( 0.8 0.2 ))
+(( 0.9 0.1 )
+( 0.8 0.2 )))
+((( 0.9 0.1 )
+( 0.8 0.2 ))
+(( 0.8 0.2 )
+( 0.8 0.2 )))))
+((((( 1.0 0.0 )
+( 0.8 0.2 ))
+(( 0.8 0.2 )
+( 0.8 0.2 )))
+((( 0.95 0.05 )
+( 0.0 1.0 ))
+(( 0.4 0.6 )
+( 0.0 1.0 ))))
+(((( 0.95 0.05 )
+( 0.8 0.2 ))
+(( 0.8 0.2 )
+( 0.8 0.2 )))
+((( 0.8 0.2 )
+( 0.0 1.0 ))
+(( 0.0 1.0 )
+( 0.0 1.0 )))))));
+}
+
+potential (Frase_56)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_8)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_195)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_13)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_12)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (EAO | Cardiopatia Frase_24 Frase_192 Frase_114 Frase_57 Frase_130)
+{
+ data = ((((((( 1.0 0.0 )
+( 0.95 0.05 ))
+(( 0.0 1.0 )
+( 0.0 1.0 )))
+((( 0.92 0.08 )
+( 0.82 0.18 ))
+(( 0.0 1.0 )
+( 0.0 1.0 ))))
+(((( 0.95 0.05 )
+( 0.84 0.16 ))
+(( 0.7 0.3 )
+( 0.7 0.3 )))
+((( 0.9 0.1 )
+( 0.8 0.2 ))
+(( 0.6 0.4 )
+( 0.4 0.6 )))))
+((((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.2 0.8 )
+( 0.2 0.8 )))
+((( 0.9 0.1 )
+( 0.7 0.3 ))
+(( 0.2 0.8 )
+( 0.2 0.8 ))))
+(((( 0.8 0.2 )
+( 0.7 0.3 ))
+(( 0.7 0.3 )
+( 0.1 0.9 )))
+((( 0.875 0.125 )
+( 0.5 0.5 ))
+(( 0.1 0.9 )
+( 0.0 1.0 )))))));
+}
+
+potential (Frase_24)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_57)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_114)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_130)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_192)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (COAO | Cardiopatia Frase_211 Frase_126 Frase_21 Frase_32 Frase_36)
+{
+ data = ((((((( 0.0 1.0 )
+( 0.0 1.0 ))
+(( 0.0 1.0 )
+( 0.0 1.0 )))
+((( 0.0 1.0 )
+( 0.0 1.0 ))
+(( 0.0 1.0 )
+( 0.0 1.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 0.0 1.0 )
+( 0.8 0.2 )))
+((( 0.0 1.0 )
+( 1.0 0.0 ))
+(( 0.0 1.0 )
+( 0.6 0.4 )))))
+((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 0.0 1.0 )
+( 0.925 0.075 )))
+((( 0.95 0.05 )
+( 1.0 0.0 ))
+(( 0.925 0.075 )
+( 0.9 0.1 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 0.8 0.2 )
+( 0.6 0.4 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 0.3 0.7 )
+( 0.0 1.0 )))))));
+}
+
+potential (Frase_21)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_32)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_36)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_126)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_211)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (EP | Cardiopatia Frase_26 Frase_56 Frase_111 Frase_131)
+{
+ data = (((((( 1.0 0.0 )
+( 0.8 0.2 ))
+(( 0.9 0.1 )
+( 0.8 0.2 )))
+((( 0.0 1.0 )
+( 0.0 1.0 ))
+(( 0.0 1.0 )
+( 0.3 0.7 ))))
+(((( 1.0 0.0 )
+( 0.8 0.2 ))
+(( 0.9 0.1 )
+( 0.8 0.2 )))
+((( 0.0 1.0 )
+( 0.0 1.0 ))
+(( 0.0 1.0 )
+( 0.3 0.7 ))))));
+}
+
+potential (Frase_26)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_111)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (Frase_131)
+{
+ data = ( 1.0E-4 0.9999 );
+}
+

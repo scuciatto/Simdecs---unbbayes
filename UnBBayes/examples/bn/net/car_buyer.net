@@ -1,0 +1,241 @@
+net
+{
+    node_size = (80 40);
+    HR_Grid_X = "10";
+    HR_Grid_Y = "10";
+    HR_Grid_GridSnap = "1";
+    HR_Grid_GridShow = "0";
+    HR_Font_Name = "Arial";
+    HR_Font_Size = "-12";
+    HR_Font_Weight = "400";
+    HR_Font_Italic = "0";
+    HR_Propagate_Auto = "0";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_AutoNormal = "1";
+    HR_Compile_TriangMethod = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_Approximate = "0";
+    HR_Compile_ApproxEpsilon = "0.00001";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_InitSD = "2";
+    HR_Color_DiscreteChance = "16";
+    HR_Color_ContinuosChance = "48";
+    HR_Color_Utility = "36";
+    HR_Color_Decision = "17";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Groups_GroupNames = "";
+    HR_Groups_GroupColors = "";
+    HRUNTIME_Monitor_InitStates = "5";
+    HRUNTIME_Monitor_OpenGraph = "0";
+    HRUNTIME_Monitor_GraphPrecision = "100";
+    HRUNTIME_Monitor_AutoUpdGraph = "0";
+    HRUNTIME_Compile_ApproxEpsilon = "0.00001";
+    HRUNTIME_Compile_Approximate = "0";
+    HRUNTIME_Compile_Compress = "0";
+    HRUNTIME_Compile_TriangMethod = "0";
+    HRUNTIME_Propagate_AutoNormal = "1";
+    HRUNTIME_Propagate_AutoSum = "1";
+    HRUNTIME_Propagate_Auto = "0";
+    HRUNTIME_Font_Italic = "0";
+    HRUNTIME_Font_Weight = "400";
+    HRUNTIME_Font_Size = "-12";
+    HRUNTIME_Font_Name = "Arial";
+    HRUNTIME_Grid_GridShow = "0";
+    HRUNTIME_Grid_GridSnap = "1";
+    HRUNTIME_Grid_Y = "10";
+    HRUNTIME_Grid_X = "10";
+}
+
+decision D1
+{
+    label = "T1: Do test 1?";
+    position = (0 190);
+    states = ("no test" "steering" "fuel/elect" "transmission");
+}
+
+decision D2
+{
+    label = "T2: Do test 2?";
+    position = (130 230);
+    states = ("no test" "differential");
+}
+
+decision D3
+{
+    label = "B: Buy it?";
+    position = (250 180);
+    states = ("do not buy" "buy" "buy guaranteed");
+}
+
+utility U4
+{
+    label = "V:Profit";
+    position = (250 60);
+}
+
+node C5
+{
+    label = "R1: Test 1 result";
+    position = (0 70);
+    states = ("no result" "no defect" "one defect" "two defect");
+}
+
+node C6
+{
+    label = "R2: Test 2 result";
+    position = (130 70);
+    states = ("no result" "no defect" "one defect");
+}
+
+node C7
+{
+    label = "CC:Condition";
+    position = (50 0);
+    states = ("peach" "lemon");
+}
+
+potential (D1) {}
+
+potential (D2 | D1 C5) {}
+
+potential (D3 | D2 D1 C5 C6) {}
+
+potential (U4 | D1 D2 D3 C7)
+{
+ data = (((( 0	%  no test  no test  do not buy  peach
+	     0 )	%  no test  no test  do not buy  lemon
+	   ( 60	%  no test  no test  buy  peach
+	     -100 )	%  no test  no test  buy  lemon
+	   ( 20	%  no test  no test  buy guaranteed  peach
+	     40 ))	%  no test  no test  buy guaranteed  lemon
+	  (( -1000	%  no test  differential  do not buy  peach
+	     -1000 )	%  no test  differential  do not buy  lemon
+	   ( -1000	%  no test  differential  buy  peach
+	     -1000 )	%  no test  differential  buy  lemon
+	   ( -1000	%  no test  differential  buy guaranteed  peach
+	     -1000 )))	%  no test  differential  buy guaranteed  lemon
+	 ((( -9	%  steering  no test  do not buy  peach
+	     -9 )	%  steering  no test  do not buy  lemon
+	   ( 51	%  steering  no test  buy  peach
+	     -109 )	%  steering  no test  buy  lemon
+	   ( 11	%  steering  no test  buy guaranteed  peach
+	     31 ))	%  steering  no test  buy guaranteed  lemon
+	  (( -1000	%  steering  differential  do not buy  peach
+	     -1000 )	%  steering  differential  do not buy  lemon
+	   ( -1000	%  steering  differential  buy  peach
+	     -1000 )	%  steering  differential  buy  lemon
+	   ( -1000	%  steering  differential  buy guaranteed  peach
+	     -1000 )))	%  steering  differential  buy guaranteed  lemon
+	 ((( -13	%  fuel/elect  no test  do not buy  peach
+	     -13 )	%  fuel/elect  no test  do not buy  lemon
+	   ( 47	%  fuel/elect  no test  buy  peach
+	     -113 )	%  fuel/elect  no test  buy  lemon
+	   ( 7	%  fuel/elect  no test  buy guaranteed  peach
+	     27 ))	%  fuel/elect  no test  buy guaranteed  lemon
+	  (( -1000	%  fuel/elect  differential  do not buy  peach
+	     -1000 )	%  fuel/elect  differential  do not buy  lemon
+	   ( -1000	%  fuel/elect  differential  buy  peach
+	     -1000 )	%  fuel/elect  differential  buy  lemon
+	   ( -1000	%  fuel/elect  differential  buy guaranteed  peach
+	     -1000 )))	%  fuel/elect  differential  buy guaranteed  lemon
+	 ((( -10	%  transmission  no test  do not buy  peach
+	     -10 )	%  transmission  no test  do not buy  lemon
+	   ( 50	%  transmission  no test  buy  peach
+	     -110 )	%  transmission  no test  buy  lemon
+	   ( 10	%  transmission  no test  buy guaranteed  peach
+	     30 ))	%  transmission  no test  buy guaranteed  lemon
+	  (( -14	%  transmission  differential  do not buy  peach
+	     -14 )	%  transmission  differential  do not buy  lemon
+	   ( 46	%  transmission  differential  buy  peach
+	     -114 )	%  transmission  differential  buy  lemon
+	   ( 6	%  transmission  differential  buy guaranteed  peach
+	     26 ))));	%  transmission  differential  buy guaranteed  lemon
+}
+
+potential (C5 | D1 C7)
+{
+ data = ((( 1 0 0 0 )	%  no test  peach
+	  ( 1 0 0 0 ))	%  no test  lemon
+	 (( 0 0.9 0.1 0 )	%  steering  peach
+	  ( 0 0.4 0.6 0 ))	%  steering  lemon
+	 (( 0 0.8 0.2 0 )	%  fuel/elect  peach
+	  ( 0 0.13333 0.53333 0.33333 ))	%  fuel/elect  lemon
+	 (( 0 0.9 0.1 0 )	%  transmission  peach
+	  ( 0 0.4 0.6 0 )));	%  transmission  lemon
+}
+
+potential (C6 | D1 C5 D2 C7)
+{
+ data = ((((( 1 0 0 )	%  no test  no result  no test  peach
+	    ( 1 0 0 ))	%  no test  no result  no test  lemon
+	   (( 1 0 0 )	%  no test  no result  differential  peach
+	    ( 1 0 0 )))	%  no test  no result  differential  lemon
+	  ((( 1 0 0 )	%  no test  no defect  no test  peach
+	    ( 1 0 0 ))	%  no test  no defect  no test  lemon
+	   (( 1 0 0 )	%  no test  no defect  differential  peach
+	    ( 1 0 0 )))	%  no test  no defect  differential  lemon
+	  ((( 1 0 0 )	%  no test  one defect  no test  peach
+	    ( 1 0 0 ))	%  no test  one defect  no test  lemon
+	   (( 1 0 0 )	%  no test  one defect  differential  peach
+	    ( 1 0 0 )))	%  no test  one defect  differential  lemon
+	  ((( 1 0 0 )	%  no test  two defect  no test  peach
+	    ( 1 0 0 ))	%  no test  two defect  no test  lemon
+	   (( 1 0 0 )	%  no test  two defect  differential  peach
+	    ( 1 0 0 ))))	%  no test  two defect  differential  lemon
+	 (((( 1 0 0 )	%  steering  no result  no test  peach
+	    ( 1 0 0 ))	%  steering  no result  no test  lemon
+	   (( 1 0 0 )	%  steering  no result  differential  peach
+	    ( 1 0 0 )))	%  steering  no result  differential  lemon
+	  ((( 1 0 0 )	%  steering  no defect  no test  peach
+	    ( 1 0 0 ))	%  steering  no defect  no test  lemon
+	   (( 1 0 0 )	%  steering  no defect  differential  peach
+	    ( 1 0 0 )))	%  steering  no defect  differential  lemon
+	  ((( 1 0 0 )	%  steering  one defect  no test  peach
+	    ( 1 0 0 ))	%  steering  one defect  no test  lemon
+	   (( 1 0 0 )	%  steering  one defect  differential  peach
+	    ( 1 0 0 )))	%  steering  one defect  differential  lemon
+	  ((( 1 0 0 )	%  steering  two defect  no test  peach
+	    ( 1 0 0 ))	%  steering  two defect  no test  lemon
+	   (( 1 0 0 )	%  steering  two defect  differential  peach
+	    ( 1 0 0 ))))	%  steering  two defect  differential  lemon
+	 (((( 1 0 0 )	%  fuel/elect  no result  no test  peach
+	    ( 1 0 0 ))	%  fuel/elect  no result  no test  lemon
+	   (( 1 0 0 )	%  fuel/elect  no result  differential  peach
+	    ( 1 0 0 )))	%  fuel/elect  no result  differential  lemon
+	  ((( 1 0 0 )	%  fuel/elect  no defect  no test  peach
+	    ( 1 0 0 ))	%  fuel/elect  no defect  no test  lemon
+	   (( 1 0 0 )	%  fuel/elect  no defect  differential  peach
+	    ( 1 0 0 )))	%  fuel/elect  no defect  differential  lemon
+	  ((( 1 0 0 )	%  fuel/elect  one defect  no test  peach
+	    ( 1 0 0 ))	%  fuel/elect  one defect  no test  lemon
+	   (( 1 0 0 )	%  fuel/elect  one defect  differential  peach
+	    ( 1 0 0 )))	%  fuel/elect  one defect  differential  lemon
+	  ((( 1 0 0 )	%  fuel/elect  two defect  no test  peach
+	    ( 1 0 0 ))	%  fuel/elect  two defect  no test  lemon
+	   (( 1 0 0 )	%  fuel/elect  two defect  differential  peach
+	    ( 1 0 0 ))))	%  fuel/elect  two defect  differential  lemon
+	 (((( 1 0 0 )	%  transmission  no result  no test  peach
+	    ( 1 0 0 ))	%  transmission  no result  no test  lemon
+	   (( 1 0 0 )	%  transmission  no result  differential  peach
+	    ( 1 0 0 )))	%  transmission  no result  differential  lemon
+	  ((( 1 0 0 )	%  transmission  no defect  no test  peach
+	    ( 1 0 0 ))	%  transmission  no defect  no test  lemon
+	   (( 1 0 0 )	%  transmission  no defect  differential  peach
+	    ( 0 0.88889 0.11111 )))	%  transmission  no defect  differential  lemon
+	  ((( 0 0.66667 0.33333 )	%  transmission  one defect  no test  peach
+	    ( 1 0 0 ))	%  transmission  one defect  no test  lemon
+	   (( 0 1 0 )	%  transmission  one defect  differential  peach
+	    ( 0 0.44444 0.55556 )))	%  transmission  one defect  differential  lemon
+	  ((( 1 0 0 )	%  transmission  two defect  no test  peach
+	    ( 1 0 0 ))	%  transmission  two defect  no test  lemon
+	   (( 1 0 0 )	%  transmission  two defect  differential  peach
+	    ( 1 0 0 )))));	%  transmission  two defect  differential  lemon
+}
+
+potential (C7)
+{
+ data = ( 0.8 0.2 );
+}

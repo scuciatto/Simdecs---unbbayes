@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<map>
+
+	<mapID target="introducao" url="ajuda/introducao.html" />
+	<mapID target="controles" url="ajuda/controles.html" />
+	<mapID target="novarede" url="ajuda/novarede.html" />
+	<mapID target="abrirrede" url="ajuda/abrirrede.html" />
+	<mapID target="salvarrede" url="ajuda/salvarrede.html" />
+	<mapID target="inserirno" url="ajuda/inserirno.html" />
+	<mapID target="inserirarco" url="ajuda/inserirarco.html" />
+	<mapID target="compilarrede" url="ajuda/compilarrede.html" />
+	<mapID target="aprendizagem" url="./html/aprendizagem.htm" />
+	<mapID target="metricagh" url="./html/metricagh.htm" />
+	<mapID target="algoritmoB" url="./html/algoritmoB.htm" />
+	<mapID target="algoritmok2" url="./html/algoritmok2.htm" />
+	<mapID target="variaveis" url="./html/variaveis.htm" />
+	<mapID target="compactados" url="./html/compactados.htm" />
+	<mapID target="paradigma" url="./html/paradigma.htm" />
+	<mapID target="pontuacao" url="./html/pontuacao.htm" />
+	<mapID target="algoritmo" url="./html/algoritmo.htm" />
+	<mapID target="metrica" url="./html/metrica.htm" />
+	<mapID target="metricamdl" url="./html/metricamdl.htm" />
+	<mapID target="metricaghs" url="./html/metricaghs.htm" />
+	<mapID target="ic" url="./html/ic.htm" />
+	<mapID target="algoritmocbla" url="./html/algoritmocbla.htm" />
+	<mapID target="algoritmocblb" url="./html/algoritmocblb.htm" />
+	<mapID target="ordenacao" url="./html/ordenacao.htm" />
+	<mapID target="relacionamentos" url="./html/relacionamentos.htm" />
+	<mapID target="parametros" url="./html/paramentros.htm" />
+	<mapID target="opcoesglobais" url="ajuda/opcoesglobais.html" />
+	<mapID target="metal" url="ajuda/metal.html" />
+	<mapID target="motif" url="ajuda/motif.html" />
+	<mapID target="windows" url="ajuda/windows.html" />
+	
+</map>

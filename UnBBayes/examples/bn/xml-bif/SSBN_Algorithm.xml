@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>New BN</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>0</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY/>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="201" XPOS="405" TYPE="discrete" NAME="Q">
+        <mstns:LABEL>Q</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="114" XPOS="331" TYPE="discrete" NAME="K">
+        <mstns:LABEL>K</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="112" XPOS="471" TYPE="discrete" NAME="E8">
+        <mstns:LABEL>E8</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="36" XPOS="402" TYPE="discrete" NAME="L">
+        <mstns:LABEL>L</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="298" XPOS="402" TYPE="discrete" NAME="B">
+        <mstns:LABEL>B</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="414" XPOS="495" TYPE="discrete" NAME="E2">
+        <mstns:LABEL>E2</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="298" XPOS="565" TYPE="discrete" NAME="A">
+        <mstns:LABEL>A</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="206" XPOS="251" TYPE="discrete" NAME="E4">
+        <mstns:LABEL>E4</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="301" XPOS="254" TYPE="discrete" NAME="E7">
+        <mstns:LABEL>E7</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="420" XPOS="331" TYPE="discrete" NAME="E1">
+        <mstns:LABEL>E1</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="508" XPOS="331" TYPE="discrete" NAME="E5">
+        <mstns:LABEL>E5</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="413" XPOS="155" TYPE="discrete" NAME="X">
+        <mstns:LABEL>X</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="509" XPOS="153" TYPE="discrete" NAME="Y">
+        <mstns:LABEL>Y</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="595" XPOS="152" TYPE="discrete" NAME="E6">
+        <mstns:LABEL>E6</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="201" XPOS="100" TYPE="discrete" NAME="F">
+        <mstns:LABEL>F</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="125" XPOS="97" TYPE="discrete" NAME="G">
+        <mstns:LABEL>G</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="61" XPOS="96" TYPE="discrete" NAME="H">
+        <mstns:LABEL>H</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="61" XPOS="206" TYPE="discrete" NAME="E3">
+        <mstns:LABEL>E3</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="24" XPOS="282" TYPE="discrete" NAME="R">
+        <mstns:LABEL>R</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="204" XPOS="322" TYPE="discrete" NAME="C">
+        <mstns:LABEL>C</mstns:LABEL>
+        <mstns:STATENAME>State 0</mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="Q" PARENT="K"/>
+      <mstns:ARC CHILD="Q" PARENT="E8"/>
+      <mstns:ARC CHILD="K" PARENT="L"/>
+      <mstns:ARC CHILD="E8" PARENT="L"/>
+      <mstns:ARC CHILD="B" PARENT="Q"/>
+      <mstns:ARC CHILD="E2" PARENT="B"/>
+      <mstns:ARC CHILD="E2" PARENT="A"/>
+      <mstns:ARC CHILD="E1" PARENT="B"/>
+      <mstns:ARC CHILD="E5" PARENT="E1"/>
+      <mstns:ARC CHILD="E1" PARENT="E7"/>
+      <mstns:ARC CHILD="X" PARENT="E7"/>
+      <mstns:ARC CHILD="Y" PARENT="X"/>
+      <mstns:ARC CHILD="E6" PARENT="Y"/>
+      <mstns:ARC CHILD="E7" PARENT="F"/>
+      <mstns:ARC CHILD="E7" PARENT="E4"/>
+      <mstns:ARC CHILD="C" PARENT="Q"/>
+      <mstns:ARC CHILD="E4" PARENT="C"/>
+      <mstns:ARC CHILD="F" PARENT="G"/>
+      <mstns:ARC CHILD="G" PARENT="H"/>
+      <mstns:ARC CHILD="E3" PARENT="H"/>
+      <mstns:ARC CHILD="G" PARENT="E3"/>
+      <mstns:ARC CHILD="E3" PARENT="R"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Q"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="K"/>
+          <mstns:CONDLEM NAME="E8"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="K"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="L"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E8"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="L"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="L"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="B"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Q"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E2"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="B"/>
+          <mstns:CONDLEM NAME="A"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="A"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E4"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="C"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E7"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="F"/>
+          <mstns:CONDLEM NAME="E4"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E1"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="B"/>
+          <mstns:CONDLEM NAME="E7"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E5"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="E1"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="X"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="E7"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Y"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="X"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E6"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Y"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="F"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="G"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="G"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="H"/>
+          <mstns:CONDLEM NAME="E3"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="H"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E3"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="H"/>
+          <mstns:CONDLEM NAME="R"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="R"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="C"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Q"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

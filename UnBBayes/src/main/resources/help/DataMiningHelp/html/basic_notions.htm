@@ -1,0 +1,475 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Basic Notions</title>
+</head>
+
+<body>
+
+<p align="left"><font size="6"><b><u>Basic Notions</u></b></font></p>
+<hr>
+
+<p class="MsoNormal" align="left">Aprendizagem</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoBodyTextIndent2" align="left"><span style="font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Em
+Data Mining lidamos com o conceito de aprendizagem. Aprendizagem no sentido de
+mudança de comportamento para que haja uma performance melhor no futuro. É bom
+ressaltar a melhora de performance que se quer obter, pois aprendizagem sem propósito
+é apenas treinamento. Também é desejado uma forma explícita de se
+representar o conhecimento que foi adquirido. Há basicamente dois tipos de
+aprendizagem:<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyTextIndent2" align="left"><span style="font-family:&quot;Times New Roman&quot;">&nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyTextIndent2" style="margin-left:18.0pt;text-indent:-18.0pt;
+mso-list:l1 level1 lfo1;tab-stops:list 18.0pt" align="left"><span style="font-family:&quot;Times New Roman&quot;">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Aprendizagem supervisionada:<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyTextIndent2" style="text-indent:0cm" align="left">&nbsp;&nbsp;&nbsp;<span style="font-family: Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>A
+aprendizagem supervisionada é assim chamada porque o método de aprendizagem
+opera sobre supervisão que está sendo dada da saída atual de cada uma das
+instâncias do conjunto de treinamento. Esta saída é chamada a classe do
+conjunto de treinamento. Este tipo de aprendizagem pode ser de duas formas:</p>
+<p class="MsoBodyTextIndent2" style="text-indent:0cm" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Na
+aprendizagem por classificação, um esquema de aprendizagem usa um conjunto de
+instâncias classificadas dos quais espera-se uma maneira de classificar instâncias
+não classificadas, ou seja, espera-se que se possa predizer uma classe
+discreta.</p>
+<p class="MsoBodyTextIndent2" style="text-indent:0cm" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Na
+aprendizagem por predição numérica, a saída a ser predita não é uma classe
+discreta mas sim uma quantidade numérica. Ela funciona de maneira similar à
+classificação.</p>
+<p class="MsoNormal" style="text-indent: 35.4pt" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-indent: -18.0pt; mso-list: l1 level1 lfo1; tab-stops: list 18.0pt; margin-left: 18.0pt" align="left">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Aprendizagem não - supervisionada:</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoBodyTextIndent3" align="left"><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Neste
+caso não é levada em consideração a existência da classe. A classe pode
+existir só que ela não é estritamente necessária.<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyTextIndent3" align="left"><span style="font-size:10.0pt;font-family:&quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Na
+aprendizagem por associação, qualquer associação entre instâncias é levada
+em conta, não só aquelas que predizem uma classe particular. É aplicada
+quando não há uma classe especificada ou quando qualquer tipo de estrutura é
+considerada interessante. Pode predizer qualquer valor de uma instância, não só
+a classe e mais de um valor de uma instância de uma vez.<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="text-indent: 35.4pt" align="left">Em
+aprendizagem por clustering, grupos de instâncias similares são divididas em
+clusters.</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left">4. Atributos e Instâncias,
+Missing Values, Valores Inconsistentes</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left">Atributos e Instâncias</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Cada conjunto de treinamento é descrito por um conjunto fixo de características,
+os seja, atributos. Em geral, instâncias de um conjunto de dados são
+caracterizados pelos valores dos campos, ou atributos, que medem diferentes
+aspectos de uma instância. Para um conjunto de dados representado com uma
+tabela, as instâncias seriam as informações contidas nas linhas de uma tabela
+enquanto que as informações contidas nas colunas seriam os atributos, sendo
+que um destes atributos é a classe do conjunto de treinamento (em aprendizagem
+supervisionada).</p>
+<p class="MsoNormal" align="left"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>O valor de um atributo para uma instância particular é uma medida da
+quantidade a que o atributo se refere. Estas quantidades podem ser numéricas ou
+nominais. Atributos numéricos, algumas vezes chamados atributos contínuos,
+medem números (tantos inteiros quanto reais). Atributos nominais levam em conta
+valores pre-especificados de um conjunto finito de possibilidades. Eles
+representam valores que são símbolos distintos. Não faz sentido somá-los ou
+multiplicá-los. Testes de igualdade podem ser feitos. Podem ser imposta ordem
+em valores nominais de modo a determinar quais atributos são maiores ou menores
+que outros.</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left">Missing Values ( Valores
+Faltantes )</p>
+<p class="MsoNormal" align="left"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p class="MsoNormal" align="left"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>A maioria dos conjuntos de treinamento encontrados na prática contem
+missing values. Eles são geralmente indicados nos conjuntos de treinamento como
+valores fora do escopo do atributo. Em atributos nominais, são indicados por
+valores em branco ou interrogações. Algumas vezes há diferentes tipos de
+missing values: valores desconhecidos, valores não registrados, valores
+irrelevantes... Eles podem ocorrer pelos motivos mais diversos possíveis:
+equipamento com problemas, mudança do experimento depois que os dados já
+haviam sido coletados, medida não possível em alguns casos, ... Caso eles
+ocorram em grandes quantidades deve-se fazer uma análise do conjunto de
+treinamento para avaliar o porque destas faltas.</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left">Valores Inconsistentes (Ruído)</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Quando os dados são coletados muitos dos campos podem não ser
+verificados gerando erros e omissões que não afetam o propósito original dos
+dados mas que afetam o resultado do Data Mining. É gerado o chamado ruído no
+conjunto de treinamento. Alguns valores podem se tornar repetidos ou um valor
+contradiz ele mesmo ( pode estar registrado que uma pessoa gosta de banana e
+também que não gosta de banana, por exemplo ). Esses ruídos podem ser gerados
+pelos mais diferentes motivos (erros tipográficos, erros de medida, ...).
+Outras vezes os dados mudam com o tempo: CEP, número de telefone, e-mail...
+Este tipo de erro pode ser bem difícil de se encontrar, necessitando-se um
+especialista no assunto.</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" align="left">Exemplo dos conceitos dados
+acima:</p>
+<p class="MsoNormal" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+As aplicações
+de Data Mining podem até trabalhar com milhares de dados, mas para apresentar
+alguns conceitos será utilizado um pequeno conjunto de dados logo abaixo:</p>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 3.5pt 0cm 3.5pt">
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Outlook</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Temperature</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Humidity</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Windy</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Play</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Sunny</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">85</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">85</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">False</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">No<span style="mso-spacerun: yes">&nbsp;
+      </span></span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Sunny</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">80</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">90</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">True</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">No</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Sunny</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">80</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">90</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">True</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Overcast</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">83</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">?<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">False</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Yes</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Rainy</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">75</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">80</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">False</span><span style="color:
+  black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black;layout-grid-mode:line">Yes</span><span style="color:black"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="120" valign="top" style="width:89.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">. . . </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">. . .</o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">. . .</o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black"><span style="layout-grid-mode: line">.
+      . .</span><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="120" valign="top" style="width:89.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="left"><span style="color:black">. . .</o:p>
+      </span></p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+No exemplo
+acima há quatro atributos: <span style="color:black;layout-grid-mode:line">Outlook,
+Temperature, Humidity e Windy. O último campo, Play, é o resultado obtido
+pelos atributos, esta é a classe do conjunto de treinamento. Esta classe pode
+obter dois valores YES ou NO. A classe indica o resultado obtido depois de
+analisados os atributos acima. Este é um problema típico de classificação.
+As instâncias do problema se encontram da segunda linha da tabela para baixo.<o:p>
+</o:p>
+</span>
+</p>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left"><span style="color:black;layout-grid-mode:line">Quanto
+aos valores:<o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="text-indent: 18.0pt" align="left"><span style="color:black;layout-grid-mode:line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Os
+atributos Outlook e Windy tem valores nominais. Outlook possui os valores: Sunny,
+Overcast e Rainy. Windy possui os valores False e True. </span>Os atributos
+Temperature e Humidity já contem uma ampla variedade de valores possíveis.
+Estes valores são denominados numéricos. Na coluna do atributo Humidity há um
+missing value indicado por um ponto de interrogação (?). Há duas instâncias
+que possuem os mesmos valores para Outlook, Temperature, Humidity e Windy, no
+entanto, possuem diferentes valores para a classe. Um dado deste tipo é
+considerado um valor inconsistente.</p>
+
+</body>
+
+</html>

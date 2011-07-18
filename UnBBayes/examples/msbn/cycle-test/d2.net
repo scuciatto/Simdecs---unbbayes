@@ -1,0 +1,128 @@
+net
+{
+     node_size = (0 0);
+     name = "";
+     HR_Color_Utility = "10";
+     HR_Color_Decision = "30";
+}
+
+node l
+
+{
+     label = "C0";
+     position = (309 48);
+     states = ("Estado 0");
+}
+
+node a
+
+{
+     label = "C1";
+     position = (189 153);
+     states = ("Estado 0");
+}
+
+node j
+
+{
+     label = "C2";
+     position = (411 157);
+     states = ("Estado 0");
+}
+
+node m
+
+{
+     label = "C3";
+     position = (310 225);
+     states = ("Estado 0");
+}
+
+node n
+
+{
+     label = "C4";
+     position = (307 365);
+     states = ("Estado 0");
+}
+
+node b
+
+{
+     label = "C5";
+     position = (190 313);
+     states = ("Estado 0");
+}
+
+node k
+
+{
+     label = "C6";
+     position = (422 330);
+     states = ("Estado 0");
+}
+
+node o
+
+{
+     label = "C7";
+     position = (423 418);
+     states = ("Estado 0");
+}
+
+potential (l
+ | j
+)
+{
+ data = (( 1.0 ));
+}
+
+potential (a
+ | l
+)
+{
+ data = (( 1.0 ));
+}
+
+potential (j
+)
+{
+ data = ( 1.0 );
+}
+
+potential (m
+ | j
+ a
+ n
+)
+{
+ data = (((( 1.0 ))));
+}
+
+potential (n
+ | b
+)
+{
+ data = (( 1.0 ));
+}
+
+potential (b
+)
+{
+ data = ( 1.0 );
+}
+
+potential (k
+ | n
+)
+{
+ data = (( 1.0 ));
+}
+
+potential (o
+ | n
+)
+{
+ data = (( 1.0 ));
+}
+

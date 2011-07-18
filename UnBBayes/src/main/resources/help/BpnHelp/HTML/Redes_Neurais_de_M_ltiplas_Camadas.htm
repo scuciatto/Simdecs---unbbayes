@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Arquitetura da rede</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY>
+<P><b><font size="4">Redes Neurais de Múltiplas Camadas</font></b></P>
+<P class=MsoBodyText>Este tipo de rede neural é caracterizado por possuir um 
+conjunto de nós <BR>não-computacionais de entrada que forma a camada de entrada, 
+uma ou mais camadas ocultas composta por nós computacionais e uma camada de 
+saída, também composta por nós computacionais.</P>
+<P class=MsoBodyText>As redes neurais de múltiplas camadas utilizam um algoritmo 
+de aprendizagem supervisionada chamado de algoritmo de retropropagação de erro 
+(<I style="mso-bidi-font-style: normal">erro back-propagation</I>) (Rumelhart e 
+McClelland, 1986). Este algoritmo de treinamento funciona em duas etapas: uma 
+etapa de propagação (passo a frente) e uma fase de retropropagação (passo para 
+trás).</P>
+<P class=MsoBodyText>Na fase de propagação, um padrão é aplicado na camada de 
+entrada da rede e propagado camada por camada até a camada de saída, onde é 
+produzida uma saída para a rede. Durante este processo, os valores dos pesos e 
+bias dos nós da rede não são alterados. Já na fase de retropropagação os valores 
+dos pesos e bias dos nós da rede são ajustados de acordo com uma regra de 
+correção de erro, cujo objetivo é aproximar a resposta da rede da resposta 
+desejada.</P>
+<P class=MsoBodyText>Uma&nbsp;rede&nbsp;neural&nbsp;de múltiplas camadas possui 
+uma função de ativação não-linear, isto é, diferenciável em qualquer ponto. Uma 
+função de ativação normalmente usada com perceptron de múltiplas camadas é a 
+função de ativação sigmoidal. Outra característica do perceptron de múltiplas 
+camadas é a existência de uma ou mais camadas ocultas, ou seja que não fazem 
+parte nem da camada de entrada nem da camada de saída, o que permite que a rede 
+aprenda tarefas complexas, que não são possíveis de serem aprendidas por 
+perceptron de camada única.</P>
+<P class=MsoBodyText>Os neurônios das camadas oculta ou de saída de um 
+perceptron de múltiplas camadas são projetados para realizar o cálculo do sinal 
+funcional (ou de entrada), que é um sinal que se propaga desde a entrada da rede 
+até a sua saída e o vetor gradiente, que é necessário para a retropropagação do 
+sinal de erro, que é um sinal que se origina na camada de saída e se propaga 
+para trás através da rede.</P>
+</BODY>
+</HTML>

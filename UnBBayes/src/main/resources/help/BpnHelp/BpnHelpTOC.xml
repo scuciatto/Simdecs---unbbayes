@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+<toc version="1.0">
+
+<tocitem text="Conceitos Básicos" target="Conceitos_B_sicos">
+     <tocitem text="O Neurônio Artificial" target="O_Neur_nio_Artificial"/>
+     <tocitem text="Função de ativação" target="Fun__o_de_ativa__o"/>
+     <tocitem text="Arquitetura da rede" target="Arquitetura_da_rede"/>
+     <tocitem text="Redes Neurais de Múltiplas Camadas" target="Redes_Neurais_de_M_ltiplas_Camadas"/>
+     <tocitem text="Algoritmo de Retropropagação" target="Algoritmo_de_Retropropaga__o"/>
+     <tocitem text="Critério de Parada" target="Crit_rio_de_Parada"/>
+     <tocitem text="Taxa de Aprendizagem e Momentum" target="Taxa_de_Aprendizagem_e_Momentum"/>
+</tocitem>
+<tocitem text="Software">
+     <tocitem text="Interface com o Usuário" target="Interface_com_o_Usu_rio"/>
+</tocitem>
+</toc>

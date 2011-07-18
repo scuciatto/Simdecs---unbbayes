@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="HasToChangeCommittee(procurement2)"/>
+      <xbifns:level name="AreRelated(member3,person3)"/>
+      <xbifns:level name="AreRelated(member4,person3)"/>
+      <xbifns:level name="AreRelated(member5,person3)"/>
+      <xbifns:level name="LiveInSameAddress(member3,person3)"/>
+      <xbifns:level name="LiveInSameAddress(member4,person3)"/>
+      <xbifns:level name="LiveInSameAddress(member5,person3)"/>
+      <xbifns:level name="HasCleanHistory(member3)"/>
+      <xbifns:level name="HasCleanHistory(member4)"/>
+      <xbifns:level name="HasCleanHistory(member5)"/>
+      <xbifns:level name="CriminalHistory(member3)"/>
+      <xbifns:level name="AdministrativeHistory(member3)"/>
+      <xbifns:level name="CriminalHistory(member4)"/>
+      <xbifns:level name="AdministrativeHistory(member4)"/>
+      <xbifns:level name="CriminalHistory(member5)"/>
+      <xbifns:level name="AdministrativeHistory(member5)"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="283" xPos="597" type="DiscreteProbabilistic" name="HasToChangeCommittee(procurement2)">
+        <xbifns:description>HasToChangeCommittee(procurement2)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="185" xPos="699" type="DiscreteProbabilistic" name="AreRelated(member3,person3)">
+        <xbifns:description>AreRelated(member3,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="186" xPos="908" type="DiscreteProbabilistic" name="AreRelated(member4,person3)">
+        <xbifns:description>AreRelated(member4,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="188" xPos="1106" type="DiscreteProbabilistic" name="AreRelated(member5,person3)">
+        <xbifns:description>AreRelated(member5,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="97" xPos="697" type="DiscreteProbabilistic" name="LiveInSameAddress(member3,person3)">
+        <xbifns:description>LiveInSameAddress(member3,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="98" xPos="907" type="DiscreteProbabilistic" name="LiveInSameAddress(member4,person3)">
+        <xbifns:description>LiveInSameAddress(member4,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="99" xPos="1106" type="DiscreteProbabilistic" name="LiveInSameAddress(member5,person3)">
+        <xbifns:description>LiveInSameAddress(member5,person3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="186" xPos="151" type="DiscreteProbabilistic" name="HasCleanHistory(member3)">
+        <xbifns:description>HasCleanHistory(member3)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="186" xPos="321" type="DiscreteProbabilistic" name="HasCleanHistory(member4)">
+        <xbifns:description>HasCleanHistory(member4)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="184" xPos="507" type="DiscreteProbabilistic" name="HasCleanHistory(member5)">
+        <xbifns:description>HasCleanHistory(member5)</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="119" xPos="78" type="DiscreteProbabilistic" name="CriminalHistory(member3)">
+        <xbifns:description>CriminalHistory(member3)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="72" xPos="151" type="DiscreteProbabilistic" name="AdministrativeHistory(member3)">
+        <xbifns:description>AdministrativeHistory(member3)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="119" xPos="242" type="DiscreteProbabilistic" name="CriminalHistory(member4)">
+        <xbifns:description>CriminalHistory(member4)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="73" xPos="322" type="DiscreteProbabilistic" name="AdministrativeHistory(member4)">
+        <xbifns:description>AdministrativeHistory(member4)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="125" xPos="433" type="DiscreteProbabilistic" name="CriminalHistory(member5)">
+        <xbifns:description>CriminalHistory(member5)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="73" xPos="506" type="DiscreteProbabilistic" name="AdministrativeHistory(member5)">
+        <xbifns:description>AdministrativeHistory(member5)</xbifns:description>
+        <xbifns:state name="NeverInvestigated"/>
+        <xbifns:state name="Investigated"/>
+        <xbifns:state name="Convicted"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="AreRelated(member5,person3)" parent="LiveInSameAddress(member5,person3)"/>
+      <xbifns:edge child="AreRelated(member4,person3)" parent="LiveInSameAddress(member4,person3)"/>
+      <xbifns:edge child="AreRelated(member3,person3)" parent="LiveInSameAddress(member3,person3)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="AreRelated(member3,person3)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="AreRelated(member4,person3)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="AreRelated(member5,person3)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="HasCleanHistory(member5)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="HasCleanHistory(member4)"/>
+      <xbifns:edge child="HasToChangeCommittee(procurement2)" parent="HasCleanHistory(member3)"/>
+      <xbifns:edge child="HasCleanHistory(member5)" parent="CriminalHistory(member5)"/>
+      <xbifns:edge child="HasCleanHistory(member5)" parent="AdministrativeHistory(member5)"/>
+      <xbifns:edge child="HasCleanHistory(member4)" parent="CriminalHistory(member4)"/>
+      <xbifns:edge child="HasCleanHistory(member4)" parent="AdministrativeHistory(member4)"/>
+      <xbifns:edge child="HasCleanHistory(member3)" parent="CriminalHistory(member3)"/>
+      <xbifns:edge child="HasCleanHistory(member3)" parent="AdministrativeHistory(member3)"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="HasToChangeCommittee(procurement2)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="HasCleanHistory(member3)"/>
+          <xbifns:parent index="1" name="HasCleanHistory(member4)"/>
+          <xbifns:parent index="2" name="HasCleanHistory(member5)"/>
+          <xbifns:parent index="3" name="AreRelated(member5,person3)"/>
+          <xbifns:parent index="4" name="AreRelated(member4,person3)"/>
+          <xbifns:parent index="5" name="AreRelated(member3,person3)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="64">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="65">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="66">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="67">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="68">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="69">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="70">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="71">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="72">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="73">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="74">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="75">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="76">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="77">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="78">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="79">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="80">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="81">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="82">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="83">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="84">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="85">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="86">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="87">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="88">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="89">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="90">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="91">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="92">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="93">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="94">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="95">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="96">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="97">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="98">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="99">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="100">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="101">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="102">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="103">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="104">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="105">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="106">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="107">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="108">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="109">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="110">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="111">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="112">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="113">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="114">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="115">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="116">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="117">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="118">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="119">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="120">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="121">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="122">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="123">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="124">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="125">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="126">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="127">0.30000001192092896</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AreRelated(member3,person3)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="LiveInSameAddress(member3,person3)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AreRelated(member4,person3)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="LiveInSameAddress(member4,person3)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AreRelated(member5,person3)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="LiveInSameAddress(member5,person3)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="LiveInSameAddress(member3,person3)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="LiveInSameAddress(member4,person3)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="LiveInSameAddress(member5,person3)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="HasCleanHistory(member3)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="AdministrativeHistory(member3)"/>
+          <xbifns:parent index="1" name="CriminalHistory(member3)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="HasCleanHistory(member4)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="AdministrativeHistory(member4)"/>
+          <xbifns:parent index="1" name="CriminalHistory(member4)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="HasCleanHistory(member5)"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="AdministrativeHistory(member5)"/>
+          <xbifns:parent index="1" name="CriminalHistory(member5)"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CriminalHistory(member3)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AdministrativeHistory(member3)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CriminalHistory(member4)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AdministrativeHistory(member4)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CriminalHistory(member5)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AdministrativeHistory(member5)"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9988999962806702</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">9.999999747378752E-5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.6" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>0</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>0</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>0</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>0</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>0</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy/>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable rgbColor="-256" height="60.0" width="125.0" yPos="72" xPos="0" type="DiscreteProbabilistic" name="Unusual_Ship">
+        <xbifns:description>C0</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="174.0" yPos="387" xPos="951" type="DiscreteProbabilistic" name="AbscenseOfReporting">
+        <xbifns:description>C1</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="139.0" yPos="245" xPos="56" type="DiscreteProbabilistic" name="OperOutOfArea">
+        <xbifns:description>C2</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="156.0" yPos="321" xPos="977" type="DiscreteProbabilistic" name="AppearsOutOfBlue">
+        <xbifns:description>C3</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="144.0" yPos="553" xPos="395" type="DiscreteProbabilistic" name="MeetingBehavior">
+        <xbifns:description>C4</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="208.0" yPos="363" xPos="32" type="DiscreteProbabilistic" name="ShipAtNotPredictedLocation">
+        <xbifns:description>C5</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="197.0" yPos="299" xPos="124" type="DiscreteProbabilistic" name="RouteInconsistentWithPort">
+        <xbifns:description>C6</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="153.0" yPos="487" xPos="386" type="DiscreteProbabilistic" name="InconsistentSpeed">
+        <xbifns:description>C7</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="223.0" yPos="548" xPos="527" type="DiscreteProbabilistic" name="OperationBehaviorInconsistent">
+        <xbifns:description>C8</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="198.0" yPos="434" xPos="390" type="DiscreteProbabilistic" name="CargoInconsistetnWithPort">
+        <xbifns:description>C9</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="129.0" yPos="122" xPos="0" type="DiscreteProbabilistic" name="UnusualCargo">
+        <xbifns:description>C10</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="203.0" yPos="433" xPos="1321" type="DiscreteProbabilistic" name="OwnerCrewReportProblem">
+        <xbifns:description>C11</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="169.0" yPos="376" xPos="1335" type="DiscreteProbabilistic" name="SuspeciousReporting">
+        <xbifns:description>C12</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="199.0" yPos="316" xPos="1323" type="DiscreteProbabilistic" name="ReportingOnCrewMember">
+        <xbifns:description>C13</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="164.0" yPos="14" xPos="1254" type="DiscreteProbabilistic" name="SocialNetworkCargo">
+        <xbifns:description>C14</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="162.0" yPos="11" xPos="1098" type="DiscreteProbabilistic" name="SocialnetworkCargo">
+        <xbifns:description>C15</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="191.0" yPos="61" xPos="1166" type="DiscreteProbabilistic" name="SocialNetworkOwnership">
+        <xbifns:description>C16</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="174.0" yPos="47" xPos="260" type="DiscreteProbabilistic" name="ShipNotMatchPicgture">
+        <xbifns:description>C17</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="177.0" yPos="115" xPos="258" type="DiscreteProbabilistic" name="CharacteristicsChange">
+        <xbifns:description>C18</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="204.0" yPos="4" xPos="0" type="DiscreteProbabilistic" name="DifferenElectronicSignature">
+        <xbifns:description>C19</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="188.0" yPos="456" xPos="610" type="DiscreteProbabilistic" name="ElectronicsNotOperating">
+        <xbifns:description>C20</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="154.0" yPos="389" xPos="614" type="DiscreteProbabilistic" name="DisplaysWeaponty">
+        <xbifns:description>C21</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="148.0" yPos="389" xPos="458" type="DiscreteProbabilistic" name="IdentityObscured">
+        <xbifns:description>C22</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="192.0" yPos="277" xPos="427" type="DiscreteProbabilistic" name="ShipHandlingInconsistent">
+        <xbifns:description>C23</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="188.0" yPos="310" xPos="631" type="DiscreteProbabilistic" name="InconsistentWithFunction">
+        <xbifns:description>C24</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="207.0" yPos="332" xPos="425" type="DiscreteProbabilistic" name="EvasiveBehaviourOnContact">
+        <xbifns:description>C25</xbifns:description>
+        <xbifns:state name="State 0"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure/>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Unusual_Ship"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AbscenseOfReporting"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="OperOutOfArea"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AppearsOutOfBlue"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="MeetingBehavior"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ShipAtNotPredictedLocation"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="RouteInconsistentWithPort"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="InconsistentSpeed"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="OperationBehaviorInconsistent"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CargoInconsistetnWithPort"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="UnusualCargo"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="OwnerCrewReportProblem"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="SuspeciousReporting"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ReportingOnCrewMember"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="SocialNetworkCargo"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="SocialnetworkCargo"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="SocialNetworkOwnership"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ShipNotMatchPicgture"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CharacteristicsChange"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="DifferenElectronicSignature"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ElectronicsNotOperating"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="DisplaysWeaponty"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IdentityObscured"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ShipHandlingInconsistent"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="InconsistentWithFunction"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="EvasiveBehaviourOnContact"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

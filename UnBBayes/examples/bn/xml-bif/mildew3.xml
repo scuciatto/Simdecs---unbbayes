@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>mildew3</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>40</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY>
+    <mstns:ROOT NAME="root">
+      <mstns:LEVEL NAME="Q"/>
+      <mstns:LEVEL NAME=""/>
+      <mstns:LEVEL NAME="H"/>
+      <mstns:LEVEL NAME="M"/>
+      <mstns:LEVEL NAME="M*"/>
+      <mstns:LEVEL NAME="OM"/>
+    </mstns:ROOT>
+  </mstns:HIERARCHY>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="340" XPOS="35" TYPE="discrete" NAME="Q">
+        <mstns:LABEL>Q</mstns:LABEL>
+        <mstns:STATENAME>f</mstns:STATENAME>
+        <mstns:STATENAME>a</mstns:STATENAME>
+        <mstns:STATENAME>g</mstns:STATENAME>
+        <mstns:STATENAME>v</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="240" XPOS="35" TYPE="discrete" NAME="OQ">
+        <mstns:LABEL/>
+        <mstns:STATENAME>f</mstns:STATENAME>
+        <mstns:STATENAME>a</mstns:STATENAME>
+        <mstns:STATENAME>g</mstns:STATENAME>
+        <mstns:STATENAME>v</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="320" XPOS="300" TYPE="discrete" NAME="H">
+        <mstns:LABEL>H</mstns:LABEL>
+        <mstns:STATENAME>r</mstns:STATENAME>
+        <mstns:STATENAME>b</mstns:STATENAME>
+        <mstns:STATENAME>p</mstns:STATENAME>
+        <mstns:STATENAME>f</mstns:STATENAME>
+        <mstns:STATENAME>a</mstns:STATENAME>
+        <mstns:STATENAME>g</mstns:STATENAME>
+        <mstns:STATENAME>v</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="150" XPOS="35" TYPE="discrete" NAME="M">
+        <mstns:LABEL>M</mstns:LABEL>
+        <mstns:STATENAME>no</mstns:STATENAME>
+        <mstns:STATENAME>l</mstns:STATENAME>
+        <mstns:STATENAME>m</mstns:STATENAME>
+        <mstns:STATENAME>s</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="220" XPOS="150" TYPE="discrete" NAME="Ms">
+        <mstns:LABEL>M*</mstns:LABEL>
+        <mstns:STATENAME>no</mstns:STATENAME>
+        <mstns:STATENAME>l</mstns:STATENAME>
+        <mstns:STATENAME>m</mstns:STATENAME>
+        <mstns:STATENAME>s</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="30" XPOS="35" TYPE="discrete" NAME="OM">
+        <mstns:LABEL>OM</mstns:LABEL>
+        <mstns:STATENAME>no</mstns:STATENAME>
+        <mstns:STATENAME>l</mstns:STATENAME>
+        <mstns:STATENAME>m</mstns:STATENAME>
+        <mstns:STATENAME>s</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:DECISION YPOS="110" XPOS="150" TYPE="discrete" NAME="A">
+        <mstns:LABEL>A</mstns:LABEL>
+        <mstns:STATENAME>no</mstns:STATENAME>
+        <mstns:STATENAME>l</mstns:STATENAME>
+        <mstns:STATENAME>m</mstns:STATENAME>
+        <mstns:STATENAME>h</mstns:STATENAME>
+      </mstns:DECISION>
+      <mstns:DECISION YPOS="320" XPOS="440" TYPE="discrete" NAME="D10">
+        <mstns:LABEL>T</mstns:LABEL>
+        <mstns:STATENAME>now</mstns:STATENAME>
+        <mstns:STATENAME>wait 1 week</mstns:STATENAME>
+        <mstns:STATENAME>wait 2 weeks</mstns:STATENAME>
+      </mstns:DECISION>
+      <mstns:UTILITY YPOS="210" XPOS="360" TYPE="discrete" NAME="U">
+        <mstns:LABEL>U</mstns:LABEL>
+        <mstns:STATENAME>Utility</mstns:STATENAME>
+      </mstns:UTILITY>
+      <mstns:UTILITY YPOS="35" XPOS="150" TYPE="discrete" NAME="C">
+        <mstns:LABEL/>
+        <mstns:STATENAME>Utility</mstns:STATENAME>
+      </mstns:UTILITY>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="OQ" PARENT="Q"/>
+      <mstns:ARC CHILD="H" PARENT="Ms"/>
+      <mstns:ARC CHILD="H" PARENT="Q"/>
+      <mstns:ARC CHILD="Ms" PARENT="A"/>
+      <mstns:ARC CHILD="Ms" PARENT="M"/>
+      <mstns:ARC CHILD="U" PARENT="D10"/>
+      <mstns:ARC CHILD="U" PARENT="H"/>
+      <mstns:ARC CHILD="A" PARENT="OQ"/>
+      <mstns:ARC CHILD="A" PARENT="OM"/>
+      <mstns:ARC CHILD="OM" PARENT="M"/>
+      <mstns:ARC CHILD="C" PARENT="A"/>
+      <mstns:ARC CHILD="D10" PARENT="H"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Q"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="OQ"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Q"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.5</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="H"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Q"/>
+          <mstns:CONDLEM NAME="Ms"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="M"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Ms"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="M"/>
+          <mstns:CONDLEM NAME="A"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="8">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="U"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="H"/>
+          <mstns:CONDLEM NAME="D10"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">-1.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">5.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">8.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">10.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">12.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">13.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">-1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">5.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">8.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">10.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">12.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">13.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">-1.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="16">5.0</mstns:DPI>
+          <mstns:DPI INDEXES="17">8.0</mstns:DPI>
+          <mstns:DPI INDEXES="18">10.0</mstns:DPI>
+          <mstns:DPI INDEXES="19">12.0</mstns:DPI>
+          <mstns:DPI INDEXES="20">13.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="A"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="OQ"/>
+          <mstns:CONDLEM NAME="OM"/>
+        </mstns:CONDSET>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="OM"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="M"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.6</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="C"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="A"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">-2.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">-3.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">-4.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="D10"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="H"/>
+        </mstns:CONDSET>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

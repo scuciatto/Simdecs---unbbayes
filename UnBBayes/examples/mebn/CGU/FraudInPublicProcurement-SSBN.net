@@ -1,0 +1,293 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     tree = "(HasToChangeCommittee(procurement2),AreRelated(member3,person3),AreRelated(member4,person3),AreRelated(member5,person3),LiveInSameAddress(member3,person3),LiveInSameAddress(member4,person3),LiveInSameAddress(member5,person3),HasCleanHistory(member3),HasCleanHistory(member4),HasCleanHistory(member5),CriminalHistory(member3),AdministrativeHistory(member3),CriminalHistory(member4),AdministrativeHistory(member4),CriminalHistory(member5),AdministrativeHistory(member5))";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+     UnBBayes_Color_Utility = "-16711681";
+     UnBBayes_Color_Decision = "-14336";
+}
+
+node HasToChangeCommittee(procurement2)
+{
+     label = "HasToChangeCommittee(procurement2)";
+     position = (597 283);
+     states = ("True" "False");
+}
+
+node AreRelated(member3,person3)
+{
+     label = "AreRelated(member3,person3)";
+     position = (699 185);
+     states = ("True" "False");
+}
+
+node AreRelated(member4,person3)
+{
+     label = "AreRelated(member4,person3)";
+     position = (908 186);
+     states = ("True" "False");
+}
+
+node AreRelated(member5,person3)
+{
+     label = "AreRelated(member5,person3)";
+     position = (1106 188);
+     states = ("True" "False");
+}
+
+node LiveInSameAddress(member3,person3)
+{
+     label = "LiveInSameAddress(member3,person3)";
+     position = (697 97);
+     states = ("True" "False");
+}
+
+node LiveInSameAddress(member4,person3)
+{
+     label = "LiveInSameAddress(member4,person3)";
+     position = (907 98);
+     states = ("True" "False");
+}
+
+node LiveInSameAddress(member5,person3)
+{
+     label = "LiveInSameAddress(member5,person3)";
+     position = (1106 99);
+     states = ("True" "False");
+}
+
+node HasCleanHistory(member3)
+{
+     label = "HasCleanHistory(member3)";
+     position = (151 186);
+     states = ("True" "False");
+}
+
+node HasCleanHistory(member4)
+{
+     label = "HasCleanHistory(member4)";
+     position = (321 186);
+     states = ("True" "False");
+}
+
+node HasCleanHistory(member5)
+{
+     label = "HasCleanHistory(member5)";
+     position = (507 184);
+     states = ("True" "False");
+}
+
+node CriminalHistory(member3)
+{
+     label = "CriminalHistory(member3)";
+     position = (78 119);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+node AdministrativeHistory(member3)
+{
+     label = "AdministrativeHistory(member3)";
+     position = (151 72);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+node CriminalHistory(member4)
+{
+     label = "CriminalHistory(member4)";
+     position = (242 119);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+node AdministrativeHistory(member4)
+{
+     label = "AdministrativeHistory(member4)";
+     position = (322 73);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+node CriminalHistory(member5)
+{
+     label = "CriminalHistory(member5)";
+     position = (433 125);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+node AdministrativeHistory(member5)
+{
+     label = "AdministrativeHistory(member5)";
+     position = (506 73);
+     states = ("NeverInvestigated" "Investigated" "Convicted");
+}
+
+potential (HasToChangeCommittee(procurement2) | HasCleanHistory(member3) HasCleanHistory(member4) HasCleanHistory(member5) AreRelated(member5,person3) AreRelated(member4,person3) AreRelated(member3,person3))
+{
+ data = ((((((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 ))))
+(((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))))
+((((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 ))))
+(((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 ))))))
+(((((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 ))))
+(((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))))
+((((( 0.7 0.3 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 )))
+((( 0.9 0.1 )
+( 0.9 0.1 ))
+(( 0.9 0.1 )
+( 0.9 0.1 ))))
+(((( 0.0010 0.999 )
+( 0.7 0.3 ))
+(( 0.7 0.3 )
+( 0.7 0.3 )))
+((( 0.7 0.3 )
+( 0.7 0.3 ))
+(( 0.7 0.3 )
+( 0.7 0.3 )))))));
+}
+
+potential (AreRelated(member3,person3) | LiveInSameAddress(member3,person3))
+{
+ data = (( 0.9 0.1 )
+( 0.0010 0.999 ));
+}
+
+potential (AreRelated(member4,person3) | LiveInSameAddress(member4,person3))
+{
+ data = (( 0.9 0.1 )
+( 0.0010 0.999 ));
+}
+
+potential (AreRelated(member5,person3) | LiveInSameAddress(member5,person3))
+{
+ data = (( 0.9 0.1 )
+( 0.0010 0.999 ));
+}
+
+potential (LiveInSameAddress(member3,person3))
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (LiveInSameAddress(member4,person3))
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (LiveInSameAddress(member5,person3))
+{
+ data = ( 1.0E-4 0.9999 );
+}
+
+potential (HasCleanHistory(member3) | AdministrativeHistory(member3) CriminalHistory(member3))
+{
+ data = ((( 0.99 0.01 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.6 0.4 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.01 0.99 )
+( 0.01 0.99 )
+( 0.01 0.99 )));
+}
+
+potential (HasCleanHistory(member4) | AdministrativeHistory(member4) CriminalHistory(member4))
+{
+ data = ((( 0.99 0.01 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.6 0.4 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.01 0.99 )
+( 0.01 0.99 )
+( 0.01 0.99 )));
+}
+
+potential (HasCleanHistory(member5) | AdministrativeHistory(member5) CriminalHistory(member5))
+{
+ data = ((( 0.99 0.01 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.6 0.4 )
+( 0.6 0.4 )
+( 0.01 0.99 ))
+(( 0.01 0.99 )
+( 0.01 0.99 )
+( 0.01 0.99 )));
+}
+
+potential (CriminalHistory(member3))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+
+potential (AdministrativeHistory(member3))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+
+potential (CriminalHistory(member4))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+
+potential (AdministrativeHistory(member4))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+
+potential (CriminalHistory(member5))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+
+potential (AdministrativeHistory(member5))
+{
+ data = ( 0.9989 0.0010 1.0E-4 );
+}
+

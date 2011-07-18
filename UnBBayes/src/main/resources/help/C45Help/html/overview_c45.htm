@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><b>Overview: C4.5 Extensions</b> </p>
+<p><b>Gain Ratio</b></p>
+<p>The gain measure favours attributes with large number of values. For example, 
+  for an attribute with a different value for each instance (an identifier attribute), 
+  the entropy for any of its values distribution is zero. The gain for this attribute 
+  is maximum, equals to the entropy of the entire instance set, and it will be 
+  chosen as the splitting attribute. The tree generated has a root node with one 
+  leaf for each instance as its children. To avoid situations like this, the concept 
+  of gain ratio is used instead of gain. Gain ratio is defined as:</p>
+<p align="center">GainRatio(D,A) = Gain(D,A)/SplitInfo(D,A), where:</p>
+<p align="center">SplitInfo(D,A) = -(|Dv1|/|D|log|Dv1|/|Dv1| +...+ |Dvn|/|D|log|Dvn|/|Dvn| 
+  )</p>
+<p align="left">For the golf example:</p>
+<p align="left">SplitInfo(D,Outlook)=-(5/14*log(5/14)+4/14*log(4/14)+5/14*log(5/14))=1.57<br>
+  GainRatio(D,Outlook)=0.246/1.577=0.156 </p>
+<p align="left">SplitInfo(D,Windy)=-(6/14*log(6/14)+8/14*log(8/14))=0.985<br>
+  GainRatio(D,Windy)=0.048/0.985=0.049 <br>
+</p>
+<p align="left"><b>Numeric Attribute</b></p>
+<p align="left">In the case there is a numeric attribute, a reference point is 
+  chosen in such a way the split of an instance set in two partitions results 
+  in the greatest gain possible. </p>
+<p align="left">To do so, we first order the values in increasing order. Then, 
+  we test points (frequently the mean points) between every two values consecutives 
+  and relative to differently classified instances (heuristic to reduce the calculation) 
+  - the gain refered to each split is computed. The greatest gain is the attribute 
+  gain. If this attribute is the one with the greatest gain, the split used is 
+  the one applied to obtain the gain.</p>
+<p align="left">For the golf example, considering the attributes <i>temperature</i> 
+  e <i>humidity</i> are numeric, let's compute the gain for the <i>Temperature</i> 
+  attribute: </p>
+<p align="center"><img src="numeric_table.JPG" width="353" height="176"> </p>
+<p align="left">The ordered values are 69(yes), 72(no), 75(yes), 80(no) and 85(no). 
+  Considering only the mean points between values whose instances are classified 
+  differently, we have the points 70.5, 73.5 and 77.5 to evaluate.</p>
+<p align="left">70.5<br>
+  Gain(D,Temperature)=Entropy(D)-(1/5*Entropy[1,0]+4/5*Entropy[1,3])=0.321 </p>
+<p align="left">73.5<br>
+  Gain(D,Temperature)=Entropy (D)-(2/5*Entropy[1,1]+3/5*Entropy[1,2])=0.021 </p>
+<p align="left">77.5<br>
+  Gain(D,Temperature)=Entropy(D)-(3/5*Entropy[2,1]+2/5*Entropy[0,2])=0.421</p>
+<p align="left">The split on 77.5 results on the greatest gain. So, this is the 
+  best value, and the attribute gain is 0.421. If this is the greatest gain among 
+  the attributes, <i>temperature</i> is used for splitting.</p>
+<p align="left">The tree generated based on a numeric golf database is represented 
+  below . </p>
+<p align="center"><img src="numeric_tree.JPG" width="576" height="342"></p>
+<p align="left"><b>Missing Values</b></p>
+<p align="left">Some databases contains instances whose value for an attribute 
+  wasn't set. This kind of value is called missing value. </p>
+<p align="left">There is a strategy to deal with this kind of instances. When 
+  an attribute is being evaluated, all the instances whose value for this attribute 
+  is missing are desconsidered. When an attribute is chosen for the split, the 
+  instances disconsidered before will be in all partitions, having associated 
+  to each of them a weight proportional to the number of instances on the instance 
+  set that constains it.</p>
+<p align="left">Consider the last instance from the golf example <i> </i>has a 
+  missing value for the <i>Outlook</i> attribute: </p>
+<p align="center"><img src="missing_table.JPG" width="566" height="306"></p>
+<p align="left">The necessary calculation to obtain the gain for the <i>Outlook</i> 
+  attribute is:</p>
+<p align="left">Gain(D,Outlook) = Entropy[9,4] – (5/13*Entropy[2,3]+4/13*Entropy[4,0]+5/14*Entropy[3,2])= 
+  0.267 </p>
+<p align="left">The instance set with the missing value was disconsidered. The 
+  other attributes don't have missing values. So, all the instances will be considered 
+  to obtain their gains. </p>
+<p align="left">The gain ratio is obtained as the missing value were a new value. 
+  Like this:</p>
+<p align="left">SplitInfo(D,Outlook)=-(5/14*log(5/14) + 4/14*log(4/14) + 4/14*log(4/14) 
+  + 1/14*log(1/14)) = 1.83 <br>
+  GainRatio(D,Outlook)=0.267/1.83=0.145 </p>
+<p align="left">The instance sets obtained from the split on <i>Outlook </i>attribute 
+  are represented below. The instances with a missing value have their weights 
+  on the right. The other instances' weights are 1. </p>
+<p align="center"><img src="missing_split_table.JPG" width="437" height="468"></p>
+<p align="left">The tree below brings the number of instances that reached each 
+  leaf, considering the weights from the instances with missing values. In this 
+  case, the distribution of the leaf reached by the <i>overcast</i> branch isn't 
+  homogeneous: one of the instances generated by the instance with missing value 
+  arrived at this leaf, and its class is not the same than the other instances' 
+  class. The number of instances arriving the leaf are shown before &quot;|&quot;, 
+  while the number of different class instances are shown after.</p>
+<p align="center"><img src="missing_tree.JPG" width="595" height="346"></p>
+<p align="left"><b>Prunning</b></p>
+<p align="left">The commom tree generation may cause overfitting, resulting in 
+  big trees with unrepresentative leaves, what is sometimes undesirable. A solutions 
+  is prunning the tree. A method commonly used is the post-prunning with subtree 
+  replacement. In this method, the whole tree is generated and then prunned. The 
+  prunnning is made replacing subtrees for leaves. The approach used is botton-up: 
+  all the subtrees are tested from the leaves until the root. The leaf that would 
+  replace a subtree represents all the instances arrived at the subtree's leaves. 
+  The replacement is made when these leaves' error rates exceed the substitute 
+  leaf's erro rate. These values are obtained from the total number and erroneous 
+  instances of each leaf, and a variable called <i>confidence.</i></p>
+<p align="left">The tree below represents a possible prunning for the tree generated 
+  on the golf example:</p>
+<p align="center"><img src="pruned_tree.JPG" width="414" height="251"></p>
+</body>
+</html>

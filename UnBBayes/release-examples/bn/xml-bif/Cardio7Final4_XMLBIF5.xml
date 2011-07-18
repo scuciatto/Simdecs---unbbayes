@@ -1,0 +1,1450 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name/>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>24</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="Vari&#225;veis de Informa&#231;&#227;o">
+      <xbifns:level name="Exames Complementares"/>
+      <xbifns:level name="Hist&#243;ria Clinica"/>
+      <xbifns:level name="Exame F&#237;sico"/>
+    </xbifns:root>
+    <xbifns:root name="Exames Complementares">
+      <xbifns:level name="Raio X"/>
+      <xbifns:level name="ECG"/>
+    </xbifns:root>
+    <xbifns:root name="Raio X">
+      <xbifns:level name="Raio X mostrando eros&#227;o dos arcos costais"/>
+      <xbifns:level name="RX com cardiomegalia"/>
+      <xbifns:level name="RX com dilata&#231;&#227;o do tronco pulmonar"/>
+      <xbifns:level name="RX com cardiomegalia e sinais de aumento do VE"/>
+      <xbifns:level name="RX com hiperfluxo pulmonar"/>
+      <xbifns:level name="Cora&#231;&#227;o em bota ao RX"/>
+    </xbifns:root>
+    <xbifns:root name="ECG">
+      <xbifns:level name="ECG com padr&#227;o de hemibloqueio anterior esquerdo"/>
+      <xbifns:level name="ECG com hipertrofia ventricular esquerda"/>
+      <xbifns:level name="ECG com sinais de bloqueio do ramo direito"/>
+      <xbifns:level name="ECG mostrando crescimento biventricular"/>
+      <xbifns:level name="ECG mostrando crescimento VD"/>
+      <xbifns:level name="ECG com crescimento VE"/>
+    </xbifns:root>
+    <xbifns:root name="Hist&#243;ria Clinica">
+      <xbifns:level name="Outras Doen&#231;as Associadas"/>
+      <xbifns:level name="Sintomas"/>
+    </xbifns:root>
+    <xbifns:root name="Outras Doen&#231;as Associadas">
+      <xbifns:level name="S&#237;ndrome de Down"/>
+    </xbifns:root>
+    <xbifns:root name="Sintomas">
+      <xbifns:level name="Crises de Cianose"/>
+      <xbifns:level name="Lipot&#237;mias"/>
+    </xbifns:root>
+    <xbifns:root name="Exame F&#237;sico">
+      <xbifns:level name="Ausculta"/>
+      <xbifns:level name="Sinais"/>
+    </xbifns:root>
+    <xbifns:root name="Ausculta">
+      <xbifns:level name="Estalido meso-sist&#243;lico"/>
+      <xbifns:level name="Sopro sist&#243;lico"/>
+      <xbifns:level name="Rolar diast&#243;lico de fluxo em &#225;rea de VE"/>
+      <xbifns:level name="Sopro holossist&#243;lico em faixa"/>
+      <xbifns:level name="Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda"/>
+      <xbifns:level name="Estalido sist&#243;lico"/>
+      <xbifns:level name="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica"/>
+      <xbifns:level name="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar"/>
+      <xbifns:level name="Rolar diast&#243;lico de fluxo em &#225;rea de VD"/>
+      <xbifns:level name="B2 com desdobramento fixo"/>
+      <xbifns:level name="Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado"/>
+    </xbifns:root>
+    <xbifns:root name="Sinais">
+      <xbifns:level name="Posi&#231;&#227;o de c&#243;coras"/>
+      <xbifns:level name="Cianose"/>
+      <xbifns:level name="Aus&#234;ncia de pulsos em membros inferiores"/>
+      <xbifns:level name="Hipertens&#227;o arterial sist&#234;mica"/>
+      <xbifns:level name="Pulsos hipercin&#233;ticos"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="1035" xPos="12" type="DiscreteProbabilistic" name="Frase_18">
+        <xbifns:description>S&#237;ndrome de Down</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1100" xPos="19" type="DiscreteProbabilistic" name="Frase_137">
+        <xbifns:description>ECG com padr&#227;o de hemibloqueio anterior esquerdo</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1100" xPos="166" type="DiscreteProbabilistic" name="Frase_107">
+        <xbifns:description>RX com cardiomegalia</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1028" xPos="177" type="DiscreteProbabilistic" name="DSAV">
+        <xbifns:description>Defeito do Septo Atrioventricular</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    Acomete de 4 a 5% dos pacientes com doen&#231;a card&#237;aca cong&#234;nita.
+
+    Cerca de 40% dos pacientes com S&#237;ndrome de Down t&#234;m doen&#231;a 
+card&#237;aca cong&#234;nita e destes, aproximadamente 40% tem DSAV, 
+geralmente na forma completa.
+
+   Classifica-se em parcial e completo.
+
+a) DSAV Parcial: 
+
+    O anel da valva AV esquerda e direita s&#227;o separados. Comunica&#231;&#227;o 
+interatrial  'ostium primum' com  'cleft'  do folheto anterior da valva AV 
+esquerda s&#227;o as altera&#231;&#245;es mais comuns. 
+
+    Os sintomas comumente decorrem da associa&#231;&#227;o com insufici&#234;ncia da 
+valva AV esquerda ou m&#250;ltiplos defeitos card&#237;acos associados e s&#227;o, 
+principalmente, insufici&#234;ncia card&#237;aca congestiva, dispn&#233;ia, fadiga e 
+infec&#231;&#245;es respirat&#243;rias recorrentes.
+
+    No exame f&#237;sico podem estar presentes hiperatividade card&#237;aca e 
+impulso ventricular direito e esquerdo. A ausculta pode revelar  
+desdobramento fixo da B2 e sopro holossist&#243;lico de regurgita&#231;&#227;o da valva 
+AV esquerda . 
+
+b) DSAV Completo
+
+    Defeito septal com componentes interatrial e interventricular; a 
+valva atrioventricular &#233; comum, geralmente regurgitante.
+
+    Os sintomas geralmente iniciam mais precocemente como resultado do 
+aumento do fluxo sang&#252;&#237;neo e frequentemente s&#227;o complica&#231;&#245;es da 
+insufici&#234;ncia da valva AV comum. Ocorre principalmente insufici&#234;ncia 
+card&#237;aca congestiva, infec&#231;&#245;es respirat&#243;rias de repeti&#231;&#227;o e baixo ganho 
+ponderal.
+
+    Os pacientes geralmente s&#227;o desnutridos. Na ausculta card&#237;aca a B1 
+pode ser acentuada. Pode ser auscultado um sopro holossist&#243;lico na 
+borda esternal esquerda inferior e no &#225;pice card&#237;aco, resultado da 
+insufici&#234;ncia da valva AV esquerda. Tamb&#233;m pode-se auscultar um sopro 
+sist&#243;lico crescendo-decrescendo na borda esternal esquerda superior 
+como resultado de um fluxo aumentado de sangue pela art&#233;ria pulmonar 
+dilatada. </xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="S&#237;ndrome de Down">
+            <xbifns:comments>    Cerca de 40% dos pacientes com Sindrome de Down tem doen&#231;a
+card&#237;aca cong&#234;nita e destes, aproximadamente 40% tem DSAV,
+geralmente na forma completa.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="RX com hiperfluxo pulmonar">
+            <xbifns:comments>A circula&#231;&#227;o pulmonar &#233; proeminente</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="ECG com padr&#227;o de hemibloqueio anterior esquerdo">
+            <xbifns:comments>    Freq&#252;entemente h&#225; intervalo PR prolongado e o ritmo &#233; sinusal. 50% dos
+pacientes apresentam crescimento de &#225;trio direito, crescimento de &#225;trio
+esquerdo, ou ambos. O eixo m&#233;dio do QRS &#233; em torno de -30 graus a
+-120 graus. Crescimento ventricular direito e padr&#227;o de bloqueio de ramo
+direito s&#227;o observados.
+
+DSAV completo:
+    Normalmente o ritmo &#233; sinusal. O intervalo PR &#233; prolongado. H&#225;
+evid&#234;ncias de crescimento atrial direito, crescimento de &#225;trio direito, &#225;trio
+esquerdo ou ambos. O eixo do QRS varia de -60 a -135 graus. 2/3 dos
+pacientes apresentam: rSR', RSR' ou rR' em V1 e 1/3 apresentam: qR ou
+R em V1, ambos indicadores de hipertrofia ventricular direita.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="RX com cardiomegalia">
+            <xbifns:comments>DSAV parcial:
+    Pode ocorrer cardiomegalia,
+
+DSAV completo:
+    Cardiomegalia est&#225; sempre presente, Art&#233;ria pulmonar &#233; proeminente.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG com sinais de bloqueio do ramo direito">
+            <xbifns:comments/>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG com crescimento VE">
+            <xbifns:comments/>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG com hipertrofia ventricular esquerda">
+            <xbifns:comments/>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG mostrando crescimento biventricular">
+            <xbifns:comments/>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG mostrando crescimento VD">
+            <xbifns:comments/>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="1103" xPos="387" type="DiscreteProbabilistic" name="Frase_83">
+        <xbifns:description>B2 com desdobramento fixo</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1111" xPos="541" type="DiscreteProbabilistic" name="CIA">
+        <xbifns:description>Comunica&#231;&#227;o Interatrial</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    Comunica&#231;&#227;o interatrail &#233; um defeito cong&#234;nito relativamente comum.Freq&#252;entemente ocorre como um defeito isolado. Classifica-se de acordo com sua localiza&#231;&#227;o em:
+
+- &#211;stio secundum: na regi&#227;o da fossa oval- Forame oval patente: na regi&#227;o da fossa oval
+- &#211;stio primum: defeitos anteriores a fossa oval e frequentemente 
+associados 
+com 'cleft' do folheto anterior da v&#225;vula mitral.
+- Seio venoso: defeito posterior a fossa oval, geralemnte associada com 
+drenagem venosa pulmonar an&#244;mala.</xbifns:description>
+          <xbifns:explanation evidenceType="Exclusive" evidence="ECG com sinais de bloqueio do ramo direito">
+            <xbifns:comments>    O eletrocardiograma apresenta com freq&#252;&#234;ncia um desvio do eixo QRS 
+para a direita, intervalo p-R prolongado (BAV de 1o. grau) e bloqueio 
+incompleto de ramo (rSR' ou RSR') direito. Em 50% dos pacientes h&#225; 
+altera&#231;&#245;es na onda P que sugere crescimento de AD. </xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Rolar diast&#243;lico de fluxo em &#225;rea de VD">
+            <xbifns:comments>    No exame f&#237;sico pode-se encontrar impulso card&#237;aco hiperdin&#226;mico (em 
+crian&#231;as, velhos e adultos e quando presente &#233; grande),  impluso sist&#243;lico 
+proeminente (relacionado ao VD) e um rolar diast&#243;lico em VD (sopro 
+pr&#233;-meso diast&#243;lico em foco tric&#250;spide).</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado">
+            <xbifns:comments>    No exame f&#237;sico tamb&#233;m pode-se encontar um  sopro sist&#243;lico 
+crescendo-decrescendo suave em foco pulmonar.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="B2 com desdobramento fixo">
+            <xbifns:comments>    No exame fixo tamb&#233;m pode-se encontrar dedobramento fixo de B2.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="RX com hiperfluxo pulmonar">
+            <xbifns:comments>    No Raio X de t&#243;rax evidencia-se cardiomegalia (&#237;ndice cardiotor&#225;cico 
+maior do que 0,5), aumento de AD e VD, arco a&#243;rtico pequeno e 
+aus&#234;ncia da imagem da veia cava superior. Al&#233;m disso, a circula&#231;&#227;o 
+pulmonar &#233; aumentada e o tronco da art&#233;ria pulmonar dilatado (tornando o 
+formato card&#237;aco triangular).</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica">
+            <xbifns:comments/>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG mostrando crescimento biventricular">
+            <xbifns:comments/>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="1110" xPos="674" type="DiscreteProbabilistic" name="Frase_71">
+        <xbifns:description>Rolar diast&#243;lico de fluxo em &#225;rea de VD</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1057" xPos="661" type="DiscreteProbabilistic" name="Frase_145">
+        <xbifns:description>ECG com sinais de bloqueio do ramo direito</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1027" xPos="568" type="DiscreteProbabilistic" name="Frase_55">
+        <xbifns:description>Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="979" xPos="333" type="DiscreteProbabilistic" name="Frase_104">
+        <xbifns:description>RX com hiperfluxo pulmonar</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="818" xPos="382" type="DiscreteProbabilistic" name="CIV">
+        <xbifns:description>Comunica&#231;&#227;o Interventricular</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    A patologia Comunica&#231;&#227;o Interventricular incide em 1,5 a 3,5 por 1000 
+nascidos vivos a termo e 4,5 a 7,0 por 1000 em prematuros, sendo 
+levemente mais freq&#252;ente em pacientes do sexo feminino.
+
+    O quadro cl&#237;nico depende do tamanho do defeito e da resist&#234;ncia 
+vascular pulmonar. A CIV pode ser classificada em CIV pequena, CIV 
+moderada e CIV grande.</xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="Sopro holossist&#243;lico em faixa">
+            <xbifns:comments>    Na CIV pequena, a atividade pr&#233;-cordial &#233; normal. O sopro &#233; 
+holossist&#243;lico grau IV a VII, e pode envolver o componente a&#243;rtico da B2, 
+localiza-se na horda esternal esquerda estendendo-se por toda regi&#227;o 
+paraesternal esquerda em alguns pacientes.
+</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Rolar diast&#243;lico de fluxo em &#225;rea de VE">
+            <xbifns:comments>    Na CIV moderada, a atividade pr&#233;-cordial &#233; acentuada. O sopro 
+holossist&#243;lico rude, mais proeminente na horda esternal esquerda inferior. 
+Uma B3 proeminente com um curto rolar diast&#243;lico frequntemente &#233; 
+aud&#237;vel no &#225;pice. A B2 usualmente desdobrada.
+
+    A CIV grande apresenta moderada eleva&#231;&#227;o da resist&#234;ncia vascular 
+pulmonar. O sopro sist&#243;lico em decrescendo &#233; m&#225;ximo ao longo da borda 
+esternal esquerda e desaparece durante o ter&#231;o tardio da s&#237;stole antes do 
+fechamento da valva a&#243;rtica. O componente pulmonar da B2 &#233; lento. 
+Ausculta-se uma R2 e rolar diast&#243;lico.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="ECG mostrando crescimento biventricular">
+            <xbifns:comments>    Pacientes que apresentam CIV pequena geralmente s&#227;o assintom&#225;ticos 
+e a ECG apresenta normal. Alguns pacientes demonstram rsr' em V1 ou 
+V4R.
+
+    Na CIV moderada e grande os pacientes apresentam no ECG 
+hipertrofia biventricular.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="RX com hiperfluxo pulmonar">
+            <xbifns:comments>    Na CIV pequena o Raio X apresenta cora&#231;&#227;o de volume e circula&#231;&#227;o 
+normais.
+
+    Na CIV moderada, apresenta cardiomegalia vari&#225;vel com aumento do 
+VE e AE, hiper fluxo pulmonar e proemin&#234;ncia do tronco da AP.
+
+    Na CIV grande cardiomegalia (hipertrofia de VD), hiperfluxo pulmonar e 
+proemin&#234;ncia do tronco da AP s&#227;o achados radiol&#243;gicos.</xbifns:comments>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="764" xPos="479" type="DiscreteProbabilistic" name="Frase_70">
+        <xbifns:description>Rolar diast&#243;lico de fluxo em &#225;rea de VE</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="816" xPos="514" type="DiscreteProbabilistic" name="Frase_60">
+        <xbifns:description>Sopro holossist&#243;lico em faixa</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="864" xPos="465" type="DiscreteProbabilistic" name="Frase_132">
+        <xbifns:description>ECG mostrando crescimento biventricular</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="634" xPos="381" type="DiscreteProbabilistic" name="Cardiopatia">
+        <xbifns:description>Cardiopatias Cong&#234;nitas</xbifns:description>
+        <xbifns:state name="Estado 0"/>
+        <xbifns:metaphore>
+          <xbifns:description/>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="918" xPos="823" type="DiscreteProbabilistic" name="PCA">
+        <xbifns:description>Persist&#234;ncia do Canal Arterial</xbifns:description>
+        <xbifns:state name="Estado 0"/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    A incid&#234;ncia de PCA isolado em crian&#231;as a termo &#233; em torno de 1 em 
+2000 nascidos vivos, e representa em torno  de 5 a 10% de todos os tipos 
+de cardiopatia cong&#234;nita.
+
+    A cl&#237;nica &#233; determinada basicamente pelo tamanho do canal patente. 
+Classifica-se em: PCA pequeno, PCA moderado e PCA grande.</xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda">
+            <xbifns:comments>    No PCA pequeno poucas crian&#231;as s&#227;o sintom&#225;ticas. O &#250;nico achado 
+anormal pode ser um sopro sist&#243;lico curto aud&#237;vel transitoriamente na 
+inf&#226;ncia precoce que pode progredir para um sopro cont&#237;nuo t&#237;pico. Este 
+sopro &#233; melhor aud&#237;vel no 2o. espa&#231;o intercostal esquerdo que se 
+acentua quando o paciente est&#225; destado ou em inspira&#231;&#227;o.
+
+    No PCA moderado, o sopro &#233; cont&#237;nuo e em geral bem aud&#237;vel 
+posteriormente. Este tem qualidade &#225;spera e com componentes de baixa 
+freq&#252;&#234;ncia, adquirindo uma qualidade em 'maquinaria' por causa do 
+grande fluxo e turul&#234;ncia di mesmo.
+
+    No PCA grande a primeira e segunda bulhas s&#227;o acentuadas e a 
+terceira bulha &#233; ordinariamente aud&#237;vel na &#225;pice, ocasionalmente, 
+especialmente com fal&#234;ncia card&#237;aca severa n&#227;o se ausculta sopros. 
+Quando a fal&#234;ncia ventricular esquerda &#233; controlada, ausculta-se um sopro 
+sist&#243;lico mais aud&#237;vel  em foco pulmonar, com pico na s&#237;stole e 
+prolonga&#231;&#227;o varai&#225;vel na di&#225;stole, comumente termina no ter&#231;o 
+inicial da di&#225;stole.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Pulsos hipercin&#233;ticos">
+            <xbifns:comments>    No PCA moderado geralmente as crian&#231;as t&#234;m algum d&#233;fcit de 
+desenvolvimento, mas pacientes um pouco mais velhos pode haver 
+fadiga e pulsos perif&#233;ricos s&#227;o amplos.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="RX com hiperfluxo pulmonar">
+            <xbifns:comments>    Os achados radiol&#243;gicos podem ser cardiomegalia, crescimento do 
+ventr&#237;culo esquerdo e &#225;trio esquerdo, proemin&#234;ncia do tronco da art&#233;ria 
+pulmonar, aumento da vasculariza&#231;&#227;o pulmonar, proemin&#234;ncia da aorta 
+ascendente e hiperfluxo pulmonar.</xbifns:comments>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="963" xPos="898" type="DiscreteProbabilistic" name="Frase_75">
+        <xbifns:description>Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="858" xPos="864" type="DiscreteProbabilistic" name="Frase_35">
+        <xbifns:description>Pulsos hipercin&#233;ticos</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="712" xPos="145" type="DiscreteProbabilistic" name="FALLOT">
+        <xbifns:description>Tetralogia de Fallot</xbifns:description>
+        <xbifns:state name="Estado 0"/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    &#201; considerada a cardiopatia cong&#234;nita isom&#225;tica mais comum, 
+representa cerca de 10% de todas as cardiopatias cong&#234;nitas, com leve 
+predomin&#226;ncia do sexo masculino.</xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="Posi&#231;&#227;o de c&#243;coras">
+            <xbifns:comments>    &#201; comum a crian&#231;a com tetralogia de Fallot apresentar posi&#231;&#227;o de 
+c&#243;coras, principalmente ap&#243;s esfor&#231;os.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Crises de Cianose">
+            <xbifns:comments>    Crises de cianose caracterizam-se por epis&#243;dios de cianose intensa
+acompanhada de respira&#231;&#245;es anormais e altera&#231;&#227;o do n&#237;vel de
+consci&#234;ncia.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="Cora&#231;&#227;o em bota ao RX">
+            <xbifns:comments>    O cora&#231;&#227;o &#233; de tamanho normal ou pequeno em casos n&#227;o operados, 
+frequentemente em 'bota'. A presen&#231;a de cardiomegalia sugere 
+fortemente contra o diagn&#243;stico. 1/5 dos pacietnes t&#234;m arco a&#243;rtico a 
+direita. A circula&#231;&#227;o &#233; normal a diminu&#237;da.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="Raio X mostrando eros&#227;o dos arcos costais">
+            <xbifns:comments>    Em rec&#233;m nascidos, os achados radiologicos s&#227;o cardiomegalia 
+moderada a severa, aumento da vasculariza&#231;&#227;o pulmonar e congest&#227;o 
+venosa.
+
+    Em crian&#231;as, &#225;rea card&#237;aca aumentada, CP normal, contorno anormal 
+do arco a&#243;rtico (identa&#231;&#227;o localizada na aorta no s&#237;tio da coarcta&#231;&#227;o - 
+sinal do tr&#234;s invertido) e proemin&#234;ncia da aorta descendente.
+
+    Em pacientes acima de 5 anos &#233; comum visualizar-se eros&#245;es dos 
+arcos costais.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Cianose">
+            <xbifns:comments>    Cianose generalizada, que quando leve pode ser evidente somente nos 
+l&#225;bios, membranas, mucosas ou leito lingual.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar">
+            <xbifns:comments>    A maioria dos pacientes tem um sopro sist&#243;lico na borda esternal 
+esquerda m&#233;dia a alta, gerado na orla pulmonar. Este sopro &#233; 
+crescendo-decrescendo e parasist&#243;lico.</xbifns:comments>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="779" xPos="195" type="DiscreteProbabilistic" name="Frase_56">
+        <xbifns:description>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="793" xPos="91" type="DiscreteProbabilistic" name="Frase_8">
+        <xbifns:description>Cianose</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="762" xPos="17" type="DiscreteProbabilistic" name="Frase_195">
+        <xbifns:description>Cora&#231;&#227;o em bota ao RX</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="705" xPos="35" type="DiscreteProbabilistic" name="Frase_13">
+        <xbifns:description>Posi&#231;&#227;o de c&#243;coras</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="652" xPos="46" type="DiscreteProbabilistic" name="Frase_12">
+        <xbifns:description>Crises de Cianose</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="698" xPos="699" type="DiscreteProbabilistic" name="EAO">
+        <xbifns:description>Estenose A&#243;rtica</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    Incide em cerca de 3 a 6 % dos pacientes com cardiopatia cong&#234;nita, 
+havendo um predom&#237;nio 3 a 5 vezes maior no sexo masculino. 
+
+    Associa&#231;&#227;o com malforma&#231;&#245;es card&#237;acas est&#225; presente em mais de 
+20% dos casos, masi freq&#252;entemente, Persist&#234;ncia do canal arterial (PCA), 
+coarcta&#231;&#227;o da Aorta (COAO) e Comunica&#231;&#227;o interventricular (CIV). </xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="ECG com crescimento VE">
+            <xbifns:comments>    Raramente &#233; normal. Os achados podem variar com a severidade da 
+obstru&#231;&#227;o.
+
+- Abaixo de 30 dias: hipertrofia de VD
+
+- Abaixo de 2 anos: hipertrofia de VE ou anormalidade da onda T s&#227;o 
+sens&#237;veis para estimar o grau de severidade da estenose
+
+- Acima de 2 anos: o ECG &#233; moderadamente &#250;till em disting&#252;ir o grau de 
+severidade da EAO.
+
+   -   EAO Severa:  - HVE (</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Lipot&#237;mias">
+            <xbifns:comments>    A maioria dos pacientes com EAO s&#227;o assintom&#225;ticos. Destes, 95% 
+apresentando crescimento e desenvolvimento normais. Quando os 
+sintomas ocorrem,s&#237;ncope, angina pr&#233;-cordial, dispn&#233;ia aos exerc&#237;cios e 
+fadiga s&#227;o os mais comuns. Menos freq&#252;entemente pode ocorrer dor 
+abdominal, epistaxe e sudorese.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="RX com cardiomegalia e sinais de aumento do VE">
+            <xbifns:comments>Pacientes abaixo de 1 ano:
+- a maioria tem cardiomegalia
+- congest&#227;o pulmonar em 30-50% dos casos
+- aorta ascendente n&#227;o &#233; vis&#237;vel
+
+Pacientes acima de 1 ano:
+- menos de 10% dos casos tem cardiomegalia (com gradiente VE-AO </xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Estalido sist&#243;lico">
+            <xbifns:comments>    60% a 90% dos pacientes apresentam estalido de eje&#231;&#227;o, que &#233; mais 
+proeminente na borda inferior esquerda ou porta do cora&#231;&#227;o. &#201; gerado 
+pela abertura da v&#225;lvula a&#243;rtica e seu desaparecimento sugere 
+progress&#227;o da estenose.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica">
+            <xbifns:comments>    Sopro cl&#225;ssico &#233; um sopro sist&#243;lico ejetivo rude, 
+crescendo-decrescendo, logo ap&#243;s B1 ou imediatamente ap&#243;s o click de 
+eje&#231;&#227;o, se presente. 
+
+    Ausculta-se melhor na base do cora&#231;&#227;o (borda superior esquerda em 
+lactentes e na direita em crian&#231;as maiores) 15-25% dos pacientes t&#234;m 
+sopro sist&#243;lico de insufici&#234;ncia a&#243;rtica, o qual &#233; mais pronunciado em 
+pacinetes com estenose de grau leve ou moderado.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="RX com cardiomegalia">
+            <xbifns:comments/>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="785" xPos="762" type="DiscreteProbabilistic" name="Frase_24">
+        <xbifns:description>Estalido sist&#243;lico</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="742" xPos="817" type="DiscreteProbabilistic" name="Frase_57">
+        <xbifns:description>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="702" xPos="838" type="DiscreteProbabilistic" name="Frase_114">
+        <xbifns:description>RX com cardiomegalia e sinais de aumento do VE</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="653" xPos="840" type="DiscreteProbabilistic" name="Frase_130">
+        <xbifns:description>ECG com crescimento VE</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="608" xPos="774" type="DiscreteProbabilistic" name="Frase_192">
+        <xbifns:description>Lipot&#237;mias</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="416" xPos="526" type="DiscreteProbabilistic" name="COAO">
+        <xbifns:description>Coarcta&#231;&#227;o da Aorta</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    &#201; uma mal forma&#231;&#227;o vascular, cujo defeito ocorre na camada m&#233;dia da 
+aorta. Na maioria dos pacientes &#233; justa-ductal, ou seja, estenose da aorta 
+tor&#225;cica opostamente a inser&#231;&#227;o do canal esternal.
+
+    Est&#225; presente em cerca de 6 a 8% dos pacientes com cardiopatia 
+cong&#234;nita, sendo mais comum em homens (1,5:1). Ocorre 
+aproximadamente em 35% dos pacientes com s&#237;ndrome de Turner.</xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="Hipertens&#227;o arterial sist&#234;mica">
+            <xbifns:comments>    Al&#233;m disso, h&#225; discrep&#226;ncia entre a press&#227;o arterial medida nos 
+membros superiores e inferiores, podendo variar at&#233; 70-80 mmHg em 
+repouso.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="ECG com hipertrofia ventricular esquerda">
+            <xbifns:comments>    No rec&#233;m nascido, o ECG inicialmente &#233; normal. Com o passar do 
+tempo evidencia-se hipertrofia ventricular esquerda.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="Raio X mostrando eros&#227;o dos arcos costais">
+            <xbifns:comments>    Em rec&#233;m nascidos, os achados radiologicos s&#227;o cardiomegalia 
+moderada a severa, aumento da vasculariza&#231;&#227;o pulmonar e congest&#227;o 
+venosa.
+
+    Em crian&#231;as, &#225;rea card&#237;aca aumentada, CP normal, contorno anormal 
+do arco a&#243;rtico (identa&#231;&#227;o localizada na aorta no s&#237;tio da coarcta&#231;&#227;o - 
+sinal do tr&#234;s invertido) e proemin&#234;ncia da aorta descendente.
+
+    Em pacientes acima de 5 anos &#233; comum visualizar-se eros&#245;es dos 
+arcos costais.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="Aus&#234;ncia de pulsos em membros inferiores">
+            <xbifns:comments>    O acahdo cl&#237;nico caracter&#237;stico &#233; a aus&#234;ncia de pulsos nos membros 
+inferiores. Al&#233;m disso  h&#225; discrep&#226;ncia entre a press&#227;o arterial medida nos 
+membros superiores e inferiores, podendo variar at&#233; 70-80 mmHg em 
+repouso.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Sopro sist&#243;lico">
+            <xbifns:comments>    B1 e B2 s&#227;o normais. Um sopro sist&#243;lico ejetivo aud&#237;vel na borda 
+esternal superior esquerda irradiando-se para &#225;rea interescapular 
+esquerda e dorso.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="NA" evidence="ECG com padr&#227;o de hemibloqueio anterior esquerdo">
+            <xbifns:comments/>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="386" xPos="355" type="DiscreteProbabilistic" name="Frase_21">
+        <xbifns:description>Sopro sist&#243;lico</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="334" xPos="419" type="DiscreteProbabilistic" name="Frase_32">
+        <xbifns:description>Aus&#234;ncia de pulsos em membros inferiores</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="301" xPos="533" type="DiscreteProbabilistic" name="Frase_36">
+        <xbifns:description>Hipertens&#227;o arterial sist&#234;mica</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="337" xPos="643" type="DiscreteProbabilistic" name="Frase_126">
+        <xbifns:description>Raio X mostrando eros&#227;o dos arcos costais</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="385" xPos="702" type="DiscreteProbabilistic" name="Frase_211">
+        <xbifns:description>ECG com hipertrofia ventricular esquerda</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="499" xPos="192" type="DiscreteProbabilistic" name="EP">
+        <xbifns:description>Estenose Pulmonar</xbifns:description>
+        <xbifns:state name="Estado 0"/>
+        <xbifns:state name="N&#227;o     "/>
+        <xbifns:metaphore>
+          <xbifns:description>    A preval&#234;ncia de EP isolada com septo &#237;ntegro &#233; estimada em 7 a 12%. 
+Ocorr&#234;ncia familiar tem sido estudada, sendo relatado que a probabilidade 
+de recorr&#234;ncia em g&#234;meos &#233; de 2,2 a 2,9%.
+
+    A maioria dos pacientes s&#227;o assintom&#225;ticos e com freq&#252;&#234;ncia &#233; um 
+achado durante avalia&#231;&#227;o de rotina. Para melhor compreens&#227;o doo 
+quadro cl&#237;nico &#233; melhor dividi-la em dois grupos:
+
+a) estenose pulmonar leve a moderada e
+b) estenose pumonar severa.</xbifns:description>
+          <xbifns:explanation evidenceType="Complementary" evidence="RX com dilata&#231;&#227;o do tronco pulmonar">
+            <xbifns:comments>    O achado radiol&#243;gico mais consistente &#233; tronco art&#233;ria pulmonar 
+proeminente secund&#225;rio a dilata&#231;&#227;o p&#243;s esten&#243;tica do tronco pulmonar e 
+da art&#233;ria pulmonar esquerda proximal . (presente em mais de 90% dos 
+casos, podendo estar ausente em crian&#231;as pequenas, lactentes e 
+aqueles com v&#225;vula displ&#225;cica.</xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Exclusive" evidence="ECG mostrando crescimento VD">
+            <xbifns:comments>    O eletrocardiograma (ECG) permite estimar a severidade da obstru&#231;&#227;o 
+da via de sa&#237;da do VD atrav&#233;s de v&#225;rios graus de hipertrofia ventricular 
+direita. Pode ser normal em 30-65% dos casos de estenose leve; 10% dos 
+casos, de moderada e em estenose severa usualmente &#233; anormal.
+
+Leve: 
+          - pequeno desvio do eixo DRS para a direita
+          - </xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Necessary" evidence="Estalido meso-sist&#243;lico">
+            <xbifns:comments>    Na estenose pulmonar leve a moderada, durante o exame f&#237;sico ouve-se 
+freq&#252;entemente um </xbifns:comments>
+          </xbifns:explanation>
+          <xbifns:explanation evidenceType="Trigger" evidence="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar">
+            <xbifns:comments>    No exame f&#237;sico ausculta-se um sopro sist&#243;lico ejetivo proeminente, que 
+com freq&#252;&#234;ncia termina antes do fechamento da v&#225;vula a&#243;rtica. O sopro 
+tem intensidade m&#225;xima no 2o. espa&#231;o intercostal esquerdo (EICE), sendo 
+ irradiado para o dorso, o pesco&#231;o e todo pr&#233; c&#243;rdio. </xbifns:comments>
+          </xbifns:explanation>
+        </xbifns:metaphore>
+      </xbifns:variable>
+      <xbifns:variable yPos="511" xPos="31" type="DiscreteProbabilistic" name="Frase_26">
+        <xbifns:description>Estalido meso-sist&#243;lico</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="455" xPos="68" type="DiscreteProbabilistic" name="Frase_111">
+        <xbifns:description>RX com dilata&#231;&#227;o do tronco pulmonar</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+      <xbifns:variable yPos="402" xPos="137" type="DiscreteProbabilistic" name="Frase_131">
+        <xbifns:description>ECG mostrando crescimento VD</xbifns:description>
+        <xbifns:state name="Sim     "/>
+        <xbifns:state name="N&#227;o     "/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="DSAV" parent="Frase_137"/>
+      <xbifns:edge child="DSAV" parent="Frase_18"/>
+      <xbifns:edge child="DSAV" parent="Frase_107"/>
+      <xbifns:edge child="DSAV" parent="Frase_104"/>
+      <xbifns:edge child="DSAV" parent="Cardiopatia"/>
+      <xbifns:edge child="CIA" parent="Frase_55"/>
+      <xbifns:edge child="CIA" parent="Frase_83"/>
+      <xbifns:edge child="CIA" parent="Frase_104"/>
+      <xbifns:edge child="CIA" parent="Frase_71"/>
+      <xbifns:edge child="CIA" parent="Frase_145"/>
+      <xbifns:edge child="CIA" parent="Cardiopatia"/>
+      <xbifns:edge child="CIV" parent="Frase_60"/>
+      <xbifns:edge child="CIV" parent="Frase_70"/>
+      <xbifns:edge child="CIV" parent="Frase_132"/>
+      <xbifns:edge child="CIV" parent="Frase_104"/>
+      <xbifns:edge child="CIV" parent="Cardiopatia"/>
+      <xbifns:edge child="PCA" parent="Frase_35"/>
+      <xbifns:edge child="PCA" parent="Frase_75"/>
+      <xbifns:edge child="PCA" parent="Frase_104"/>
+      <xbifns:edge child="PCA" parent="Cardiopatia"/>
+      <xbifns:edge child="FALLOT" parent="Frase_56"/>
+      <xbifns:edge child="FALLOT" parent="Frase_8"/>
+      <xbifns:edge child="FALLOT" parent="Frase_13"/>
+      <xbifns:edge child="FALLOT" parent="Frase_195"/>
+      <xbifns:edge child="FALLOT" parent="Frase_12"/>
+      <xbifns:edge child="FALLOT" parent="Cardiopatia"/>
+      <xbifns:edge child="EAO" parent="Frase_130"/>
+      <xbifns:edge child="EAO" parent="Frase_57"/>
+      <xbifns:edge child="EAO" parent="Frase_114"/>
+      <xbifns:edge child="EAO" parent="Frase_192"/>
+      <xbifns:edge child="EAO" parent="Frase_24"/>
+      <xbifns:edge child="EAO" parent="Cardiopatia"/>
+      <xbifns:edge child="COAO" parent="Frase_36"/>
+      <xbifns:edge child="COAO" parent="Frase_32"/>
+      <xbifns:edge child="COAO" parent="Frase_21"/>
+      <xbifns:edge child="COAO" parent="Frase_126"/>
+      <xbifns:edge child="COAO" parent="Frase_211"/>
+      <xbifns:edge child="COAO" parent="Cardiopatia"/>
+      <xbifns:edge child="EP" parent="Frase_131"/>
+      <xbifns:edge child="EP" parent="Frase_111"/>
+      <xbifns:edge child="EP" parent="Frase_56"/>
+      <xbifns:edge child="EP" parent="Frase_26"/>
+      <xbifns:edge child="EP" parent="Cardiopatia"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_18"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_137"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_107"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="DSAV"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_137"/>
+          <xbifns:parent index="1" name="Frase_18"/>
+          <xbifns:parent index="2" name="Frase_107"/>
+          <xbifns:parent index="3" name="Frase_104"/>
+          <xbifns:parent index="4" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8500000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.824999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.17499999701976776</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.8500000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_83"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CIA"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_55"/>
+          <xbifns:parent index="1" name="Frase_83"/>
+          <xbifns:parent index="2" name="Frase_104"/>
+          <xbifns:parent index="3" name="Frase_71"/>
+          <xbifns:parent index="4" name="Frase_145"/>
+          <xbifns:parent index="5" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.824999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.17499999701976776</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.925000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.07500000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.8500000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.824999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.17499999701976776</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.8500000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.824999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.17499999701976776</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.8500000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_71"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_145"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_55"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_104"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="CIV"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_60"/>
+          <xbifns:parent index="1" name="Frase_70"/>
+          <xbifns:parent index="2" name="Frase_132"/>
+          <xbifns:parent index="3" name="Frase_104"/>
+          <xbifns:parent index="4" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.824999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.17499999701976776</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_70"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_60"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_132"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Cardiopatia"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="PCA"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_35"/>
+          <xbifns:parent index="1" name="Frase_75"/>
+          <xbifns:parent index="2" name="Frase_104"/>
+          <xbifns:parent index="3" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.8888900279998779</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.11111000180244446</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_75"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_35"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="FALLOT"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_56"/>
+          <xbifns:parent index="1" name="Frase_8"/>
+          <xbifns:parent index="2" name="Frase_13"/>
+          <xbifns:parent index="3" name="Frase_195"/>
+          <xbifns:parent index="4" name="Frase_12"/>
+          <xbifns:parent index="5" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_56"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_8"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_195"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_13"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_12"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="EAO"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_130"/>
+          <xbifns:parent index="1" name="Frase_57"/>
+          <xbifns:parent index="2" name="Frase_114"/>
+          <xbifns:parent index="3" name="Frase_192"/>
+          <xbifns:parent index="4" name="Frase_24"/>
+          <xbifns:parent index="5" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.9200000166893005</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.07999999821186066</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.8199999928474426</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.18000000715255737</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.8399999737739563</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.1599999964237213</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_24"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_57"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_114"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_130"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_192"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="COAO"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_36"/>
+          <xbifns:parent index="1" name="Frase_32"/>
+          <xbifns:parent index="2" name="Frase_21"/>
+          <xbifns:parent index="3" name="Frase_126"/>
+          <xbifns:parent index="4" name="Frase_211"/>
+          <xbifns:parent index="5" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.925000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.07500000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.925000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.07500000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_21"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_32"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_36"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_126"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_211"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="EP"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Frase_131"/>
+          <xbifns:parent index="1" name="Frase_111"/>
+          <xbifns:parent index="2" name="Frase_56"/>
+          <xbifns:parent index="3" name="Frase_26"/>
+          <xbifns:parent index="4" name="Cardiopatia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.699999988079071</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_26"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_111"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Frase_131"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">9.999999747378752E-5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9998999834060669</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

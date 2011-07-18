@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>Chest-clinic</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>50</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY>
+    <mstns:ROOT NAME="root">
+      <mstns:LEVEL NAME="Positive X-ray?"/>
+      <mstns:LEVEL NAME="Has bronchitis"/>
+      <mstns:LEVEL NAME="Dyspnoea?"/>
+      <mstns:LEVEL NAME="Visit to Asia?"/>
+      <mstns:LEVEL NAME="Smoker?"/>
+      <mstns:LEVEL NAME="Has lung cancer"/>
+      <mstns:LEVEL NAME="Has tuberculosis"/>
+      <mstns:LEVEL NAME="Tuberculosis or cancer"/>
+    </mstns:ROOT>
+  </mstns:HIERARCHY>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="256" XPOS="45" TYPE="discrete" NAME="Xray">
+        <mstns:LABEL>Positive X-ray?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="165" XPOS="334" TYPE="discrete" NAME="Bronchitis">
+        <mstns:LABEL>Has bronchitis</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="253" XPOS="214" TYPE="discrete" NAME="Dyspnoea">
+        <mstns:LABEL>Dyspnoea?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="21" XPOS="39" TYPE="discrete" NAME="Asia">
+        <mstns:LABEL>Visit to Asia?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="22" XPOS="334" TYPE="discrete" NAME="Smoker">
+        <mstns:LABEL>Smoker?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="108" XPOS="214" TYPE="discrete" NAME="LungCancer">
+        <mstns:LABEL>Has lung cancer</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="111" XPOS="40" TYPE="discrete" NAME="Tuberculosis">
+        <mstns:LABEL>Has tuberculosis</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="169" XPOS="127" TYPE="discrete" NAME="TuberculosisOrCancer">
+        <mstns:LABEL>Tuberculosis or cancer</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="Xray" PARENT="TuberculosisOrCancer"/>
+      <mstns:ARC CHILD="Bronchitis" PARENT="Smoker"/>
+      <mstns:ARC CHILD="Dyspnoea" PARENT="Bronchitis"/>
+      <mstns:ARC CHILD="Dyspnoea" PARENT="TuberculosisOrCancer"/>
+      <mstns:ARC CHILD="LungCancer" PARENT="Smoker"/>
+      <mstns:ARC CHILD="Tuberculosis" PARENT="Asia"/>
+      <mstns:ARC CHILD="TuberculosisOrCancer" PARENT="Tuberculosis"/>
+      <mstns:ARC CHILD="TuberculosisOrCancer" PARENT="LungCancer"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Xray"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="TuberculosisOrCancer"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.02</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Bronchitis"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Smoker"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.7</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Dyspnoea"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="TuberculosisOrCancer"/>
+          <mstns:CONDLEM NAME="Bronchitis"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Asia"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Smoker"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="LungCancer"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Smoker"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Tuberculosis"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Asia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="TuberculosisOrCancer"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="LungCancer"/>
+          <mstns:CONDLEM NAME="Tuberculosis"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

@@ -1,0 +1,132 @@
+                                    ------
+                            UnBBayes Around the World 
+                                    ------
+                              Rommel Novaes Carvalho
+                                    ------
+                                  2009-06-03
+
+UnBBayes Around the World
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Have you ever heard about UnBBayes? Is this the first time you see it around? Would you 
+  like to know what the community think about it?
+  
+  If not, have you ever used UnBBayes? Have you ever written an article and referenced 
+  it? Did you like it?
+  
+  Well, here we will show some references and comments about UnBBayes. We would love to 
+  list all projects and articles that ever used or mentioned UnBBayes, but unfortunately 
+  we do not know them all.
+  
+  If you know any other project, article, link, whatever that used or talked about UnBBayes, 
+  please let us know! We, and the community, would appreciate it a lot! Please send us an 
+  e-mail (rommel.carvalho@gmail.com) talking about it. We also encourage the curious user 
+  to send his/her comment to us. We will try our best to make this open source project 
+  better and better.
+  
+[images/around_the_world.jpg]
+  
+  Now, the awaited list:
+  
+  * <Although the above approaches are promising where applicable, a workable solution for 
+  the Semantic Web requires a general-purpose formalism that gives ontology designers a range 
+  of options to balance tractability against expressiveness. Current research on SW formalisms 
+  using first-order probabilistic logics is still in its infancy, and generally lack a complete 
+  set of publicly available tools. Examples include PR-OWL (Costa, 2005), which is an upper 
+  ontology for building probabilistic ontologies based on MEBN logic, and KEEPER (Pool and 
+  Aiken, 2004), an OWL-based interface for the relational probabilistic toolset Quiddity*Suite, 
+  developed by IET, Inc. Their constructs are similar in spirit and provide an expressive method 
+  for representing uncertainty in OWL ontologies. Costa (2005) gives a definition for 
+  Probabilistic Ontologies, develops rules for constructing PR-OWL ontologies in a manner that 
+  can be translated into Quiddity*Suite, and describes how to perform the translation. Carvalho 
+  et al. (2007) and Costa et. al. (2008) present an open source, Java-based, PR-OWL/MEBN GUI and 
+  reasoner package, UnBBayes-MEBN, that greatly facilitates the process of building probabilistic 
+  ontologies and reasoning with them.>
+  
+    {{{http://www.w3.org/2005/Incubator/urw3/XGR-urw3-20080331/} Uncertainty Reasoning for the World Wide Web - W3C Incubator Group Report}}
+  
+  * <UnBBayes allows a more adequate and better visualization of the MTheory and MFrags being 
+  created, as well as their nodes. In short, it is not difficult to perceive the advantages of 
+  building POs with the GUI implemented in UnBBayes.>
+  
+    {{{http://books.google.com/books?id=5-ZLTy1gby4C&pg=PA97&lpg=PA97&dq=unbbayes&source=bl&ots=a0Su-2GG8V&sig=Hm88qPlJhq7X_ncmZICr5A1pH9o&hl=en&ei=5g8TSru-MKCm8QTi1dmKBA&sa=X&oi=book_result&ct=result&resnum=2#PPA97,M1} Uncertainty Reasoning for the Semantic Web I}}
+  
+  * <However, building MFrags in a probabilistic ontology is a manual, error prone, and 
+  tedious process. Avoiding errors or inconsistencies requires deep knowledge of the logic 
+  and of the data structures of PR-OWL, since the user would have to know all technical terms 
+  such as hasPossibleValues, is-NodeFrom, isResidentNodeIn, etc. In an ideal scenario, many 
+  of these terms could be omitted and filled automatic by a software application projected 
+  to enforce the consistency of a MEBN model.>
+  
+    <The development of UnBBayes-MEBN [12, 13], an open source, Java-based application that 
+    is currently in alpha phase (public release March 08), is an important step towards 
+    this objective, as it provides both a GUI for building probabilistic ontologies and a 
+    reasoner based on the PR-OWL/MEBN framework.>
+    
+    {{{http://ite.gmu.edu/~klaskey/papers/LaskeyCostaJanssen_POFusion.pdf} Probabilistic Ontologies for Knowledge Fusion}}
+
+  * <The probabilistic network for the speed decision is generated from the existing data. 
+  So instead of building up the network and defining the probability function later on, the 
+  data is given and the UnBBayes learning tool [1] generates the nodes and afterward gives 
+  the definition of the relations between the nodes, thus the probability functions are 
+  calculated.>
+  
+    {{{http://www.iasi.cnr.it/ewgt/16conference/ID88.pdf} A Self-Learning Driving Behavior Model for Microscopic Online Simulation based on Remote Sensing and Equipped Vehicle Data}}
+    
+  * {{{http://ieeexplore.ieee.org/Xplore/login.jsp?url=/iel5/11180/36023/01707454.pdf?isnumber=36023&prod=CNF&arnumber=1707454&arSt=1609&ared=1614&arAuthor=Miska%2C+M.Ph.%3B+Muller%2C+T.H.J.%3B+van+Zuylen%2C+H.J} Calibrating Driving Behavior with Microscopic Measurement Data}}
+  
+  * <This article describes cooperation with the Brazilian Federal Police (DPF/INI) and the academia to 
+  use data mining techniques to make faster the criminal identification based on the matching of 
+  deca-dactylograms. The DPF/INI fingerprint files use the Vucetichs system that codes all the ten 
+  fingers of a person with a unique dactyloscopic formula. Many times, only fragments of fingerprints 
+  are found in the scene of the crime. Our goal is to study how to deal with this missing of 
+  information to reduce the search space into the fingerprints identification processes. To infer 
+  missing codes, we had tested classifier based on naïve Bayes, Bayesian network, decision tree, 
+  neural network, and CNM. As a result, Lupa Digital was developed in Java (<<using UnBBayes>>).>
+  
+    {{{https://www.sbc.org.br/bibliotecadigital/?module=Public&action=PublicationObject&subject=0&publicationobjectid=23} (Lupa Digital: Agilizacao da Busca Decadactilar na Identificacao Criminal Atraves de Mineracao de Dados)}}
+  
+  * {{{http://www.sbis.org.br/cbis/arquivos/919.doc} Environment for Supervised  Learning for Data Mining in Bayesian Networks in Endocrinology Field (<Ambiente de Aprendizagem Supervisionada para Mineracao de Dados em Redes Bayesianas na Area de Endocrinologia>)}}
+  
+    
+  
+  * <To update the probability vector software named UnBBayes developed by Fernandes (2004) was used. 
+  UnBBayes uses K2 Algorithm which heuristically searches for the most probable belief network structure 
+  given a database of cases to estimate conditional probabilities.>
+  
+    {{{http://www.transport.iis.u-tokyo.ac.jp/publications/2007-31.pdf} Self Learning Tool for Travel Time Estimation in Signalized Urban Networks Based on Probe Data}}
+    
+  * {{{http://www.informatik.uni-freiburg.de/~ki/teaching/ws0506/advanced/aait-4up-01-bn-overview.pdf} Advanced AI Techniques}}
+  
+  * <The probabilistic classifiers Naive Bayes, TAN, and BAN were generated by UnBBayes, while 
+  the classifiers Neural Network and Decision Tree were generated by UnBMiner.> (Free translation)
+  
+    {{{http://tede.biblioteca.ucg.br/tde_busca/arquivo.php?codArquivo=425} (Aplicabilidade de Memoria Logica como Ferramenta Coadjuvante no Diagnostico das Doencas Geneticas)}}
+  
+  * <UnBBayes: BN, ID, Multiply Sectioned Bayesian Network (MSBN) and Multi-Entity Bayesian 
+  Networks (MEBN). It also includes various algorithms for Bayesian Learning. From the 
+  Group of Artificial Intelligence at University of Brasília (UnB), Brazil.>
+  
+    {{{http://en.wikipedia.org/wiki/Bayesian_network} Bayesian network}}
+    
+  * <According to Marcelo Ladeira, UnBBayes works as the problem solver from Microsoft Windows. 
+  There, the user answers a series of objective questions to find out the possible causes to the 
+  problem. The same thing happens in UnBBayes: the physician enters the symptoms and the computer 
+  answers with a diagnostic. The program also allows the physician to ask why and why not the 
+  computer got a certain conclusion.> (Free translation)
+  
+    {{{http://www2.correioweb.com.br/cw/EDICAO_20020723/sup_etu_230702_14.htm} Article in a Brazilian Newspaper (E grave, computador?)}}
+    
+  * <It was really worth using the UnBBayes framework. Its interface allowed 
+  the visualization of the internal structures that were created by the learning algorithm.> (Free translation)
+    
+    {{{http://www.dct.ufms.br/~mzanusso/producao/EM_BayeNetwork.pdf} EM Algorithms for BN Learning with Incomplete Data (Algoritmos EM para Aprendizagem de Redes Bayesianas a partir de Dados Incompletos)}}
+    
+  * <Acknoledgements...>
+    
+    <To the UnB group: to Prof. Marcelo Ladeira, that allowed me several and endless conversations, tips, 
+    and references about Bayesian networks, and in the end, gently allowed me to use UnBBayes in this project. 
+    Special thanks to Michael Onishi and Rommel Carvalho, students advised by Dr. Marcelo Ladeira, that were 
+    always ready and available to answer questions about UnBBayes implementation and use.> (Free translation)
+  
+    {{{http://www.bdtd.ufpe.br/tedeSimplificado//tde_arquivos/22/TDE-2007-09-12T091200Z-2709/Publico/jlfv.pdf} Complex System Simulation for Entertainment Use. Using Bayesian Networks: The FutSim Case (<Simulacao de Sistemas Complexos para Fins de Entretenimento. Usando Redes Bayesianas: O Caso do FutSim>)}}

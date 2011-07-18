@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<index>
+	<indexitem image="iunbbayes" text="Ajuda do UnBBayes" target="branco">
+		<indexitem image="iintroduction" text="Introducao ao UnBBayes" target="introducao"/>
+		<indexitem image="icomponents" text="Componentes" target="controles">
+			<indexitem image="iaprendizagem" text="Aprendizagem" target="aprendizagem" >
+				<indexitem text="Escolha das Variaveis" target="variaveis" />
+				<indexitem text="Arquivos compactados" target="compactados" />
+				<indexitem text="Escolha de Paradigma" target="paradigma">
+					<indexitem text="Pontuacao" target="pontuacao" >
+						<indexitem text="Escolha do Algoritmo" target="algoritmo" >
+							<indexitem text="Algoritmo K2" target="algoritmok2" />
+							<indexitem text="Algoritmo B" target="algoritmob" />
+						</indexitem>
+						<indexitem text="Escolha dA Metrica" target="metrica" >
+							<indexitem text="Metrica GH" target="metricagh" />
+							<indexitem text="Metrica GHS" target="metricaghs" />
+							<indexitem text="Metrica MDL" target="metricamdl" />
+						</indexitem>
+					</indexitem>
+					<indexitem text="Independencia Condicional" target="ic" >
+						<indexitem text="Algoritimo CBL-A" target="algoritmocbla" />
+						<indexitem text="Algoritimo CBL-b" target="algoritmocblb" />	
+					</indexitem>
+				</indexitem>
+				<indexitem text="Ordenacao das Variaveis" target="ordenacao" />
+				<indexitem text="Atribuicao de relacionamentos" target="relacionamentos" />
+				<indexitem text="Parametro" target="parametro" />
+			</indexitem>
+			<indexitem image="iacao" text="Comandos da Rede" target="branco">
+				<indexitem image="iabrir" text="Abrir Rede" target="abrirrede"/>
+				<indexitem image="icompilar" text="Compilar Rede" target="compilarrede"/>
+				<indexitem image="iimprimir" text="Imprimir Rede Bayesiana" target="imprimir"/>
+				<indexitem image="iimprimirtabela" text="Imprimir Tabela de Potencial de um No da Rede Bayesiana" target="imprimirtabela"/>
+				<indexitem image="ilog" text="Mostrar Informacoes sobre a Compilacao" target="log"/>
+				<indexitem image="inovo" text="Nova Rede" target="novarede"/>
+				<indexitem image="isalvar" text="Salvar Rede" target="salvarrede"/>
+				<indexitem image="ieditar" text="Voltar para Edicao da Rede Bayesiana" target="edicaorede"/>
+				<indexitem image="ivisualisar" text="Visualisar Rede Bayesiana" target="visualisar"/>
+				<indexitem image="ivisualisartabela" text="Visualisar Tabela de Potencial de um No da Rede Bayesiana" target="visualisartabela"/>
+			</indexitem>
+			<indexitem image="irede" text="Criando uma Rede Bayesiana" target="branco">
+				<indexitem image="imais" text="Adicionar Estado a um No" target="adicionarestado"/>
+				<indexitem image="ipaste" text="Colar uma Parte da Rede Bayesiana" target="colar"/>
+				<indexitem image="icopyr" text="Copiar uma Parte da Rede Bayesiana" target="copiar"/>
+				<indexitem image="itext_edition" text="Editar Descricao de um No" target="editardescricao"/>
+				<indexitem image="itext_edition" text="Editar Sigla de um No" target="editarsigla"/>
+				<indexitem image="iarco" text="Inserir Arco" target="inserirarco"/>
+				<indexitem image="ino" text="Inserir No" target="inserirno"/>
+				<indexitem image="imenos" text="Remover Estado de um No" target="removerestado"/>
+				<indexitem image="iselecionar" text="Selecionar uma Parte da Rede Bayesiana" target="selecionar"/>
+			</indexitem>
+			<indexitem image="itree" text="Editando Arvore de Evidencias" target="branco">
+				<indexitem image="icontrair" text="Contrair Arvore de Evidencias" target="contrairarvore"/>
+				<indexitem image="iexpandir" text="Expandir Arvore de Evidencias" target="expandirarvore"/>
+				<indexitem image="ipropagar" text="Propagar Evidencias da Arvore" target="propagarevidencias"/>
+				<indexitem image="ilikelihood" text="Entrar com Likelihood" target="likelihood"/>
+				<indexitem image="icertain" text="Entrar com a Certeza" target="certeza"/>
+			</indexitem>
+			<indexitem image="ilnf" text="Look-and-Feel" target="branco">
+				<indexitem image="imetal" text="Metal" target="metal"/>
+				<indexitem image="imotif" text="Motif" target="motif"/>
+				<indexitem image="iwindows" text="Windows" target="windows"/>
+			</indexitem>
+			<indexitem image="iopcaoglobal" text="Opcoes Globais" target="opcoesglobais"/>
+		</indexitem>
+		<indexitem image="iapi_use" text="Exemplo de Uso da API" target="branco">
+			<indexitem image="imotif" text="Modo Texto" target="modotexto"/>
+			<indexitem image="imetal" text="Modo Grafico" target="modografico"/>
+		</indexitem>
+		<indexitem image="iajuda" text="Ativar Janela de Ajuda" target="ajuda"/>
+		<indexitem image="iajuda" text="Continuar Desenvolvimento da Ajuda do JAVA UnBBayes" target="jhelp"/>
+		<indexitem image="idocumentation" text="Documentacao da API" target="doc"/>
+	</indexitem>
+</index>

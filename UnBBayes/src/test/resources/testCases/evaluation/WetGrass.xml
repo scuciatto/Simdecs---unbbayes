@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="Cloudy"/>
+      <xbifns:level name="Springler"/>
+      <xbifns:level name="Rain"/>
+      <xbifns:level name="Wet"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="62" xPos="297" type="DiscreteProbabilistic" name="Cloudy">
+        <xbifns:description>Cloudy</xbifns:description>
+        <xbifns:state name="Yes"/>
+        <xbifns:state name="No"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="131" xPos="233" type="DiscreteProbabilistic" name="Springler">
+        <xbifns:description>Springler</xbifns:description>
+        <xbifns:state name="Yes"/>
+        <xbifns:state name="No"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="133" xPos="355" type="DiscreteProbabilistic" name="Rain">
+        <xbifns:description>Rain</xbifns:description>
+        <xbifns:state name="Yes"/>
+        <xbifns:state name="No"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="207" xPos="297" type="DiscreteProbabilistic" name="Wet">
+        <xbifns:description>Wet</xbifns:description>
+        <xbifns:state name="Yes"/>
+        <xbifns:state name="No"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="Springler" parent="Cloudy"/>
+      <xbifns:edge child="Rain" parent="Cloudy"/>
+      <xbifns:edge child="Wet" parent="Springler"/>
+      <xbifns:edge child="Wet" parent="Rain"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Cloudy"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Springler"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Cloudy"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Rain"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Cloudy"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.800000011920929</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Wet"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Springler"/>
+          <xbifns:parent index="1" name="Rain"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

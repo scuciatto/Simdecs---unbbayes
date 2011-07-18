@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>New BN</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>0</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY/>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="62" XPOS="297" TYPE="discrete" NAME="Cloudy">
+        <mstns:LABEL>Cloudy</mstns:LABEL>
+        <mstns:STATENAME>Yes</mstns:STATENAME>
+        <mstns:STATENAME>No</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="131" XPOS="233" TYPE="discrete" NAME="Springler">
+        <mstns:LABEL>Springler</mstns:LABEL>
+        <mstns:STATENAME>Yes</mstns:STATENAME>
+        <mstns:STATENAME>No</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="133" XPOS="355" TYPE="discrete" NAME="Rain">
+        <mstns:LABEL>Rain</mstns:LABEL>
+        <mstns:STATENAME>Yes</mstns:STATENAME>
+        <mstns:STATENAME>No</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="207" XPOS="297" TYPE="discrete" NAME="Wet">
+        <mstns:LABEL>Wet</mstns:LABEL>
+        <mstns:STATENAME>Yes</mstns:STATENAME>
+        <mstns:STATENAME>No</mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="Springler" PARENT="Cloudy"/>
+      <mstns:ARC CHILD="Rain" PARENT="Cloudy"/>
+      <mstns:ARC CHILD="Wet" PARENT="Springler"/>
+      <mstns:ARC CHILD="Wet" PARENT="Rain"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Cloudy"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Springler"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Cloudy"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.5</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Rain"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Cloudy"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.8</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Wet"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Springler"/>
+          <mstns:CONDLEM NAME="Rain"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

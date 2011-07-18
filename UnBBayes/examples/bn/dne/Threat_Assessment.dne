@@ -1,0 +1,421 @@
+// ~->[DNET-1]->~
+
+// File created by ChangK at GMU using Netica 4.08 on Sep 29, 2009 at 09:13:06.
+
+bnet Threat_Assessment {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1254229956;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (14, -4, 1094, 715);
+	resolution = 72;
+	drawingbounds = (1080, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node Hostility {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Friendly, AssumedFriend, Neutral, Suspect, Hostile, Unknown);
+	parents = ();
+	probs = 
+		// Friendly     AssumedFriend Neutral     Suspect      Hostile      Unknown      
+		  (0.2,         0.3,         0.05,        0.25,        0.15,        0.05);
+	title = "Hostility";
+	whenchanged = 1254186962;
+	belief = (0.2, 0.3, 0.05, 0.25, 0.15, 0.05);
+	visual V1 {
+		center = (492, 102);
+		height = 2;
+		};
+	};
+
+node IDPlatform {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (UAV, FencerASM, FlankerAAM, MRR, Airliner, Friendly, Private, OtherAirTrack);
+	parents = (Hostility);
+	probs = 
+		// UAV          FencerASM    FlankerAAM   MRR          Airliner     Friendly     Private      OtherAirTrack   // Hostility     
+		 ((0.1212511,   2.951876e-5, 0.04184923,  0.04629618,  0.2935275,   0.2371519,   0.1572961,   0.1025986),    // Friendly      
+		  (0.140307,    0.09458098,  0.03516408,  0.1547368,   0.2976471,   0.2020667,   0.02653219,  0.0489651),    // AssumedFriend 
+		  (0.2386079,   0.01403537,  0.05968856,  0.003881271, 0.2703907,   0.2433517,   0.1413946,   0.02864982),   // Neutral       
+		  (0.005406451, 0.02820874,  0.1167727,   0.1221522,   0.2860221,   0.2137136,   0.06498495,  0.1627393),    // Suspect       
+		  (0.1044545,   0.1016623,   0.08758054,  0.0065595,   0.2768482,   0.2399351,   0.1008609,   0.08209889),   // Hostile       
+		  (0.06484112,  0.1193291,   0.04805135,  0.1156254,   0.2377802,   0.1783352,   0.0571243,   0.1789133));   // Unknown       ;
+	title = "IDPlatform";
+	whenchanged = 1254227101;
+	belief = (0.09853458, 0.05734995, 0.06663633, 0.09317758, 0.2864409, 0.2185534, 0.0807202, 0.09858704);
+	visual V1 {
+		center = (510, 258);
+		height = 3;
+		};
+	};
+
+node Airlane {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Conform, Unconform);
+	parents = (Hostility);
+	probs = 
+		// Conform      Unconform      // Hostility     
+		 ((0.9,         0.1),          // Friendly      
+		  (0.7,         0.3),          // AssumedFriend 
+		  (0.4,         0.6),          // Neutral       
+		  (0.1,         0.9),          // Suspect       
+		  (0,           1),            // Hostile       
+		  (0.2,         0.8));         // Unknown       ;
+	title = "Airlane";
+	whenchanged = 1254186503;
+	belief = (0.445, 0.555);
+	visual V1 {
+		center = (750, 78);
+		height = 4;
+		link 1 {
+			path = ((599, 92), (658, 86));
+			};
+		};
+	};
+
+node IFF {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Mode3, Emergency, Mode4, Garbled, Incorrect, None);
+	parents = (IDPlatform);
+	probs = 
+		// Mode3        Emergency    Mode4        Garbled      Incorrect    None           // IDPlatform    
+		 ((0.0432273,   0.134472,    0.2053202,   0.2891386,   0.1953913,   0.1324505),    // UAV           
+		  (0.1892354,   0.2329675,   0.1004676,   0.04158251,  0.2024477,   0.2332992),    // FencerASM     
+		  (0.08035029,  0.1566025,   0.2114315,   0.2803537,   0.03646292,  0.2347992),    // FlankerAAM    
+		  (0.09291428,  0.2899835,   0.219417,    0.2315085,   0.08023698,  0.08593971),   // MRR           
+		  (0.1682595,   0.2035663,   0.1839153,   0.2254202,   0.09371074,  0.125128),     // Airliner      
+		  (0.2334902,   0.1863508,   0.2112883,   0.04778893,  0.02577855,  0.2953033),    // Friendly      
+		  (0.2249047,   0.4755477,   0.03717566,  0.04826471,  0.09151576,  0.1225915),    // Private       
+		  (0.2506434,   0.2281916,   0.1362043,   0.1291877,   0.04888501,  0.206888));    // OtherAirTrack ;
+	title = "IFF";
+	whenchanged = 1254186598;
+	belief = (0.1712148, 0.2239866, 0.1758142, 0.1627742, 0.08545239, 0.1807579);
+	visual V1 {
+		center = (264, 102);
+		height = 1;
+		link 1 {
+			path = ((409, 195), (353, 160));
+			};
+		};
+	};
+
+node ATR {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (UAV, FencerASM, FlankerAAM, MRR, Airliner, Friendly, Private, OtherAirTrack);
+	parents = (IDPlatform);
+	probs = 
+		// UAV          FencerASM    FlankerAAM   MRR          Airliner     Friendly     Private      OtherAirTrack   // IDPlatform    
+		 ((0.4926476,   0.05950816,  0.05913008,  0.125139,    0.0722032,   0.1218749,   0.05205336,  0.01744374),   // UAV           
+		  (0.002422644, 0.5800067,   0.06080526,  0.136853,    0.01139962,  0.04447047,  0.0878798,   0.07616249),   // FencerASM     
+		  (0.03809162,  0.0342385,   0.5548692,   0.07348255,  0.1387701,   0.02710452,  0.04450386,  0.08893964),   // FlankerAAM    
+		  (0.01062627,  0.06331993,  0.04007952,  0.6457365,   0.06522591,  0.09212631,  0.0408933,   0.04199223),   // MRR           
+		  (0.07247714,  0.06078053,  0.01087347,  0.05122821,  0.6343583,   0.08480942,  0.03437262,  0.05110036),   // Airliner      
+		  (0.08436669,  0.08436669,  0.02676332,  0.04208825,  0.02360721,  0.6360095,   0.01843168,  0.08436669),   // Friendly      
+		  (0.07421522,  0.04604726,  0.008686237, 0.1135329,   0.05227257,  0.006289624, 0.506371,    0.1925852),    // Private       
+		  (0.001515584, 0.06777,     0.1156962,   0.08852313,  0.08997454,  0.03672047,  0.05998,     0.5398201));   // OtherAirTrack ;
+	title = "ATR";
+	whenchanged = 1254227060;
+	belief = (0.09754931, 0.09355534, 0.07109362, 0.1270078, 0.2230484, 0.1923723, 0.07760652, 0.1177667);
+	visual V1 {
+		center = (234, 258);
+		height = 12;
+		};
+	};
+
+node Speed {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Super, High, Cruise, Low);
+	parents = (IDPlatform);
+	probs = 
+		// Super        High         Cruise       Low            // IDPlatform    
+		 ((0.07368422,  0.4736842,   0.368421,    0.08421052),   // UAV           
+		  (0.1096049,   0.422198,    0.3037898,   0.1644073),    // FencerASM     
+		  (0.09382695,  0.4190521,   0.314289,    0.172832),     // FlankerAAM    
+		  (0.0749521,   0.4028675,   0.3816452,   0.1405352),    // MRR           
+		  (0.05743138,  0.4831176,   0.3445883,   0.1148628),    // Airliner      
+		  (0.0837631,   0.4267869,   0.3471877,   0.1422623),    // Friendly      
+		  (0.07136767,  0.4558,      0.3644023,   0.1084302),    // Private       
+		  (0.08057851,  0.4391975,   0.3906923,   0.08953167));  // OtherAirTrack ;
+	title = "Speed";
+	whenchanged = 1254227295;
+	belief = (0.07524464, 0.4481014, 0.3527434, 0.1239105);
+	visual V1 {
+		center = (264, 414);
+		height = 8;
+		link 1 {
+			path = ((409, 321), (329, 372));
+			};
+		};
+	};
+
+node Altitude {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (High, Cruise, Med, Low);
+	parents = (IDPlatform);
+	probs = 
+		// High         Cruise       Med          Low            // IDPlatform    
+		 ((0.1678735,   0.5036204,   0.2725482,   0.05595783),   // UAV           
+		  (0.193153,    0.4287314,   0.2171548,   0.1609608),    // FencerASM     
+		  (0.1815635,   0.4318852,   0.1848142,   0.2017372),    // FlankerAAM    
+		  (0.1719092,   0.4340993,   0.3028983,   0.09109315),   // MRR           
+		  (0.2035352,   0.4299425,   0.2444012,   0.1221211),    // Airliner      
+		  (0.2474481,   0.4086477,   0.2262527,   0.1176514),    // Friendly      
+		  (0.1623586,   0.4305596,   0.2722045,   0.1348772),    // Private       
+		  (0.2626544,   0.4015348,   0.2098817,   0.125929));    // OtherAirTrack ;
+	title = "Altitude";
+	whenchanged = 1254228041;
+	belief = (0.2071168, 0.4302448, 0.2419668, 0.1206716);
+	visual V1 {
+		center = (510, 414);
+		height = 9;
+		};
+	};
+
+node OnDataLink {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (True, False);
+	parents = (IDPlatform);
+	probs = 
+		// True         False          // IDPlatform    
+		 ((0.3556891,   0.6443109),    // UAV           
+		  (0.2395859,   0.7604141),    // FencerASM     
+		  (0.2765179,   0.7234821),    // FlankerAAM    
+		  (0.4864152,   0.5135848),    // MRR           
+		  (0.4939143,   0.5060857),    // Airliner      
+		  (0.1833906,   0.8166094),    // Friendly      
+		  (0.1297654,   0.8702346),    // Private       
+		  (0.09070293,  0.909297));    // OtherAirTrack ;
+	title = "OnDataLink";
+	whenchanged = 1254186863;
+	belief = (0.3135118, 0.6864882);
+	visual V1 {
+		center = (756, 168);
+		height = 5;
+		link 1 {
+			path = ((612, 223), (684, 196));
+			};
+		};
+	};
+
+node ESM {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (ThreatESM, FriendESM, UnknownESM);
+	parents = (IDPlatform);
+	probs = 
+		// ThreatESM    FriendESM    UnknownESM     // IDPlatform    
+		 ((0.2622359,   0.3496479,   0.3881162),    // UAV           
+		  (0.3321713,   0.2671315,   0.4006972),    // FencerASM     
+		  (0.2566,      0.2815192,   0.4618805),    // FlankerAAM    
+		  (0.2589403,   0.318796,    0.4222637),    // MRR           
+		  (0.0857236,   0.5079314,   0.4063451),    // Airliner      
+		  (0.04761905,  0.6666666,   0.2857143),    // Friendly      
+		  (0.1890669,   0.276408,    0.5345252),    // Private       
+		  (0.1408451,   0.3169014,   0.5422535));   // OtherAirTrack ;
+	title = "ESM";
+	whenchanged = 1254227505;
+	belief = (0.1502247, 0.4429851, 0.4067902);
+	visual V1 {
+		center = (804, 258);
+		height = 13;
+		};
+	};
+
+node Heading {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Less45DegreeHVA, Less90DegreeHVA, Gtr90DegreeHVA);
+	parents = ();
+	probs = 
+		// Less45DegreeHVA Less90DegreeHVA Gtr90DegreeHVA 
+		  (0.2,         0.2,         0.6);
+	title = "Heading";
+	whenchanged = 1254186792;
+	belief = (0.2, 0.2, 0.6);
+	visual V1 {
+		center = (828, 360);
+		height = 6;
+		};
+	};
+
+node AttackProfile {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Aggresive, Passive);
+	parents = (Speed, Altitude, Heading);
+	probs = 
+		//  Aggresive    Passive          // Speed  Altitude Heading         
+		((((0.169207,    0.830793),       // Super  High     Less45DegreeHVA 
+		   (0.1940254,   0.8059746),      // Super  High     Less90DegreeHVA 
+		   (0.2313122,   0.7686878)),     // Super  High     Gtr90DegreeHVA  
+		  ((0.1145598,   0.8854402),      // Super  Cruise   Less45DegreeHVA 
+		   (0.1448658,   0.8551342),      // Super  Cruise   Less90DegreeHVA 
+		   (0.1842568,   0.8157431)),     // Super  Cruise   Gtr90DegreeHVA  
+		  ((0.33,        0.67),           // Super  Med      Less45DegreeHVA 
+		   (0.36,        0.64),           // Super  Med      Less90DegreeHVA 
+		   (0.4,         0.6)),           // Super  Med      Gtr90DegreeHVA  
+		  ((0.4,         0.6),            // Super  Low      Less45DegreeHVA 
+		   (0.45,        0.55),           // Super  Low      Less90DegreeHVA 
+		   (0.6,         0.4))),          // Super  Low      Gtr90DegreeHVA  
+		 (((0.1940254,   0.8059746),      // High   High     Less45DegreeHVA 
+		   (0.2313116,   0.7686884),      // High   High     Less90DegreeHVA 
+		   (0.265301,    0.734699)),      // High   High     Gtr90DegreeHVA  
+		  ((0.1448658,   0.8551342),      // High   Cruise   Less45DegreeHVA 
+		   (0.1842569,   0.8157431),      // High   Cruise   Less90DegreeHVA 
+		   (0.2201788,   0.7798212)),     // High   Cruise   Gtr90DegreeHVA  
+		  ((0.3431372,   0.6568627),      // High   Med      Less45DegreeHVA 
+		   (0.3846154,   0.6153846),      // High   Med      Less90DegreeHVA 
+		   (0.4285714,   0.5714286)),     // High   Med      Gtr90DegreeHVA  
+		  ((0.4285714,   0.5714286),      // High   Low      Less45DegreeHVA 
+		   (0.4761905,   0.5238096),      // High   Low      Less90DegreeHVA 
+		   (0.6,         0.4))),          // High   Low      Gtr90DegreeHVA  
+		 (((0.144212,    0.855788),       // Cruise High     Less45DegreeHVA 
+		   (0.1614868,   0.8385132),      // Cruise High     Less90DegreeHVA 
+		   (0.1780784,   0.8219216)),     // Cruise High     Gtr90DegreeHVA  
+		  ((0.08286368,  0.9171363),      // Cruise Cruise   Less45DegreeHVA 
+		   (0.1193506,   0.8806494),      // Cruise Cruise   Less90DegreeHVA 
+		   (0.1530455,   0.8469545)),     // Cruise Cruise   Gtr90DegreeHVA  
+		  ((0.2637362,   0.7362638),      // Cruise Med      Less45DegreeHVA 
+		   (0.3043478,   0.6956522),      // Cruise Med      Less90DegreeHVA 
+		   (0.3478261,   0.6521739)),     // Cruise Med      Gtr90DegreeHVA  
+		  ((0.3333333,   0.6666667),      // Cruise Low      Less45DegreeHVA 
+		   (0.3888889,   0.6111111),      // Cruise Low      Less90DegreeHVA 
+		   (0.5294117,   0.4705882))),    // Cruise Low      Gtr90DegreeHVA  
+		 (((0.1262104,   0.8737895),      // Low    High     Less45DegreeHVA 
+		   (0.1614868,   0.8385132),      // Low    High     Less90DegreeHVA 
+		   (0.1861302,   0.8138698)),     // Low    High     Gtr90DegreeHVA  
+		  ((0.1014774,   0.8985226),      // Low    Cruise   Less45DegreeHVA 
+		   (0.1193506,   0.8806494),      // Low    Cruise   Less90DegreeHVA 
+		   (0.1530455,   0.8469545)),     // Low    Cruise   Gtr90DegreeHVA  
+		  ((0.2298851,   0.770115),       // Low    Med      Less45DegreeHVA 
+		   (0.255814,    0.744186),       // Low    Med      Less90DegreeHVA 
+		   (0.3023256,   0.6976745)),     // Low    Med      Gtr90DegreeHVA  
+		  ((0.2941176,   0.7058824),      // Low    Low      Less45DegreeHVA 
+		   (0.3529412,   0.6470588),      // Low    Low      Less90DegreeHVA 
+		   (0.4666667,   0.5333334))));   // Low    Low      Gtr90DegreeHVA  ;
+	title = "AttackProfile";
+	whenchanged = 1254229448;
+	belief = (0.2595655, 0.7404345);
+	visual V1 {
+		center = (510, 516);
+		height = 10;
+		link 1 {
+			path = ((344, 446), (446, 489));
+			};
+		};
+	};
+
+node Intelligence {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (AttackExpected, AttackUnexpected);
+	parents = ();
+	probs = 
+		// AttackExpected AttackUnexpected 
+		  (0.9,         0.1);
+	title = "Intelligence";
+	whenchanged = 1254186822;
+	belief = (0.9, 0.1);
+	visual V1 {
+		center = (516, 600);
+		height = 11;
+		};
+	};
+
+node Threat {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (High, Low);
+	parents = (AttackProfile, Intelligence, IDPlatform);
+	probs = 
+		//  High         Low              // AttackProfile Intelligence     IDPlatform    
+		((((0.5583039,   0.4416961),      // Aggresive     AttackExpected   UAV           
+		   (0.6347699,   0.3652301),      // Aggresive     AttackExpected   FencerASM     
+		   (0.6347699,   0.3652301),      // Aggresive     AttackExpected   FlankerAAM    
+		   (0.6347699,   0.3652301),      // Aggresive     AttackExpected   MRR           
+		   (0.408284,    0.591716),       // Aggresive     AttackExpected   Airliner      
+		   (0.2307692,   0.7692308),      // Aggresive     AttackExpected   Friendly      
+		   (0.4736842,   0.5263158),      // Aggresive     AttackExpected   Private       
+		   (0.6347699,   0.3652301)),     // Aggresive     AttackExpected   OtherAirTrack 
+		  ((0.1666667,   0.8333333),      // Aggresive     AttackUnexpected UAV           
+		   (0.1666667,   0.8333333),      // Aggresive     AttackUnexpected FencerASM     
+		   (0.1666667,   0.8333333),      // Aggresive     AttackUnexpected FlankerAAM    
+		   (0.1666667,   0.8333333),      // Aggresive     AttackUnexpected MRR           
+		   (0.1071429,   0.8928571),      // Aggresive     AttackUnexpected Airliner      
+		   (0.05263158,  0.9473684),      // Aggresive     AttackUnexpected Friendly      
+		   (0.1666667,   0.8333333),      // Aggresive     AttackUnexpected Private       
+		   (0.2105263,   0.7894737))),    // Aggresive     AttackUnexpected OtherAirTrack 
+		 (((0.5854063,   0.4145937),      // Passive       AttackExpected   UAV           
+		   (0.5854063,   0.4145937),      // Passive       AttackExpected   FencerASM     
+		   (0.5854063,   0.4145937),      // Passive       AttackExpected   FlankerAAM    
+		   (0.5854063,   0.4145937),      // Passive       AttackExpected   MRR           
+		   (0.2424242,   0.7575758),      // Passive       AttackExpected   Airliner      
+		   (0.1666667,   0.8333333),      // Passive       AttackExpected   Friendly      
+		   (0.3764614,   0.6235386),      // Passive       AttackExpected   Private       
+		   (0.5596266,   0.4403734)),     // Passive       AttackExpected   OtherAirTrack 
+		  ((0.1071429,   0.8928571),      // Passive       AttackUnexpected UAV           
+		   (0.112426,    0.887574),       // Passive       AttackUnexpected FencerASM     
+		   (0.112426,    0.887574),       // Passive       AttackUnexpected FlankerAAM    
+		   (0.112426,    0.887574),       // Passive       AttackUnexpected MRR           
+		   (0.05362776,  0.9463722),      // Passive       AttackUnexpected Airliner      
+		   (0.03069467,  0.9693053),      // Passive       AttackUnexpected Friendly      
+		   (0.1071429,   0.8928571),      // Passive       AttackUnexpected Private       
+		   (0.1596639,   0.8403361))));   // Passive       AttackUnexpected OtherAirTrack ;
+	title = "Threat";
+	whenchanged = 1254229956;
+	belief = (0.36801, 0.63199);
+	visual V1 {
+		center = (786, 480);
+		height = 7;
+		link 2 {
+			path = ((577, 573), (726, 508));
+			};
+		};
+	};
+ElimOrder = (Airlane, OnDataLink, ESM, Hostility, IFF, ATR, Intelligence, Threat, Heading, IDPlatform, Speed, Altitude, AttackProfile);
+};

@@ -1,0 +1,203 @@
+UNBBAYES VERSION 4.10.4
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+10		3317552		Add transparency and shadow when saving graph.
+
+
+BUG LIST		
+Number	Request ID	Summary
+4		3316285		Likelihood lost when new likelihood/evidence is entered.
+
+
+UNBBAYES VERSION 4.9.3
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+1		3316013		Refactor SSBN generation algorithm.
+2		3132338 	The "final" mark in some methods were removed, in order to allow overwriting.
+3		3314855		Auto reset / recompile when evidence changed.
+4		3315588		Allow to remove evidence from node.
+5		3315761		Allow the selection of a single cell - CPT.
+6		3315773		Allow copy and paste between CPT and Excel.
+7		3314854		Remove Continuous Node.
+8		3314852		Remove Color Controller & Size Controller.
+9		3314838		Auto complete probability tables.
+
+
+BUG LIST		
+Number	Request ID	Summary
+1		3030178		Wrong message for Dne IO.
+2		3260712 	SSBN is not saved with correct CPT.
+3		3316012		Bug caused by Xalan.
+
+
+UNBBAYES VERSION 4.0.0
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+1		2930755		Plugin for forms for discrete nodes' conditional functions.
+2		2928791		Convert PN I/O classes into plugins.
+3		2913286		Plugin support for localization.
+4		2913285		Plugin support for creating a new type of node.
+5		2913283		Plugin support for PN Module's IO.
+6		2908367		GUI Split Pane improvements.
+7		2872601		Change text size in Belief Bar.
+
+BUG LIST		
+Number	Request ID	Summary
+1		2950752		Chow-Liu learning algorithm was not working at all.
+2		2950741		We cannot invert edge's direction in Learning modules.
+3		2950738		Edge's popup menu is implemented on code, but not working.
+4		2941111		Context node not updated.
+5		2941107		MEBN node being unselected after change.
+6		2941106		Node size not saved/loaded.
+7		2941104		Node size is not kept as user defined.
+8		2941102		Cannot remove an edge.
+9		2925264		Cannot load plugin within JAR or ZIP.
+10		2924961		The fit to text popup menu does nothing at OOBN's instances.
+11		2922304		Align option is not moving edges.
+12		2922299		ContinuousNode's name&description text field not updated.
+13		2922295		Properties of continuous node.
+14		2918072		Remove separators which are d-separated at ssbn creation.
+15		2916415		Fix StarTrek LPD definitions.
+16		2913241		Error compiling network with utility node.
+17		2910768		Vertexes do not disappear at OOBN module.
+18		2910763		Movable inner oobn nodes.
+
+UNBBAYES VERSION 3.52.7-BETA
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+1		2845145		Show findings in different color in SSBN.
+2		2845109		Add look and feel for current system.
+3		2832727		Add Metaphor, Medical Metaphor, and UnBMiner to UnBBayes.
+4		2826255		Integrate Pruning with Grand BN construction.
+5		2826254		Prune Grand BN using d-separation.
+6		2826253		New Grand BN construction.
+7		2825695		Generic Progress Bar.
+8		2825459		Create XMLBIF version 6.
+9		2819956		New GUI.
+10		2790229		Allow inference with Gibbs.
+11		2790228		Add simulation to GUI.
+12		2790227		Gibbs Sampling.
+13		2787581		Allow finding in evaluation.
+14		2708052		Implement test case for Evaluation module.
+15		2564961		Compute exact confusion matrix.
+16		2542566		Compute error for evaluation.
+17		2539912		Include Load and Save DNE format in GUI.
+18		2539910		Load and Save DNE format.
+19		2521242		Include PCC marginal improvement and cost rate in GUI.
+20		2521225		Compute evidence cost rate.
+21		2521222		Compute marginal improvement.
+22		2521210		Remove Java 6 dependency.
+23		2286477		Implement OOBN -> MSBN convertion tool.
+24		1908023		Arrows at node's edge (outer line).
+25		1908018		Self-resizing nodes.
+
+BUG LIST		
+Number	Request ID	Summary
+1		2845111		Incorrect OV reference for input nodes in LPD.
+2		2707961		Invert table's variable order in XML-BIF 5 loader.
+3		2583323		Bug in listener of changes in Node name.
+4		2539903		Out of bounds when evaluating.
+5		2539894		Monte carlo gives array out of bounds.
+6		2390083		OOBN compile failure on input instantiating input.
+7		1954465		Resizing of nodes are not applicable anymore (ordinal BN).
+
+
+UNBBAYES VERSION 3.27.9-BETA
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+1		2502330		Implement average correct classification probability.
+2		2286514		Net 3rd Spec for OOBN I/O.
+3		2286474		Implement OOBN visual edition.
+4		2286048		Load and Save XMLBIF version 0.5.
+5		2272627		Change CPT edition behaviour.
+6		2258810		Add delete and reset button to edition of pn's.
+7		2234791		Resize table panel.
+8		2221807		Load and Save BN with continuous node.
+9		2208499		GUI to model continuous node.
+10		2208491		Add continuous node to BN.
+11		2204389		Include Likelihood Weighting in GUI Framework.
+12		2192929		Adjust the divider after compilation.
+13		2192859		Likelihood Weighting Inference.
+14		2190279		Likelihood Weighting Sampling.
+15		2131239		Evaluate PN by calculating P(T|T).
+16		2117095		Ordering resident node list in query and finding list.
+17		2037996		Nested IF for MEBN CPT.
+18		2027175		Indicate presence of finding.
+19		1908040		Propose new SSBN algorithm considering evidences "below".
+
+BUG LIST		
+Number	Request ID	Summary
+1		2380157		Update node index map.
+2		2190264		Node order in evaluation is wrong.
+3		2125443		MC sampler generates state 0 for range from 0.0 to 0.0.
+4		2125441		MC sampler always generates state 0.
+5		1956734		HarmPotential(ST3,T15) generates unknown error (-1).
+6		1949136		Blue buttons looks horrible in different look'n'feel.
+7		1949118		After generating SSBN, the leftmost tree' panel is too small.
+8		1949087		Cannot change MTheory's name.
+9		1907274		Strange behavior when query->move node.
+
+
+UNBBAYES VERSION 3.8.3-BETA
+----------------------------
+FEATURE LIST		
+Number	Request ID	Summary
+1 		2008231		Implement SSBN algorithm with evidences "below"
+2		2023512 	Develop new Web site using Maven.
+3		2027165  	Remove a finding
+4		2033356  	upgrade in search context node evaluation    
+
+BUG LIST		
+Number	Request ID	Summary
+1 		1994411  	Compiler bug when ther are only invalid parents
+2		2014574 	Compiler doesn't accept complex boolean expression.
+3		1913724		Web site's Enlgish page is in Portuguese.
+
+
+UNBBAYES VERSION 3.4.29-BETA
+----------------------------
+
+FEATURE LIST		
+Number	Request ID	Summary
+1	1968915	Pseudocode compiler's optimization
+2	1951209	Refactor NodeList to ArrayList or List
+3	1908011	Button for pre-parsing CPT pseudocode
+4	1907899	OWL <-> PR-OWL "compatibility"
+
+BUG LIST		
+Number	Request ID	Summary
+1	1962006	KB's file chooser's file filter message. 
+2	1960679	Problem with the Help Pane 
+3	1956731	Deleting resident and inserting a new one with same name... 
+4	1956730	BottomUpSSBNGenerator doesn't check if node's already there
+5	1955798	Duplicated names are acept for objects of diferents types 
+6	1954467	Inserting an edge makes isA node to shrink 
+7	1951215	Resident's ArgumentList is not updated properly 
+8	1949131	Cannot open "global option" at BN ("normal") edition frame.. 
+9	1949125	Arguments at CPT edition panel should be from parents. 
+10	1949121	No text explanation pops up at buttons in resident nodes. 
+11	1949113	Stack trace as a user's error message... 
+12	1949107	No default distro on CPT edition pane 
+13	1949104	CPT edition panel is not inserting commas . 
+14	1949101	Where the hell the compiler is reporting parse error? 
+15	1949095	Can only insert comments to MFrags and nodes? 
+16	1949094	Compiler (or table edition panel on GUI) crushes 
+17	1949091	Father nodes... Instead of Parents 
+18	1913024	defining the resident node's parameters 
+19	1913020	typo-error 2 
+20	1913015	typo-error 1 
+21	1909774	bug following tutorial 
+22	1909756	MTheory tree collapses after edits 
+23	1907990	Object entities as resident's possible value. 
+24	1907974	Problems deleting nodes (MAC) 
+25	1907968	Cannot deselect nodes when using MAC 
+26	1907954	Changing some elements is not updating GUI (by now, MTheory) 
+27	1907947	We can't manipulate 2 MTheories at the same time 
+28	1907897	Update GUI when loading PowerLoom findings 
+29	1907290	Problems when pre-existing OV is resident's argument 
+

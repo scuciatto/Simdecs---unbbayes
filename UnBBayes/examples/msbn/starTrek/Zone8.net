@@ -1,0 +1,116 @@
+net
+{
+     node_size = (0 0);
+     name = "Zone8";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node Zone8_ZoneFShips
+{
+     label = "ZoneFShips";
+     position = (372 361);
+     color = (-256);
+     states = ("C0" "C1" "C2" "C3" "MoreThan3");
+}
+
+node Zone8_ZoneNature
+{
+     label = "ZoneNature";
+     position = (466 255);
+     color = (-256);
+     states = ("DeepSpace" "BlackHoleBoundary" "PlanetarySystem");
+}
+
+node Zone8_ZoneEShips
+{
+     label = "ZoneEShips";
+     position = (543 350);
+     color = (-256);
+     states = ("C0" "C1" "C2" "C3" "MoreThan3");
+}
+
+node Zone8_ZoneMD
+{
+     label = "ZoneMD";
+     position = (166 356);
+     color = (-256);
+     states = ("High" "Low" "Medium");
+}
+
+node Zone8_CloakMode
+{
+     label = "CloakMode";
+     position = (101 180);
+     color = (-256);
+     states = ("True" "False" "Absurd");
+}
+
+node Zone8_ZoneMDPrev
+{
+     label = "ZoneMDPrev";
+     position = (288 173);
+     color = (-256);
+     states = ("High" "Low" "Medium");
+}
+
+potential (Zone8_ZoneFShips | Zone8_ZoneNature)
+{
+ data = (( 0.98 0.01 0.0070 0.0020 0.0010 )
+( 0.99 0.0050 0.0035 0.0010 5.0E-4 )
+( 0.5 0.2 0.15 0.1 0.05 ));
+}
+
+potential (Zone8_ZoneNature)
+{
+ data = ( 0.8 0.05 0.15 );
+}
+
+potential (Zone8_ZoneEShips | Zone8_ZoneNature)
+{
+ data = (( 0.98 0.01 0.0070 0.0020 0.0010 )
+( 0.95 0.03 0.01 0.0070 0.0030 )
+( 0.6 0.15 0.12 0.08 0.05 ));
+}
+
+potential (Zone8_ZoneMD | Zone8_ZoneNature Zone8_CloakMode Zone8_ZoneMDPrev)
+{
+ data = (((( 0.02 0.83 0.15 )
+( 0.12 0.7 0.18 )
+( 0.15 0.8 0.05 ))
+(( 0.05 0.85 0.1 )
+( 0.05 0.85 0.1 )
+( 0.05 0.85 0.1 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )))
+((( 0.7 0.12 0.18 )
+( 0.02 0.05 0.93 )
+( 0.88 0.08 0.04 ))
+(( 0.82 0.07 0.11 )
+( 0.82 0.07 0.11 )
+( 0.82 0.07 0.11 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )))
+((( 0.35 0.26 0.39 )
+( 0.48 0.15 0.37 )
+( 0.5 0.3 0.2 ))
+(( 0.45 0.25 0.3 )
+( 0.45 0.25 0.3 )
+( 0.45 0.25 0.3 ))
+(( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 )
+( 0.0 1.0 0.0 ))));
+}
+
+potential (Zone8_CloakMode)
+{
+ data = ( 0.5 0.5 0.0 );
+}
+
+potential (Zone8_ZoneMDPrev)
+{
+ data = ( 0.33333334 0.33333334 0.33333334 );
+}
+

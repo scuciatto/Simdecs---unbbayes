@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<toc>
+	<tocitem image="iunbbayes" text="Ajuda do UnBBayes" target="branco">
+		<tocitem image="iintroduction" text="Introducao ao UnBBayes" target="introducao"/>
+		<tocitem image="icomponents" text="Componentes" target="controles">
+			<tocitem image="iaprendizagem" text="Aprendizagem" target="aprendizagem" >
+				<tocitem text="Escolha das Variaveis" target="variaveis" />
+				<tocitem text="Arquivos compactados" target="compactados" />
+				<tocitem text="Escolha de Paradigma" target="paradigma">
+					<tocitem text="Pontuacao" target="pontuacao" >
+						<tocitem text="Escolha do Algoritmo" target="algoritmo" >
+							<tocitem text="Algoritmo K2" target="algoritmok2" />
+							<tocitem text="Algoritmo B" target="algoritmob" />
+						</tocitem>
+						<tocitem text="Escolha da Metrica" target="metrica" >
+							<tocitem text="Metrica GH" target="metricagh" />
+							<tocitem text="Metrica GHS" target="metricaghs" />
+							<tocitem text="Metrica MDL" target="metricamdl" />
+						</tocitem>
+					</tocitem>
+					<tocitem text="Independencia Condicional" target="ic" >
+						<tocitem text="Algoritimo CBL-A" target="algoritmocbla" />
+						<tocitem text="Algoritimo CBL-B" target="algoritmocblb" />	
+					</tocitem>
+				</tocitem>
+				<tocitem text="Ordenacao das Variaveis" target="ordenacao" />
+				<tocitem text="Atribuicao de relacionamentos" target="relacionamentos" />
+				<tocitem text="Parametro" target="parametro" />
+                        </tocitem>
+			<tocitem image="icomands" text="Comandos da Rede" target="branco">
+				<tocitem image="iabrir" text="Abrir Rede" target="abrirrede"/>
+				<tocitem image="icompilar" text="Compilar Rede" target="compilarrede"/>
+				<tocitem image="iimprimir" text="Imprimir Rede Bayesiana" target="imprimir"/>
+				<tocitem image="iimprimirtabela" text="Imprimir Tabela de Potencial de um No da Rede Bayesiana" target="imprimirtabela"/>
+				<tocitem image="ilog" text="Mostrar Informacoes sobre a Compilacao" target="log"/>
+				<tocitem image="inovo" text="Nova Rede" target="novarede"/>
+				<tocitem image="isalvar" text="Salvar Rede" target="salvarrede"/>
+				<tocitem image="ieditar" text="Voltar para Edica da Rede Bayesiana" target="edicaorede"/>
+				<tocitem image="ivisualisar" text="Visualisar Rede Bayesiana" target="visualisar"/>
+				<tocitem image="ivisualisartabela" text="Visualisar Tabela de Potencial de um No da Rede Bayesiana" target="visualisartabela"/>
+			</tocitem>
+			<tocitem image="irede" text="Criando uma Rede Bayesiana" target="branco">
+				<tocitem image="imais" text="Adicionar Estado a um No" target="adicionarestado"/>
+				<tocitem image="ipaste" text="Colar uma Parte da Rede Bayesiana" target="colar"/>
+				<tocitem image="icopy" text="Copiar uma Parte da Rede Bayesiana" target="copiar"/>
+				<tocitem image="itext_edition" text="Editar Descricao de um No" target="editardescricao"/>
+				<tocitem image="itext_edition" text="Editar Sigla de um No" target="editarsigla"/>
+				<tocitem image="iarco" text="Inserir Arco" target="inserirarco"/>
+				<tocitem image="ino" text="Inserir No" target="inserirno"/>
+				<tocitem image="imenos" text="Remover Estado de um No" target="removerestado"/>
+				<tocitem image="iselecionar" text="Selecionar uma Parte da Rede Bayesiana" target="selecionar"/>
+			</tocitem>
+			<tocitem image="itree" text="Editando Arvore de Evidencias" target="branco">
+				<tocitem image="icontrair" text="Contrair Arvore de Evidencias" target="contrairarvore"/>
+				<tocitem image="iexpandir" text="Expandir Arvore de Evidencias" target="expandirarvore"/>
+				<tocitem image="ipropagar" text="Propagar Evidencias da Arvore" target="propagarevidencias"/>
+				<tocitem image="ilikelihood" text="Entrar com Likelihood" target="likelihood"/>
+				<tocitem image="icertain" text="Entrar com a Certeza" target="certeza"/>
+			</tocitem>
+			<tocitem image="ilnf" text="Look-and-Feel" target="branco">
+				<tocitem image="imetal" text="Metal" target="metal"/>
+				<tocitem image="imotif" text="Motif" target="motif"/>
+				<tocitem image="iwindows" text="Windows" target="windows"/>
+			</tocitem>
+			<tocitem image="iopcaoglobal" text="Opcoes Globais" target="opcoesglobais"/>
+		</tocitem>
+		<tocitem image="iapi_use" text="Exemplo de Uso da API" target="branco">
+			<tocitem text="Modo Texto" target="modotexto"/>
+			<tocitem text="Modo Grafico" target="modografico"/>
+		</tocitem>
+		<tocitem image="iajuda" text="Ativar Janela de Ajuda" target="ajuda"/>
+		<tocitem image="iajuda" text="Extensao da Ajuda" target="jhelp"/>
+		<tocitem image="idocumentation" text="Documentacao da API" target="doc"/>
+	</tocitem>
+</toc>

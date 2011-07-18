@@ -1,0 +1,631 @@
+// ~->[DNET-1]->~
+
+// File created by someone at SEOR-GMU using Netica 4.02 on Mar 22, 2009 at 17:08:45.
+
+bnet LahoreSSBN3mod {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1237755587;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (22, 29, 868, 335);
+	resolution = 72;
+	magnification = 0.862968;
+	drawingbounds = (16062, 8582);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet InputNodes {Color = 0xc4c4e1;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node IsActive {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.01,        0.99);
+	title = "IsActivePlan(ConfAtk)";
+	comment = "The hypothesized attack is an actual active attack plan\nand not a false alarm";
+	whenchanged = 1204178882;
+	belief = (0.7146574, 0.2853426);
+	visual V1 {
+		center = (330, 54);
+		height = 3;
+		};
+	};
+
+node PoliticalImportance1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (high, low);
+	parents = ();
+	probs = 
+		// high         low          
+		  (0.05,        0.95);
+	title = "PoliticalImportance(Conf)";
+	comment = "Politically important venues are more likely to be targeted";
+	whenchanged = 1210138051;
+	evidence = high;
+	belief = (1, 0);
+	visual V1 {
+		center = (876, 30);
+		height = 1;
+		};
+	};
+
+node Target4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (PoliticalImportance, IsActive1);
+	parents = (PoliticalImportance1, IsActive);
+	probs = 
+		// true         false           // PoliticalImportance IsActive1 
+		(((0.3,         0.7),           // high                true      
+		  (0,           1)),            // high                false     
+		 ((0.003,       0.997),         // low                 true      
+		  (0,           1)));           // low                 false     ;
+	numcases = 1;
+	title = "IsTarget(Conf,ConfAtk)";
+	whenchanged = 1210139327;
+	belief = (0.7119195, 0.2880805);
+	visual V1 {
+		center = (876, 114);
+		height = 2;
+		};
+	};
+
+node IsExpectedAt {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (high, low);
+	parents = ();
+	probs = 
+		// high         low          
+		  (0.05,        0.95);
+	title = "IsExpectedAt(V,Conf)";
+	comment = "Victim is expected to be at target venue";
+	whenchanged = 1210138047;
+	evidence = high;
+	belief = (1, 0);
+	visual V1 {
+		center = (660, 174);
+		height = 11;
+		};
+	};
+
+node SNRivals {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.015,       0.985);
+	title = "SNRivals(V,TL6)";
+	comment = "Social network analysis says target is enemy of potential\nagent of attack";
+	whenchanged = 1210138040;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (498, 174);
+		height = 10;
+		};
+	};
+
+node IsAgent7 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsActive, IsIntendedVictim, , Target4);
+	parents = (IsActive, IsExpectedAt, SNRivals, Target4);
+	probs = 
+		//   true         false             // IsActive IsIntendedVictim SNRivals Target4 
+		(((((0.02,        0.98),            // true     high             true     true    
+		    (0.005,       0.995)),          // true     high             true     false   
+		   ((0.005,       0.995),           // true     high             false    true    
+		    (0.005,       0.995))),         // true     high             false    false   
+		  (((0.005,       0.995),           // true     low              true     true    
+		    (0.005,       0.995)),          // true     low              true     false   
+		   ((0.005,       0.995),           // true     low              false    true    
+		    (0.005,       0.995)))),        // true     low              false    false   
+		 ((((0,           1),               // false    high             true     true    
+		    (0,           1)),              // false    high             true     false   
+		   ((0,           1),               // false    high             false    true    
+		    (0,           1))),             // false    high             false    false   
+		  (((0,           1),               // false    low              true     true    
+		    (0,           1)),              // false    low              true     false   
+		   ((0,           1),               // false    low              false    true    
+		    (0,           1)))));           // false    low              false    false   ;
+	numcases = 1;
+	title = "IsAgentOf(TL6,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1210139582;
+	belief = (0.6801264, 0.3198736);
+	visual V1 {
+		center = (552, 288);
+		height = 20;
+		};
+	};
+
+node IsAgent9 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsActive1);
+	parents = (IsActive);
+	probs = 
+		// true         false          // IsActive1 
+		 ((0.005453277, 0.9945468),    // true      
+		  (0,           1));           // false     ;
+	title = "IsAgentOf(C,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1210139173;
+	belief = (0.6801029, 0.3198971);
+	visual V1 {
+		center = (330, 210);
+		height = 12;
+		};
+	};
+
+node IsAgent8 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsActive);
+	probs = 
+		// true         false          // IsActive 
+		 ((0.005453277, 0.9945468),    // true     
+		  (0,           1));           // false    ;
+	title = "IsAgentOf(P,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1204177460;
+	belief = (0.703948, 0.2960521);
+	visual V1 {
+		center = (774, 330);
+		height = 14;
+		};
+	};
+
+node SuppliesWpnMatrl4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.01,        0.99);
+	title = "IsWeaponSupplier(AD)";
+	comment = "Someone who supplies weapons for attacks is a weapons supplier";
+	whenchanged = 1210138033;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (114, 48);
+		height = 6;
+		};
+	};
+
+node IsAgent11 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsActive, );
+	parents = (IsActive, SuppliesWpnMatrl4);
+	probs = 
+		// true         false           // IsActive SuppliesWpnMatrl4 
+		(((0.3,         0.7),           // true     true              
+		  (0.005,       0.995)),        // true     false             
+		 ((0,           1),             // false    true              
+		  (0,           1)));           // false    false             ;
+	title = "IsAgentOf(AD,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1204177530;
+	belief = (0.708459, 0.291541);
+	visual V1 {
+		center = (144, 174);
+		height = 5;
+		link 1 {
+			path = ((289, 82), (186, 147));
+			};
+		};
+	};
+
+node IsExpectedAt1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.05,        0.95);
+	title = "IsExpectedAt(TL6,Conf)";
+	comment = "Victim is expected to be at target venue";
+	whenchanged = 1210815392;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (1134, 84);
+		height = 7;
+		};
+	};
+
+node AgentAtVenue {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsExpectedAt1, Target4, IsAgent7);
+	probs = 
+		//  true         false            // IsExpectedAt1 Target4 IsAgent7 
+		((((0.01,        0.99),           // true          true    true     
+		   (0.9,         0.1)),           // true          true    false    
+		  ((0.9,         0.1),            // true          false   true     
+		   (0.9,         0.1))),          // true          false   false    
+		 (((0.01,        0.99),           // false         true    true     
+		   (0.01,        0.99)),          // false         true    false    
+		  ((0.01,        0.99),           // false         false   true     
+		   (0.01,        0.99))));        // false         false   false    ;
+	title = "AgentAt(TL6,Conf)";
+	comment = "If an agent is not expected to be at a venue, then s/he\n\
+		is not likely to be there\n\n\
+		If an agent is expected to be at a venue but is an\n\
+		agent of a plan then agent is unlikely to be there\n\n\
+		Otherwise agent is likely to be there";
+	whenchanged = 1210139384;
+	belief = (0.07060206, 0.9293979);
+	visual V1 {
+		center = (1062, 270);
+		height = 21;
+		};
+	};
+
+node Executes {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent4);
+	parents = (IsAgent8);
+	probs = 
+		// true         false          // IsAgent4 
+		 ((0.5,         0.5),          // true     
+		  (0,           1));           // false    ;
+	title = "Executes(P,ConfAtk)";
+	comment = "This is a specialization of being an agent of a plan.\nP executes the attack";
+	whenchanged = 1204177558;
+	belief = (0.7032183, 0.2967817);
+	visual V1 {
+		center = (858, 438);
+		height = 13;
+		};
+	};
+
+node PlantsExplosives {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (Executes, Target4);
+	probs = 
+		// true         false           // Executes Target4 
+		(((0.7,         0.3),           // true     true    
+		  (0,           1)),            // true     false   
+		 ((0,           1),             // false    true    
+		  (0,           1)));           // false    false   ;
+	title = "PlantsExplosive(P,Conf)";
+	comment = "P plants explosives at location";
+	whenchanged = 1204178657;
+	belief = (0.7029281, 0.297072);
+	visual V1 {
+		center = (1074, 486);
+		height = 15;
+		};
+	};
+
+node SNRelated2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent3, IsAgent2);
+	parents = (IsAgent9, IsAgent7);
+	probs = 
+		// true         false           // IsAgent3 IsAgent2 
+		(((0.65,        0.35),          // true     true     
+		  (0.02,        0.98)),         // true     false    
+		 ((0.02,        0.98),          // false    true     
+		  (0.02,        0.98)));        // false    false    ;
+	numcases = 1;
+	title = "SNRelated(TL6,C)";
+	comment = "Definition: SNRelated(agt1,agt2) means that agt1 is separated\n\
+		by degree less than 3 from agt2 in the social network";
+	whenchanged = 1210138691;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (318, 534);
+		height = 9;
+		};
+	};
+
+node IsAgent10 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.001,       0.999);
+	title = "ResidesAt(C,ResC)";
+	comment = "vn is located at the residence of agt";
+	whenchanged = 1210138212;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (762, 534);
+		height = 19;
+		};
+	};
+
+node IsMeetingVenue2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent8, IsAgent9);
+	parents = (IsAgent10, IsAgent9);
+	probs = 
+		// true         false           // IsAgent8 IsAgent9 
+		(((0.4,         0.6),           // true     true     
+		  (0.001,       0.999)),        // true     false    
+		 ((0.001,       0.999),         // false    true     
+		  (0.001,       0.999)));       // false    false    ;
+	numcases = 1;
+	title = "IsMeetingVenue(ResC,ConfAtk)";
+	comment = "vn is the venue of a meeting related to pln\n\n\
+		Meetings are more likely to be held at the residence\n\
+		of one of the agents of the plan";
+	whenchanged = 1210139633;
+	belief = (0.6639886, 0.3360114);
+	visual V1 {
+		center = (534, 534);
+		height = 24;
+		};
+	};
+
+node AgentAtVenue3 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (, IsMeetingVenue2);
+	parents = (IsAgent7, IsMeetingVenue2);
+	probs = 
+		// true         false           // IsAgent7 IsMeetingVenue2 
+		(((0.8,         0.2),           // true     true            
+		  (0.01,        0.99)),         // true     false           
+		 ((0.01,        0.99),          // false    true            
+		  (0.01,        0.99)));        // false    false           ;
+	numcases = 1;
+	title = "AgentAt(TL6,ResC)";
+	comment = "An agent is unlikely to be at a venue if she is an agent of a\n\
+		plan attacking the venue\n\n\
+		An agent is likely to be at a meeting venue for a plan\n\
+		\| if she is an agent of the plan\n\n\
+		Otherwise she is likely to be there if expected to be there\n\
+		and otherwise unlikely\n\
+		";
+	whenchanged = 1210139821;
+	belief = (0.8997233, 0.1002767);
+	visual V1 {
+		center = (366, 648);
+		height = 23;
+		};
+	};
+
+node SNRelated1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent3, IsAgent2);
+	parents = (IsAgent11, IsAgent9);
+	probs = 
+		// true         false           // IsAgent3 IsAgent2 
+		(((0.65,        0.35),          // true     true     
+		  (0.02,        0.98)),         // true     false    
+		 ((0.02,        0.98),          // false    true     
+		  (0.02,        0.98)));        // false    false    ;
+	numcases = 1;
+	title = "SNRelated(C,AD)";
+	comment = "Definition: SNRelated(agt1,agt2) means that agt1 is separated\n\
+		by degree less than 3 from agt2 in the social network";
+	whenchanged = 1210138096;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (180, 456);
+		height = 18;
+		};
+	};
+
+node SNRelated {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent3, IsAgent2);
+	parents = (IsAgent11, IsAgent8);
+	probs = 
+		// true         false           // IsAgent3 IsAgent2 
+		(((0.65,        0.35),          // true     true     
+		  (0.02,        0.98)),         // true     false    
+		 ((0.02,        0.98),          // false    true     
+		  (0.02,        0.98)));        // false    false    ;
+	numcases = 1;
+	title = "SNRelated(P,AD)";
+	comment = "Definition: SNRelated(agt1,agt2) means that agt1 is separated\n\
+		by degree less than 3 from agt2 in the social network";
+	whenchanged = 1210138078;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (576, 426);
+		height = 17;
+		};
+	};
+
+node SuppliesWpnMatrl1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsAgent11);
+	probs = 
+		// true         false          // IsAgent11 
+		 ((0.99,        0.01),         // true      
+		  (0,           1));           // false     ;
+	numcases = 1;
+	title = "SuppliesWpnMatrl(AD,ConfAtk)";
+	comment = "This is a specialization of being an agent of a plan.\n\
+		AD supplies weapons material for the attack";
+	whenchanged = 1204177544;
+	belief = (0.7013745, 0.2986256);
+	visual V1 {
+		center = (120, 324);
+		height = 4;
+		};
+	};
+
+node MissingCar1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (AgentAtVenue, IsExpectedAt1);
+	probs = 
+		// true         false           // AgentAtVenue IsExpectedAt1 
+		(((0.2,         0.8),           // true         true          
+		  (0.01,        0.99)),         // true         false         
+		 ((0.7,         0.3),           // false        true          
+		  (0.01,        0.99)));        // false        false         ;
+	title = "MissingCarReport(TL6,Conf)";
+	whenchanged = 1210138196;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (1170, 384);
+		height = 8;
+		};
+	};
+
+node LocationConstraint {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (Possible, Impossible);
+	parents = (AgentAtVenue3, AgentAtVenue);
+	functable = 
+		                     // AgentAtVenue3 AgentAtVenue 
+		 ((Impossible,       // true          true         
+		   Possible),        // true          false        
+		  (Possible,         // false         true         
+		   Possible));       // false         false        ;
+	numcases = 1;
+	title = "LocationConstraint(ResC,Conf,TL6)";
+	whenchanged = 1237755587;
+	evidence = Possible;
+	belief = (1, 0);
+	visual V1 {
+		center = (774, 690);
+		height = 22;
+		link 1 {
+			path = ((441, 655), (648, 677));
+			};
+		};
+	};
+
+node ExplosivesReport2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (PlantsExplosives1);
+	parents = (PlantsExplosives);
+	probs = 
+		// true         false          // PlantsExplosives1 
+		 ((0.8,         0.2),          // true              
+		  (5e-4,        0.9995));      // false             ;
+	title = "ExplosiveResidueReport(P)";
+	comment = "Explosive residue detected on P";
+	whenchanged = 1210138128;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (1020, 588);
+		height = 16;
+		link 1 {
+			path = ((1060, 514), (1035, 560));
+			};
+		};
+	};
+
+node LocReport1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (AgentAtVenue1);
+	parents = (AgentAtVenue3);
+	probs = 
+		// true         false          // AgentAtVenue1 
+		 ((0.8,         0.2),          // true          
+		  (0.001,       0.999));       // false         ;
+	numcases = 1;
+	title = "HUMINTLocationReport(TL6,ResC)";
+	whenchanged = 1210139832;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (342, 750);
+		height = 25;
+		};
+	};
+NodeSet InputNodes {Nodes = ();};
+ElimOrder = (SuppliesWpnMatrl1, ExplosivesReport2, LocReport1, PoliticalImportance1, SuppliesWpnMatrl4, PlantsExplosives, Executes, SNRelated2, IsAgent10, SNRelated1, SNRelated, MissingCar1, LocationConstraint, IsAgent8, IsAgent11, IsExpectedAt1, AgentAtVenue, IsMeetingVenue2, AgentAtVenue3, IsAgent9, IsActive, Target4, IsExpectedAt, SNRivals, IsAgent7);
+};

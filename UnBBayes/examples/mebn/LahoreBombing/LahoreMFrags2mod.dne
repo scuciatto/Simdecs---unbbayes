@@ -1,0 +1,544 @@
+// ~->[DNET-1]->~
+
+// File created by someone at SEOR-GMU using Netica 3.19 on May 06, 2008 at 21:59:48.
+
+bnet LahoreMFrags2mod {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1210136380;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (22, 29, 868, 335);
+	scrollposn = (0, 11);
+	resolution = 72;
+	drawingbounds = (3678, 2304);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet InputNodes {Color = 0xc4c4e1;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node AgentAtVenue1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.018,       0.982);
+	title = "AgentAt(agt,loc)";
+	comment = "If an agent is not expected to be at a venue, then s/he\n\
+		is not likely to be there\n\n\
+		If an agent is expected to be at a venue but is an\n\
+		agent of a plan then agent is unlikely to be there\n\n\
+		Otherwise agent is likely to be there";
+	whenchanged = 1210136271;
+	belief = (0.018, 0.982);
+	visual V1 {
+		center = (438, 492);
+		height = 25;
+		};
+	};
+
+node IsExpectedAt1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.01,        0.99);
+	numcases = 1;
+	title = "IsExpectedAt(agt,vn)";
+	comment = "Victim is expected to be at target venue\nAgent is expected at his/her residence";
+	whenchanged = 1210133817;
+	belief = (0.01, 0.99);
+	visual V1 {
+		center = (198, 486);
+		height = 24;
+		};
+	};
+
+node LocReport1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (AgentAtVenue1, IsExpectedAt1);
+	probs = 
+		// true         false           // AgentAtVenue1 IsExpectedAt1 
+		(((0.8,         0.2),           // true          true          
+		  (0.08,        0.92)),         // true          false         
+		 ((0.01,        0.99),          // false         true          
+		  (0.001,       0.999)));       // false         false         ;
+	numcases = 1;
+	title = "HUMINTLocationReport(agt,loc)";
+	whenchanged = 1210133820;
+	belief = (0.00263998, 0.99736);
+	visual V1 {
+		center = (438, 600);
+		height = 26;
+		};
+	};
+
+node MissingCar1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (, IsExpectedAt);
+	parents = (AgentAtVenue1, IsExpectedAt1);
+	probs = 
+		// true         false           // AgentAtVenue1 IsExpectedAt 
+		(((0.2,         0.8),           // true          true         
+		  (0.01,        0.99)),         // true          false        
+		 ((0.7,         0.3),           // false         true         
+		  (0.01,        0.99)));        // false         false        ;
+	numcases = 1;
+	title = "MissingCarReport(agt,vn)";
+	whenchanged = 1210133520;
+	belief = (0.01681, 0.98319);
+	visual V1 {
+		center = (198, 600);
+		height = 21;
+		};
+	};
+
+node TITLE18 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = " Localization Report MFrag";
+	whenchanged = 1184118269;
+	visual V1 {
+		center = (366, 654);
+		font = font {shape= "Comic Sans MS"; size= 12;};
+		height = 1;
+		};
+	};
+
+node TITLE21 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "This MFrag concerns reports about \nlocation of persons-of-interest";
+	whenchanged = 1210133270;
+	visual V1 {
+		center = (636, 540);
+		height = 27;
+		};
+	};
+
+node IsA11 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(agt,Agent)";
+	whenchanged = 1204156837;
+	evidence = true;
+	visual V1 {
+		center = (366, 432);
+		dispform = LABELBOX;
+		height = 22;
+		};
+	};
+
+node IsA13 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(loc,Venue)";
+	whenchanged = 1204156824;
+	evidence = true;
+	visual V1 {
+		center = (234, 432);
+		dispform = LABELBOX;
+		height = 23;
+		};
+	};
+
+node IsAgent7 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (1e-4,        0.9999);
+	title = "IsAgentOf(agt,pln)";
+	comment = "Agent is one of the planners or executors of the plan";
+	whenchanged = 1210131540;
+	belief = (1e-4, 0.9999);
+	visual V1 {
+		center = (486, 120);
+		height = 2;
+		};
+	};
+
+node IsAgent10 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.001,       0.999);
+	title = "ResidesAt(agt,vn)";
+	comment = "vn is located at the residence of agt";
+	whenchanged = 1210131602;
+	belief = (0.001, 0.999);
+	visual V1 {
+		center = (132, 108);
+		height = 11;
+		};
+	};
+
+node IsExpectedAt {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsAgent10);
+	probs = 
+		// true         false          // IsAgent10 
+		 ((0.35,        0.65),         // true      
+		  (0.01,        0.99));        // false     ;
+	numcases = 1;
+	title = "IsExpectedAt(agt,vn)";
+	comment = "Victim is expected to be at target venue\nAgent is expected at his/her residence";
+	whenchanged = 1210132865;
+	belief = (0.01034, 0.98966);
+	visual V1 {
+		center = (186, 198);
+		height = 7;
+		};
+	};
+
+node Target4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (1.785e-4,    0.9998215);
+	title = "IsTarget(vn,pln)";
+	whenchanged = 1210131540;
+	belief = (1.785e-4, 0.9998215);
+	visual V1 {
+		center = (690, 120);
+		height = 9;
+		};
+	};
+
+node IsMeetingVenue1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.04,        0.96);
+	numcases = 1;
+	title = "IsMeetingVenue(vn,pln)";
+	comment = "vn is the venue of a meeting related to pln\n\n\
+		Meetings are more likely to be held at the residence\n\
+		of one of the agents of the plan";
+	whenchanged = 1210132415;
+	belief = (0.04, 0.96);
+	visual V1 {
+		center = (312, 120);
+		height = 12;
+		};
+	};
+
+node AgentAtVenue {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsAgent7, IsExpectedAt, Target4, IsMeetingVenue1);
+	probs = 
+		//   true         false             // IsAgent7 IsExpectedAt Target4 IsMeetingVenue1 
+		(((((0.01,        0.99),            // true     true         true    true            
+		    (0.01,        0.99)),           // true     true         true    false           
+		   ((0.8,         0.2),             // true     true         false   true            
+		    (0.8,         0.2))),           // true     true         false   false           
+		  (((0.01,        0.99),            // true     false        true    true            
+		    (0.01,        0.99)),           // true     false        true    false           
+		   ((0.5,         0.5),             // true     false        false   true            
+		    (0.01,        0.99)))),         // true     false        false   false           
+		 ((((0.8,         0.2),             // false    true         true    true            
+		    (0.8,         0.2)),            // false    true         true    false           
+		   ((0.8,         0.2),             // false    true         false   true            
+		    (0.8,         0.2))),           // false    true         false   false           
+		  (((0.01,        0.99),            // false    false        true    true            
+		    (0.01,        0.99)),           // false    false        true    false           
+		   ((0.01,        0.99),            // false    false        false   true            
+		    (0.01,        0.99)))));        // false    false        false   false           ;
+	numcases = 1;
+	title = "AgentAt(agt,vn)";
+	comment = "An agent is unlikely to be at a venue if she is an agent of a\n\
+		plan attacking the venue\n\n\
+		An agent is likely to be at a meeting venue for a plan\n\
+		\| if she is an agent of the plan\n\n\
+		Otherwise she is likely to be there if expected to be there\n\
+		and otherwise unlikely\n\
+		";
+	whenchanged = 1210132741;
+	belief = (0.01817054, 0.9818295);
+	visual V1 {
+		center = (486, 198);
+		height = 3;
+		link 3 {
+			path = ((621, 148), (558, 171));
+			};
+		link 4 {
+			path = ((371, 148), (424, 171));
+			};
+		};
+	};
+
+node TITLE6 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "Agent Location MFrag";
+	whenchanged = 1184111765;
+	visual V1 {
+		center = (144, 294);
+		font = font {shape= "Comic Sans MS"; size= 12;};
+		height = 4;
+		};
+	};
+
+node PersonOfInterest4 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(agt,PersonOfInterest)";
+	whenchanged = 1184117909;
+	evidence = true;
+	visual V1 {
+		center = (192, 42);
+		dispform = LABELBOX;
+		height = 5;
+		};
+	};
+
+node IsA5 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(pln,AttackPlan)";
+	whenchanged = 1184111471;
+	evidence = true;
+	visual V1 {
+		center = (360, 42);
+		dispform = LABELBOX;
+		height = 6;
+		};
+	};
+
+node TITLE11 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "This MFrag says that an agent of an\n\
+		attack is unlikely to be at the targeted venue\n\
+		but is likely to be at a meeting venue for the plan";
+	whenchanged = 1210128545;
+	visual V1 {
+		center = (216, 330);
+		font = font {shape= "Arial"; size= 12;};
+		height = 8;
+		};
+	};
+
+node IsA6 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(vn,Venue)";
+	whenchanged = 1204144164;
+	evidence = true;
+	visual V1 {
+		center = (504, 42);
+		dispform = LABELBOX;
+		height = 10;
+		};
+	};
+
+node IsAgent9 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.001,       0.999);
+	title = "IsAgentOf(agt,pln)";
+	comment = "Agent is one of the planners or executors of the plan";
+	whenchanged = 1210131602;
+	belief = (0.001, 0.999);
+	visual V1 {
+		center = (1062, 108);
+		height = 13;
+		};
+	};
+
+node IsAgent8 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.001,       0.999);
+	title = "ResidesAt(agt,vn)";
+	comment = "vn is located at the residence of agt";
+	whenchanged = 1210131602;
+	belief = (0.001, 0.999);
+	visual V1 {
+		center = (876, 108);
+		height = 14;
+		};
+	};
+
+node IsMeetingVenue {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsAgent8, IsAgent9);
+	probs = 
+		// true         false           // IsAgent8 IsAgent9 
+		(((0.04,        0.96),          // true     true     
+		  (0.001,       0.999)),        // true     false    
+		 ((0.001,       0.999),         // false    true     
+		  (0.001,       0.999)));       // false    false    ;
+	numcases = 1;
+	title = "IsMeetingVenue(vn,pln)";
+	comment = "vn is the venue of a meeting related to pln\n\n\
+		Meetings are more likely to be held at the residence\n\
+		of one of the agents of the plan";
+	whenchanged = 1210131565;
+	belief = (0.001000039, 0.999);
+	visual V1 {
+		center = (972, 240);
+		height = 18;
+		};
+	};
+
+node PersonOfInterest10 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(agt,PersonOfInterest)";
+	whenchanged = 1210129998;
+	evidence = true;
+	visual V1 {
+		center = (858, 48);
+		dispform = LABELBOX;
+		height = 15;
+		};
+	};
+
+node IsA15 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(pln,Plan)";
+	whenchanged = 1184124598;
+	evidence = true;
+	visual V1 {
+		center = (1128, 48);
+		dispform = LABELBOX;
+		height = 16;
+		};
+	};
+
+node IsA7 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "IsA(vn,Venue)";
+	whenchanged = 1204144164;
+	evidence = true;
+	visual V1 {
+		center = (1014, 48);
+		dispform = LABELBOX;
+		height = 17;
+		};
+	};
+
+node TITLE22 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "This MFrag says that agents\nof a plan may meet at the \nresidenceof one of the agents";
+	whenchanged = 1210132995;
+	visual V1 {
+		center = (1194, 180);
+		font = font {shape= "Arial"; size= 12;};
+		height = 20;
+		};
+	};
+
+node TITLE23 {
+	kind = CONSTANT;
+	discrete = TRUE;
+	states = (true, false);
+	parents = ();
+	title = "Meeting Venue MFrag";
+	whenchanged = 1210131722;
+	visual V1 {
+		center = (984, 294);
+		font = font {shape= "Comic Sans MS"; size= 12;};
+		height = 19;
+		};
+	};
+NodeSet InputNodes {Nodes = (AgentAtVenue1, IsExpectedAt1, IsMeetingVenue1, IsAgent7, Target4, IsAgent8, IsAgent9);};
+ElimOrder = (IsAgent10, LocReport1, AgentAtVenue1, IsExpectedAt1, MissingCar1, IsAgent9, IsAgent8, IsMeetingVenue, IsAgent7, IsExpectedAt, Target4, IsMeetingVenue1, AgentAtVenue);
+};

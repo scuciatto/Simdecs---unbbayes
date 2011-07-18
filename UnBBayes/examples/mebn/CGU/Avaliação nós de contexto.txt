@@ -1,0 +1,94 @@
+OK lic-Licitacao1
+emp
+empB
+org
+pb
+objB
+licB
+
+VencedorLicitacao(Licitacao1) = emp
+DonoLicitacao(Licitacao1) = org
+ProjetoBasicoLicitacao(Licitacao1) = pb
+ProjetoBasicoDerivadoObjeto(pb, objB)
+DonoLicitacao(licB) = org
+VencedorLicitacao(licB) = empB
+ObjetoLicitacao(licB) = objB
+(~(lic = licB))
+
+------------
+
+OK lic-Licitacao1
+OK emp - Empresa1
+empB
+OK org - ORGAO1
+OK pb - PROJETOBASICO1
+objB
+licB
+
+VencedorLicitacao(Licitacao1) = Empresa1
+DonoLicitacao(Licitacao1) = Orgao1
+ProjetoBasicoLicitacao(Licitacao1) = PROJETOBASICO1
+ProjetoBasicoDerivadoObjeto(PROJETOBASICO1, objB)
+DonoLicitacao(licB) = Orgao1
+VencedorLicitacao(licB) = empB
+ObjetoLicitacao(licB) = objB
+(~(lic = licB))
+
+----------------------
+
+OK lic-Licitacao1
+OK emp - Empresa1
+empB
+OK org - ORGAO1
+OK pb - PROJETOBASICO1
+objB - objeto2
+licB
+
+VencedorLicitacao(Licitacao1) = Empresa1
+DonoLicitacao(Licitacao1) = Orgao1
+ProjetoBasicoLicitacao(Licitacao1) = PROJETOBASICO1
+ProjetoBasicoDerivadoObjeto(PROJETOBASICO1, Objeto2)
+DonoLicitacao(licB) = Orgao1 - LICITACAO2, LICITACAO3, LICITACAO4
+VencedorLicitacao(licB) = empB
+ObjetoLicitacao(licB) = objB
+(~(Licitacao1 = licB)) - LICITACAO2, LICITACAO3, LICITACAO4
+
+------------------------
+
+OK lic-Licitacao1
+OK emp - Empresa1
+empB
+OK org - ORGAO1
+OK pb - PROJETOBASICO1
+objB - objeto2
+licB - LICITACAO2, 
+
+VencedorLicitacao(Licitacao1) = Empresa1
+DonoLicitacao(Licitacao1) = Orgao1
+ProjetoBasicoLicitacao(Licitacao1) = PROJETOBASICO1
+ProjetoBasicoDerivadoObjeto(PROJETOBASICO1, Objeto2)
+DonoLicitacao(LICITACAO2, ) = Orgao1 - LICITACAO2
+VencedorLicitacao(LICITACAO2, ) = empB
+ObjetoLicitacao(LICITACAO2, ) = objeto2
+(~(Licitacao1 = licB)) - LICITACAO2
+
+-----------------------------
+
+------------------------
+
+OK lic-Licitacao1
+OK emp - Empresa1
+OK empB - Empresa2
+OK org - ORGAO1
+OK pb - PROJETOBASICO1
+OK objB - objeto2
+OK licB - LICITACAO2, 
+
+VencedorLicitacao(Licitacao1) = Empresa1
+DonoLicitacao(Licitacao1) = Orgao1
+ProjetoBasicoLicitacao(Licitacao1) = PROJETOBASICO1
+ProjetoBasicoDerivadoObjeto(PROJETOBASICO1, Objeto2)
+DonoLicitacao(LICITACAO2, ) = Orgao1 - LICITACAO2
+VencedorLicitacao(LICITACAO2, ) = Empresa2
+ObjetoLicitacao(LICITACAO2, ) = objeto2
+(~(Licitacao1 = licB)) - LICITACAO2

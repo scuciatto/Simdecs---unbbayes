@@ -1,0 +1,1973 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Solutionsoft HelpBreeze JavaHelp Edition">
+<TITLE>CNM Example</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY BGCOLOR=#ffffff>
+<H1><FONT color=#000000>CNM Example</FONT> </H1>
+<P><FONT color=#000000></FONT>&nbsp;</P>
+<P class=MsoBodyText>Será mostrado&nbsp;um exemplo de construção do modelo 
+neural combinatório utilizando a proposta de geração por&nbsp;contingência, que 
+este programa implemanta.</P>
+<P class=MsoBodyText>Na tabela&nbsp;abaixo é exibido o arquivo de treinamento 
+usado por Machado em sua proposta original, associando pacientes com doenças a 
+sintomas. A base de treinamento é formada por quatro casos de pacientes que 
+possuem a doença D1 ou D2 e que podem apresentar os sintomas S1, S2, S3 ou S4, 
+ou combinação destes.</P>
+<P class=MsoNormal>&nbsp;</P>
+<DIV align=center>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-table-layout-alt: fixed; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 3.5pt 0cm 3.5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 40.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid" 
+    vAlign=top width=54>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Nome<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 65.3pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt" 
+    vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Sintoma<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 48.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt" 
+    vAlign=top width=65>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Doença<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 40.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=54>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">João<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 65.3pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; mso-layout-grid-align: none" 
+      align=center><SPAN 
+      style="FONT-SIZE: 10pt; COLOR: black; FONT-FAMILY: Tahoma; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">S1, 
+      S2, S3<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 48.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=65>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">D1<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 40.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=54>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Diana<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 65.3pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; mso-layout-grid-align: none" 
+      align=center><SPAN 
+      style="FONT-SIZE: 10pt; COLOR: black; FONT-FAMILY: Tahoma; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">S1, 
+      S2, S4<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 48.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=65>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">D1<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 40.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=54>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Maria<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 65.3pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; mso-layout-grid-align: none" 
+      align=center><SPAN 
+      style="FONT-SIZE: 10pt; COLOR: black; FONT-FAMILY: Tahoma; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">S1, 
+      S3, S4<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 48.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=65>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">D2<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 40.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=54>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Pedro<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 65.3pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=87>
+      <P class=MsoNormal style="TEXT-ALIGN: center; mso-layout-grid-align: none" 
+      align=center><SPAN 
+      style="FONT-SIZE: 10pt; COLOR: black; FONT-FAMILY: Tahoma; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">S2, 
+      S3, S4<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 48.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=65>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">D2<o:p></O:P></SPAN></P></TD></TR></TABLE></DIV>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+style="FONT-SIZE: 11pt; mso-bidi-font-size: 12.0pt"><A name=_Toc37226408><FONT 
+size=3>Arquivo de treinamento usado no exemplo.</FONT></A></SPAN></P>
+<P class=MsoBodyText>Com o uso do algoritmo de construção por contingência foram 
+criados&nbsp;22 neurônios na camada combinatória. Após a poda com&nbsp;pontos de 
+corte&nbsp;um e dois, restaram apenas, dez e dois respectivamente, neuônios 
+combinatoriais&nbsp;como pode ser observado na tabela a seguir.</P>
+<P class=MsoNormal style="TEXT-ALIGN: justify">&nbsp;</P>
+<DIV align=center>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-table-layout-alt: fixed; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 3.5pt 0cm 3.5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 37.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid" 
+    width=50 rowSpan=2>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Doença<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 70.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt" 
+    vAlign=top width=94 colSpan=4>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Sintomas<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt" 
+    width=40 rowSpan=2>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Início<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 117.5pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt" 
+    vAlign=top width=157 colSpan=4>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Acumuladores<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt" 
+    width=31 rowSpan=2>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Acc<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 1.5pt solid; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 47.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt" 
+    vAlign=top width=63 colSpan=2>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Threshold<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">S1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">S2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">S3<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">S4<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">João<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Diana<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Maria<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">Pedro<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 37.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-top-alt: solid windowtext 1.5pt" 
+    width=50 rowSpan=11>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">D1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">2<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt"><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt">X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: silver; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1.5pt solid; WIDTH: 37.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-top-alt: solid windowtext 1.5pt" 
+    width=50 rowSpan=11>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >D2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext 1.5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >2<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p></O:P></SPAN></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext 1.5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 17.6pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=23>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >X<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >0<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 25.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=34>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; BACKGROUND: gray; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.9pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=41>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      ><o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 30.35pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=40>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.1pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=31>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >1<o:p></O:P></SPAN></P></TD>
+    <TD 
+    style="BORDER-RIGHT: windowtext 1.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: medium none; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 23.8pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1.5pt solid; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=32>
+      <P class=MsoNormal style="TEXT-ALIGN: center" align=center 
+      ><SPAN 
+      style="FONT-SIZE: 10pt; mso-bidi-font-size: 12.0pt" 
+      >-<o:p 
+  ></O:P></SPAN></P></TD></TR></TABLE></DIV>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN style="FONT-SIZE: 11pt; mso-bidi-font-size: 12.0pt"><FONT size=3>Combinações geradas pelo 
+algoritmo de geração por contingência.</FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: left" align=left><SPAN 
+style="FONT-SIZE: 11pt; mso-bidi-font-size: 12.0pt"></SPAN>Com as otimizações utilizadas neste modelo com 
+relação ao uso de memória, foram criados apenas 14 neurônios na camada 
+combinatória, com vários deles se ligando duas hipóteses de saída. E após a poda 
+com os mesmos pontos de corte usados anteriormente, um e dois, também sobraram 
+dez e dois neurônios respectivamente.</P>
+</BODY>
+</HTML>

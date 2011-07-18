@@ -1,0 +1,48 @@
+                                    ------
+                      How to Model Probabilistic Ontologies 
+                                    ------
+                              Rommel Novaes Carvalho
+                                    ------
+                                  2008-07-21
+
+How to Model Probabilistic Ontologies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  In this section we will show how to model a probabilistic ontologies (Matsumoto and Santos 2008). 
+  We have summarized this process in 11 steps, as follows:
+  
+  	[[1]] Identify and define the scope of the problem to be solved;
+  	
+  	[[2]] Identify the entities present in the domain. If you are having 
+  	trouble trying to come up with different entities, you probably do not 
+  	need to use MEBN. Try using just BN, instead;
+  	
+  	[[3]] Identify logical groups (there are groups of information that are or 
+  	could be logically put together) for identifying sets of entities;
+  	
+  	[[4]] Identify criterias that can classify in some way the identified entities.
+  	This will help you choose which entities are relevant and which are not to solve 
+  	the problem (discard them from your model). This step can also help to detect 
+  	uncertain about the existence of information and to identify contexts where 
+  	certain informations can be considered valid;
+  	
+  	[[5]] Identify the attributes the entities can have;
+  	
+  	[[6]] If any attribute identified in the previous step is continuous, decide how 
+  	the discretization must be done. In the case where the values are discrete, but 
+  	there are too many values, try to group them some how;
+  	
+  	[[7]] Identify rules related to entities present in the same group and rules 
+  	related to entities in different groups;
+  	
+  	[[8]] Evaluate if MEBN is necessary and/or sufficient for modeling the problem;
+  	
+  	[[9]] Evaluate if the identified entities are enough for your MEBN model;
+  	
+  	[[10]] Map the entities, groups, rules, and relations identified to their 
+  	respective MEBN element (MFrag, Node, etc);
+  	
+  	[[11]] Design the model in UnBBayes. Here, you might need to change your 
+  	model a little bit, because UnBBayes has some singularities due to 
+  	implementation (the way it implements recursion, possible states for a 
+  	resident node, etc).

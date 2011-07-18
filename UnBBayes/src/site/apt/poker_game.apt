@@ -1,0 +1,62 @@
+                                    ------
+                             A Simplified Poker Game 
+                                    ------
+                              Rommel Novaes Carvalho
+                                    ------
+                                  2008-07-16
+
+A Simplified Poker Game
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  The poker game we developed uses a simplified poker model, explained here, to add some intelligence 
+  to the computer moves. The computer decides what to do based on the UnBBayes API and the poker Bayesian 
+  network. The poker game developed is a Computer X User poker game where you can bet, 5 points, or quit.
+  
+[images/pokerGame.gif]
+ 
+  The class diagram of the main classes used is shown here:
+  
+[images/pokerClassDiagram.gif]
+  
+  Poker is a Bayesian network that models a simplified version of the game of poker. The network can help 
+  predict who has the best hand - your or your opponent. 
+  
+  To download the poker game, please click {{{/code/poker.zip}here}}.
+  
+  This example originates from the book {{{http://developer.hugin.com/links/Books/}An introduction to 
+  Bayesian Networks}}.
+  
+  Consider a simplified poker game with the following rules:
+  
+  	* Each player receives three cards and is allowed two rounds of changing cards. In the first round 
+  	you may discard any number of cards from your hand and get replacements from the pack of cards. 
+  	In the second round you may discard at most two cards. 
+  	
+  	* The various types of hands are classified in the following way (in increasing rank): nothing 
+  	special, 1 ace, 2 of the same value, 2 aces, flush (3 of a suit), straight (3 of consecutive values), 
+  	3 of the same value, straight flush.
+  	
+  	* The following Bayesian belief network can calculate the probability of you having the best hand 
+  	after the two rounds of changing, based on the number of cards your opponent has discarded and an 
+  	assumed strategy of the opponent: 
+  	
+[images/example_pokerBN.gif]
+  	
+  The nodes OH0 , OH1 and OH2 represent the opponent's hand initially, after the first change (FC) and 
+  after the second change (SC) respectively. MH represents my hand before the bidding starts. Note 
+  that we have exact knowledge of the state of this node, so the initial distribution is not important.
+  
+  Of course the probabilities of the various states of OH2 depend on the presumed strategy of the opponent. 
+  
+  In the network enclosed, the following strategy for the opponent is assumed:
+  
+  	* If nothing special, then change 3 
+	* If 1 ace, then keep the ace 
+	* If 2 of consecutive values or 2 of a suit or 2 of the same value, then discard the third card 
+	* If 2 of a suit and 2 of consecutive values, then keep 2 of a suit 
+	* If 2 of a suit and 2 of the same value or 2 of consecutive values and 2 of the same value, then keep the 2 of the same value 
+	* If flush, straight, 3 of the same value or straight flush, then keep it
+	 
+  Now you can enter the states of FC , SC and MH and get the probability of you having the best hand. 
+
+  This network is available with the game. 

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Solutionsoft HelpBreeze JavaHelp Edition">
+<TITLE>FirstTopic</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY BGCOLOR=#ffffff>
+<P><FONT color=#000000 size=5><STRONG>CNM</STRONG></FONT></P>
+<P><FONT size=5 ><FONT size=3 color=#000000>O Modelo Neural Combinatório 
+(CNM) é um modelo híbrido, neural e simbólico, com o qual se deseja obter os 
+benefícios das características específicas de cada um. O foco deste programa é 
+usar o CNM como uma ferramenta para descoberta de conhecimento, focando 
+problemas relevantes de classificação, tais como diagnósticos, triagem médica, 
+detecção de fraudes, detecção de falhas, etc.</FONT></P>
+<P class=MsoBodyText><FONT color=#000000>O modelo neural 
+combinatório é composto por um conjunto de neurônios conectados formando uma 
+rede que representa o encadeamento de funções lógicas, de acordo com uma 
+topologia pré-definida. Os neurônios são interligados por arcos que podem ser 
+vistos como sinapses aos quais são associados um peso sináptico ajustável e um 
+acumulador para armazenar o suporte da evidência correspondente encontrada no 
+arquivo de treinamento. </FONT>          
+           
+           
+              
+           
+      </P>
+<P class=MsoBodyText><FONT color=#000000>O processamento 
+efetuado pelos neurônios é muito simples, podendo ser representado pelas 
+operações lógicas AND e OR.&nbsp;O valor de saída do neurônio (entre zero e 
+um),&nbsp;é calculado pelo operador mínimo para as células AND (representando a 
+conjunção dos fluxos evidenciais) ou pelo operador máximo para as células OR 
+(representando competição entre elas).</FONT>        
+            
+            
+           
+        </P>
+<P class=MsoNormal><FONT color=#000000>O CNM é representado por um grafo acíclico onde os nós 
+representam neurônios e os arcos representam sinapses entre os neurônios. O 
+modelo possui uma estrutura em três camadas: camada de entrada, camada 
+combinatória ou escondida e camada de saída. O CNM é utilizado como um 
+formalismo para tarefas de classificação, isto é, dada uma instância contendo as 
+evidências disponíveis, a mesma é associada a uma classe dentre um conjunto 
+pré-determinado de opções. Os neurônios da camada de entrada representam 
+conceitos (modelados por valores discretos ou simbólicos) que modelam as 
+evidências a serem inseridas no modelo na forma de objeto-atributo-valor. A 
+informação de entrada é apresentada ao sistema com um grau de crença que pode 
+corresponder a um valor lógico (verdadeiro ou falso) ou <I 
+style="mso-bidi-font-style: normal">fuzzy</I> (difuso ou nebuloso), variando 
+entre zero (não conectado) e um (totalmente conectado). Este valor pode ser 
+interpretado como o grau de aceitação do conceito representado por aquele 
+neurônio. O papel da camada de entrada é apenas repassar os valores de entrada 
+para as camadas superiores. A camada combinatória é formada por neurônios 
+combinatórios, que implementam a operação lógica AND, cada um se conectando a 
+dois ou mais neurônios da camada de entrada. Não existem neurônios combinatórios 
+para combinações de tamanho um, pois neste caso o neurônio de entrada se liga 
+diretamente ao neurônio de saída. A camada de saída é composta por neurônios que 
+representam os valores possíveis associados a uma única variável de saída 
+(classe). O valor desses neurônios é calculado através da operação OR. Esta 
+camada contém um neurônio para cada valor (classe) possível da variável de 
+saída. Cada arco entre um neurônio de entrada ou combinatório e um neurônio de 
+saída possui um peso associado. As regras são extraídas diretamente da 
+arquitetura a partir de cada combinação ligada a determinada hipótese, já que 
+cada combinação agrega diferentes evidências de entrada para aquela hipótese. 
+Por exemplo, a combinação <I>C<SUB>2</SUB></I> permite a extração da regra “Se <I>x<SUB>1</SUB> </I>e<I> x<SUB>2</SUB></I> 
+Então&nbsp;<I>y<SUB>1</SUB></I>”.<SPAN style="COLOR: red"><o:p></O:P></SPAN></FONT></P>
+<P class=MsoFooter style="MARGIN-TOP: 0cm; tab-stops: 35.4pt"><SPAN 
+style="mso-bidi-font-size: 12.0pt"><FONT color=#000000>&nbsp;<SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 'Times New Roman'; mso-fareast-font-family: 'Times New Roman'; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA"><V:SHAPETYPE id="_x0000_t75" 
+coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" 
+filled="f" stroked="f"> <v:stroke 
+joinstyle="miter"></V:STROKE><v:formulas><v:f 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><v:f eqn="sum @0 1 0"></V:F><v:f 
+eqn="sum 0 0 @1"></V:F><v:f eqn="prod @2 1 2"></V:F><v:f 
+eqn="prod @3 21600 pixelWidth"></V:F><v:f 
+eqn="prod @3 21600 pixelHeight"></V:F><v:f eqn="sum @0 0 1"></V:F><v:f 
+eqn="prod @6 1 2"></V:F><v:f eqn="prod @7 21600 pixelWidth"></V:F><v:f 
+eqn="sum @8 21600 0"></V:F><v:f eqn="prod @7 21600 pixelHeight"></V:F><v:f 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><v:path o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></V:PATH><o:lock v:ext="edit" 
+aspectratio="t"></O:LOCK></V:SHAPETYPE></SPAN><o:p></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><FONT color=#000000><IMG height=406 
+hspace=0 src="../Images/topologia.JPG" width=544 border=0></FONT></P>
+<P class=MsoCaption align=center><A name=_Toc37226416><FONT color=#000000>  Topologia de três camadas do CNM.</FONT>    
+   </A></P>
+<P class=MsoNormal style="TEXT-ALIGN: center" align=center><SPAN 
+style="FONT-SIZE: 11pt; mso-bidi-font-size: 12.0pt"><FONT color=#000000>Fonte [MAC 
+89]<o:p></O:P></FONT></SPAN></P>
+<P class=MsoBodyText><FONT color=#000000>Sinapses podem ser do tipo excitatórias ou inibitórias e 
+são caracterizadas por um peso <I style="mso-bidi-font-style: normal">w</I> 
+entre 0 e 1. As sinapses excitatórias agem diretamente no sinal de entrada (<I 
+style="mso-bidi-font-style: normal">x</I>), gerando um <I 
+style="mso-bidi-font-style: normal">fluxo evidencial </I>do arco, que é o sinal 
+de saída transmitido pela sinapse (<I 
+style="mso-bidi-font-style: normal">w.x</I>). As sinapses inibitórias operam 
+sobre o sinal de entrada negado, implementado como o complemento de 1 do sinal 
+de entrada (<I style="mso-bidi-font-style: normal">w</I>. (1– <I 
+style="mso-bidi-font-style: normal">x</I>)). Na maioria das aplicações práticas as hipóteses se 
+baseiam na ocorrência de condições positivas e, portanto, lida fundamentalmente 
+com sinais de entrada positivos.</FONT>      
+            
+     
+</P></FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.6" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>0</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>0</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>0</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>0</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>0</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="C0"/>
+      <xbifns:level name="C1"/>
+      <xbifns:level name="C2"/>
+      <xbifns:level name="C3"/>
+      <xbifns:level name="C4"/>
+      <xbifns:level name="C5"/>
+      <xbifns:level name="C6"/>
+      <xbifns:level name="C7"/>
+      <xbifns:level name="C8"/>
+      <xbifns:level name="C9"/>
+      <xbifns:level name="C10"/>
+      <xbifns:level name="C11"/>
+      <xbifns:level name="C12"/>
+      <xbifns:level name="C13"/>
+      <xbifns:level name="C14"/>
+      <xbifns:level name="C15"/>
+      <xbifns:level name="ShipOfInterest_ship1"/>
+      <xbifns:level name="C16"/>
+      <xbifns:level name="C17"/>
+      <xbifns:level name="C18"/>
+      <xbifns:level name="C19"/>
+      <xbifns:level name="C20"/>
+      <xbifns:level name="C21"/>
+      <xbifns:level name="C22"/>
+      <xbifns:level name="EvasiveBehavior_ship1"/>
+      <xbifns:level name="DeployedECM_ship1"/>
+      <xbifns:level name="DectedECM_ship2"/>
+      <xbifns:level name="IsWithinRadarRange_ship1_ship2"/>
+      <xbifns:level name="ResponsiveRadar_ship1"/>
+      <xbifns:level name="ResponsiveAIS_ship1"/>
+      <xbifns:level name="EletronicsWorking_ship1"/>
+      <xbifns:level name="AreMeeting_ship1_ship2"/>
+      <xbifns:level name="AreMeetingReport_ship1_ship2"/>
+      <xbifns:level name="UnusualRoute_ship1"/>
+      <xbifns:level name="UnusualRouteReport_ship1"/>
+      <xbifns:level name="IsCrewMember_person1"/>
+      <xbifns:level name="IsTerroristPerson_person1"/>
+      <xbifns:level name="IsTerroristOrganization_org"/>
+      <xbifns:level name="IsMemberOfOrganization_person1_org"/>
+      <xbifns:level name="IsTerroristPerson_person2"/>
+      <xbifns:level name="AreRelated_person1_person2"/>
+      <xbifns:level name="HasTerroristCrew_ship"/>
+      <xbifns:level name="IsCrewMember_person_ship"/>
+      <xbifns:level name="IsTerroristPerson_person"/>
+      <xbifns:level name="IsRelatedToAnyTerrorist_person"/>
+      <xbifns:level name="HasTerroristCrew_ship1"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable rgbColor="-256" height="60.0" width="168.0" yPos="0" xPos="735" type="DiscreteProbabilistic" name="ShipOfInterest_ship1">
+        <xbifns:description>ShipOfInterest_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="179.0" yPos="168" xPos="264" type="DiscreteProbabilistic" name="EvasiveBehavior_ship1">
+        <xbifns:description>EvasiveBehavior_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="168.0" yPos="333" xPos="537" type="DiscreteProbabilistic" name="DeployedECM_ship1">
+        <xbifns:description>DeployedECM_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="154.0" yPos="493" xPos="538" type="DiscreteProbabilistic" name="DectedECM_ship2">
+        <xbifns:description>DectedECM_ship2</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="240.0" yPos="332" xPos="770" type="DiscreteProbabilistic" name="IsWithinRadarRange_ship1_ship2">
+        <xbifns:description>IsWithinRadarRange_ship1_ship2</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="188.0" yPos="334" xPos="265" type="DiscreteProbabilistic" name="ResponsiveRadar_ship1">
+        <xbifns:description>ResponsiveRadar_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="170.0" yPos="333" xPos="14" type="DiscreteProbabilistic" name="ResponsiveAIS_ship1">
+        <xbifns:description>ResponsiveAIS_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="189.0" yPos="166" xPos="14" type="DiscreteProbabilistic" name="EletronicsWorking_ship1">
+        <xbifns:description>EletronicsWorking_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="165" xPos="1038" type="DiscreteProbabilistic" name="AreMeeting_ship1_ship2">
+        <xbifns:description>AreMeeting_ship1_ship2</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="332" xPos="1037" type="DiscreteProbabilistic" name="AreMeetingReport_ship1_ship2">
+        <xbifns:description>AreMeetingReport_ship1_ship2</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="165" xPos="1311" type="DiscreteProbabilistic" name="UnusualRoute_ship1">
+        <xbifns:description>UnusualRoute_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="331" xPos="1311" type="DiscreteProbabilistic" name="UnusualRouteReport_ship1">
+        <xbifns:description>UnusualRouteReport_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="212.0" yPos="30" xPos="1576" type="DiscreteProbabilistic" name="IsCrewMember_person_ship1">
+        <xbifns:description>IsCrewMember_person_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="194.0" yPos="151" xPos="1849" type="DiscreteProbabilistic" name="IsTerroristPerson_person">
+        <xbifns:description>IsTerroristPerson_person</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="207.0" yPos="306" xPos="1949" type="DiscreteProbabilistic" name="IsTerroristOrganization_org">
+        <xbifns:description>IsTerroristOrganization_org</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="272.0" yPos="152" xPos="2082" type="DiscreteProbabilistic" name="IsMemberOfOrganization_person_org">
+        <xbifns:description>IsMemberOfOrganization_person_org</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="235.0" yPos="21" xPos="1829" type="DiscreteProbabilistic" name="IsRelatedToAnyTerrorist_person">
+        <xbifns:description>IsRelatedToAnyTerrorist_person</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="189.0" yPos="150" xPos="1587" type="DiscreteProbabilistic" name="HasTerroristCrew_ship1">
+        <xbifns:description>HasTerroristCrew_ship1</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="EvasiveBehavior_ship1" parent="ShipOfInterest_ship1"/>
+      <xbifns:edge child="DeployedECM_ship1" parent="EvasiveBehavior_ship1"/>
+      <xbifns:edge child="DectedECM_ship2" parent="DeployedECM_ship1"/>
+      <xbifns:edge child="DectedECM_ship2" parent="IsWithinRadarRange_ship1_ship2"/>
+      <xbifns:edge child="ResponsiveRadar_ship1" parent="EletronicsWorking_ship1"/>
+      <xbifns:edge child="ResponsiveAIS_ship1" parent="EletronicsWorking_ship1"/>
+      <xbifns:edge child="ResponsiveRadar_ship1" parent="EvasiveBehavior_ship1"/>
+      <xbifns:edge child="ResponsiveAIS_ship1" parent="EvasiveBehavior_ship1"/>
+      <xbifns:edge child="AreMeetingReport_ship1_ship2" parent="AreMeeting_ship1_ship2"/>
+      <xbifns:edge child="UnusualRouteReport_ship1" parent="UnusualRoute_ship1"/>
+      <xbifns:edge child="UnusualRoute_ship1" parent="AreMeeting_ship1_ship2"/>
+      <xbifns:edge child="AreMeeting_ship1_ship2" parent="ShipOfInterest_ship1"/>
+      <xbifns:edge child="UnusualRoute_ship1" parent="ShipOfInterest_ship1"/>
+      <xbifns:edge child="IsTerroristPerson_person" parent="IsRelatedToAnyTerrorist_person"/>
+      <xbifns:edge child="IsTerroristOrganization_org" parent="IsTerroristPerson_person"/>
+      <xbifns:edge child="IsTerroristOrganization_org" parent="IsMemberOfOrganization_person_org"/>
+      <xbifns:edge child="HasTerroristCrew_ship1" parent="IsCrewMember_person_ship1"/>
+      <xbifns:edge child="HasTerroristCrew_ship1" parent="IsTerroristPerson_person"/>
+      <xbifns:edge child="ShipOfInterest_ship1" parent="HasTerroristCrew_ship1"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ShipOfInterest_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="HasTerroristCrew_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="EvasiveBehavior_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="ShipOfInterest_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="DeployedECM_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="EvasiveBehavior_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="DectedECM_ship2"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IsWithinRadarRange_ship1_ship2"/>
+          <xbifns:parent index="1" name="DeployedECM_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsWithinRadarRange_ship1_ship2"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.004999999888241291</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9950000047683716</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ResponsiveRadar_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="EvasiveBehavior_ship1"/>
+          <xbifns:parent index="1" name="EletronicsWorking_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ResponsiveAIS_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="EvasiveBehavior_ship1"/>
+          <xbifns:parent index="1" name="EletronicsWorking_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9900000095367432</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="EletronicsWorking_ship1"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.05000000074505806</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AreMeeting_ship1_ship2"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="ShipOfInterest_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AreMeetingReport_ship1_ship2"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="AreMeeting_ship1_ship2"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.800000011920929</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="UnusualRoute_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="ShipOfInterest_ship1"/>
+          <xbifns:parent index="1" name="AreMeeting_ship1_ship2"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="UnusualRouteReport_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="UnusualRoute_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.800000011920929</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsCrewMember_person_ship1"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.004999999888241291</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9950000047683716</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsTerroristPerson_person"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IsRelatedToAnyTerrorist_person"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsTerroristOrganization_org"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IsMemberOfOrganization_person_org"/>
+          <xbifns:parent index="1" name="IsTerroristPerson_person"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsMemberOfOrganization_person_org"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IsRelatedToAnyTerrorist_person"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9990000128746033</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="HasTerroristCrew_ship1"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IsTerroristPerson_person"/>
+          <xbifns:parent index="1" name="IsCrewMember_person_ship1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Exemplo de Uso da API atrav&eacute;s de um Modo Gr&aacute;fico</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<font color="#0000FF"><b>package</b></font> junbbayes.exemplo; 
+<p><font color="#0000FF"><b>import</b></font> java.awt.*;<br>
+  <font color="#0000FF"><b>import</b></font> javax.swing.*;<br>
+  <font color="#0000FF"><b>import</b></font> java.awt.event.*;<br>
+  <font color="#0000FF"><b>import</b></font> junbbayes.jprs.jbn.*;</p>
+<pre><font color="#009900"><b> /**</b>
+  <b>* Title:</b> Exemplo de Uso da API atrav&eacute;s de um Modo Gr&aacute;fico
+  <b>* Description:</b> Essa classe feita em JAVA abre um modo gr&aacute;fico onde o usu&aacute;rio entra com o endere&ccedil;o e
+  <b>*</b>              nome de um arquivo &quot;.net&quot;. Depois esse arquivo &eacute; carregado, modificado em algumas
+  <b>*</b>              partes e ent&atilde;o compilado. Essa classe tem a fun&ccedil;&atilde;o de apenas exemplificar como se
+  <b>*</b>              pode usar a API desenvolvida para trabalhar com Redes Bayesianas. O nome da classe
+  <b>*</b>              respons&aacute;vel por essa exemplifica&ccedil;&atilde;o &eacute; ModoGrafico. No m&eacute;todo principal, main,
+  <b>*</b>              criamos uma janela com t&iacute;tulo de "Exemplo de uso da API" e colocamos na mesma um
+  <b>*</b>              label "Nome do Arquivo" descrevendo o campo de texto, onde se deve especificar o
+  <b>*</b>              nome do arquivo, e um bot&atilde;o respons&aacute;vel por fazer as intera&ccedil;&otilde;es descritas a seguir.
+  <b>*</b>              Come&ccedil;amos criando uma nova Rede. Logo a seguir, n&oacute;s carregamos uma rede existente
+  <b>*</b>              em arquivo (a descrita pelo usu&aacute;rio no campo de texto). O pr&oacute;ximo passo &eacute; criar uma
+  <b>*</b>              vari&aacute;vel probabil&iacute;stica, auxVP, com a sigla "K", e texto (descri&ccedil;&atilde;o) "Vari&aacute;vel de Teste".
+  <b>*</b>              Ent&atilde;o inserimos dois estados nessa vari&aacute;vel, "Estado 0" e "Estado 1", com probabilidades
+  <b>*</b>              de 0.99 (99%) e .01 (01%). Depois de definir todos essas caracter&iacute;sticas dessa vari&aacute;vel
+  <b>*</b>              probabil&iacute;stica, inserimos a mesma na rede que carregamos do arquivo. Pegamos ent&atilde;o uma
+  <b>*</b>              vari&aacute;vel probabil&iacute;stica existente na rede carregada , auxVP2, que possui a sigla "A" e
+  <b>*</b>              ligamos ela &agrave; vari&aacute;vel anterior dizendo que auxVP &eacute; pai de auxVP2 atrav&eacute;s de um arco.
+  <b>*</b>              Finalmente verificamos a consist&ecirc;ncia da rede, moralizamos, triangulamos, e finalmente
+  <b>*</b>              compilamos a &aacute;rvore de jun&ccedil;&atilde;o criada a partir da rede. Logo em seguida, pegamos as
+  <b>*</b>              evid&ecirc;ncias da rede, modificamos a evid&ecirc;ncia de todas para -1 exceto a que for igual a
+  <b>*</b>              variável auxVP onde modificamos para -2. Pegamos as marginais e atualizamos o valor da
+  <b>*</b>              primeira, 0, para 1.0 e da segunda, 1, para 0.8 e por fim atualizamos essas modifica&ccedil;&otilde;es.
+  <b>*</b>              OBS: As intera&ccedil;&otilde;es descritas anteriormente s&oacute; funcionar&atilde;o se o usu&aacute;rio indicar uma rede
+  <b>*</b>              ".net" que possui uma vari&aacute;vel propabil&iacute;stica com a sigla "A". Caso contr&aacute;rio um erro,
+  <b>*</b>              Exception, ocorrer&aacute; pois n&atilde;o encontrar&aacute; nenhuma vari&aacute;vel que possua a sigla "A", logo
+  <b>*</b>              ocorrer&atilde;o erros nas opera&ccedil;&otilde;es seguintes.
+  <b>* Copyright:</b> Copyright (c) 2001 
+  <b>* Company:</b> UnB - Universidade de Bras&iacute;lia
+  <b>* @author</b> Rommel Novaes Carvalho
+  <b>* @author</b> Michael S. Onishi
+  <b>* @version</b> 1.0
+  <b>*/</b></font><br>
+  <font color="#0000FF"><b>public class</b></font> ModoGrafico {
+  
+      <font color="#0000FF"><b>public static void</b></font> main(String[] args) {
+
+          JFrame frame = <b><font color="#0000FF">new</font></b> JFrame(<font color="#0000FF">&quot;Exemplo de uso da API&quot;</font>);
+          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          Container pane = frame.getContentPane();
+          pane.setLayout(<b><font color="#0000FF">new</font></b> FlowLayout());
+	
+          JLabel labelArquivo = <font color="#0000FF"><b>new</b></font> JLabel(<font color="#0000FF">&quot;Nome do Arquivo&quot;</font>);
+          <b><font color="#0000FF">final</font></b> JTextField nomeArquivo = <b><font color="#0000FF">new</font></b> JTextField(20);
+			
+          JButton botao = <b><font color="#0000FF">new</font></b> JButton(<font color="#0000FF">&quot;Compila &Aacute;rvore&quot;</font>);
+          pane.add(labelArquivo);
+          pane.add(nomeArquivo);
+          pane.add(botao);
+			
+          botao.addActionListener(<b><font color="#0000FF">new</font></b> ActionListener() {
+              <font color="#0000FF"><b>public void</b></font> actionPerformed(ActionEvent e) {
+                  
+                  TRP rede = <b><font color="#0000FF">new</font></b> TRP();
+                  rede.carregarRedeNET(nomeArquivo.getText());
+                  TVP auxVP = <b><font color="#0000FF">new</font></b> TVP();
+                  auxVP.setSigla(<font color="#0000FF">&quot;K&quot;</font>);
+                  auxVP.setTexto(<font color="#0000FF">&quot;Vari&aacute;vel de Teste&quot;</font>);
+                  auxVP.insereEstado(<font color="#0000FF">&quot;Estado 0&quot;</font>);
+                  auxVP.insereEstado(<font color="#0000FF">&quot;Estado 1&quot;</font>);
+					
+                  TTabPot auxTabPot = <b><font color="#0000FF">new</font></b> TTabPot();
+                  auxTabPot.porVariavel(auxVP);
+                  auxTabPot.porValor(<font color="#0000FF">0</font>, <font color="#0000FF">0.99</font>);
+                  auxTabPot.porValor(<font color="#0000FF">1</font>, <font color="#0000FF">0.01</font>);
+                  auxVP.setTabelaPProb(auxTabPot);<br>
+                  rede.adicionaNo(auxVP);
+					
+                  TVP auxVP2 = (TVP)rede.pegarNo(<font color="#0000FF">&quot;A&quot;</font>);
+                  TArco auxArco = <b><font color="#0000FF">new</font></b> TArco(auxVP, auxVP2);
+                  rede.liga(auxArco);
+						  
+                  rede.verificaConsistencia();
+                  rede.moraliza();
+                  rede.triangula();
+                  rede.compilaAJ();
+						  
+                  <b><font color="#0000FF">int</font></b>[] evidencias = <b><font color="#0000FF">new int</font></b>[rede.noVariaveis()];
+					
+                  <b><font color="#0000FF">for</font></b> (<b><font color="#0000FF">int</font></b> i = <font color="#0000FF">0</font>; i &lt; evidencias.length; i++) {
+
+                      auxVP2 = (TVP)rede.pegarNo(i);
+                      <b><font color="#0000FF">if</font></b> (auxVP == auxVP2) {
+
+                          evidencias[i] = -<font color="#0000FF">2</font>;
+								
+                      } <b><font color="#0000FF">else</font></b> {
+							  
+                          evidencias[i] = -<font color="#0000FF">1</font>;
+                      }
+                  }
+						
+                  auxVP.marginal();
+                  auxVP.getMarginais()[<font color="#0000FF">0</font>] = <font color="#0000FF">1.0</font>;
+                  auxVP.getMarginais()[<font color="#0000FF">1</font>] = <font color="#0000FF">0.8</font>;
+                  rede.atualizarEvidencias(evidencias);
+              }
+          });
+				
+          frame.pack();
+          frame.setVisible(<b><font color="#0000FF">true</font></b>);
+      }
+  }
+		</pre>
+</body>
+</html>

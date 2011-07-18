@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.6" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>0</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>0</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>0</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>0</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>0</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy/>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="36" xPos="377" type="DiscreteProbabilistic" name="ObjectType">
+        <xbifns:description>C0</xbifns:description>
+        <xbifns:state name="W"/>
+        <xbifns:state name="T"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="35" xPos="664" type="DiscreteProbabilistic" name="Weather">
+        <xbifns:description>C1</xbifns:description>
+        <xbifns:state name="Cloudy"/>
+        <xbifns:state name="NonCloudy"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="200" xPos="512" type="DiscreteProbabilistic" name="ImageTypeReport">
+        <xbifns:description>C2</xbifns:description>
+        <xbifns:state name="W"/>
+        <xbifns:state name="T"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="182" xPos="41" type="DiscreteProbabilistic" name="Speed">
+        <xbifns:description>C3</xbifns:description>
+        <xbifns:state name="Low"/>
+        <xbifns:state name="Moderate"/>
+        <xbifns:state name="Fast"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="28" xPos="42" type="DiscreteProbabilistic" name="TerrainType">
+        <xbifns:description>C4</xbifns:description>
+        <xbifns:state name="Rough"/>
+        <xbifns:state name="Smooth"/>
+        <xbifns:state name="Road"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="60.0" width="80.0" yPos="334" xPos="42" type="DiscreteProbabilistic" name="MTI">
+        <xbifns:description>C5</xbifns:description>
+        <xbifns:state name="Low"/>
+        <xbifns:state name="Moderate"/>
+        <xbifns:state name="Fast"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="ImageTypeReport" parent="ObjectType"/>
+      <xbifns:edge child="ImageTypeReport" parent="Weather"/>
+      <xbifns:edge child="Speed" parent="TerrainType"/>
+      <xbifns:edge child="Speed" parent="ObjectType"/>
+      <xbifns:edge child="MTI" parent="Speed"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ObjectType"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Weather"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ImageTypeReport"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="ObjectType"/>
+          <xbifns:parent index="1" name="Weather"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Speed"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="TerrainType"/>
+          <xbifns:parent index="1" name="ObjectType"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.20000000298023224</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="TerrainType"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="MTI"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Speed"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.800000011920929</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

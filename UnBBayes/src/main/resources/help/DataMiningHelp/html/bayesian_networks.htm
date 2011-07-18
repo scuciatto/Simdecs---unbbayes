@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Bayesian Networks</title>
+</head>
+
+<body>
+
+<h1><font size="6">Bayesian Networks</font></h1>
+<hr>
+<p>Bayesian networks are a knowledge representation formalism. They were
+originally developed to capture and use the domain knowledge of some human
+expert in order to develop automated reasoning systems.</p>
+<p>A Bayesian network is a graph where nodes represent stochastic variables and
+(arrowhead) arcs represent dependencies among these variables. A variable can
+take a finite set of values. For instance, suppose that you want to represent
+the variable <font color="#00659c">Gender</font>. The variable <font color="#00659c">Gender</font>
+may take two possible values: <font color="#00659c">Male</font> and <font color="#00659c">Female</font>.
+The assignment of a value to a variable is called the state of the variable. So,
+the variable Gender has two states: <font color="#00659c">Gender = Male</font>
+and <font color="#00659c">Gender = Female</font>. The graphical structure of a
+Bayesian network looks like this:</p>
+<p align="center"><img src="../../icones/basic_bbn_net.gif" width="389" height="205"></p>
+<p>The network represent notion that Obesity and Gender affects the <font color="#006699">Heart_Condition</font>
+of a patient. The variable <font color="#00659c">Obese</font> can take three
+values: <font color="#00659c">Yes</font>, <font color="#00659c">Borderline</font>
+and <font color="#00659c">No</font>. The variable <font color="#006699">Heart_Condition</font>
+has two states: <font color="#00659c">True</font> and <font color="#00659c">False</font>.</p>
+<p>We said that the variables used in a Bayesian networks are stochastic. This
+mean that the assignment of a value to a variable is represented by a
+probability distribution. For instance, if we do not know for sure what is the
+gender of a patient, we may want to encode the information that we have better
+chances of having a female patient rather than a male one. This guess could be
+based, for instance, on statistical considerations, but this may not be our
+unique source of information. So, for the sake of this example, let's say that
+there are 80% chances of being <font color="#00659c">Female</font> and 20% of
+being <font color="#00659c">Male</font>.</p>
+<p align="center"><img src="../../icones/basic_bbn_gender.gif" width="148" height="69"></p>
+<p>Similarly, we can encode that the incidence of obesity is 10% and there is a
+20% of borderline cases.</p>
+<p align="center"><img src="../../icones/basic_bbn_obesity.gif" width="224" height="69"></p>
+<p>The following set of distributions tries to encode the fact that obesity
+increases the cardiac risk of a patient, but this effect is more significant in
+men than women.</p>
+<p align="center"><img src="../../icones/basic_bbn_heart.gif" width="296" height="139"></p>
+<p>The dependency is modeled by a set of probability distributions, one for each
+combination of states of the variables <font color="#00659c">Gender</font> and <font color="#00659c">Obesity</font>,
+called the parent variables of <font color="#00659c">Heart_Condition</font>.</p>
+<p>Once the network has been defined, it can be used to solve problems, make
+predictions, and find explanations. In a word, they can be used for reasoning
+about real or hypothetical cases.</p>
+<p>When compared with traditional production rule-based systems, systems
+developed using Bayesian networks do not encode heuristic rules but explicit
+representation of dependencies dictated by the domain knowledge. This feature
+makes easier the acquisition and maintenance of the knowledge base.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>New BN</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="A"/>
+      <xbifns:level name="B"/>
+      <xbifns:level name="C"/>
+      <xbifns:level name="D"/>
+      <xbifns:level name="E"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="96" xPos="430" type="DiscreteProbabilistic" name="A">
+        <xbifns:description>A</xbifns:description>
+        <xbifns:state name="Y"/>
+        <xbifns:state name="N"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="156" xPos="382" type="DiscreteProbabilistic" name="B">
+        <xbifns:description>B</xbifns:description>
+        <xbifns:state name="Y"/>
+        <xbifns:state name="N"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="158" xPos="476" type="DiscreteProbabilistic" name="C">
+        <xbifns:description>C</xbifns:description>
+        <xbifns:state name="Y"/>
+        <xbifns:state name="N"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="237" xPos="384" type="DiscreteProbabilistic" name="D">
+        <xbifns:description>D</xbifns:description>
+        <xbifns:state name="Y"/>
+        <xbifns:state name="N"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="236" xPos="478" type="DiscreteProbabilistic" name="E">
+        <xbifns:description>E</xbifns:description>
+        <xbifns:state name="Y"/>
+        <xbifns:state name="N"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="B" parent="A"/>
+      <xbifns:edge child="C" parent="A"/>
+      <xbifns:edge child="D" parent="B"/>
+      <xbifns:edge child="E" parent="C"/>
+      <xbifns:edge child="E" parent="D"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="A"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.6000000238418579</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="B"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="A"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.20000000298023224</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="C"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="A"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.6000000238418579</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="D"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="B"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.8999999761581421</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="E"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="D"/>
+          <xbifns:parent index="1" name="C"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.0010000000474974513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.9990000128746033</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.0010000000474974513</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

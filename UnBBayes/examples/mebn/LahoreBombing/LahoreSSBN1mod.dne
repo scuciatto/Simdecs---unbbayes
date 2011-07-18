@@ -1,0 +1,330 @@
+// ~->[DNET-1]->~
+
+// File created by someone at SEOR-GMU using Netica 3.19 on May 14, 2008 at 18:14:39.
+
+bnet LahoreSSBN1mod {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1210814027;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (22, 29, 868, 335);
+	resolution = 72;
+	magnification = 0.862968;
+	drawingbounds = (16062, 8582);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet InputNodes {Color = 0xc4c4e1;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node IsActive {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.01,        0.99);
+	title = "IsActivePlan(ConfAtk)";
+	comment = "The hypothesized attack is an actual active attack plan\nand not a false alarm";
+	whenchanged = 1204178882;
+	belief = (0.1098175, 0.8901825);
+	visual V1 {
+		center = (330, 54);
+		height = 1;
+		};
+	};
+
+node PoliticalImportance1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (high, low);
+	parents = ();
+	probs = 
+		// high         low          
+		  (0.05,        0.95);
+	title = "PoliticalImportance(Conf)";
+	comment = "Politically important venues are more likely to be targeted";
+	whenchanged = 1210138051;
+	evidence = high;
+	belief = (1, 0);
+	visual V1 {
+		center = (876, 42);
+		height = 13;
+		};
+	};
+
+node Target4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (PoliticalImportance, IsActive1);
+	parents = (PoliticalImportance1, IsActive);
+	probs = 
+		// true         false           // PoliticalImportance IsActive1 
+		(((0.3,         0.7),           // high                true      
+		  (0,           1)),            // high                false     
+		 ((0.003,       0.997),         // low                 true      
+		  (0,           1)));           // low                 false     ;
+	numcases = 1;
+	title = "IsTarget(Conf,ConfAtk)";
+	whenchanged = 1210139327;
+	belief = (0.1028189, 0.8971812);
+	visual V1 {
+		center = (876, 138);
+		height = 12;
+		};
+	};
+
+node IsAgent9 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsActive1);
+	parents = (IsActive);
+	probs = 
+		// true         false          // IsActive1 
+		 ((0.005453277, 0.9945468),    // true      
+		  (0,           1));           // false     ;
+	title = "IsAgentOf(C,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1210139173;
+	belief = (0.01485202, 0.985148);
+	visual V1 {
+		center = (330, 210);
+		height = 5;
+		};
+	};
+
+node IsAgent8 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsActive);
+	probs = 
+		// true         false          // IsActive 
+		 ((0.005453277, 0.9945468),    // true     
+		  (0,           1));           // false    ;
+	title = "IsAgentOf(P,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1204177460;
+	belief = (0.100414, 0.899586);
+	visual V1 {
+		center = (576, 162);
+		height = 9;
+		};
+	};
+
+node SuppliesWpnMatrl4 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.01,        0.99);
+	title = "IsWeaponSupplier(AD)";
+	comment = "Someone who supplies weapons for attacks is a weapons supplier";
+	whenchanged = 1210138033;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (114, 48);
+		height = 4;
+		};
+	};
+
+node IsAgent11 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsActive, );
+	parents = (IsActive, SuppliesWpnMatrl4);
+	probs = 
+		// true         false           // IsActive SuppliesWpnMatrl4 
+		(((0.3,         0.7),           // true     true              
+		  (0.005,       0.995)),        // true     false             
+		 ((0,           1),             // false    true              
+		  (0,           1)));           // false    false             ;
+	title = "IsAgentOf(AD,ConfAtk)";
+	comment = "agt is an agent of pln";
+	whenchanged = 1204177530;
+	belief = (0.09776044, 0.9022396);
+	visual V1 {
+		center = (144, 174);
+		height = 3;
+		link 1 {
+			path = ((289, 82), (186, 147));
+			};
+		};
+	};
+
+node Executes {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent4);
+	parents = (IsAgent8);
+	probs = 
+		// true         false          // IsAgent4 
+		 ((0.5,         0.5),          // true     
+		  (0,           1));           // false    ;
+	title = "Executes(P,ConfAtk)";
+	comment = "This is a specialization of being an agent of a plan.\nP executes the attack";
+	whenchanged = 1204177558;
+	belief = (0.1001167, 0.8998833);
+	visual V1 {
+		center = (660, 270);
+		height = 8;
+		};
+	};
+
+node PlantsExplosives {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (Executes, Target4);
+	probs = 
+		// true         false           // Executes Target4 
+		(((0.7,         0.3),           // true     true    
+		  (0,           1)),            // true     false   
+		 ((0,           1),             // false    true    
+		  (0,           1)));           // false    false   ;
+	title = "PlantsExplosive(P,Conf)";
+	comment = "P plants explosives at location";
+	whenchanged = 1204178657;
+	belief = (0.09988185, 0.9001182);
+	visual V1 {
+		center = (888, 282);
+		height = 10;
+		};
+	};
+
+node SNRelated1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent3, IsAgent2);
+	parents = (IsAgent11, IsAgent9);
+	probs = 
+		// true         false           // IsAgent3 IsAgent2 
+		(((0.65,        0.35),          // true     true     
+		  (0.02,        0.98)),         // true     false    
+		 ((0.02,        0.98),          // false    true     
+		  (0.02,        0.98)));        // false    false    ;
+	numcases = 1;
+	title = "SNRelated(C,AD)";
+	comment = "Definition: SNRelated(agt1,agt2) means that agt1 is separated\n\
+		by degree less than 3 from agt2 in the social network";
+	whenchanged = 1210138096;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (180, 456);
+		height = 6;
+		};
+	};
+
+node SNRelated {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (IsAgent3, IsAgent2);
+	parents = (IsAgent11, IsAgent8);
+	probs = 
+		// true         false           // IsAgent3 IsAgent2 
+		(((0.65,        0.35),          // true     true     
+		  (0.02,        0.98)),         // true     false    
+		 ((0.02,        0.98),          // false    true     
+		  (0.02,        0.98)));        // false    false    ;
+	numcases = 1;
+	title = "SNRelated(P,AD)";
+	comment = "Definition: SNRelated(agt1,agt2) means that agt1 is separated\n\
+		by degree less than 3 from agt2 in the social network";
+	whenchanged = 1210138078;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (414, 360);
+		height = 7;
+		};
+	};
+
+node SuppliesWpnMatrl1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (IsAgent11);
+	probs = 
+		// true         false          // IsAgent11 
+		 ((0.99,        0.01),         // true      
+		  (0,           1));           // false     ;
+	numcases = 1;
+	title = "SuppliesWpnMatrl(AD,ConfAtk)";
+	comment = "This is a specialization of being an agent of a plan.\n\
+		AD supplies weapons material for the attack";
+	whenchanged = 1204177544;
+	belief = (0.09678286, 0.9032171);
+	visual V1 {
+		center = (120, 324);
+		height = 2;
+		};
+	};
+
+node ExplosivesReport2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	inputs = (PlantsExplosives1);
+	parents = (PlantsExplosives);
+	probs = 
+		// true         false          // PlantsExplosives1 
+		 ((0.8,         0.2),          // true              
+		  (5e-4,        0.9995));      // false             ;
+	title = "ExplosiveResidueReport(P)";
+	comment = "Explosive residue detected on P";
+	whenchanged = 1210138128;
+	evidence = true;
+	belief = (1, 0);
+	visual V1 {
+		center = (864, 390);
+		height = 11;
+		};
+	};
+NodeSet InputNodes {Nodes = ();};
+ElimOrder = (SuppliesWpnMatrl1, ExplosivesReport2, PoliticalImportance1, SuppliesWpnMatrl4, PlantsExplosives, Target4, Executes, SNRelated1, IsAgent9, IsActive, IsAgent8, IsAgent11, SNRelated);
+};

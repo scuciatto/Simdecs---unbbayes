@@ -1,0 +1,13 @@
+Last Modification: 08/06/09
+
+Models description
+
+UnBBayes_Model: contains the diagrams of the Bayesian Network, MSBN e MEBN structure. Use this model to create models for the architecture of the UnBBayes. 
+
+UnBBayes_Metaphor: diagrams of the MEBN Metaphor implementation. 
+
+GUI_MEBN_Model: MEBN GUI Model. Out of date. Don't update the diagrams of this file... Copy its for the UnBBayes_Model if you go used it. 
+
+OWL-PROWL_Compatibility: A not implemented model of compatibility between OWL and PROWL. 
+
+Note: the folder amateras contain models of a previous try of translate all the UnBBayes structure in diagrans, using the amateras, a API for the Eclipse. This try was aborted in 2008. 

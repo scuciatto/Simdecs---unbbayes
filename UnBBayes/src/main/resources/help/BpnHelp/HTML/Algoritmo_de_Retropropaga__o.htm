@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Algoritmo de Retropropaga?o</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY>
+<p><font size="4"><b>Algoritmo de Retropropagação</b></font></p>
+<p>&nbsp;</p>
+<p>Na aplicação do algoritmo de retroporpagação, distinguem-se dois passos
+distintos de computação. O primeiro passo e conhecido como passo para frente,
+ou propagação, e o segundo como passo para trás, ou retropropagação.</p>
+<p>No passo para frente, os pesos sinápticos se mantêm inalterados em toda a
+rede e os sinais funcionais da rede são calculados individualmente, neurônio
+por neurônio. O sinal funciona que aparece na saída do neurônio <i>j</i> é
+calculado como:</p>
+<p align="center"><i><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">y<sub>j</sub></span></i><span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA">(<i>n</i>)
+= <i>f</i>(<i>v<sub>j</sub></i>(<i>n</i>))</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">onde
+</span><span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"><i>v<sub>j</sub></i>(<i>n</i>)
+é o campo local induzido do neurônio <i>j</i>, isto é, o somatório ponderado
+das entradas do neurônio mais o bias.</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">Este
+processo é repetido neurônio a neurônio e camada por camada até a camada de
+saída. Quando isso acontece a saída é comparada com a resposta desejada
+obtendo-se o sinal de erro para o <i>j</i>-ésimo neurônio de saída. Assim, a
+fase de propagação da computação começa na primeira camada oculta, com a
+apresentação do veto de entrada, e termina na camada de saída calculando o
+sinal de erro de cada neurônio desta camada.</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">O
+passo de retropropagação, por outro lado, começa na camada de saída
+passando-se os sinais de erro para a esquerda através da rede, camada por
+camada, e recursivamente calculando-se o gradiente local de cada neurônio. Este
+processo recursivo permite que os pesos sinápticos sofram modificações de
+acordo com a regra delta:</span></p>
+<p align="center"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#916;<i>w<sub>ji</sub></i>(<i>n</i>) = &#951;&#948;<i><sub>j</sub></i>(<i>n</i>)<i>y<sub>i</sub></i>(<i>n</i>)</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">onde
+</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#916;<i>w<sub>ji</sub></i>(<i>n</i>) é a
+correção do peso, &#951; é a taxa de aprendizagem, &#948;<i><sub>j</sub></i>(<i>n</i>)
+é o gradiente local e <i>y<sub>i</sub></i>(<i>n</i>) é o sinal de entrada o
+neurônio <i>j</i>.</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">Para
+um neurônio localizado na camada de saída, o gradiente local </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#948;<i><sub></sub></i></span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">
+é simplesmente igual ao sinal de erro daquele neurônio multiplicado pela
+primeira derivada da sua função de ativação. Assim utilizamos a regra delta
+para calcular as modificações dos pesos de todas as conexões que alimentam a
+camada de saída. Dados os gradientes locais para os neurônios da camada de
+saída, utilizamos, a equação:</span></p>
+<p align="center"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#916;<i><sub>j</sub></i>(<i>n</i>) = &#966;<i><sub>j</sub></i>’(<sub>vj</sub>(<i>n</i>))
+&#931; &#948;<i><sub>k</sub></i>(<i>n</i>)<i>w<sub>kj</sub></i>(<i>n</i>)</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">para
+calcular os gradientes locais para todos os neurônios na penúltima camada, e
+conseqüentemente as modificações dos pesos de todas as conexões que a
+alimentam. A computação recursiva continua, camada por camada, propagando as
+modificações para todos os pesos sinápticos da rede.</span></p>
+<p><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: PT-BR; mso-fareast-language: PT-BR; mso-bidi-language: AR-SA">Note
+que para a apresentação de cada exemplo de treinamento, o padrão de entrada
+está fixo durante todo o ciclo, englobando o passo de propagação seguido pelo
+passo de retropropagação.</span></p>
+</BODY>
+</HTML>

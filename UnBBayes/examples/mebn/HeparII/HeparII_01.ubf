@@ -1,0 +1,718 @@
+% Cabeçalho UBF
+Version=0.03
+PrOwl="HeparII_01.owl"
+
+% Declaração de MTheory - UBF
+MTheory=HeparII
+NextMFrag=23
+NextResident=30
+NextInput=29
+NextContext=1
+NextEntity=1
+
+% Declaração de MFrags e nós UBF
+
+% MFrag
+MFrag=Fatigue_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Fatigue
+Type=DomainResidentNode
+Position=357.0,212.0
+Size=92,55
+Color=-66914
+
+% nós Input
+
+
+Node=IX8
+Type=GenerativeInputNode
+Position=313.0,107.0
+Size=180,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=325.0,30.0
+Size=155,60
+Color=-5178237
+
+% MFrag
+MFrag=HaemorrhagieDiathesis_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=HaemorrhagieDiathesis
+Type=DomainResidentNode
+Position=278.0,223.0
+Size=207,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX13
+Type=GenerativeInputNode
+Position=442.0,115.0
+Size=100,60
+Color=-2302756
+
+Node=IX12
+Type=GenerativeInputNode
+Position=205.0,113.0
+Size=126,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=319.0,40.0
+Size=144,60
+Color=-5178237
+
+% MFrag
+MFrag=FunctionalHyperbilirubinemia_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=FunctionalHyperbilirubinemia
+Type=DomainResidentNode
+Position=291.0,237.0
+Size=219,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX2
+Type=GenerativeInputNode
+Position=260.0,116.0
+Size=100,60
+Color=-2302756
+
+Node=IX3
+Type=GenerativeInputNode
+Position=432.0,106.0
+Size=100,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=315.0,31.0
+Size=143,60
+Color=-5178237
+
+% MFrag
+MFrag=ToxicHepatitis_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=HistoryAlcAbuse
+Type=DomainResidentNode
+Position=200.0,119.0
+Size=155,60
+Color=-66914
+
+Node=HepatoxicMeds
+Type=DomainResidentNode
+Position=430.0,115.0
+Size=137,60
+Color=-66914
+
+Node=ToxicHepatitis
+Type=DomainResidentNode
+Position=334.0,234.0
+Size=135,60
+Color=-66914
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=306.0,26.0
+Size=168,60
+Color=-5178237
+
+% MFrag
+MFrag=PlateletCount_MFrag
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=PlateletCount
+Type=DomainResidentNode
+Position=330.0,188.0
+Size=134,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX11
+Type=GenerativeInputNode
+Position=347.0,107.0
+Size=100,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=317.0,30.0
+Size=166,60
+Color=-5178237
+
+% MFrag
+MFrag=ImpairedConsciousness_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=ImpairedConsciousness
+Type=DomainResidentNode
+Position=294.0,203.0
+Size=204,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX24
+Type=GenerativeInputNode
+Position=298.0,102.0
+Size=197,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=320.0,27.0
+Size=145,60
+Color=-5178237
+
+% MFrag
+MFrag=PBC_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=PBC
+Type=DomainResidentNode
+Position=336.0,185.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX4
+Type=GenerativeInputNode
+Position=267.0,97.0
+Size=100,60
+Color=-2302756
+
+Node=IX5
+Type=GenerativeInputNode
+Position=413.0,97.0
+Size=103,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=327.0,23.0
+Size=143,60
+Color=-5178237
+
+% MFrag
+MFrag=Sex_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Sex
+Type=DomainResidentNode
+Position=347.0,106.0
+Size=100,60
+Color=-66914
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=319.0,29.0
+Size=157,60
+Color=-5178237
+
+% MFrag
+MFrag=IncreasedLiverDensity_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=IncreasedLiverDensity
+Type=DomainResidentNode
+Position=289.0,183.0
+Size=183,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX23
+Type=GenerativeInputNode
+Position=277.0,89.0
+Size=206,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=310.0,19.0
+Size=142,60
+Color=-5178237
+
+% MFrag
+MFrag=AST_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=AST
+Type=DomainResidentNode
+Position=342.0,176.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX7
+Type=GenerativeInputNode
+Position=313.0,97.0
+Size=157,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=302.0,24.0
+Size=184,60
+Color=-5178237
+
+% MFrag
+MFrag=Yellowingoftheskin_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Yellowingoftheskin
+Type=DomainResidentNode
+Position=319.0,201.0
+Size=160,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX26
+Type=GenerativeInputNode
+Position=338.0,96.0
+Size=123,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=310.0,19.0
+Size=165,60
+Color=-5178237
+
+% MFrag
+MFrag=TotalBilirubin_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=TotalBilirubin
+Type=DomainResidentNode
+Position=319.0,207.0
+Size=162,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX15
+Type=GenerativeInputNode
+Position=483.0,84.0
+Size=100,60
+Color=-2302756
+
+Node=IX14
+Type=GenerativeInputNode
+Position=176.0,92.0
+Size=218,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=317.0,17.0
+Size=156,60
+Color=-5178237
+
+% MFrag
+MFrag=EnlargedSpleen_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=EnlargedSpleen
+Type=DomainResidentNode
+Position=303.0,180.0
+Size=168,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX9
+Type=GenerativeInputNode
+Position=308.0,98.0
+Size=156,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=311.0,23.0
+Size=161,60
+Color=-5178237
+
+% MFrag
+MFrag=MusculoSkeletalPain_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=MusculoSkeletalPain
+Type=DomainResidentNode
+Position=309.0,205.0
+Size=167,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX21
+Type=GenerativeInputNode
+Position=389.0,102.0
+Size=165,60
+Color=-2302756
+
+Node=IX20
+Type=GenerativeInputNode
+Position=256.0,106.0
+Size=100,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=314.0,23.0
+Size=161,60
+Color=-5178237
+
+% MFrag
+MFrag=HepaticEncephalopathy_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=HepaticEncephalopathy
+Type=DomainResidentNode
+Position=279.0,189.0
+Size=200,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX22
+Type=GenerativeInputNode
+Position=328.0,94.0
+Size=100,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=292.0,23.0
+Size=178,60
+Color=-5178237
+
+% MFrag
+MFrag=JointsSwelling_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=JointsSwelling
+Type=DomainResidentNode
+Position=316.0,171.0
+Size=153,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX18
+Type=GenerativeInputNode
+Position=342.0,85.0
+Size=100,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=313.0,16.0
+Size=163,60
+Color=-5178237
+
+% MFrag
+MFrag=ALT_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=ALT
+Type=DomainResidentNode
+Position=345.0,172.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX10
+Type=GenerativeInputNode
+Position=318.0,84.0
+Size=153,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=325.0,22.0
+Size=149,60
+Color=-5178237
+
+% MFrag
+MFrag=Age_MFrag
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=Age
+Type=DomainResidentNode
+Position=345.0,94.0
+Size=100,60
+Color=-66914
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=322.0,24.0
+Size=150,60
+Color=-5178237
+
+% MFrag
+MFrag=BloodUrea_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=BloodUrea
+Type=DomainResidentNode
+Position=328.0,206.0
+Size=133,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX25
+Type=GenerativeInputNode
+Position=299.0,95.0
+Size=186,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=302.0,23.0
+Size=182,60
+Color=-5178237
+
+% MFrag
+MFrag=Itching_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Itching
+Type=DomainResidentNode
+Position=354.0,180.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX16
+Type=GenerativeInputNode
+Position=323.0,97.0
+Size=161,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=322.0,28.0
+Size=156,60
+Color=-5178237
+
+% MFrag
+MFrag=Jaundice_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Jaundice
+Type=DomainResidentNode
+Position=340.0,169.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX17
+Type=GenerativeInputNode
+Position=316.0,90.0
+Size=151,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=318.0,15.0
+Size=151,60
+Color=-5178237
+
+% MFrag
+MFrag=INR_MFrag
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=INR
+Type=DomainResidentNode
+Position=352.0,194.0
+Size=100,60
+Color=-66914
+
+% nós Input
+
+
+Node=IX1
+Type=GenerativeInputNode
+Position=467.0,85.0
+Size=139,60
+Color=-2302756
+
+Node=IX28
+Type=GenerativeInputNode
+Position=160.0,87.0
+Size=246,60
+Color=-2302756
+
+% Variáveis Ordinárias
+
+
+Node=p
+Type=OrdinalVar
+Position=320.0,9.0
+Size=166,60
+Color=-5178237
+
+% Instâncias de Entidades Objetos

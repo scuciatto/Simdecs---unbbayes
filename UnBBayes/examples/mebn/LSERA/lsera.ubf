@@ -1,0 +1,62 @@
+% UBF file header
+Version=0.03
+PrOwl="lsera.owl"
+
+% UBF MTheory declaration
+MTheory=LSERA
+NextMFrag=3
+NextResident=2
+NextInput=1
+NextContext=4
+NextEntity=1
+
+% UBF MFrags and Nodes declaration
+
+% MFrag
+MFrag=TechnologyInitiative_MF
+NextOrdinaryVar=4
+
+% Resident nodes
+
+
+Node=Behavior
+Type=DomainResidentNode
+Position=204.0,165.0
+Size=35,35
+
+% Context nodes
+
+
+Node=CX2
+Type=ContextNode
+Position=128.0,94.0
+Size=35,35
+
+Node=CX3
+Type=ContextNode
+Position=276.0,94.0
+Size=35,35
+
+% Ordinary Variables
+
+
+Node=ti
+Type=OrdinalVar
+Position=65.0,38.0
+Size=35,35
+
+Node=tia
+Type=OrdinalVar
+Position=213.0,37.0
+Size=35,35
+
+Node=pas
+Type=OrdinalVar
+Position=357.0,35.0
+Size=35,35
+
+% MFrag
+MFrag=DMFrag2
+NextOrdinaryVar=1
+
+% Object Entity Instances

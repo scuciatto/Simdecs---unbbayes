@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Interface com o Usuário</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../Images/javahelp.css">
+</HEAD>
+<BODY BGCOLOR=#ffffff>
+<H1><FONT color=#000000 size="4">Interface com o Usuário</FONT>   </H1>
+<P>O sistema implementado apresenta uma interface muito 
+simples, onde é possível se realizar o treinamento de uma rede neural, realizar
+inferências,&nbsp;salvar e abrir&nbsp;modelos&nbsp;treinados.</P>
+<P>Para abrir o programa e necessário inicializar o 
+UnBMiner, no qual o Neural Network se insere e a partir deste escolher o item "Neural 
+Network" dentro do menu "Selecione Programa".</P>
+<P>A tela do UnBMiner com a tela principal do Neural Network é exibida baixo:</P>
+<P align=center><IMG height=434 hspace=0 src="../Images/MainScreen.jpg" 
+width=550 border=0></P>
+<P>A partir desta tela é possível abrir um modelo já treinado e salvo a
+partir do item &quot;Abrir Modelo...&quot; do menu &quot;Arquivo&quot; ou abrir 
+um novo arquivo de treinamento para se gerar um novo modelo, através do item
+&quot;Abrir...&quot; também no menu &quot;Arquivo&quot;. Uma vez aberto um 
+novo arquivo de treinamento, pode-se configurar os parâmetros de taxa de 
+aprendizagem, momentum e selecionar a função de ativação diretamente a partir da 
+tela principal. As duas funções de ativação disponíveis são a Sigmoidal (logística)&nbsp;e a tangente
+hiperbólica. Pode-se ainda através do menu &quot;Opções&quot; escolher o sub-menu
+&quot;Opções avançadas&quot;, que é mostrado a seguir:</P>
+<P align=center><IMG height=574 hspace=0 src="../Images/AdvancedOptions.jpg" 
+width=601 border=0></P>
+<P align=left>Este menu e composto dos seguintes itens:</P>
+<P> <STRONG><U>- Taxa de aprendizagem</U></STRONG>: e possível selecionar se a 
+taxa de aprendizagem deve decair com o tempo ou não. Se a opção &quot;Decaimento da 
+Taxa de Aprendizagem" estiver selecionada, a taxa de aprendizagem&nbsp;será 
+divida pelo numero de épocas decorridas ate o momento. </P>
+<P><U><STRONG>- Entradas numéricas</STRONG></U>: neste menu e possível se definir 
+se entradas numéricas devem ser normalizadas ou não. Caso a opção "Normalizar 
+Entradas Numéricas&quot; esteja ativada, as eventuais entradas numéricas do arquivo 
+de treinamento serão normalizadas, e pode-se ainda escolher o algoritmo de normalização. Existem dois algoritmos de
+normalização disponíveis, &quot;Normalização 
+Linear" e normalização por "Media 0 e desvio padrão 1".</P>
+<P><U><STRONG>- Tamanho da camada oculta</STRONG></U>: neste item, se a opção "Auto" estiver
+selecionada, então a camada oculta terá seu tamanho definido de 
+forma automática, com a seguinte formula:</P>
+<P align=center>(numero de atributos de entrada&nbsp; +&nbsp; numero de 
+atributos de saída) / 2</P>
+<P>Mas caso o usuário prefira definir manualmente o numero de neurônios da 
+camada oculta, basta desativar a opção "Auto" e entrar como o numero de neurônios
+de forma manual.</P>
+<P><U><STRONG>- Critérios de Parada da Aprendizagem</STRONG></U>: neste item 
+pode-se selecionar quais serão os critérios de&nbsp; parada do treinamento. 
+Pode-se definir um limite fixo de épocas para se treinar o ainda ativar a opção
+"Erro Relativo do Erro Quadrado Médio (%)". Quando esta ultima opção esta ativa, 
+o programa compara a variação do erro médio entre épocas consecutivas, quando 
+esse erro for inferior ao limite estabelecido pelo usuário o treinamento e 
+interrompido. Contudo, é necessário estar atento ao limite de épocas, pois os
+critérios não são excludentes, o treinamento e interrompido assim que um dos 
+dois critérios ocorrer.</P>
+<P><U><STRONG>- Inclinação da Função de Ativação</STRONG></U>: neste ultimo item 
+pode-se definir a inclinação da função de ativação, no caso para ambas 
+as&nbsp;funções implementados,&nbsp;sigmoidal (logística) ou tangente hiperbólica.</P>
+<P>&nbsp;</P>
+<P>Uma vez definidos todos os parâmetros, pode-se iniciar o treinamento, através
+do menu &quot;Opções&quot; no sub-item "Treinar Modelo". Quando o treinamento e 
+finalizado, é então exibido um gráfico mostrando a variação do erro quadrado
+médio por época. Uma ilustração desta tela é mostrada abaixo:</P>
+<P align=center><IMG height=510 hspace=0 src="../Images/Chart.jpg" width=554 
+border=0></P>
+<P>Apos o treinamento, pode-se também realizar inferências no modelo gerado, 
+como e mostrado na tela abaixo:</P>
+<P align="center"><IMG height=459 hspace=0 src="../Images/Inference.jpg" width=499 
+border=0></P>
+<P>Para realizar inferências, basta selecionar os valores desejados dos
+atributos na árvore de atributos à esquerda, de forma a construir um
+instância para realizar a inferência. Quando um determinado valor de atributo
+é selecionado, gera-se um log no canto inferior direito da tela, mostrando qual
+atributo foi selecionado e com que valor. O resultado da inferência aparece no
+lado direito superior da tela, mostrando o atributo de classe, no caso
+&quot;out&quot; e seus possíveis valores, no caso &quot;0&quot; e
+&quot;1&quot;. Os valores da saída da rede são mostrados a frente destes possíveis
+valores da classe, e o valor escolhido pelo modelo como correto é indicado com
+negrito.</P>
+<P>Pode-se também salvar este modelo gerado, bastando selecionar o item
+&quot;Salvar...&quot; no menu &quot;Arquivo&quot;. O arquivo salvo terá a
+extensão &quot;.bpn&quot;.</P>
+</BODY>
+</HTML>

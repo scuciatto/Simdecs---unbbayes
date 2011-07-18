@@ -1,0 +1,42 @@
+class DistanceTimeslice
+{
+	 inputs =  ( DistFromOwnPrev );
+	 outputs =  ( DistFromOwn );
+     node_size = (40 40);
+     name = "DistanceTimeslice";
+     tree = "()";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+     UnBBayes_Color_Utility = "-16711681";
+     UnBBayes_Color_Decision = "-14336";
+
+node DistFromOwnPrev
+{
+     label = "DistFromOwnPrev";
+     position = (319 202);
+     states = ("Phaser2Range" "Phaser1Range" "TorpedoRange" "OutOfRange" "PulseCanonRange" "Absurd");
+}
+
+node DistFromOwn
+{
+     label = "DistFromOwn";
+     position = (321 342);
+     states = ("Phaser2Range" "Phaser1Range" "TorpedoRange" "OutOfRange" "PulseCanonRange" "Absurd");
+}
+
+potential (DistFromOwnPrev)
+{
+ data = ( 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 );
+}
+
+potential (DistFromOwn | DistFromOwnPrev)
+{
+ data = (( 0.4 0.25 0.25 0.06 0.04 0.0 )
+( 0.25 0.4 0.07 0.03 0.25 0.0 )
+( 0.25 0.07 0.4 0.25 0.03 0.0 )
+( 0.05 0.04 0.3 0.6 0.01 0.0 )
+( 0.1 0.35 0.04 0.01 0.5 0.0 )
+( 0.2 0.2 0.2 0.2 0.2 0.0 ));
+}
+
+} % class DistanceTimeslice

@@ -1,0 +1,27 @@
+VERSION 2.0
+------------
+Emerson Lopes Machado (emersoft@conectanet.com.br)
+
+This version accomplishes a refactoring of the data manipulation classes.
+The internal value type representation has changed from short to float. This
+changing allows storing numeric attribute values as float values wich increased
+the precision for numeric attributes.
+Thus the float values of an instance stores the internal value for nominal
+attributes and the dataset value for numeric attributes.
+The access to numeric values is straight (No more parses to float are needed):
+		(return type: float):
+		- instance.getValue(Attribute attribute);
+
+The access to the dataset nominal values (not the internal value representation)
+remains the same:
+		(return type: String):
+		- instance.stringValue(attribute);
+
+There is another way to get an dataset value:
+		(return type: String):
+		- attribute.value((int) instance.getValue(attribute));
+For nominal attributes the value stored in an instance (a float value)
+represents the dataset value. Thus to get the dataset value of an instancet,
+one should cast this internal value to int and, with this value, get the dataset
+value.
+

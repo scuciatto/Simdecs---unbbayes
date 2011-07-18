@@ -1,0 +1,1372 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>alarm</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>34</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY>
+    <mstns:ROOT NAME="root">
+      <mstns:LEVEL NAME="MinVol"/>
+      <mstns:LEVEL NAME="Press"/>
+      <mstns:LEVEL NAME="PAP"/>
+      <mstns:LEVEL NAME="ExpCO2"/>
+      <mstns:LEVEL NAME="HRBP"/>
+      <mstns:LEVEL NAME="ErrLowOutput"/>
+      <mstns:LEVEL NAME="HRSat"/>
+      <mstns:LEVEL NAME="HREKG"/>
+      <mstns:LEVEL NAME="ErrCauter"/>
+      <mstns:LEVEL NAME="BP"/>
+      <mstns:LEVEL NAME="History"/>
+      <mstns:LEVEL NAME="CO"/>
+      <mstns:LEVEL NAME="HR"/>
+      <mstns:LEVEL NAME="Catechol"/>
+      <mstns:LEVEL NAME="ArtCO2"/>
+      <mstns:LEVEL NAME="TPR"/>
+      <mstns:LEVEL NAME="Anaphylaxis"/>
+      <mstns:LEVEL NAME="SaO2"/>
+      <mstns:LEVEL NAME="PVSat"/>
+      <mstns:LEVEL NAME="FiO2"/>
+      <mstns:LEVEL NAME="VentAlv"/>
+      <mstns:LEVEL NAME="VentLung"/>
+      <mstns:LEVEL NAME="VentTube"/>
+      <mstns:LEVEL NAME="Disconnect"/>
+      <mstns:LEVEL NAME="VentMach"/>
+      <mstns:LEVEL NAME="MinVolSet"/>
+      <mstns:LEVEL NAME="KinkedTube"/>
+      <mstns:LEVEL NAME="Shunt"/>
+      <mstns:LEVEL NAME="Intubation"/>
+      <mstns:LEVEL NAME="PulmEmbolus"/>
+      <mstns:LEVEL NAME="InsuffAnesth"/>
+      <mstns:LEVEL NAME="PCWP"/>
+      <mstns:LEVEL NAME="CVP"/>
+      <mstns:LEVEL NAME="StrokeVolume"/>
+      <mstns:LEVEL NAME="LVEDVolume"/>
+      <mstns:LEVEL NAME="LVFailure"/>
+      <mstns:LEVEL NAME="Hypovolemia"/>
+    </mstns:ROOT>
+  </mstns:HIERARCHY>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="258" XPOS="1170" TYPE="discrete" NAME="MinVol">
+        <mstns:LABEL>MinVol</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="258" XPOS="1314" TYPE="discrete" NAME="Press">
+        <mstns:LABEL>Press</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="78" XPOS="594" TYPE="discrete" NAME="PAP">
+        <mstns:LABEL>PAP</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="258" XPOS="1020" TYPE="discrete" NAME="ExpCO2">
+        <mstns:LABEL>ExpCO2</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="420" XPOS="294" TYPE="discrete" NAME="HRBP">
+        <mstns:LABEL>HRBP</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="342" XPOS="294" TYPE="discrete" NAME="ErrLowOutput">
+        <mstns:LABEL>ErrLowOutput</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="420" XPOS="594" TYPE="discrete" NAME="HRSat">
+        <mstns:LABEL>HRSat</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="420" XPOS="444" TYPE="discrete" NAME="HREKG">
+        <mstns:LABEL>HREKG</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="342" XPOS="594" TYPE="discrete" NAME="ErrCauter">
+        <mstns:LABEL>ErrCauter</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="420" XPOS="150" TYPE="discrete" NAME="BP">
+        <mstns:LABEL>BP</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="306" TYPE="discrete" NAME="History">
+        <mstns:LABEL>History</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="186" XPOS="288" TYPE="discrete" NAME="CO">
+        <mstns:LABEL>CO</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="264" XPOS="444" TYPE="discrete" NAME="HR">
+        <mstns:LABEL>HR</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="156" XPOS="444" TYPE="discrete" NAME="Catechol">
+        <mstns:LABEL>Catechol</mstns:LABEL>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="258" XPOS="882" TYPE="discrete" NAME="ArtCO2">
+        <mstns:LABEL>ArtCO2</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="342" XPOS="150" TYPE="discrete" NAME="TPR">
+        <mstns:LABEL>TPR</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="342" XPOS="35" TYPE="discrete" NAME="Anaphylaxis">
+        <mstns:LABEL>Anaphylaxis</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="156" XPOS="630" TYPE="discrete" NAME="SaO2">
+        <mstns:LABEL>SaO2</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="264" XPOS="732" TYPE="discrete" NAME="PVSat">
+        <mstns:LABEL>PVSat</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="264" XPOS="582" TYPE="discrete" NAME="FiO2">
+        <mstns:LABEL>FiO2</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="138" XPOS="816" TYPE="discrete" NAME="VentAlv">
+        <mstns:LABEL>VentAlv</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="138" XPOS="978" TYPE="discrete" NAME="VentLung">
+        <mstns:LABEL>VentLung</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="138" XPOS="1140" TYPE="discrete" NAME="VentTube">
+        <mstns:LABEL>VentTube</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="36" XPOS="1140" TYPE="discrete" NAME="Disconnect">
+        <mstns:LABEL>Disconnect</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="138" XPOS="1308" TYPE="discrete" NAME="VentMach">
+        <mstns:LABEL>VentMach</mstns:LABEL>
+        <mstns:STATENAME>Zero</mstns:STATENAME>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="42" XPOS="1308" TYPE="discrete" NAME="MinVolSet">
+        <mstns:LABEL>MinVolSet</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="36" XPOS="978" TYPE="discrete" NAME="KinkedTube">
+        <mstns:LABEL>KinkedTube</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="72" XPOS="738" TYPE="discrete" NAME="Shunt">
+        <mstns:LABEL>Shunt</mstns:LABEL>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="6" XPOS="816" TYPE="discrete" NAME="Intubation">
+        <mstns:LABEL>Intubation</mstns:LABEL>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>Esophageal</mstns:STATENAME>
+        <mstns:STATENAME>OneSided</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="594" TYPE="discrete" NAME="PulmEmbolus">
+        <mstns:LABEL>PulmEmbolus</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="444" TYPE="discrete" NAME="InsuffAnesth">
+        <mstns:LABEL>InsuffAnesth</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="186" XPOS="150" TYPE="discrete" NAME="PCWP">
+        <mstns:LABEL>PCWP</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="186" XPOS="2" TYPE="discrete" NAME="CVP">
+        <mstns:LABEL>CVP</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="90" XPOS="288" TYPE="discrete" NAME="StrokeVolume">
+        <mstns:LABEL>StrokeVolume</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="96" XPOS="66" TYPE="discrete" NAME="LVEDVolume">
+        <mstns:LABEL>LVEDVolume</mstns:LABEL>
+        <mstns:STATENAME>Low</mstns:STATENAME>
+        <mstns:STATENAME>Normal</mstns:STATENAME>
+        <mstns:STATENAME>High</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="156" TYPE="discrete" NAME="LVFailure">
+        <mstns:LABEL>LVFailure</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="6" TYPE="discrete" NAME="Hypovolemia">
+        <mstns:LABEL>Hypovolemia</mstns:LABEL>
+        <mstns:STATENAME>True</mstns:STATENAME>
+        <mstns:STATENAME>False</mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="MinVol" PARENT="VentLung"/>
+      <mstns:ARC CHILD="MinVol" PARENT="Intubation"/>
+      <mstns:ARC CHILD="Press" PARENT="KinkedTube"/>
+      <mstns:ARC CHILD="Press" PARENT="Intubation"/>
+      <mstns:ARC CHILD="Press" PARENT="VentTube"/>
+      <mstns:ARC CHILD="PAP" PARENT="PulmEmbolus"/>
+      <mstns:ARC CHILD="ExpCO2" PARENT="ArtCO2"/>
+      <mstns:ARC CHILD="ExpCO2" PARENT="VentLung"/>
+      <mstns:ARC CHILD="HRBP" PARENT="ErrLowOutput"/>
+      <mstns:ARC CHILD="HRBP" PARENT="HR"/>
+      <mstns:ARC CHILD="HRSat" PARENT="HR"/>
+      <mstns:ARC CHILD="HRSat" PARENT="ErrCauter"/>
+      <mstns:ARC CHILD="HREKG" PARENT="HR"/>
+      <mstns:ARC CHILD="HREKG" PARENT="ErrCauter"/>
+      <mstns:ARC CHILD="BP" PARENT="CO"/>
+      <mstns:ARC CHILD="BP" PARENT="TPR"/>
+      <mstns:ARC CHILD="History" PARENT="LVFailure"/>
+      <mstns:ARC CHILD="CO" PARENT="HR"/>
+      <mstns:ARC CHILD="CO" PARENT="StrokeVolume"/>
+      <mstns:ARC CHILD="HR" PARENT="Catechol"/>
+      <mstns:ARC CHILD="Catechol" PARENT="InsuffAnesth"/>
+      <mstns:ARC CHILD="Catechol" PARENT="SaO2"/>
+      <mstns:ARC CHILD="Catechol" PARENT="TPR"/>
+      <mstns:ARC CHILD="Catechol" PARENT="ArtCO2"/>
+      <mstns:ARC CHILD="ArtCO2" PARENT="VentAlv"/>
+      <mstns:ARC CHILD="TPR" PARENT="Anaphylaxis"/>
+      <mstns:ARC CHILD="SaO2" PARENT="Shunt"/>
+      <mstns:ARC CHILD="SaO2" PARENT="PVSat"/>
+      <mstns:ARC CHILD="PVSat" PARENT="VentAlv"/>
+      <mstns:ARC CHILD="PVSat" PARENT="FiO2"/>
+      <mstns:ARC CHILD="VentAlv" PARENT="Intubation"/>
+      <mstns:ARC CHILD="VentAlv" PARENT="VentLung"/>
+      <mstns:ARC CHILD="VentLung" PARENT="KinkedTube"/>
+      <mstns:ARC CHILD="VentLung" PARENT="VentTube"/>
+      <mstns:ARC CHILD="VentLung" PARENT="Intubation"/>
+      <mstns:ARC CHILD="VentTube" PARENT="VentMach"/>
+      <mstns:ARC CHILD="VentTube" PARENT="Disconnect"/>
+      <mstns:ARC CHILD="VentMach" PARENT="MinVolSet"/>
+      <mstns:ARC CHILD="Shunt" PARENT="PulmEmbolus"/>
+      <mstns:ARC CHILD="Shunt" PARENT="Intubation"/>
+      <mstns:ARC CHILD="PCWP" PARENT="LVEDVolume"/>
+      <mstns:ARC CHILD="CVP" PARENT="LVEDVolume"/>
+      <mstns:ARC CHILD="StrokeVolume" PARENT="LVFailure"/>
+      <mstns:ARC CHILD="StrokeVolume" PARENT="Hypovolemia"/>
+      <mstns:ARC CHILD="LVEDVolume" PARENT="Hypovolemia"/>
+      <mstns:ARC CHILD="LVEDVolume" PARENT="LVFailure"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="MinVol"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Intubation"/>
+          <mstns:CONDLEM NAME="VentLung"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.38</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.48</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.48</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Press"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="VentTube"/>
+          <mstns:CONDLEM NAME="Intubation"/>
+          <mstns:CONDLEM NAME="KinkedTube"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.49</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.08</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.84</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.25</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.25</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.45</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.25</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.59</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.29</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.08</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.58</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.75</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.08</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.38</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="PAP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="PulmEmbolus"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.19</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="ExpCO2"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="VentLung"/>
+          <mstns:CONDLEM NAME="ArtCO2"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="HRBP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="HR"/>
+          <mstns:CONDLEM NAME="ErrLowOutput"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.59</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.98</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="ErrLowOutput"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="HRSat"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="ErrCauter"/>
+          <mstns:CONDLEM NAME="HR"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.98</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="HREKG"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="ErrCauter"/>
+          <mstns:CONDLEM NAME="HR"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333334</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.333333</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.98</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="ErrCauter"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="BP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="TPR"/>
+          <mstns:CONDLEM NAME="CO"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.55</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.75</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.9</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="History"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="LVFailure"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="CO"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="StrokeVolume"/>
+          <mstns:CONDLEM NAME="HR"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.69</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.69</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.19</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.98</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="HR"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Catechol"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.89</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Catechol"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="ArtCO2"/>
+          <mstns:CONDLEM NAME="TPR"/>
+          <mstns:CONDLEM NAME="SaO2"/>
+          <mstns:CONDLEM NAME="InsuffAnesth"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="32">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="32">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="33">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="33">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="34">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="34">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="35">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="35">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="36">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="36">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="37">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="37">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="38">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="38">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="39">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="39">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="40">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="40">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="41">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="41">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="42">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="42">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="43">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="43">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="44">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="44">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="45">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="45">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="46">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="46">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="47">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="47">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="48">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="48">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="49">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="49">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="50">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="50">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="51">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="51">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="52">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="52">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="53">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="53">0.7</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="ArtCO2"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="VentAlv"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.92</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="TPR"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Anaphylaxis"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Anaphylaxis"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="SaO2"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="PVSat"/>
+          <mstns:CONDLEM NAME="Shunt"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.69</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="PVSat"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="FiO2"/>
+          <mstns:CONDLEM NAME="VentAlv"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.98</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="FiO2"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="VentAlv"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="VentLung"/>
+          <mstns:CONDLEM NAME="Intubation"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.03</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.94</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.88</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="VentLung"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Intubation"/>
+          <mstns:CONDLEM NAME="VentTube"/>
+          <mstns:CONDLEM NAME="KinkedTube"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.03</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.03</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.58</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.48</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.68</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.68</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="VentTube"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Disconnect"/>
+          <mstns:CONDLEM NAME="VentMach"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Disconnect"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="VentMach"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="MinVolSet"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.97</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.97</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="MinVolSet"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="KinkedTube"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.96</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Shunt"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Intubation"/>
+          <mstns:CONDLEM NAME="PulmEmbolus"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.99</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Intubation"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.92</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.03</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="PulmEmbolus"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="InsuffAnesth"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.8</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="PCWP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="LVEDVolume"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="CVP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="LVEDVolume"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.29</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.7</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="StrokeVolume"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Hypovolemia"/>
+          <mstns:CONDLEM NAME="LVFailure"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.49</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.05</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="LVEDVolume"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="LVFailure"/>
+          <mstns:CONDLEM NAME="Hypovolemia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.04</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.09</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.05</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="LVFailure"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Hypovolemia"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.8</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

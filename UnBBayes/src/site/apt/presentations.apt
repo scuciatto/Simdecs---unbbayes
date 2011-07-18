@@ -1,0 +1,40 @@
+UnBBayes Presentations
+~~~~~~~~~~~~~~
+
+  We have been working hard to make UnBBayes easier to use and more accessible to 
+  users. Another step towards this goal is the publication of presentations we 
+  have given before about UnBBayes in our web page.
+  
+  We would be glad to know what you think about it and if you have any especial 
+  requests to make.
+
+* UnBBayes Overview
+~~~~~~~~~~~~~~~~~~~~
+
+  The overview is presented through a slides potpourri from different presentations 
+  the Artificial Intelligence Group (GIA) from University of Brasilia (UnB) has given 
+  since 1999. It covers BN, ID, MSBN, UnBBayes Server, and MEBN.
+
+  This presentation was given by Rommel Carvalho when he started his PhD at George 
+  Mason University on the Friday seminar called Krypton ({{http://krypton.c4i.gmu.edu/}}).
+  
+  <center>
+	  <div style="width:425px" id="__ss_3534184"><strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/rommelnc/unbbayes-overview" title="UnBBayes Overview">UnBBayes Overview</a></strong><object width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=unbbayesoverview-100324005643-phpapp02&stripped_title=unbbayes-overview" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=unbbayesoverview-100324005643-phpapp02&stripped_title=unbbayes-overview" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object><div style="padding:5px 0 12px">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/rommelnc">Rommel Carvalho</a>.</div></div>
+  </center>
+
+* UnBBayes Plugin Framework
+~~~~~~~~~~~~~~~~~~~~
+
+  This presentation talks about UnBBayes version 4.0.0, which is the first version 
+  that supports plugins. In it we present the major concepts behind this Plugin 
+  Framework, features and benefits, applications, some sample plugins, specification, 
+  extension points, and availability.
+
+  This presentation was given by Shou Matsumoto from the University of Brasilia 
+  in Brazil via web conference to PhD students at George Mason University in the US 
+  on the Friday seminar called Krypton ({{http://krypton.c4i.gmu.edu/}}).
+  
+  <center>
+	  <img style="visibility:hidden;width:0px;height:0px;" border=0 width=0 height=0 src="http://counters.gigya.com/wildfire/IMP/CXNID=2000002.0NXC/bT*xJmx*PTEyNjk*MDgzMzkxMTYmcHQ9MTI2OTQwODM*NTk1MyZwPTEwMTkxJmQ9c3NfZW1iZWQmZz*yJm89Y2M*YzMxODAwMWFm/NGVhOWIzM2M1ZTYyNjJmOWFiOTYmb2Y9MA==.gif" /><div style="width:425px" id="__ss_3534012"><strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/rommelnc/unbbayes-plugin-framework" title="UnBBayes Plugin Framework">UnBBayes Plugin Framework</a></strong><object width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=unbbayes-plugins-100324000917-phpapp01&stripped_title=unbbayes-plugin-framework" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=unbbayes-plugins-100324000917-phpapp01&stripped_title=unbbayes-plugin-framework" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object><div style="padding:5px 0 12px">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/rommelnc">Rommel Carvalho</a>.</div></div>
+  </center>
+

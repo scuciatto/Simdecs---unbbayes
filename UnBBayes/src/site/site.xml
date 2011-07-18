@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="UnBBayes">
+  <bannerLeft>
+    <name>UnBBayes</name>
+    <src>/images/topBanner-v4.png</src>
+    <href>/index.html</href>
+  </bannerLeft>
+  <body>
+    <links>
+      <item name="UnBBayes Project" href="http://sourceforge.net/projects/unbbayes"/>
+      <item name="UnBBayes News" href="http://sourceforge.net/news/?group_id=47519"/>
+      <item name="UnBBayes Wiki" href="http://unbbayes.wiki.sourceforge.net/"/>
+      <item name="PR-OWL" href="http://www.pr-owl.org/" />
+      <item name="CIC/UnB" href="http://www.cic.unb.br/"/>
+      <item name="UnB" href="http://www.unb.br/"/>
+    </links>
+
+    <menu name="Main">
+      <item name="Overview" href="index.html"/>
+      <item name="Publications" href="publications.html"/>
+      <item name="Around the World" href="around_the_world.html"/>
+      <item name="FAQ" href="faq.html"/>     
+    </menu>
+    
+    <menu name="Examples">
+      <item name="Poker Game" href="poker_game.html"/>
+      <item name="MEBN" href="mebn.html">
+      	<item name="How to Model Probabilistic Ontologies" href="how_to_model_prowl.html"/>
+      </item>
+    </menu>
+    
+    <menu name="Tutorials">
+      <item name="Wiki Tutorial" href="https://sourceforge.net/apps/mediawiki/unbbayes/index.php?title=Visit_the_Tutorial"/>
+      <item name="Presentations" href="presentations.html"/>
+      <item name="Video Tutorials" href="video_tutorial.html"/>
+    </menu>
+    
+    <menu ref="reports"/>
+
+  </body>
+  
+  <poweredBy>
+  
+    <logo name="UnBBayes" href="http://sourceforge.net/projects/unbbayes"
+          img="http://sflogo.sourceforge.net/sflogo.php?group_id=47519&amp;type=12"/>
+  
+    <logo name="Ohloh" href="https://www.ohloh.net/p/unbbayes"
+          img="https://www.ohloh.net/p/unbbayes/widgets/project_partner_badge.gif"/>
+    
+    <logo name="Softpedia" href="http://mac.softpedia.com/progClean/UnBBayes-Clean-41921.html"
+          img="http://mac.softpedia.com/base_img/softpedia_free_award_f.gif"/>
+          
+    <logo name="Maven" href="http://maven.apache.org/"
+          img="http://maven.apache.org/images/logos/maven-feather.png"/>
+          
+  </poweredBy>
+  
+</project>

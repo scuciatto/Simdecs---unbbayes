@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>car_buyer</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>40</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="R1: Test 1 result"/>
+      <xbifns:level name="R2: Test 2 result"/>
+      <xbifns:level name="CC:Condition"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="70" xPos="35" type="DiscreteProbabilistic" name="C5">
+        <xbifns:description>R1: Test 1 result</xbifns:description>
+        <xbifns:state name="no result"/>
+        <xbifns:state name="no defect"/>
+        <xbifns:state name="one defect"/>
+        <xbifns:state name="two defect"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="70" xPos="130" type="DiscreteProbabilistic" name="C6">
+        <xbifns:description>R2: Test 2 result</xbifns:description>
+        <xbifns:state name="no result"/>
+        <xbifns:state name="no defect"/>
+        <xbifns:state name="one defect"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="35" xPos="50" type="DiscreteProbabilistic" name="C7">
+        <xbifns:description>CC:Condition</xbifns:description>
+        <xbifns:state name="peach"/>
+        <xbifns:state name="lemon"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="60" xPos="250" type="Utility" name="U4">
+        <xbifns:description>V:Profit</xbifns:description>
+        <xbifns:state name="Utility"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="190" xPos="35" type="Decision" name="D1">
+        <xbifns:description>T1: Do test 1?</xbifns:description>
+        <xbifns:state name="no test"/>
+        <xbifns:state name="steering"/>
+        <xbifns:state name="fuel/elect"/>
+        <xbifns:state name="transmission"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="230" xPos="130" type="Decision" name="D2">
+        <xbifns:description>T2: Do test 2?</xbifns:description>
+        <xbifns:state name="no test"/>
+        <xbifns:state name="differential"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="180" xPos="250" type="Decision" name="D3">
+        <xbifns:description>B: Buy it?</xbifns:description>
+        <xbifns:state name="do not buy"/>
+        <xbifns:state name="buy"/>
+        <xbifns:state name="buy guaranteed"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="D2" parent="D1"/>
+      <xbifns:edge child="D2" parent="C5"/>
+      <xbifns:edge child="D3" parent="D2"/>
+      <xbifns:edge child="D3" parent="D1"/>
+      <xbifns:edge child="D3" parent="C5"/>
+      <xbifns:edge child="D3" parent="C6"/>
+      <xbifns:edge child="U4" parent="C7"/>
+      <xbifns:edge child="U4" parent="D3"/>
+      <xbifns:edge child="U4" parent="D2"/>
+      <xbifns:edge child="U4" parent="D1"/>
+      <xbifns:edge child="C5" parent="C7"/>
+      <xbifns:edge child="C5" parent="D1"/>
+      <xbifns:edge child="C6" parent="C7"/>
+      <xbifns:edge child="C6" parent="D2"/>
+      <xbifns:edge child="C6" parent="C5"/>
+      <xbifns:edge child="C6" parent="D1"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="C5"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="C7"/>
+          <xbifns:parent index="1" name="D1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.13333000242710114</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.5333300232887268</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.3333300054073334</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="C6"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="C7"/>
+          <xbifns:parent index="1" name="D2"/>
+          <xbifns:parent index="2" name="C5"/>
+          <xbifns:parent index="3" name="D1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="64">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="65">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="66">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="67">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="68">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="69">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="70">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="71">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="72">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="73">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="74">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="75">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="76">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="77">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="78">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="79">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="80">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="81">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="82">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="83">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="84">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="85">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="86">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="87">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="88">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="89">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="90">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="91">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="92">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="93">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="94">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="95">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="96">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="97">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="98">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="99">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="100">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="101">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="102">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="103">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="104">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="105">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="106">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="107">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="108">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="109">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="110">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="111">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="112">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="113">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="114">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="115">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="116">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="117">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="118">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="119">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="120">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="121">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="122">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="123">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="124">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="125">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="126">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="127">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="128">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="129">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="130">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="131">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="132">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="133">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="134">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="135">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="136">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="137">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="138">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="139">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="140">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="141">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="142">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="143">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="144">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="145">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="146">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="147">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="148">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="149">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="150">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="151">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="152">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="153">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="154">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="155">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="156">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="157">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="158">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="159">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="160">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="161">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="162">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="163">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="164">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="165">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="166">0.8888900279998779</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="167">0.11111000180244446</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="168">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="169">0.666670024394989</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="170">0.3333300054073334</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="171">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="172">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="173">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="174">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="175">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="176">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="177">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="178">0.44444000720977783</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="179">0.5555599927902222</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="180">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="181">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="182">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="183">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="184">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="185">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="186">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="187">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="188">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="189">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="190">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="191">0.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="C7"/>
+        <xbifns:parents/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.20000000298023224</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="U4"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="C7"/>
+          <xbifns:parent index="1" name="D3"/>
+          <xbifns:parent index="2" name="D2"/>
+          <xbifns:parent index="3" name="D1"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">60.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">-100.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">20.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">40.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">-9.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">-9.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">51.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">-109.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">11.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">31.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">-13.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">-13.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">47.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">-113.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">7.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">27.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">-1000.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">-10.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">-10.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">50.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">-110.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">10.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">30.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">-14.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">-14.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">46.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">-114.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">6.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">26.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

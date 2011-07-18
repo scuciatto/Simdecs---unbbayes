@@ -1,0 +1,228 @@
+% Cabeçalho UBF
+Version=0.02
+PrOwl="asia3.owl"
+
+% Declaração de MTheory - UBF
+MTheory=New_MEBN
+NextMFrag=9
+NextResident=9
+NextInput=9
+NextContext=2
+NextEntity=1
+
+% Declaração de MFrags e nós UBF
+
+% MFrag
+MFrag=MBronchitis
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Bronchitis
+Type=DomainResidentNode
+Position=153.0,178.0
+Size=100,20
+
+% nós Input
+
+
+Node=CX5
+Type=GenerativeInputNode
+Position=148.0,32.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX8
+Type=OrdinalVar
+Position=291.0,48.0
+Size=100,20
+
+% MFrag
+MFrag=MDysphonea
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Dysphonea
+Type=DomainResidentNode
+Position=157.0,196.0
+Size=100,20
+
+% nós Input
+
+
+Node=CX7
+Type=GenerativeInputNode
+Position=109.0,63.0
+Size=100,20
+
+Node=CX1
+Type=GenerativeInputNode
+Position=218.0,61.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX7
+Type=OrdinalVar
+Position=316.0,114.0
+Size=100,20
+
+% MFrag
+MFrag=MLungCancer
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=LungCancer
+Type=DomainResidentNode
+Position=93.0,59.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX6
+Type=OrdinalVar
+Position=273.0,48.0
+Size=100,20
+
+% MFrag
+MFrag=MPositiveXRay
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=PositiveXRay
+Type=DomainResidentNode
+Position=102.0,130.0
+Size=100,20
+
+% nós Input
+
+
+Node=CX8
+Type=GenerativeInputNode
+Position=100.0,38.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX5
+Type=OrdinalVar
+Position=232.0,49.0
+Size=100,20
+
+% MFrag
+MFrag=MSmoker
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Smoker
+Type=DomainResidentNode
+Position=143.0,134.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX4
+Type=OrdinalVar
+Position=292.0,63.0
+Size=100,20
+
+% MFrag
+MFrag=MTurberculosis
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=Tuberculosis
+Type=DomainResidentNode
+Position=146.0,165.0
+Size=100,20
+
+% nós Input
+
+
+Node=CX9
+Type=GenerativeInputNode
+Position=144.0,48.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX3
+Type=OrdinalVar
+Position=306.0,80.0
+Size=100,20
+
+% MFrag
+MFrag=MTurbOrCancer
+NextOrdinaryVar=2
+
+% Nós Residentes
+
+
+Node=TurbOrCancer
+Type=DomainResidentNode
+Position=176.0,174.0
+Size=100,20
+
+% nós Input
+
+
+Node=CX6
+Type=GenerativeInputNode
+Position=58.0,76.0
+Size=100,20
+
+Node=CX4
+Type=GenerativeInputNode
+Position=162.0,41.0
+Size=100,20
+
+Node=CX3
+Type=GenerativeInputNode
+Position=298.0,55.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX2
+Type=OrdinalVar
+Position=361.0,113.0
+Size=100,20
+
+% MFrag
+MFrag=MVisitAsia
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=VisitAsia
+Type=DomainResidentNode
+Position=158.0,106.0
+Size=100,20
+
+% Variáveis Ordinárias
+
+
+Node=OX1
+Type=OrdinalVar
+Position=219.0,28.0
+Size=100,20

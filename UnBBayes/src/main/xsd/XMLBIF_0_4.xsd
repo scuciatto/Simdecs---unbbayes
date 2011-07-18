@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<xs:schema id="NewDataSet" 
+targetNamespace="http://localhost/xml/model.xsd" 
+xmlns:mstns="http://localhost/xml/model.xsd" xmlns="http://localhost/xml/model.xsd" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" 
+elementFormDefault="qualified">
+	<xs:element name="BIF">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HEADER" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NAME" type="xs:string" minOccurs="0" />
+							<xs:element name="VERSION" type="xs:int" minOccurs="0" />
+							<xs:element name="CREATOR" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="STATICPROPERTY" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NODESIZE" type="xs:string" minOccurs="0" />
+							<xs:element name="NODEFONTNAME" type="xs:string" minOccurs="0" />
+							<xs:element name="NODEFONTSIZE" type="xs:int" minOccurs="0" />
+							<xs:element name="COLORUTILITY" type="xs:int" minOccurs="0" />
+							<xs:element name="COLORDECISION" type="xs:int" minOccurs="0" />
+							<xs:element name="COLORPROBDESCRIPTION" type="xs:int" minOccurs="0" />
+							<xs:element name="COLORPROBEXPLANATION" type="xs:int" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="HIERARCHY" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ROOT" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="LEVEL" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="NETWORK" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="VARIABLES" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="VAR" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="LABEL" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+													<xs:element name="MMIDIA" type="xs:base64Binary" minOccurs="0" msdata:Ordinal="2" />
+													<xs:element name="STATENAME" minOccurs="0" maxOccurs="unbounded" nillable="true">
+														<xs:complexType>
+															<xs:simpleContent msdata:ColumnName="STATENAME_Text" msdata:Ordinal="0">
+																<xs:extension base="xs:string"></xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="METAPHORE" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+																<xs:element name="TRIGGER"  minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+						                        <xs:sequence>
+							                         <xs:element name="NAME" type="xs:string"/>
+							                         <xs:element name="COMMENTS" type="xs:string" minOccurs="0"/>
+						                        </xs:sequence>
+					                        </xs:complexType>
+					                      </xs:element>  
+																<xs:element name="EXCLUDENT" minOccurs="0" maxOccurs="unbounded">
+																  <xs:complexType>
+						                        <xs:sequence>
+							                         <xs:element name="NAME" type="xs:string"/>
+							                         <xs:element name="COMMENTS" type="xs:string" minOccurs="0"/>
+						                        </xs:sequence>
+					                        </xs:complexType>
+					                      </xs:element>  
+																<xs:element name="ESSENCIAL" minOccurs="0" maxOccurs="unbounded">
+																   <xs:complexType>
+						                        <xs:sequence>
+							                         <xs:element name="NAME" type="xs:string"/>
+							                         <xs:element name="COMMENTS" type="xs:string" minOccurs="0"/>
+						                        </xs:sequence>
+					                        </xs:complexType>
+					                      </xs:element>  
+																<xs:element name="COMPLEMENTARY" minOccurs="0" maxOccurs="unbounded">
+																   <xs:complexType>
+						                        <xs:sequence>
+							                         <xs:element name="NAME" type="xs:string"/>
+							                         <xs:element name="COMMENTS" type="xs:string" minOccurs="0"/>
+						                        </xs:sequence>
+					                        </xs:complexType>
+					                      </xs:element>  
+					                      <xs:element name="NA" minOccurs="0" maxOccurs="unbounded">
+																   <xs:complexType>
+						                        <xs:sequence>
+							                         <xs:element name="NAME" type="xs:string"/>
+							                         <xs:element name="COMMENTS" type="xs:string" minOccurs="0"/>
+						                        </xs:sequence>
+					                        </xs:complexType>
+					                      </xs:element>  
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+												<xs:attribute name="TYPE" form="unqualified" type="xs:string" />
+												<xs:attribute name="XPOS" form="unqualified" type="xs:int" />
+												<xs:attribute name="YPOS" form="unqualified" type="xs:int" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DECISION" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+											  <xs:sequence>
+											    <xs:element name="LABEL" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+													<xs:element name="MMIDIA" type="xs:base64Binary" minOccurs="0" msdata:Ordinal="2" />
+													<xs:element name="STATENAME" minOccurs="0" maxOccurs="unbounded" nillable="true">
+														<xs:complexType>
+															<xs:simpleContent msdata:ColumnName="STATENAME_Text" msdata:Ordinal="0">
+																<xs:extension base="xs:string"></xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>											
+												</xs:sequence>
+                        <xs:attribute name="NAME" form="unqualified" type="xs:string" />
+												<xs:attribute name="TYPE" form="unqualified" type="xs:string" />
+												<xs:attribute name="XPOS" form="unqualified" type="xs:int" />
+												<xs:attribute name="YPOS" form="unqualified" type="xs:int" />
+											</xs:complexType>
+										</xs:element>	
+                    <xs:element name="UTILITY" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												  <xs:sequence>
+												  <xs:element name="LABEL" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+													<xs:element name="MMIDIA" type="xs:base64Binary" minOccurs="0" msdata:Ordinal="2" />
+													<xs:element name="STATENAME" minOccurs="0" maxOccurs="unbounded" nillable="true">
+														<xs:complexType>
+															<xs:simpleContent msdata:ColumnName="STATENAME_Text" msdata:Ordinal="0">
+																<xs:extension base="xs:string"></xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+												<xs:attribute name="TYPE" form="unqualified" type="xs:string" />
+												<xs:attribute name="XPOS" form="unqualified" type="xs:int" />
+												<xs:attribute name="YPOS" form="unqualified" type="xs:int" />
+											</xs:complexType>
+										</xs:element>				                    									
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="STRUCTURE" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ARC" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="PARENT" form="unqualified" type="xs:string" />
+												<xs:attribute name="CHILD" form="unqualified" type="xs:string" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="POTENTIAL" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="POT" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PRIVATE" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="CONDSET" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="CONDLEM" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:attribute name="NAME" form="unqualified" type="xs:string" />
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DPIS" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="DPI" minOccurs="0" maxOccurs="unbounded" nillable="true">
+																	<xs:complexType>
+																		<xs:simpleContent msdata:ColumnName="DPI_Text" msdata:Ordinal="1">
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="INDEXES" form="unqualified" type="xs:int" />
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="TYPE" form="unqualified" type="xs:string" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="VERSION" form="unqualified" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:Locale="pt-BR" msdata:EnforceConstraints="False">
+		<xs:complexType>
+			<xs:choice maxOccurs="1">
+				<xs:element ref="BIF" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

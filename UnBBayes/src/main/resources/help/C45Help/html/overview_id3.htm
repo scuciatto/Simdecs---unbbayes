@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><b>Overview: Decision Tree Learning Using ID3 Algorithm</b></p>
+<p> <b>Decision tree</b> is a classification model. So, its purpose is to correctly 
+  classify data items.</p>
+<p> A data item, usually called <b>instance</b>, may be classified in one of some 
+  predefined categories, depending on its <b>attributes</b>. Suppose there is 
+  a number of classified instances of the same kind. Sometimes, is desirable to 
+  classify a new instance based on the classification criterion used to classify 
+  the old ones. That's what decision tree does. </p>
+<p>The database of classified instances is analysed, and the respective decision 
+  tree is created. This process is called <b>decision tree learning</b>. Then, 
+  the tree created is traversed from the root to a leaf for the instance to be 
+  classified. The path taken depends on its attributes values (each node represents 
+  a decision about an attribute, the next branch traversed depends on the attribute 
+  value), and the instance is classified depending on the leaf reached. The tree 
+  is supposed to correctly classify a new instance, taking the least number of 
+  decisions possible to make this classification. </p>
+<p>So, let's present an example to detail and illustrate concepts about the decision 
+  tree and its generation process. The table below represents a database, where 
+  each row is an instance defined by its attributes values presented on their 
+  respective colunms. Each instance represents a decision taken by a golf player 
+  about playing or not based on the weather conditions. So, the attribute <i>play</i> 
+  is what defines the instance classification, and its value for an instance depends 
+  on its values for the other attributes. </p>
+<p align="center"><img src="table.JPG" width="441" height="309"></p>
+<p>Having a classified instace set like this, we'd like to classify a new instance 
+  based on the same criterion (in this example, to know if a given weather condition 
+  is apropriate to play golf). The decision tree, created by the <b>ID3</b> algorithm, 
+  represents the classification criterion on a tree form, where the least number 
+  of questions about attribute values possible (one for each node) are made. The 
+  process used by ID3 algorithm is described below.</p>
+<p>The idea is a iterative top-down tree expansion. We have an instance set associated 
+  to each node. To expand it, we choose the attribute with the greatest gain. 
+  Then, we create a child for each possible value for this attribute, associating 
+  each instance to one of them, depending on its value for the same attribute. 
+  In the end, each child has a instance set associated. If one of these instance 
+  sets corresponds to the stop criterion, the corresponding child is considered 
+  a leaf, otherwise, is a node, and shall be expanded too. The process begins 
+  associating the entire instance set to a root and expanding it, stopping when 
+  all the nodes were expanded.</p>
+<p>The main stopping criterion is, as expected, that the instance set evaluated 
+  is homogeneous, having all its instances classified on the same form (there 
+  is no need to expand again). Other stop criterions are: all the attributes has 
+  been tested, there are only instances with the same attributes and different 
+  classes and and the number of instances is less than a stablished limit. In 
+  these cases, the leaf's instance set is heterogeneous, and the leaf's class 
+  would be the one that classifies the greatest number of instances on this instance 
+  set.</p>
+<p>The attribute gain for a node is, as expected again, a measure about how homogeneons 
+  would be the possible node children's instance sets in case of this attribute 
+  is used for splitting. This procedure guarantees that leaves are found sooner 
+  than taking another choices. So, the tree created is as small as possible. </p>
+<p>The criterion of purety used to obtain the gain for an attribute is the <b>entropy</b>. 
+  Entropy is a information theory concept, and is defined as the desorder measure 
+  of a distribution. Entropy is defined as:</p>
+<p align="center">Entropy(D) = - (d1/|D|*log(d1/|D|) +...+ dn/|D|*log(dn/|D|)), 
+</p>
+<p>where <i>D</i> = (d1...dn) is the instances distribution (the number of instances 
+  of each class). If <i>D</i> is homogeneous , Entropy(D)=0. If di = dj for each 
+  <i>di</i>, <i>dj</i> in <i>D</i>, Entropy(D)=1. Based on this measure, we get 
+  the gain:</p>
+<p align="center">Gain(D,A) = Entropy(D) - (|Dv1|/|D|*Entropy(Dv1) +...+ |Dvn|/|D|*Entropy(Dvn)),</p>
+<p>where <i>D</i> is the intances distribution, <i>A</i> is the attribute, <i>vi</i> 
+  is one of the possible values for <i>A</i> and <i>Dvi</i> is the distribution 
+  for instances with value <i>vi</i> for the attribute <i>A</i>. </p>
+<p>For our example, to obtain the split attribute:</p>
+<p>Gain(D,Outlook) = Entropy[9,5] – (5/14*Entropy[2,3]+4/14*Entropy[4,0]+5/14*Entropy[3,2]) 
+  = 0.246<br>
+  Gain(D,Temperature) = Entropy[9,5] – (4/14*Entropy [2,2] + 6/14*Entropy[4,2] 
+  + 4/14*Entropy[3,1]) = 0.029<br>
+  Gain(D,Humidity)=Entropy[9,5] – (7/14*Entropy [3,4] + 7/14*Entropy [6,1]) = 
+  0.151<br>
+  Gain(D,Windy) = Entropy[9,5] – (8/14*Entropy [6,2] + 6/14*Entropy [3,3]) = 0.048 
+</p>
+<p>The chosen attribute was <i>Outlook</i> because it has the greatest gain. So, 
+  the instance set is split based on this attribute. The split generates tree 
+  instance sets, one for each value possible, which are listed below. The second 
+  one is homogeneous, results on a leaf generation. The other two are not, and 
+  do not correspond to any of the stop criterion. So, one node is created for 
+  each of them, that will be expanded soon.</p>
+<p align="center"><img src="split_table.JPG" width="385" height="453"> </p>
+<p>The figure below represents the tree resulting from the entire computation. 
+  A node represents a decision to be taken about an attribute. A branch, a decision 
+  taken on the upper node. And a leaf, a classification relative to the path taken 
+  from the root to it. </p>
+<p align="center"><img src="tree.JPG" width="644" height="349"></p>
+</body>
+</html>

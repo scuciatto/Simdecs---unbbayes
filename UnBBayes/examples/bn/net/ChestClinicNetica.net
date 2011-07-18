@@ -1,0 +1,125 @@
+net
+{
+     node_size = (0 0);
+     name = "01 - ChestClinic";
+     tree = "(Visit To Asia,Tuberculosis,Smoking,Lung Cancer,Tuberculosis
+or Cancer,XRay Result,Bronchitis,Dyspnea,Chest Clinic,Contributing Factors,Diseases,Symptoms,Distributed by Norsys Software Corp.)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node VisitAsia
+{
+     label = "Visit To Asia";
+     position = (132 54);
+     color = (-256);
+     states = ("visit" "no_visit");
+}
+
+node Tuberculosis
+{
+     label = "Tuberculosis";
+     position = (132 156);
+     color = (-256);
+     states = ("present" "absent");
+}
+
+node Smoking
+{
+     label = "Smoking";
+     position = (516 54);
+     color = (-256);
+     states = ("smoker" "non_smoker");
+}
+
+node Cancer
+{
+     label = "Lung Cancer";
+     position = (390 156);
+     color = (-256);
+     states = ("present" "absent");
+}
+
+node TbOrCa
+{
+     label = "Tuberculosis
+or Cancer";
+     position = (270 264);
+     color = (-256);
+     states = ("true" "false");
+}
+
+node XRay
+{
+     label = "XRay Result";
+     position = (144 366);
+     color = (-256);
+     states = ("abnormal" "normal");
+}
+
+node Bronchitis
+{
+     label = "Bronchitis";
+     position = (642 156);
+     color = (-256);
+     states = ("present" "absent");
+}
+
+node Dyspnea
+{
+     label = "Dyspnea";
+     position = (432 366);
+     color = (-256);
+     states = ("present" "absent");
+}
+
+potential (VisitAsia)
+{
+ data = ( 0.01 0.99 );
+}
+
+potential (Tuberculosis | VisitAsia)
+{
+ data = (( 0.05 0.95 )
+( 0.01 0.99 ));
+}
+
+potential (Smoking)
+{
+ data = ( 0.5 0.5 );
+}
+
+potential (Cancer | Smoking)
+{
+ data = (( 0.1 0.9 )
+( 0.01 0.99 ));
+}
+
+potential (TbOrCa | Tuberculosis Cancer)
+{
+ data = ((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 0.0 1.0 )));
+}
+
+potential (XRay | TbOrCa)
+{
+ data = (( 0.98 0.02 )
+( 0.05 0.95 ));
+}
+
+potential (Bronchitis | Smoking)
+{
+ data = (( 0.6 0.4 )
+( 0.3 0.7 ));
+}
+
+potential (Dyspnea | TbOrCa Bronchitis)
+{
+ data = ((( 0.9 0.1 )
+( 0.7 0.3 ))
+(( 0.8 0.2 )
+( 0.1 0.9 )));
+}
+

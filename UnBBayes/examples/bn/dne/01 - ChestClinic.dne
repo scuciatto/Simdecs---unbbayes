@@ -1,0 +1,203 @@
+bnet ChestClinic {
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 14;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (0, 3, 843, 510);
+	CommentShowing = TRUE;
+	CommentWindowPosn = (0, 510, 845, 777);
+	resolution = 72;
+	drawingbounds = (1104, 730);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xa0a0a0;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet ClearDocumentation {Color = 0xffffff;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet Predispositions {Color = 0xfffed9;};
+	NodeSet Diseases {Color = 0xffe0c1;};
+	NodeSet Symptoms {Color = 0xd6f5ea;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node VisitAsia {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (visit, no_visit);
+	parents = ();
+	probs = 
+		// visit        no visit     
+		  (0.01,        0.99);
+	title = "Visit To Asia";
+	comment = "Patient has recently visited Asia";
+	whenchanged = 1086993631;
+	belief = (0.01, 0.99);
+	visual V1 {
+		center = (132, 54);
+		height = 7;
+		};
+	};
+
+node Tuberculosis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (VisitAsia);
+	probs = 
+		// present      absent         // VisitAsia 
+		 ((0.05,        0.95),         // visit     
+		  (0.01,        0.99));        // no visit  ;
+	title = "Tuberculosis";
+	whenchanged = 1086993659;
+	belief = (0.0104, 0.9896);
+	visual V1 {
+		center = (132, 156);
+		height = 1;
+		};
+	};
+
+node Smoking {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (smoker, non_smoker);
+	parents = ();
+	probs = 
+		// smoker       non smoker   
+		  (0.5,         0.5);
+	title = "Smoking";
+	whenchanged = 1086993649;
+	belief = (0.5, 0.5);
+	visual V1 {
+		center = (516, 54);
+		height = 8;
+		};
+	};
+
+node Cancer {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (Smoking);
+	probs = 
+		// present      absent         // Smoking    
+		 ((0.1,         0.9),          // smoker     
+		  (0.01,        0.99));        // non smoker ;
+	title = "Lung Cancer";
+	whenchanged = 1086993668;
+	belief = (0.055, 0.945);
+	visual V1 {
+		center = (390, 156);
+		height = 4;
+		link 1 {
+			path = ((472, 91), (435, 120));
+			};
+		};
+	};
+
+node TbOrCa {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = DETERMIN;
+	states = (true, false);
+	parents = (Tuberculosis, Cancer);
+	probs = // true      false          // Tuberculosis Cancer 
+		((1,         0),           // present   present    
+		  (1,         0)),          // true   absent     
+		 ((1,         0),           // absent  present    
+		  (0,         1)));         // absent  absent     ;
+	title = "Tuberculosis\nor Cancer";
+
+	visual V1 {
+		center = (270, 264);
+		height = 3;
+		};
+	};
+
+node XRay {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (abnormal, normal);
+	parents = (TbOrCa);
+	probs = 
+		// abnormal     normal         // TbOrCa 
+		 ((0.98,        0.02),         // true   
+		  (0.05,        0.95));        // false  ;
+	title = "XRay Result";
+	whenchanged = 1166675738;
+	belief = (0.11029, 0.8897099);
+	visual V1 {
+		center = (144, 366);
+		height = 2;
+		link 1 {
+			path = ((226, 301), (189, 330));
+			};
+		};
+	};
+
+node Bronchitis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (Smoking);
+	probs = 
+		// present      absent         // Smoking    
+		 ((0.6,         0.4),          // smoker     
+		  (0.3,         0.7));         // non smoker ;
+	title = "Bronchitis";
+	whenchanged = 1086993675;
+	belief = (0.45, 0.55);
+	visual V1 {
+		center = (642, 156);
+		height = 6;
+		link 1 {
+			path = ((560, 91), (597, 120));
+			};
+		};
+	};
+
+node Dyspnea {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (TbOrCa, Bronchitis);
+	probs = 
+		// present      absent          // TbOrCa Bronchitis 
+		(((0.9,         0.1),           // true   present    
+		  (0.7,         0.3)),          // true   absent     
+		 ((0.8,         0.2),           // false  present    
+		  (0.1,         0.9)));         // false  absent     ;
+	title = "Dyspnea";
+	comment = "Shortness of breath.";
+	whenchanged = 1166675734;
+	belief = (0.4359706, 0.5640294);
+	visual V1 {
+		center = (432, 366);
+		height = 5;
+		link 1 {
+			path = ((326, 301), (374, 330));
+			};
+		};
+	};
+};

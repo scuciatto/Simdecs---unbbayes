@@ -1,0 +1,617 @@
+// ~->[DNET-1]->~
+
+// File created by LaskeyK at GMU using Netica 1.12
+// on Feb 28, 2005 at 15:37:30.
+
+bnet VehiclesMFrags {
+whenchanged = 1109608175;
+
+visual V2 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (-4, -23, 1280, 697);
+	resolution = 72;
+	drawingbounds = (1260, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node ObjectType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	parents = ();
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle 
+		  (0.1,         0.1,         0.8);
+	numcases = 1;
+	title = "ObjectType(obj)";
+	whenchanged = 1105499445;
+	evidence = TrackedVehicle;
+	visual V2 {
+		center = (618, 90);
+		dispform = LABELBOX;
+		height = 2;
+		};
+	};
+
+node Weather {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Clear, Cloudy);
+	parents = ();
+	probs = 
+		// Clear        Cloudy       
+		  (0.75,        0.25);
+	title = "Weather(rgn)";
+	whenchanged = 1105499451;
+	evidence = Clear;
+	visual V2 {
+		center = (756, 90);
+		dispform = LABELBOX;
+		height = 1;
+		};
+	};
+
+node ImageTypeReport {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Tracked, Wheeled, NonVehicle);
+	parents = (ObjectType, Weather);
+	probs = 
+		// Tracked      Wheeled      NonVehicle      // ObjectType     Weather 
+		(((0.8,         0.15,        0.05),          // TrackedVehicle Clear   
+		  (0.6,         0.3,         0.1)),          // TrackedVehicle Cloudy  
+		 ((0.1,         0.8,         0.1),           // WheeledVehicle Clear   
+		  (0.2,         0.6,         0.2)),          // WheeledVehicle Cloudy  
+		 ((0.05,        0.05,        0.9),           // NonVehicle     Clear   
+		  (0.15,        0.15,        0.7)));         // NonVehicle     Cloudy  ;
+	numcases = 1;
+	title = "ImageTypeReport(rpt)";
+	whenchanged = 1105499260;
+	visual V2 {
+		center = (696, 174);
+		dispform = LABELBOX;
+		height = 3;
+		};
+	};
+
+node TerrainType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = ();
+	probs = 
+		// Road         OffRoad      VeryRough    
+		  (0.5,         0.3,         0.2);
+	numcases = 1;
+	title = "TerrainType(rgn)";
+	whenchanged = 1109607546;
+	visual V2 {
+		center = (288, 216);
+		dispform = LABELBOX;
+		height = 17;
+		};
+	};
+
+node GISReport {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = (TerrainType);
+	probs = 
+		// Road         OffRoad      VeryRough      // TerrainType 
+		 ((0.85,        0.1,         0.05),         // Road        
+		  (0.05,        0.85,        0.1),          // OffRoad     
+		  (0.05,        0.1,         0.85));        // VeryRough   ;
+	numcases = 1;
+	title = "GISReport(rpt)";
+	whenchanged = 1105499727;
+	visual V2 {
+		center = (288, 276);
+		dispform = LABELBOX;
+		height = 18;
+		};
+	};
+
+node ObjectType2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	parents = ();
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle 
+		  (0.1,         0.1,         0.8);
+	numcases = 1;
+	title = "ObjectType(obj)";
+	whenchanged = 1105500015;
+	evidence = TrackedVehicle;
+	visual V2 {
+		center = (756, 258);
+		dispform = LABELBOX;
+		height = 7;
+		};
+	};
+
+node TerrainType1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = ();
+	probs = 
+		// Road         OffRoad      VeryRough    
+		  (0.5,         0.3,         0.2);
+	numcases = 1;
+	title = "TerrainType(rgn)";
+	whenchanged = 1105500012;
+	evidence = Road;
+	visual V2 {
+		center = (636, 258);
+		dispform = LABELBOX;
+		height = 6;
+		};
+	};
+
+node Speed1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	parents = ();
+	probs = 
+		// Stationary   Slow         Medium       Fast         VeryFast     
+		  (0.01,        0.3,         0.69,        0,           0);
+	numcases = 1;
+	title = "Speed(obj,Prev(t))";
+	whenchanged = 1105499643;
+	visual V2 {
+		center = (534, 342);
+		dispform = LABELBOX;
+		height = 8;
+		};
+	};
+
+node Speed {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	parents = (ObjectType2, TerrainType1, Speed1);
+	probs = 
+		//  Stationary   Slow         Medium       Fast         VeryFast         // ObjectType2    TerrainType1 Speed1     
+		((((0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road         Stationary 
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road         Slow       
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road         Medium     
+		   (0.01,        0.3,         0.69,        0,           0),              // TrackedVehicle Road         Fast       
+		   (0.01,        0.3,         0.69,        0,           0)),             // TrackedVehicle Road         VeryFast   
+		  ((0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad      Stationary 
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad      Slow       
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad      Medium     
+		   (0.05,        0.94,        0.01,        0,           0),              // TrackedVehicle OffRoad      Fast       
+		   (0.05,        0.94,        0.01,        0,           0)),             // TrackedVehicle OffRoad      VeryFast   
+		  ((0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough    Stationary 
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough    Slow       
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough    Medium     
+		   (0.2,         0.8,         0,           0,           0),              // TrackedVehicle VeryRough    Fast       
+		   (0.2,         0.8,         0,           0,           0))),            // TrackedVehicle VeryRough    VeryFast   
+		 (((0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road         Stationary 
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road         Slow       
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road         Medium     
+		   (0.01,        0.05,        0.25,        0.65,        0.04),           // WheeledVehicle Road         Fast       
+		   (0.01,        0.05,        0.25,        0.65,        0.04)),          // WheeledVehicle Road         VeryFast   
+		  ((0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad      Stationary 
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad      Slow       
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad      Medium     
+		   (0.4,         0.6,         0,           0,           0),              // WheeledVehicle OffRoad      Fast       
+		   (0.4,         0.6,         0,           0,           0)),             // WheeledVehicle OffRoad      VeryFast   
+		  ((0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough    Stationary 
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough    Slow       
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough    Medium     
+		   (0.2,         0.2,         0.2,         0.2,         0.2),            // WheeledVehicle VeryRough    Fast       
+		   (0.2,         0.2,         0.2,         0.2,         0.2))),          // WheeledVehicle VeryRough    VeryFast   
+		 (((0.99,        0.01,        0,           0,           0),              // NonVehicle     Road         Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road         Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road         Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     Road         Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     Road         VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad      Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad      Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad      Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     OffRoad      Fast       
+		   (0.99,        0.01,        0,           0,           0)),             // NonVehicle     OffRoad      VeryFast   
+		  ((0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough    Stationary 
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough    Slow       
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough    Medium     
+		   (0.99,        0.01,        0,           0,           0),              // NonVehicle     VeryRough    Fast       
+		   (0.99,        0.01,        0,           0,           0))));           // NonVehicle     VeryRough    VeryFast   ;
+	numcases = 1;
+	title = "Speed(obj,t)";
+	whenchanged = 1105499690;
+	visual V2 {
+		center = (696, 342);
+		dispform = LABELBOX;
+		height = 4;
+		};
+	};
+
+node MTI {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	parents = (Speed);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	title = "MTI(rpt)";
+	whenchanged = 1105499658;
+	visual V2 {
+		center = (696, 408);
+		dispform = LABELBOX;
+		height = 5;
+		};
+	};
+
+node Location {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "rgn=Location(obj)";
+	whenchanged = 1105499515;
+	evidence = Here;
+	visual V2 {
+		center = (510, 162);
+		dispform = LABELBOX;
+		height = 16;
+		};
+	};
+
+node ReportedObject {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "obj=ReportedEntity(rpt)";
+	whenchanged = 1109607632;
+	evidence = Here;
+	visual V2 {
+		center = (648, 48);
+		dispform = LABELBOX;
+		height = 12;
+		};
+	};
+
+node isa2 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Object,obj)";
+	whenchanged = 1105499789;
+	evidence = Here;
+	visual V2 {
+		center = (516, 240);
+		dispform = LABELBOX;
+		height = 11;
+		};
+	};
+
+node isa4 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Region,rgn)";
+	whenchanged = 1105499844;
+	evidence = Here;
+	visual V2 {
+		center = (516, 306);
+		dispform = LABELBOX;
+		height = 10;
+		};
+	};
+
+node isa6 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Report,rpt)";
+	whenchanged = 1105499884;
+	evidence = Here;
+	visual V2 {
+		center = (516, 276);
+		dispform = LABELBOX;
+		height = 9;
+		};
+	};
+
+node isa5 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Region,rgn)";
+	whenchanged = 1105499844;
+	evidence = Here;
+	visual V2 {
+		center = (168, 216);
+		dispform = LABELBOX;
+		height = 19;
+		};
+	};
+
+node isa7 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Report,rpt)";
+	whenchanged = 1105499884;
+	evidence = Here;
+	visual V2 {
+		center = (168, 252);
+		dispform = LABELBOX;
+		height = 20;
+		};
+	};
+
+node isa3 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Object,obj)";
+	whenchanged = 1105499785;
+	evidence = Here;
+	visual V2 {
+		center = (498, 48);
+		dispform = LABELBOX;
+		height = 13;
+		};
+	};
+
+node isa8 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Region,rgn)";
+	whenchanged = 1105499844;
+	evidence = Here;
+	visual V2 {
+		center = (504, 126);
+		dispform = LABELBOX;
+		height = 15;
+		};
+	};
+
+node isa9 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Report,rpt)";
+	whenchanged = 1105499884;
+	evidence = Here;
+	visual V2 {
+		center = (498, 84);
+		dispform = LABELBOX;
+		height = 14;
+		};
+	};
+
+node ReportedObject1 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "rgn=ReportedEntity(rpt)";
+	whenchanged = 1109607625;
+	evidence = Here;
+	visual V2 {
+		center = (192, 180);
+		dispform = LABELBOX;
+		height = 21;
+		};
+	};
+
+node TerrainType2 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = ();
+	probs = 
+		// Road         OffRoad      VeryRough    
+		  (0.5,         0.3,         0.2);
+	numcases = 1;
+	title = "TerrainType(rgn)";
+	whenchanged = 1105500012;
+	evidence = Road;
+	visual V2 {
+		center = (300, 384);
+		dispform = LABELBOX;
+		height = 22;
+		};
+	};
+
+node ObjectType3 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	parents = (TerrainType2);
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle   // TerrainType2 
+		 ((0.1,         0.1,         0.8),          // Road         
+		  (0.1,         0.1,         0.8),          // OffRoad      
+		  (0.1,         0.1,         0.8));         // VeryRough    ;
+	numcases = 1;
+	title = "ObjectType(obj)";
+	whenchanged = 1109607736;
+	visual V2 {
+		center = (300, 432);
+		dispform = LABELBOX;
+		height = 23;
+		};
+	};
+
+node isa10 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Object,obj)";
+	whenchanged = 1105499785;
+	evidence = Here;
+	visual V2 {
+		center = (168, 360);
+		dispform = LABELBOX;
+		height = 26;
+		};
+	};
+
+node isa11 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Region,rgn)";
+	whenchanged = 1105499844;
+	evidence = Here;
+	visual V2 {
+		center = (168, 396);
+		dispform = LABELBOX;
+		height = 24;
+		};
+	};
+
+node Location1 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "rgn=Location(obj)";
+	whenchanged = 1105499515;
+	evidence = Here;
+	visual V2 {
+		center = (174, 432);
+		dispform = LABELBOX;
+		height = 25;
+		};
+	};
+
+node Weather1 {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Clear, Cloudy);
+	parents = ();
+	probs = 
+		// Clear        Cloudy       
+		  (0.75,        0.25);
+	title = "Weather(rgn)";
+	whenchanged = 1109608164;
+	visual V2 {
+		center = (192, 90);
+		dispform = LABELBOX;
+		height = 27;
+		};
+	};
+
+node isa12 {
+	kind = ASSUME;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Here, There);
+	parents = ();
+	probs = 
+		// Here         There        
+		  (0.75,        0.25);
+	title = "isa(Region,rgn)";
+	whenchanged = 1105499844;
+	evidence = Here;
+	visual V2 {
+		center = (192, 60);
+		dispform = LABELBOX;
+		height = 28;
+		};
+	};
+};

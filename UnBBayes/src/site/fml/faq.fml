@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<faqs id="General FAQ">
+  <part id="General">
+  
+    <faq id="howtorun">
+      <question>After I download the zip file, how do I run UnBBayes?</question>
+      <answer>
+        <p>
+          You first have to unzip the file. After that just double click the
+          jar file. If that does not work, run the following code in the prompt:
+          >java -jar unbbayes-version.jar
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="macdelete">
+      <question>I am running UnBBayes in my Mac and it does not seem to have
+      			a way of deleting nodes. Is there any secret way?</question>
+      <answer>
+        <p>
+          In Windows you just have to press the 'del' key, but in Mac you
+          have to presse 'ctr'+'del' keys.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="srccode">
+      <question>How do I get UnBBayes' current source code?</question>
+      <answer>
+        <p>
+          Although the CVS repository is active, we have stopped using it. Therefore, 
+          download UnBBayes current code you have to get it from our SVN repository as 
+          explained in the SVN source code menu at http://www.sourceforge.net/projects/UnBBayes.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="srceclipse">
+      <question>I downloaded the source code, but I am getting some errors when
+      			I try to compile it. How can I fix this?</question>
+      <answer>
+        <p>
+          The easiest way to get UnBBayes' current version up and running is to download our 
+          source code in Eclipse using subversion plugin (http://subclipse.tigris.org/install.html). 
+          
+          Once you download our source code, open the README.txt file and follow the instructions to 
+          install maven plugin in eclipse and make the project compile correctly (install the 
+          libraries into your local repository). We currently use Java 5. Due to some Mac compatibilities 
+          problems we did not migrate to Java 6 yet.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="simpleexample">
+      <question>I want to use UnBBayes' API. Do you have any simple example I could look at?</question>
+      <answer>
+        <p>
+          To see how to use the exact inference go to our class in unbbayes.example.TextMode.java. 
+          There you will see the basic classes and methods needed to compile, add findings, 
+          propagate (update evidences), and get the marginal of a node.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="manual">
+      <question>When do you think the manual will be available?</question>
+      <answer>
+        <p>
+          It is ready, but it still needs to be reviewed carefully. The link is 
+          http://sourceforge.net/apps/mediawiki/unbbayes/index.php?title=Visit_the_Tutorial. 
+          If you find any error or if you have any suggestion related to our tutorial, please 
+          let us know.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="parallelprocessing">
+      <question>Does it allow parallel processing?</question>
+      <answer>
+        <p>
+           We have not done anything related to that in our current work. 
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="databus">
+      <question>Does it run on a 32-bit or a 64-bit data bus?</question>
+      <answer>
+        <p>
+           I guess it depends on what Java compiler you use. I am pretty sure the releases we have 
+           available are for 32-bit. But you could compile the source code for a 64-bit.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="inferencealgorithm">
+      <question>What kind of algorithm uses to perform inference?</question>
+      <answer>
+        <p>
+           For exact we use Junction Tree and for approximate we have Likelihood Weighting 
+           and Gibbs Sampling.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="continuousnodes">
+      <question>Can it handle continuous nodes, if so what kind (e.g. Gaussian, log-normal etc)?</question>
+      <answer>
+        <p>
+           In our last release you are able to only represent the CLG (Gaussian), but we are working on implementing Junction 
+           Tree for CLG also. Besides that, we are also developing some distributions (like in Netica), including continuous, 
+           instead of just allowing the definition of CPTs (table entries) as it is done today. For the continuous nodes, 
+           the distribution will be discretized before performing inference (again, like in Netica).
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="parameterlearning">
+      <question>Does it perform parameter learning?</question>
+      <answer>
+        <p>
+           Yes.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="structurelearning">
+      <question>Does it perform structure learning?</question>
+      <answer>
+        <p>
+           Yes.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="dynamicnet">
+      <question>Are dynamic networks supported?</question>
+      <answer>
+        <p>
+           No. We currently support BN, ID, MSBN, OOBN, MEBN/PR-OWL, and partially CLG.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="sensitivityanalysis">
+      <question>Does it do sensitivity analysis? If so, one way, two way, multidimensional?</question>
+      <answer>
+        <p>
+           No. Not in UnBBayes. We have another tool that might be helpful, UnBMiner. You should 
+           ask Prof. Dr. Marcelo Ladeira for that information.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="expectedvalue">
+      <question>Does it provide the expected value of information?</question>
+      <answer>
+        <p>
+           Not now. But it will as soon as we get the other distributions implemented. 
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="cptinput">
+      <question>Can I input probabilities manually (e.g. not learned from data)?</question>
+      <answer>
+        <p>
+           Yes. 
+        </p>
+      </answer>
+    </faq>
+      
+  </part>
+</faqs>

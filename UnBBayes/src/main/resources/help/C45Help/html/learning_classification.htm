@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><b> Decision Tree Learning and Instances Classification</b></p>
+<p>After loading a data file, the next step is to apply the decision tree learning:</p>
+<ol>
+  <li>Set preferences about prunning, gain ratio and verbosity at <b>Learning 
+    &gt; Preferences</b> (optional) <img src="global-options.gif" width="16" height="16"></li>
+  <li>Click <b>Learning &gt; Learn Decision Tree </b> <img src="learn.gif" width="16" height="16"></li>
+</ol>
+<p>After the successfull learning, two tabs are enabled (if they weren't): <b>Inference 
+  </b>and <b>Verbosity.</b> The first represents the created tree, while the second 
+  presents data about calculated gains and intermediate instance sets.</p>
+<p>The tree represented on <b>Inference</b> tab can be used to classify new instances. 
+  The nodes that aren't above leaves represents a point of decision. When the 
+  user clicks on one of these nodes, the decisions possible from this point (the 
+  values of an attribute) are shown on the right. When one of these decisions 
+  are taken, the node relative to the decision is selected. If this node isn't 
+  above a leaf, the relative decisions are shown on the right. Else, the leaf 
+  classification is shown. So, the user can click on a tree node (the root is 
+  a good choice) and asks the questions on the right, what represents the attributes 
+  values of the new instance, until the classification appears in red. The images 
+  above presents the two nodes situations. </p>
+<p align="center"><img src="tree_node.JPG" width="396" height="383"></p>
+<p align="center"><img src="tree_leaf.JPG" width="396" height="383"></p>
+<p align="center">&nbsp;</p>
+</body>
+</html>

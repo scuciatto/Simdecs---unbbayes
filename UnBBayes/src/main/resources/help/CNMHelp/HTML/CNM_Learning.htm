@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Solutionsoft HelpBreeze JavaHelp Edition">
+<TITLE>CNM Learning</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY BGCOLOR=#ffffff>
+<H1><FONT color=#000000>CNM Learning</FONT> </H1>
+<P><FONT color=#000000></FONT>&nbsp;</P>
+<P><FONT size=4><STRONG>O modelo original</STRONG></FONT></P>
+<P>A rede do CNM é treinada por um algoritmo de aprendizagem supervisionada 
+baseado em <I style="mso-bidi-font-style: normal">punição </I>e <I 
+style="mso-bidi-font-style: normal">recompensa</I>. Esse treinamento consiste na 
+aprendizagem da topologia da rede e dos pesos a partir da aplicação de 
+algoritmos numéricos a um arquivo de casos históricos, denominado arquivo de 
+treinamento, em que cada registro contém valores observados para um conjunto de 
+variáveis de entrada e um único valor observado para a variável de saída. O 
+número de neurônios da camada de entrada é igual ao número de valores possíveis 
+para as variáveis de entrada, observados no arquivo de treinamento. De forma 
+análoga, o número de neurônios da camada de saída é igual ao número de valores 
+possíveis, observados no arquivo de treinamento, para a única variável de saída. 
+Na camada combinatória são criados tantos neurônios para cada subconjunto S dos 
+neurônios da camada de entrada, quanto o número de neurônios da camada de saída. 
+Cada um desses neurônios da camada combinatória é ligado por um arco a cada um 
+dos neurônio de S e a apenas um dos neurônios da camada de saída, iniciados com 
+peso um.</P>
+<P class=MsoBodyText>Durante o treinamento, é atribuído um acumulador com valor 
+zero, a cada arco da rede criada como descrito antes. Então é lido um caso do 
+arquivo de casos históricos e propagada a evidência. Os acumuladores dos arcos 
+no caminho de propagação da evidência lida, são incrementados quando a 
+propagação levar à hipótese (valor) correta para a variável de saída e 
+decrementado, caso contrário. O algoritmo pode ser resumido da seguinte 
+forma:</P>
+<DIV align=center>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-table-layout-alt: fixed; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 3.5pt 0cm 3.5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  
+  <TR style="HEIGHT: 116.9pt">
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 414.25pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid; HEIGHT: 116.9pt" 
+    vAlign=top width=552>
+      <P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      cada</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      caso do arquivo de treinamento <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoBodyTextIndent style="MARGIN-LEFT: 9.7pt">Propagar a evidência 
+      (valores lidos das variáveis de entrada) desde a camada de entrada até a 
+      camada de saída;</P>
+      <P class=MsoNormal style="MARGIN-LEFT: 9.7pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      cada</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      arco que alcança um nó de hipótese <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="MARGIN-LEFT: 18.7pt; TEXT-INDENT: -0.7pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Se</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      o nó da hipótese alcançada corresponder à classe 
+      correta:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="MARGIN-LEFT: 27.7pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Então</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      retropropagar deste nó até o nó de entrada, incrementando o acumulador de 
+      cada arco atravessado pelo fluxo evidencial <I 
+      style="mso-bidi-font-style: normal">(recompensa)</I>;<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="MARGIN-LEFT: 27.7pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Senão</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      retropropagar do nó de saída até a entrada decrementando o acumulador que 
+      for atravessado pelo fluxo evidencial<I 
+      style="mso-bidi-font-style: normal"> (punição)</I>;</SPAN><B 
+      style="mso-bidi-font-weight: normal"><o:p></O:P></B></P></TD></TR></TABLE></DIV>
+<P class=MsoCaption align=center><A name=_Toc37226417>Algoritmo de 
+treinamento.</A></P>
+<P class=MsoBodyText>No final do processo de treinamento, o valor dos 
+acumuladores de cada arco refletirá o suporte líquido que o arquivo de 
+treinamento fornece para o caminho deste arco até a hipótese correspondente. 
+Estes valores irão variar entre T e –T, onde T é o número de casos presentes no 
+arquivo de treinamento.</P>
+<P class=MsoBodyText>Para se tornar operante a rede ainda precisa ser podada e 
+os pesos de seus arcos devem ser normalizados. Desta forma, espera-se remover da 
+rede as regras que estão associadas ao ruído contido no arquivo de treinamento. 
+Os neurônios da camada combinatória e de entrada que ficarem desconectados de 
+qualquer hipótese de saída também devem ser removidos.</P>
+<P class=MsoBodyText>Para realizar a poda, deve ser escolhido um ponto de poda 
+pelo usuário, e todos os arcos cujos acumuladores forem menores que o limiar 
+escolhido serão eliminados (podados). A escolha de um bom ponto de poda da rede 
+é essencial para a performance do modelo. </P>
+<P class=MsoBodyText>A partir da rede podada, calculam-se os pesos sinápticos 
+dos arcos (normalização). O peso de um arco é calculado como a razão entre o 
+valor do acumulador do arco e o maior valor de acumulador da rede. Dessa forma, 
+o valor de um peso sináptico reflete a crença relativa induzida a partir arquivo 
+de treinamento para a regra correspondente.</P>
+<P class=MsoBodyText>Apesar de o CNM ser um modelo simples, ele apresenta alguns 
+problemas. A geração prévia da camada combinatória com todas as possíveis 
+combinações das entradas pode criar muitas combinações irreais (combinação de um 
+mesmo atributo com valores distintos). Além disso, esta criação prévia tem um 
+custo muito alto, devido à explosão combinatória que acontece quando o arquivo 
+de treinamento tem muitos atributos e valores de entrada. Para controlar esta 
+explosão combinatória, os autores deste modelo [MAC 89] propuseram a limitação 
+das combinações até um limite arbitrário. Para este limite foi sugerido o 
+critério do “número mágico” [MIL 56], que equivale a sete mais ou menos dois 
+para estabelecer este limite superior. Porém esta abordagem apenas atenua o 
+problema, deixando em aberto uma solução mais adequada.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><STRONG><FONT size=4>Geração por contingência</FONT></STRONG></P>
+<P>A geração por contingência é uma otimização que tenta contornar o problema da 
+explosão combinatória que, acontece na camada combinatorial,&nbsp;através da 
+geração dos neurônios e suas conexões por contingência, ou seja, os neurônios e 
+suas conexões somente serão criados quando existir um exemplo no arquivo de 
+treinamento que exija a sua criação. </P>
+<P class=MsoBodyText>O&nbsp;algoritmo de construção proposto é mostrado a 
+seguir:</P>
+<DIV align=center>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-table-layout-alt: fixed; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 3.5pt 0cm 3.5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 400pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid" 
+    vAlign=top width=533>
+      <P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      cada</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      exemplo do arquivo de entrada <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 18pt"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Compute 
+      todas as possíveis combinações baseadas no exemplo;<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 18pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      cada</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      combinação computada <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 36pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Se</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      já existe uma combinação igual chegando à mesma 
+      classe:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 54pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Então</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      some 1 ao acumulador deste arco <I 
+      style="mso-bidi-font-style: normal">(Recompensa)</I>;<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="MARGIN-LEFT: 54pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Senão</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      crie um arco correspondente a esta combinação inicializando seu acumulador 
+      com valor 1 <I 
+      style="mso-bidi-font-style: normal">(Recompensa)</I>;<o:p></O:P></SPAN></P></TD></TR></TABLE></DIV>
+<P class=MsoCaption align=center><A name=_Toc37226418>  Algoritmo de 
+geração por contingência.</A></P>
+<P class=MsoBodyText>       Este método de construção 
+não prevê a retropropagação de punição, somente a recompensa é 
+computada durante a construção dos neurônios e dos arcos. A punição será 
+calculada ao final do treinamento, quando o valor de cada acumulador de cada 
+combinação é subtraído do valor dos outros acumuladores com a mesma combinação 
+que pertencem a classes diferentes.<SPAN 
+style="COLOR: red"><o:p></O:P></SPAN></P>
+<P class=MsoBodyText>Para calcular o valor final dos acumuladores dos arcos 
+(“punição”), executa-se o seguinte algoritmo:</P>
+<DIV align=center>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-table-layout-alt: fixed; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm 3.5pt 0cm 3.5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  
+  <TR>
+    <TD 
+    style="BORDER-RIGHT: windowtext 0.5pt solid; PADDING-RIGHT: 3.5pt; BORDER-TOP: windowtext 0.5pt solid; PADDING-LEFT: 3.5pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.5pt solid; WIDTH: 431.55pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.5pt solid" 
+    vAlign=top width=575>
+      <P class=MsoNormal><B style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      cada</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      acumulador de cada combinação <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 18pt"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">ACC 
+      := valor do acumulador;<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="MARGIN-LEFT: 18.35pt; TEXT-INDENT: -0.35pt"><B 
+      style="mso-bidi-font-weight: normal"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">Para 
+      todas</SPAN></B><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'"> 
+      as combinações iguais a anterior chegando a uma classe diferente <B 
+      style="mso-bidi-font-weight: normal">faça</B>:<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 36pt"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">SOMA 
+      := SOMA + valor do acumulador;<o:p></O:P></SPAN></P>
+      <P class=MsoNormal style="TEXT-INDENT: 18pt"><SPAN 
+      style="FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: 'Times New Roman'">ACC 
+      := ACC – SOMA;<o:p></O:P></SPAN></P></TD></TR></TABLE></DIV>
+<P class=MsoCaption align=center><A name=_Toc37226419>  Algoritmo de 
+"punição" do método de geração por contingência.</A></P>
+<P class=MsoBodyText>A execução deste algoritmo sobre o modelo gerado pela 
+geração por contingência equivale ao processo de punição executada no modelo 
+original através da retropropagação, obtendo-se o mesmo resultado ao final.</P>
+<P class=MsoBodyText>Terminado este processo, ainda é preciso realizar a etapa 
+de poda da rede, que é efetuada da mesma forma como foi descrita para o modelo 
+original do CNM, baseando-se em um limiar de corte especificado pelo usuário, 
+para que as sinapses fracas sejam removidas do modelo e esse possa se tornar 
+operacional, podendo realizar inferências.</P>
+</BODY>
+</HTML>

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>Chest-clinic</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>50</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="Positive X-ray?"/>
+      <xbifns:level name="Has bronchitis"/>
+      <xbifns:level name="Dyspnoea?"/>
+      <xbifns:level name="Visit to Asia?"/>
+      <xbifns:level name="Smoker?"/>
+      <xbifns:level name="Has lung cancer"/>
+      <xbifns:level name="Has tuberculosis"/>
+      <xbifns:level name="Tuberculosis or cancer"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="17" xPos="17" type="DiscreteProbabilistic" name="X">
+        <xbifns:description>Positive X-ray?</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="200" xPos="400" type="DiscreteProbabilistic" name="B">
+        <xbifns:description>Has bronchitis</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="35" xPos="250" type="DiscreteProbabilistic" name="D">
+        <xbifns:description>Dyspnoea?</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="301" xPos="35" type="DiscreteProbabilistic" name="A">
+        <xbifns:description>Visit to Asia?</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="301" xPos="299" type="DiscreteProbabilistic" name="S">
+        <xbifns:description>Smoker?</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="200" xPos="200" type="DiscreteProbabilistic" name="L">
+        <xbifns:description>Has lung cancer</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="200" xPos="35" type="DiscreteProbabilistic" name="T">
+        <xbifns:description>Has tuberculosis</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="101" xPos="99" type="DiscreteProbabilistic" name="E">
+        <xbifns:description>Tuberculosis or cancer</xbifns:description>
+        <xbifns:state name="yes"/>
+        <xbifns:state name="no"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="X" parent="E"/>
+      <xbifns:edge child="B" parent="S"/>
+      <xbifns:edge child="D" parent="B"/>
+      <xbifns:edge child="D" parent="E"/>
+      <xbifns:edge child="L" parent="S"/>
+      <xbifns:edge child="T" parent="A"/>
+      <xbifns:edge child="E" parent="T"/>
+      <xbifns:edge child="E" parent="L"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="X"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="E"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9800000190734863</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.019999999552965164</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.949999988079071</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="B"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="S"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.699999988079071</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="D"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="E"/>
+          <xbifns:parent index="1" name="B"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="A"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="S"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="L"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="S"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="T"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="A"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.949999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.009999999776482582</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9900000095367432</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="E"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="L"/>
+          <xbifns:parent index="1" name="T"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">1.0</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

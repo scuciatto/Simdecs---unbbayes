@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<attributes version="1.0">
+   <fileobject name="Data_Mining-toc.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="Decision_TreeTOC.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="PreprocessorTOC.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="Data_Mining-idx.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="EvaluationTOC.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="Data_MiningTOC.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+   <fileobject name="Naive_BayesTOC.xml">
+      <attr name="org.apache.tools.ant.module.loader.AntProjectDataLoader.KNOWN_ANT_FILE" boolvalue="false"/>
+   </fileobject>
+</attributes>

@@ -1,0 +1,43 @@
+<HTML><HEAD><TITLE>Classifiers</TITLE>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="Naive_Bayes.css">
+</HEAD>
+
+<BODY><!--ForeHelp.Keyword KKEYS="Classifiers"--><!--ForeHelp.EndKeyword-->
+
+<P CLASS="Normal">
+<B><U><FONT SIZE=6>Classifiers                                                                                   
+</FONT></U></B></P>
+<hr>
+<P CLASS="Normal">
+Classifiers typically used when we are interested in predicting the value
+of one single variable (the class) on the basis of the values of the other
+variables in the database (the attributes) and we want to learn the probabilistic
+relationships between class and attributes from
+a database of cases.</P>
+<P CLASS="Normal">
+<B><FONT SIZE=5>Naive Bayes Classifiers </FONT></B></P>
+<P CLASS="Normal"><!--ForeHelp.Hotspot JUMP="Naive_Bayes"--><!--ForeHelp.EndHotspot-->Naive 
+Bayes Classifiers are among the most commonly used methods for supervised 
+classification. The characteristic assumption of <!--ForeHelp.Hotspot JUMP="Naive_Bayes"--><!--ForeHelp.EndHotspot-->Naive
+Bayes Classifiers is that the attributes are conditionally independent
+given the class variable.</P>
+<P CLASS="Normal">
+A <!--ForeHelp.Hotspot JUMP="Naive_Bayes"--><!--ForeHelp.EndHotspot-->Naive Bayes 
+Classifier can be represent as a Bayesian Network in which the class variable is 
+the common parent node of all attributes. A Bayesian Network representing a <!--ForeHelp.Hotspot JUMP="Naive_Bayes"--><!--ForeHelp.EndHotspot-->Naive
+Bayes Classifier looks like the following:</P>
+<P CLASS="Normal" STYLE="MARGIN: 5pt 0pt; TEXT-ALIGN:  center"      >
+<IMG height=125 alt=../../icones/BayesianNetwork.jpg src="../../icones/BayesianNetwork.jpg" width=338 align=baseline border=0></P>
+<P CLASS="Normal">
+In this case, the variable Play represent 
+the class variable and all the other variables represent the attributes. The 
+learning task reduces to the definition of the model of independence underlying 
+the <!--ForeHelp.Hotspot JUMP="Naive_Bayes"--><!--ForeHelp.EndHotspot-->Naive
+Bayes Classifier and to the estimation of the conditional probability
+distributions of the resulting network.</P>
+<P CLASS="Normal">
+Once a classifier has been trained on the data, it can be used to predict the class value of a set of
+attributes values, by propagating the attributed
+values as evidence of any Bayesian Network.</P>
+</BODY></HTML>

@@ -1,0 +1,1494 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME/>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>24</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY>
+    <mstns:ROOT NAME="Vari&#225;veis de Informa&#231;&#227;o">
+      <mstns:LEVEL NAME="Exames Complementares"/>
+      <mstns:LEVEL NAME="Hist&#243;ria Clinica"/>
+      <mstns:LEVEL NAME="Exame F&#237;sico"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Exames Complementares">
+      <mstns:LEVEL NAME="Raio X"/>
+      <mstns:LEVEL NAME="ECG"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Raio X">
+      <mstns:LEVEL NAME="Raio X mostrando eros&#227;o dos arcos costais"/>
+      <mstns:LEVEL NAME="RX com cardiomegalia"/>
+      <mstns:LEVEL NAME="RX com dilata&#231;&#227;o do tronco pulmonar"/>
+      <mstns:LEVEL NAME="RX com cardiomegalia e sinais de aumento do VE"/>
+      <mstns:LEVEL NAME="RX com hiperfluxo pulmonar"/>
+      <mstns:LEVEL NAME="Cora&#231;&#227;o em bota ao RX"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="ECG">
+      <mstns:LEVEL NAME="ECG com padr&#227;o de hemibloqueio anterior esquerdo"/>
+      <mstns:LEVEL NAME="ECG com hipertrofia ventricular esquerda"/>
+      <mstns:LEVEL NAME="ECG com sinais de bloqueio do ramo direito"/>
+      <mstns:LEVEL NAME="ECG mostrando crescimento biventricular"/>
+      <mstns:LEVEL NAME="ECG mostrando crescimento VD"/>
+      <mstns:LEVEL NAME="ECG com crescimento VE"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Hist&#243;ria Clinica">
+      <mstns:LEVEL NAME="Outras Doen&#231;as Associadas"/>
+      <mstns:LEVEL NAME="Sintomas"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Outras Doen&#231;as Associadas">
+      <mstns:LEVEL NAME="S&#237;ndrome de Down"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Sintomas">
+      <mstns:LEVEL NAME="Crises de Cianose"/>
+      <mstns:LEVEL NAME="Lipot&#237;mias"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Exame F&#237;sico">
+      <mstns:LEVEL NAME="Ausculta"/>
+      <mstns:LEVEL NAME="Sinais"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Ausculta">
+      <mstns:LEVEL NAME="Estalido meso-sist&#243;lico"/>
+      <mstns:LEVEL NAME="Sopro sist&#243;lico"/>
+      <mstns:LEVEL NAME="Rolar diast&#243;lico de fluxo em &#225;rea de VE"/>
+      <mstns:LEVEL NAME="Sopro holossist&#243;lico em faixa"/>
+      <mstns:LEVEL NAME="Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda"/>
+      <mstns:LEVEL NAME="Estalido sist&#243;lico"/>
+      <mstns:LEVEL NAME="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica"/>
+      <mstns:LEVEL NAME="Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar"/>
+      <mstns:LEVEL NAME="Rolar diast&#243;lico de fluxo em &#225;rea de VD"/>
+      <mstns:LEVEL NAME="B2 com desdobramento fixo"/>
+      <mstns:LEVEL NAME="Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado"/>
+    </mstns:ROOT>
+    <mstns:ROOT NAME="Sinais">
+      <mstns:LEVEL NAME="Posi&#231;&#227;o de c&#243;coras"/>
+      <mstns:LEVEL NAME="Cianose"/>
+      <mstns:LEVEL NAME="Aus&#234;ncia de pulsos em membros inferiores"/>
+      <mstns:LEVEL NAME="Hipertens&#227;o arterial sist&#234;mica"/>
+      <mstns:LEVEL NAME="Pulsos hipercin&#233;ticos"/>
+    </mstns:ROOT>
+  </mstns:HIERARCHY>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="1035" XPOS="12" TYPE="discrete" NAME="Frase_18">
+        <mstns:LABEL>S&#237;ndrome de Down</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1100" XPOS="19" TYPE="discrete" NAME="Frase_137">
+        <mstns:LABEL>ECG com padr&#227;o de hemibloqueio anterior esquerdo</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1100" XPOS="166" TYPE="discrete" NAME="Frase_107">
+        <mstns:LABEL>RX com cardiomegalia</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1028" XPOS="177" TYPE="discrete" NAME="DSAV">
+        <mstns:LABEL>Defeito do Septo Atrioventricular</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    Acomete de 4 a 5% dos pacientes com doen&#231;a card&#237;aca cong&#234;nita.
+
+    Cerca de 40% dos pacientes com S&#237;ndrome de Down t&#234;m doen&#231;a 
+card&#237;aca cong&#234;nita e destes, aproximadamente 40% tem DSAV, 
+geralmente na forma completa.
+
+   Classifica-se em parcial e completo.
+
+a) DSAV Parcial: 
+
+    O anel da valva AV esquerda e direita s&#227;o separados. Comunica&#231;&#227;o 
+interatrial  'ostium primum' com  'cleft'  do folheto anterior da valva AV 
+esquerda s&#227;o as altera&#231;&#245;es mais comuns. 
+
+    Os sintomas comumente decorrem da associa&#231;&#227;o com insufici&#234;ncia da 
+valva AV esquerda ou m&#250;ltiplos defeitos card&#237;acos associados e s&#227;o, 
+principalmente, insufici&#234;ncia card&#237;aca congestiva, dispn&#233;ia, fadiga e 
+infec&#231;&#245;es respirat&#243;rias recorrentes.
+
+    No exame f&#237;sico podem estar presentes hiperatividade card&#237;aca e 
+impulso ventricular direito e esquerdo. A ausculta pode revelar  
+desdobramento fixo da B2 e sopro holossist&#243;lico de regurgita&#231;&#227;o da valva 
+AV esquerda . 
+
+b) DSAV Completo
+
+    Defeito septal com componentes interatrial e interventricular; a 
+valva atrioventricular &#233; comum, geralmente regurgitante.
+
+    Os sintomas geralmente iniciam mais precocemente como resultado do 
+aumento do fluxo sang&#252;&#237;neo e frequentemente s&#227;o complica&#231;&#245;es da 
+insufici&#234;ncia da valva AV comum. Ocorre principalmente insufici&#234;ncia 
+card&#237;aca congestiva, infec&#231;&#245;es respirat&#243;rias de repeti&#231;&#227;o e baixo ganho 
+ponderal.
+
+    Os pacientes geralmente s&#227;o desnutridos. Na ausculta card&#237;aca a B1 
+pode ser acentuada. Pode ser auscultado um sopro holossist&#243;lico na 
+borda esternal esquerda inferior e no &#225;pice card&#237;aco, resultado da 
+insufici&#234;ncia da valva AV esquerda. Tamb&#233;m pode-se auscultar um sopro 
+sist&#243;lico crescendo-decrescendo na borda esternal esquerda superior 
+como resultado de um fluxo aumentado de sangue pela art&#233;ria pulmonar 
+dilatada. </mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>RX com cardiomegalia</mstns:NAME>
+            <mstns:COMMENTS>DSAV parcial:
+    Pode ocorrer cardiomegalia,
+
+DSAV completo:
+    Cardiomegalia est&#225; sempre presente, Art&#233;ria pulmonar &#233; proeminente.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>RX com hiperfluxo pulmonar</mstns:NAME>
+            <mstns:COMMENTS>A circula&#231;&#227;o pulmonar &#233; proeminente</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>ECG com padr&#227;o de hemibloqueio anterior esquerdo</mstns:NAME>
+            <mstns:COMMENTS>    Freq&#252;entemente h&#225; intervalo PR prolongado e o ritmo &#233; sinusal. 50% dos
+pacientes apresentam crescimento de &#225;trio direito, crescimento de &#225;trio
+esquerdo, ou ambos. O eixo m&#233;dio do QRS &#233; em torno de -30 graus a
+-120 graus. Crescimento ventricular direito e padr&#227;o de bloqueio de ramo
+direito s&#227;o observados.
+
+DSAV completo:
+    Normalmente o ritmo &#233; sinusal. O intervalo PR &#233; prolongado. H&#225;
+evid&#234;ncias de crescimento atrial direito, crescimento de &#225;trio direito, &#225;trio
+esquerdo ou ambos. O eixo do QRS varia de -60 a -135 graus. 2/3 dos
+pacientes apresentam: rSR', RSR' ou rR' em V1 e 1/3 apresentam: qR ou
+R em V1, ambos indicadores de hipertrofia ventricular direita.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>S&#237;ndrome de Down</mstns:NAME>
+            <mstns:COMMENTS>    Cerca de 40% dos pacientes com Sindrome de Down tem doen&#231;a
+card&#237;aca cong&#234;nita e destes, aproximadamente 40% tem DSAV,
+geralmente na forma completa.</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+          <mstns:NA>
+            <mstns:NAME>ECG com sinais de bloqueio do ramo direito</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+          <mstns:NA>
+            <mstns:NAME>ECG com crescimento VE</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+          <mstns:NA>
+            <mstns:NAME>ECG com hipertrofia ventricular esquerda</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+          <mstns:NA>
+            <mstns:NAME>ECG mostrando crescimento biventricular</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+          <mstns:NA>
+            <mstns:NAME>ECG mostrando crescimento VD</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1103" XPOS="387" TYPE="discrete" NAME="Frase_83">
+        <mstns:LABEL>B2 com desdobramento fixo</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1111" XPOS="541" TYPE="discrete" NAME="CIA">
+        <mstns:LABEL>Comunica&#231;&#227;o Interatrial</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    Comunica&#231;&#227;o interatrail &#233; um defeito cong&#234;nito relativamente comum.Freq&#252;entemente ocorre como um defeito isolado. Classifica-se de acordo com sua localiza&#231;&#227;o em:
+
+- &#211;stio secundum: na regi&#227;o da fossa oval- Forame oval patente: na regi&#227;o da fossa oval
+- &#211;stio primum: defeitos anteriores a fossa oval e frequentemente 
+associados 
+com 'cleft' do folheto anterior da v&#225;vula mitral.
+- Seio venoso: defeito posterior a fossa oval, geralemnte associada com 
+drenagem venosa pulmonar an&#244;mala.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>B2 com desdobramento fixo</mstns:NAME>
+            <mstns:COMMENTS>    No exame fixo tamb&#233;m pode-se encontrar dedobramento fixo de B2.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:TRIGGER>
+            <mstns:NAME>RX com hiperfluxo pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    No Raio X de t&#243;rax evidencia-se cardiomegalia (&#237;ndice cardiotor&#225;cico 
+maior do que 0,5), aumento de AD e VD, arco a&#243;rtico pequeno e 
+aus&#234;ncia da imagem da veia cava superior. Al&#233;m disso, a circula&#231;&#227;o 
+pulmonar &#233; aumentada e o tronco da art&#233;ria pulmonar dilatado (tornando o 
+formato card&#237;aco triangular).</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>ECG com sinais de bloqueio do ramo direito</mstns:NAME>
+            <mstns:COMMENTS>    O eletrocardiograma apresenta com freq&#252;&#234;ncia um desvio do eixo QRS 
+para a direita, intervalo p-R prolongado (BAV de 1o. grau) e bloqueio 
+incompleto de ramo (rSR' ou RSR') direito. Em 50% dos pacientes h&#225; 
+altera&#231;&#245;es na onda P que sugere crescimento de AD. </mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Rolar diast&#243;lico de fluxo em &#225;rea de VD</mstns:NAME>
+            <mstns:COMMENTS>    No exame f&#237;sico pode-se encontrar impulso card&#237;aco hiperdin&#226;mico (em 
+crian&#231;as, velhos e adultos e quando presente &#233; grande),  impluso sist&#243;lico 
+proeminente (relacionado ao VD) e um rolar diast&#243;lico em VD (sopro 
+pr&#233;-meso diast&#243;lico em foco tric&#250;spide).</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado</mstns:NAME>
+            <mstns:COMMENTS>    No exame f&#237;sico tamb&#233;m pode-se encontar um  sopro sist&#243;lico 
+crescendo-decrescendo suave em foco pulmonar.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:NA>
+            <mstns:NAME>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+          <mstns:NA>
+            <mstns:NAME>ECG mostrando crescimento biventricular</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1110" XPOS="674" TYPE="discrete" NAME="Frase_71">
+        <mstns:LABEL>Rolar diast&#243;lico de fluxo em &#225;rea de VD</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1057" XPOS="661" TYPE="discrete" NAME="Frase_145">
+        <mstns:LABEL>ECG com sinais de bloqueio do ramo direito</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="1027" XPOS="568" TYPE="discrete" NAME="Frase_55">
+        <mstns:LABEL>Sopro sist&#243;lico de eje&#231;&#227;o tipo fluxo aumentado</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="979" XPOS="333" TYPE="discrete" NAME="Frase_104">
+        <mstns:LABEL>RX com hiperfluxo pulmonar</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="818" XPOS="382" TYPE="discrete" NAME="CIV">
+        <mstns:LABEL>Comunica&#231;&#227;o Interventricular</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    A patologia Comunica&#231;&#227;o Interventricular incide em 1,5 a 3,5 por 1000 
+nascidos vivos a termo e 4,5 a 7,0 por 1000 em prematuros, sendo 
+levemente mais freq&#252;ente em pacientes do sexo feminino.
+
+    O quadro cl&#237;nico depende do tamanho do defeito e da resist&#234;ncia 
+vascular pulmonar. A CIV pode ser classificada em CIV pequena, CIV 
+moderada e CIV grande.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>RX com hiperfluxo pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    Na CIV pequena o Raio X apresenta cora&#231;&#227;o de volume e circula&#231;&#227;o 
+normais.
+
+    Na CIV moderada, apresenta cardiomegalia vari&#225;vel com aumento do 
+VE e AE, hiper fluxo pulmonar e proemin&#234;ncia do tronco da AP.
+
+    Na CIV grande cardiomegalia (hipertrofia de VD), hiperfluxo pulmonar e 
+proemin&#234;ncia do tronco da AP s&#227;o achados radiol&#243;gicos.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Rolar diast&#243;lico de fluxo em &#225;rea de VE</mstns:NAME>
+            <mstns:COMMENTS>    Na CIV moderada, a atividade pr&#233;-cordial &#233; acentuada. O sopro 
+holossist&#243;lico rude, mais proeminente na horda esternal esquerda inferior. 
+Uma B3 proeminente com um curto rolar diast&#243;lico frequntemente &#233; 
+aud&#237;vel no &#225;pice. A B2 usualmente desdobrada.
+
+    A CIV grande apresenta moderada eleva&#231;&#227;o da resist&#234;ncia vascular 
+pulmonar. O sopro sist&#243;lico em decrescendo &#233; m&#225;ximo ao longo da borda 
+esternal esquerda e desaparece durante o ter&#231;o tardio da s&#237;stole antes do 
+fechamento da valva a&#243;rtica. O componente pulmonar da B2 &#233; lento. 
+Ausculta-se uma R2 e rolar diast&#243;lico.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>ECG mostrando crescimento biventricular</mstns:NAME>
+            <mstns:COMMENTS>    Pacientes que apresentam CIV pequena geralmente s&#227;o assintom&#225;ticos 
+e a ECG apresenta normal. Alguns pacientes demonstram rsr' em V1 ou 
+V4R.
+
+    Na CIV moderada e grande os pacientes apresentam no ECG 
+hipertrofia biventricular.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>Sopro holossist&#243;lico em faixa</mstns:NAME>
+            <mstns:COMMENTS>    Na CIV pequena, a atividade pr&#233;-cordial &#233; normal. O sopro &#233; 
+holossist&#243;lico grau IV a VII, e pode envolver o componente a&#243;rtico da B2, 
+localiza-se na horda esternal esquerda estendendo-se por toda regi&#227;o 
+paraesternal esquerda em alguns pacientes.
+</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="764" XPOS="479" TYPE="discrete" NAME="Frase_70">
+        <mstns:LABEL>Rolar diast&#243;lico de fluxo em &#225;rea de VE</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="816" XPOS="514" TYPE="discrete" NAME="Frase_60">
+        <mstns:LABEL>Sopro holossist&#243;lico em faixa</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="864" XPOS="465" TYPE="discrete" NAME="Frase_132">
+        <mstns:LABEL>ECG mostrando crescimento biventricular</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="634" XPOS="381" TYPE="discrete" NAME="Cardiopatia">
+        <mstns:LABEL>Cardiopatias Cong&#234;nitas</mstns:LABEL>
+        <mstns:STATENAME>Estado 0</mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION/>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="918" XPOS="823" TYPE="discrete" NAME="PCA">
+        <mstns:LABEL>Persist&#234;ncia do Canal Arterial</mstns:LABEL>
+        <mstns:STATENAME>Estado 0</mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    A incid&#234;ncia de PCA isolado em crian&#231;as a termo &#233; em torno de 1 em 
+2000 nascidos vivos, e representa em torno  de 5 a 10% de todos os tipos 
+de cardiopatia cong&#234;nita.
+
+    A cl&#237;nica &#233; determinada basicamente pelo tamanho do canal patente. 
+Classifica-se em: PCA pequeno, PCA moderado e PCA grande.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>RX com hiperfluxo pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    Os achados radiol&#243;gicos podem ser cardiomegalia, crescimento do 
+ventr&#237;culo esquerdo e &#225;trio esquerdo, proemin&#234;ncia do tronco da art&#233;ria 
+pulmonar, aumento da vasculariza&#231;&#227;o pulmonar, proemin&#234;ncia da aorta 
+ascendente e hiperfluxo pulmonar.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Pulsos hipercin&#233;ticos</mstns:NAME>
+            <mstns:COMMENTS>    No PCA moderado geralmente as crian&#231;as t&#234;m algum d&#233;fcit de 
+desenvolvimento, mas pacientes um pouco mais velhos pode haver 
+fadiga e pulsos perif&#233;ricos s&#227;o amplos.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda</mstns:NAME>
+            <mstns:COMMENTS>    No PCA pequeno poucas crian&#231;as s&#227;o sintom&#225;ticas. O &#250;nico achado 
+anormal pode ser um sopro sist&#243;lico curto aud&#237;vel transitoriamente na 
+inf&#226;ncia precoce que pode progredir para um sopro cont&#237;nuo t&#237;pico. Este 
+sopro &#233; melhor aud&#237;vel no 2o. espa&#231;o intercostal esquerdo que se 
+acentua quando o paciente est&#225; destado ou em inspira&#231;&#227;o.
+
+    No PCA moderado, o sopro &#233; cont&#237;nuo e em geral bem aud&#237;vel 
+posteriormente. Este tem qualidade &#225;spera e com componentes de baixa 
+freq&#252;&#234;ncia, adquirindo uma qualidade em 'maquinaria' por causa do 
+grande fluxo e turul&#234;ncia di mesmo.
+
+    No PCA grande a primeira e segunda bulhas s&#227;o acentuadas e a 
+terceira bulha &#233; ordinariamente aud&#237;vel na &#225;pice, ocasionalmente, 
+especialmente com fal&#234;ncia card&#237;aca severa n&#227;o se ausculta sopros. 
+Quando a fal&#234;ncia ventricular esquerda &#233; controlada, ausculta-se um sopro 
+sist&#243;lico mais aud&#237;vel  em foco pulmonar, com pico na s&#237;stole e 
+prolonga&#231;&#227;o varai&#225;vel na di&#225;stole, comumente termina no ter&#231;o 
+inicial da di&#225;stole.</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="963" XPOS="898" TYPE="discrete" NAME="Frase_75">
+        <mstns:LABEL>Sopro cont&#237;nuo em regi&#227;o intra-clavicular esquerda</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="858" XPOS="864" TYPE="discrete" NAME="Frase_35">
+        <mstns:LABEL>Pulsos hipercin&#233;ticos</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="712" XPOS="145" TYPE="discrete" NAME="FALLOT">
+        <mstns:LABEL>Tetralogia de Fallot</mstns:LABEL>
+        <mstns:STATENAME>Estado 0</mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    &#201; considerada a cardiopatia cong&#234;nita isom&#225;tica mais comum, 
+representa cerca de 10% de todas as cardiopatias cong&#234;nitas, com leve 
+predomin&#226;ncia do sexo masculino.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>Cianose</mstns:NAME>
+            <mstns:COMMENTS>    Cianose generalizada, que quando leve pode ser evidente somente nos 
+l&#225;bios, membranas, mucosas ou leito lingual.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:TRIGGER>
+            <mstns:NAME>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    A maioria dos pacientes tem um sopro sist&#243;lico na borda esternal 
+esquerda m&#233;dia a alta, gerado na orla pulmonar. Este sopro &#233; 
+crescendo-decrescendo e parasist&#243;lico.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Crises de Cianose</mstns:NAME>
+            <mstns:COMMENTS>    Crises de cianose caracterizam-se por epis&#243;dios de cianose intensa
+acompanhada de respira&#231;&#245;es anormais e altera&#231;&#227;o do n&#237;vel de
+consci&#234;ncia.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>Cora&#231;&#227;o em bota ao RX</mstns:NAME>
+            <mstns:COMMENTS>    O cora&#231;&#227;o &#233; de tamanho normal ou pequeno em casos n&#227;o operados, 
+frequentemente em 'bota'. A presen&#231;a de cardiomegalia sugere 
+fortemente contra o diagn&#243;stico. 1/5 dos pacietnes t&#234;m arco a&#243;rtico a 
+direita. A circula&#231;&#227;o &#233; normal a diminu&#237;da.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>Raio X mostrando eros&#227;o dos arcos costais</mstns:NAME>
+            <mstns:COMMENTS>    Em rec&#233;m nascidos, os achados radiologicos s&#227;o cardiomegalia 
+moderada a severa, aumento da vasculariza&#231;&#227;o pulmonar e congest&#227;o 
+venosa.
+
+    Em crian&#231;as, &#225;rea card&#237;aca aumentada, CP normal, contorno anormal 
+do arco a&#243;rtico (identa&#231;&#227;o localizada na aorta no s&#237;tio da coarcta&#231;&#227;o - 
+sinal do tr&#234;s invertido) e proemin&#234;ncia da aorta descendente.
+
+    Em pacientes acima de 5 anos &#233; comum visualizar-se eros&#245;es dos 
+arcos costais.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>Posi&#231;&#227;o de c&#243;coras</mstns:NAME>
+            <mstns:COMMENTS>    &#201; comum a crian&#231;a com tetralogia de Fallot apresentar posi&#231;&#227;o de 
+c&#243;coras, principalmente ap&#243;s esfor&#231;os.</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="779" XPOS="195" TYPE="discrete" NAME="Frase_56">
+        <mstns:LABEL>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="793" XPOS="91" TYPE="discrete" NAME="Frase_8">
+        <mstns:LABEL>Cianose</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="762" XPOS="17" TYPE="discrete" NAME="Frase_195">
+        <mstns:LABEL>Cora&#231;&#227;o em bota ao RX</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="705" XPOS="35" TYPE="discrete" NAME="Frase_13">
+        <mstns:LABEL>Posi&#231;&#227;o de c&#243;coras</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="652" XPOS="46" TYPE="discrete" NAME="Frase_12">
+        <mstns:LABEL>Crises de Cianose</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="698" XPOS="699" TYPE="discrete" NAME="EAO">
+        <mstns:LABEL>Estenose A&#243;rtica</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    Incide em cerca de 3 a 6 % dos pacientes com cardiopatia cong&#234;nita, 
+havendo um predom&#237;nio 3 a 5 vezes maior no sexo masculino. 
+
+    Associa&#231;&#227;o com malforma&#231;&#245;es card&#237;acas est&#225; presente em mais de 
+20% dos casos, masi freq&#252;entemente, Persist&#234;ncia do canal arterial (PCA), 
+coarcta&#231;&#227;o da Aorta (COAO) e Comunica&#231;&#227;o interventricular (CIV). </mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>Estalido sist&#243;lico</mstns:NAME>
+            <mstns:COMMENTS>    60% a 90% dos pacientes apresentam estalido de eje&#231;&#227;o, que &#233; mais 
+proeminente na borda inferior esquerda ou porta do cora&#231;&#227;o. &#201; gerado 
+pela abertura da v&#225;lvula a&#243;rtica e seu desaparecimento sugere 
+progress&#227;o da estenose.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:TRIGGER>
+            <mstns:NAME>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica</mstns:NAME>
+            <mstns:COMMENTS>    Sopro cl&#225;ssico &#233; um sopro sist&#243;lico ejetivo rude, 
+crescendo-decrescendo, logo ap&#243;s B1 ou imediatamente ap&#243;s o click de 
+eje&#231;&#227;o, se presente. 
+
+    Ausculta-se melhor na base do cora&#231;&#227;o (borda superior esquerda em 
+lactentes e na direita em crian&#231;as maiores) 15-25% dos pacientes t&#234;m 
+sopro sist&#243;lico de insufici&#234;ncia a&#243;rtica, o qual &#233; mais pronunciado em 
+pacinetes com estenose de grau leve ou moderado.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Lipot&#237;mias</mstns:NAME>
+            <mstns:COMMENTS>    A maioria dos pacientes com EAO s&#227;o assintom&#225;ticos. Destes, 95% 
+apresentando crescimento e desenvolvimento normais. Quando os 
+sintomas ocorrem,s&#237;ncope, angina pr&#233;-cordial, dispn&#233;ia aos exerc&#237;cios e 
+fadiga s&#227;o os mais comuns. Menos freq&#252;entemente pode ocorrer dor 
+abdominal, epistaxe e sudorese.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>RX com cardiomegalia e sinais de aumento do VE</mstns:NAME>
+            <mstns:COMMENTS>Pacientes abaixo de 1 ano:
+- a maioria tem cardiomegalia
+- congest&#227;o pulmonar em 30-50% dos casos
+- aorta ascendente n&#227;o &#233; vis&#237;vel
+
+Pacientes acima de 1 ano:
+- menos de 10% dos casos tem cardiomegalia (com gradiente VE-AO </mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>ECG com crescimento VE</mstns:NAME>
+            <mstns:COMMENTS>    Raramente &#233; normal. Os achados podem variar com a severidade da 
+obstru&#231;&#227;o.
+
+- Abaixo de 30 dias: hipertrofia de VD
+
+- Abaixo de 2 anos: hipertrofia de VE ou anormalidade da onda T s&#227;o 
+sens&#237;veis para estimar o grau de severidade da estenose
+
+- Acima de 2 anos: o ECG &#233; moderadamente &#250;till em disting&#252;ir o grau de 
+severidade da EAO.
+
+   -   EAO Severa:  - HVE (</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+          <mstns:NA>
+            <mstns:NAME>RX com cardiomegalia</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="785" XPOS="762" TYPE="discrete" NAME="Frase_24">
+        <mstns:LABEL>Estalido sist&#243;lico</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="742" XPOS="817" TYPE="discrete" NAME="Frase_57">
+        <mstns:LABEL>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea a&#243;rtica</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="702" XPOS="838" TYPE="discrete" NAME="Frase_114">
+        <mstns:LABEL>RX com cardiomegalia e sinais de aumento do VE</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="653" XPOS="840" TYPE="discrete" NAME="Frase_130">
+        <mstns:LABEL>ECG com crescimento VE</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="608" XPOS="774" TYPE="discrete" NAME="Frase_192">
+        <mstns:LABEL>Lipot&#237;mias</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="416" XPOS="526" TYPE="discrete" NAME="COAO">
+        <mstns:LABEL>Coarcta&#231;&#227;o da Aorta</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    &#201; uma mal forma&#231;&#227;o vascular, cujo defeito ocorre na camada m&#233;dia da 
+aorta. Na maioria dos pacientes &#233; justa-ductal, ou seja, estenose da aorta 
+tor&#225;cica opostamente a inser&#231;&#227;o do canal esternal.
+
+    Est&#225; presente em cerca de 6 a 8% dos pacientes com cardiopatia 
+cong&#234;nita, sendo mais comum em homens (1,5:1). Ocorre 
+aproximadamente em 35% dos pacientes com s&#237;ndrome de Turner.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>Sopro sist&#243;lico</mstns:NAME>
+            <mstns:COMMENTS>    B1 e B2 s&#227;o normais. Um sopro sist&#243;lico ejetivo aud&#237;vel na borda 
+esternal superior esquerda irradiando-se para &#225;rea interescapular 
+esquerda e dorso.</mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>ECG com hipertrofia ventricular esquerda</mstns:NAME>
+            <mstns:COMMENTS>    No rec&#233;m nascido, o ECG inicialmente &#233; normal. Com o passar do 
+tempo evidencia-se hipertrofia ventricular esquerda.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>Raio X mostrando eros&#227;o dos arcos costais</mstns:NAME>
+            <mstns:COMMENTS>    Em rec&#233;m nascidos, os achados radiologicos s&#227;o cardiomegalia 
+moderada a severa, aumento da vasculariza&#231;&#227;o pulmonar e congest&#227;o 
+venosa.
+
+    Em crian&#231;as, &#225;rea card&#237;aca aumentada, CP normal, contorno anormal 
+do arco a&#243;rtico (identa&#231;&#227;o localizada na aorta no s&#237;tio da coarcta&#231;&#227;o - 
+sinal do tr&#234;s invertido) e proemin&#234;ncia da aorta descendente.
+
+    Em pacientes acima de 5 anos &#233; comum visualizar-se eros&#245;es dos 
+arcos costais.</mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>Aus&#234;ncia de pulsos em membros inferiores</mstns:NAME>
+            <mstns:COMMENTS>    O acahdo cl&#237;nico caracter&#237;stico &#233; a aus&#234;ncia de pulsos nos membros 
+inferiores. Al&#233;m disso  h&#225; discrep&#226;ncia entre a press&#227;o arterial medida nos 
+membros superiores e inferiores, podendo variar at&#233; 70-80 mmHg em 
+repouso.</mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>Hipertens&#227;o arterial sist&#234;mica</mstns:NAME>
+            <mstns:COMMENTS>    Al&#233;m disso, h&#225; discrep&#226;ncia entre a press&#227;o arterial medida nos 
+membros superiores e inferiores, podendo variar at&#233; 70-80 mmHg em 
+repouso.</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+          <mstns:NA>
+            <mstns:NAME>ECG com padr&#227;o de hemibloqueio anterior esquerdo</mstns:NAME>
+            <mstns:COMMENTS/>
+          </mstns:NA>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="386" XPOS="355" TYPE="discrete" NAME="Frase_21">
+        <mstns:LABEL>Sopro sist&#243;lico</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="334" XPOS="419" TYPE="discrete" NAME="Frase_32">
+        <mstns:LABEL>Aus&#234;ncia de pulsos em membros inferiores</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="301" XPOS="533" TYPE="discrete" NAME="Frase_36">
+        <mstns:LABEL>Hipertens&#227;o arterial sist&#234;mica</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="337" XPOS="643" TYPE="discrete" NAME="Frase_126">
+        <mstns:LABEL>Raio X mostrando eros&#227;o dos arcos costais</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="385" XPOS="702" TYPE="discrete" NAME="Frase_211">
+        <mstns:LABEL>ECG com hipertrofia ventricular esquerda</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="499" XPOS="192" TYPE="discrete" NAME="EP">
+        <mstns:LABEL>Estenose Pulmonar</mstns:LABEL>
+        <mstns:STATENAME>Estado 0</mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+        <mstns:METAPHORE>
+          <mstns:DESCRIPTION>    A preval&#234;ncia de EP isolada com septo &#237;ntegro &#233; estimada em 7 a 12%. 
+Ocorr&#234;ncia familiar tem sido estudada, sendo relatado que a probabilidade 
+de recorr&#234;ncia em g&#234;meos &#233; de 2,2 a 2,9%.
+
+    A maioria dos pacientes s&#227;o assintom&#225;ticos e com freq&#252;&#234;ncia &#233; um 
+achado durante avalia&#231;&#227;o de rotina. Para melhor compreens&#227;o doo 
+quadro cl&#237;nico &#233; melhor dividi-la em dois grupos:
+
+a) estenose pulmonar leve a moderada e
+b) estenose pumonar severa.</mstns:DESCRIPTION>
+          <mstns:TRIGGER>
+            <mstns:NAME>Sopro sist&#243;lico de eje&#231;&#227;o rude em &#225;rea pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    No exame f&#237;sico ausculta-se um sopro sist&#243;lico ejetivo proeminente, que 
+com freq&#252;&#234;ncia termina antes do fechamento da v&#225;vula a&#243;rtica. O sopro 
+tem intensidade m&#225;xima no 2o. espa&#231;o intercostal esquerdo (EICE), sendo 
+ irradiado para o dorso, o pesco&#231;o e todo pr&#233; c&#243;rdio. </mstns:COMMENTS>
+          </mstns:TRIGGER>
+          <mstns:EXCLUDENT>
+            <mstns:NAME>ECG mostrando crescimento VD</mstns:NAME>
+            <mstns:COMMENTS>    O eletrocardiograma (ECG) permite estimar a severidade da obstru&#231;&#227;o 
+da via de sa&#237;da do VD atrav&#233;s de v&#225;rios graus de hipertrofia ventricular 
+direita. Pode ser normal em 30-65% dos casos de estenose leve; 10% dos 
+casos, de moderada e em estenose severa usualmente &#233; anormal.
+
+Leve: 
+          - pequeno desvio do eixo DRS para a direita
+          - </mstns:COMMENTS>
+          </mstns:EXCLUDENT>
+          <mstns:ESSENCIAL>
+            <mstns:NAME>Estalido meso-sist&#243;lico</mstns:NAME>
+            <mstns:COMMENTS>    Na estenose pulmonar leve a moderada, durante o exame f&#237;sico ouve-se 
+freq&#252;entemente um </mstns:COMMENTS>
+          </mstns:ESSENCIAL>
+          <mstns:COMPLEMENTARY>
+            <mstns:NAME>RX com dilata&#231;&#227;o do tronco pulmonar</mstns:NAME>
+            <mstns:COMMENTS>    O achado radiol&#243;gico mais consistente &#233; tronco art&#233;ria pulmonar 
+proeminente secund&#225;rio a dilata&#231;&#227;o p&#243;s esten&#243;tica do tronco pulmonar e 
+da art&#233;ria pulmonar esquerda proximal . (presente em mais de 90% dos 
+casos, podendo estar ausente em crian&#231;as pequenas, lactentes e 
+aqueles com v&#225;vula displ&#225;cica.</mstns:COMMENTS>
+          </mstns:COMPLEMENTARY>
+        </mstns:METAPHORE>
+      </mstns:VAR>
+      <mstns:VAR YPOS="511" XPOS="31" TYPE="discrete" NAME="Frase_26">
+        <mstns:LABEL>Estalido meso-sist&#243;lico</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="455" XPOS="68" TYPE="discrete" NAME="Frase_111">
+        <mstns:LABEL>RX com dilata&#231;&#227;o do tronco pulmonar</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="402" XPOS="137" TYPE="discrete" NAME="Frase_131">
+        <mstns:LABEL>ECG mostrando crescimento VD</mstns:LABEL>
+        <mstns:STATENAME>Sim     </mstns:STATENAME>
+        <mstns:STATENAME>N&#227;o     </mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="DSAV" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="DSAV" PARENT="Frase_104"/>
+      <mstns:ARC CHILD="DSAV" PARENT="Frase_107"/>
+      <mstns:ARC CHILD="DSAV" PARENT="Frase_18"/>
+      <mstns:ARC CHILD="DSAV" PARENT="Frase_137"/>
+      <mstns:ARC CHILD="CIA" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="CIA" PARENT="Frase_145"/>
+      <mstns:ARC CHILD="CIA" PARENT="Frase_71"/>
+      <mstns:ARC CHILD="CIA" PARENT="Frase_104"/>
+      <mstns:ARC CHILD="CIA" PARENT="Frase_83"/>
+      <mstns:ARC CHILD="CIA" PARENT="Frase_55"/>
+      <mstns:ARC CHILD="CIV" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="CIV" PARENT="Frase_104"/>
+      <mstns:ARC CHILD="CIV" PARENT="Frase_132"/>
+      <mstns:ARC CHILD="CIV" PARENT="Frase_70"/>
+      <mstns:ARC CHILD="CIV" PARENT="Frase_60"/>
+      <mstns:ARC CHILD="PCA" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="PCA" PARENT="Frase_104"/>
+      <mstns:ARC CHILD="PCA" PARENT="Frase_75"/>
+      <mstns:ARC CHILD="PCA" PARENT="Frase_35"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Frase_12"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Frase_195"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Frase_13"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Frase_8"/>
+      <mstns:ARC CHILD="FALLOT" PARENT="Frase_56"/>
+      <mstns:ARC CHILD="EAO" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="EAO" PARENT="Frase_24"/>
+      <mstns:ARC CHILD="EAO" PARENT="Frase_192"/>
+      <mstns:ARC CHILD="EAO" PARENT="Frase_114"/>
+      <mstns:ARC CHILD="EAO" PARENT="Frase_57"/>
+      <mstns:ARC CHILD="EAO" PARENT="Frase_130"/>
+      <mstns:ARC CHILD="COAO" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="COAO" PARENT="Frase_211"/>
+      <mstns:ARC CHILD="COAO" PARENT="Frase_126"/>
+      <mstns:ARC CHILD="COAO" PARENT="Frase_21"/>
+      <mstns:ARC CHILD="COAO" PARENT="Frase_32"/>
+      <mstns:ARC CHILD="COAO" PARENT="Frase_36"/>
+      <mstns:ARC CHILD="EP" PARENT="Cardiopatia"/>
+      <mstns:ARC CHILD="EP" PARENT="Frase_26"/>
+      <mstns:ARC CHILD="EP" PARENT="Frase_56"/>
+      <mstns:ARC CHILD="EP" PARENT="Frase_111"/>
+      <mstns:ARC CHILD="EP" PARENT="Frase_131"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_18"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_137"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_107"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="DSAV"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_137"/>
+          <mstns:CONDLEM NAME="Frase_18"/>
+          <mstns:CONDLEM NAME="Frase_107"/>
+          <mstns:CONDLEM NAME="Frase_104"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="4">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.825</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.175</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_83"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="CIA"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_55"/>
+          <mstns:CONDLEM NAME="Frase_83"/>
+          <mstns:CONDLEM NAME="Frase_104"/>
+          <mstns:CONDLEM NAME="Frase_71"/>
+          <mstns:CONDLEM NAME="Frase_145"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.875</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.125</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.825</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.175</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.925</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.075</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.875</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.125</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.825</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.175</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.875</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.125</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.25</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.75</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.825</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.175</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="27">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.85</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.15</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="31">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_71"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_145"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_55"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_104"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="CIV"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_60"/>
+          <mstns:CONDLEM NAME="Frase_70"/>
+          <mstns:CONDLEM NAME="Frase_132"/>
+          <mstns:CONDLEM NAME="Frase_104"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.825</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.175</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_70"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_60"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_132"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Cardiopatia"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="PCA"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_35"/>
+          <mstns:CONDLEM NAME="Frase_75"/>
+          <mstns:CONDLEM NAME="Frase_104"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.88889</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.11111</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_75"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_35"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="FALLOT"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_56"/>
+          <mstns:CONDLEM NAME="Frase_8"/>
+          <mstns:CONDLEM NAME="Frase_13"/>
+          <mstns:CONDLEM NAME="Frase_195"/>
+          <mstns:CONDLEM NAME="Frase_12"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="16">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="21">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="23">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="29">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="30">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="31">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_56"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_8"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_195"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_13"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_12"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="EAO"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_130"/>
+          <mstns:CONDLEM NAME="Frase_57"/>
+          <mstns:CONDLEM NAME="Frase_114"/>
+          <mstns:CONDLEM NAME="Frase_192"/>
+          <mstns:CONDLEM NAME="Frase_24"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.92</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.08</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.82</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.18</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.84</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.16</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.875</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.125</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="31">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_24"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_57"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_114"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_130"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_192"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="COAO"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_36"/>
+          <mstns:CONDLEM NAME="Frase_32"/>
+          <mstns:CONDLEM NAME="Frase_21"/>
+          <mstns:CONDLEM NAME="Frase_126"/>
+          <mstns:CONDLEM NAME="Frase_211"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="10">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="16">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="16">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="17">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="17">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="18">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="18">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.925</mstns:DPI>
+          <mstns:DPI INDEXES="19">0.075</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="20">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="21">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="21">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.925</mstns:DPI>
+          <mstns:DPI INDEXES="22">0.075</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="23">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="24">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="24">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="25">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="25">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="26">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="27">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="28">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="28">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="29">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="29">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="30">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="31">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="31">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_21"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_32"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_36"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_126"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_211"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="EP"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="Frase_131"/>
+          <mstns:CONDLEM NAME="Frase_111"/>
+          <mstns:CONDLEM NAME="Frase_56"/>
+          <mstns:CONDLEM NAME="Frase_26"/>
+          <mstns:CONDLEM NAME="Cardiopatia"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="4">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="4">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="5">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="6">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="7">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="8">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="8">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="9">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="10">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="11">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="12">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="12">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="13">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="14">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="15">0.7</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_26"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_111"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="Frase_131"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0E-4</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9999</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

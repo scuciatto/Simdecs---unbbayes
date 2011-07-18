@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<mstns:BIF VERSION="0" xmlns:mstns="http://localhost/xml/model.xsd">
+  <mstns:HEADER>
+    <mstns:NAME>Chest-clinic</mstns:NAME>
+    <mstns:VERSION>1</mstns:VERSION>
+    <mstns:CREATOR>UnBBayes</mstns:CREATOR>
+  </mstns:HEADER>
+  <mstns:STATICPROPERTY>
+    <mstns:NODESIZE>50</mstns:NODESIZE>
+    <mstns:NODEFONTSIZE>0</mstns:NODEFONTSIZE>
+    <mstns:COLORUTILITY>-16711681</mstns:COLORUTILITY>
+    <mstns:COLORDECISION>-14336</mstns:COLORDECISION>
+    <mstns:COLORPROBDESCRIPTION>-256</mstns:COLORPROBDESCRIPTION>
+    <mstns:COLORPROBEXPLANATION>-16711936</mstns:COLORPROBEXPLANATION>
+  </mstns:STATICPROPERTY>
+  <mstns:HIERARCHY>
+    <mstns:ROOT NAME="root">
+      <mstns:LEVEL NAME="Positive X-ray?"/>
+      <mstns:LEVEL NAME="Has bronchitis"/>
+      <mstns:LEVEL NAME="Dyspnoea?"/>
+      <mstns:LEVEL NAME="Visit to Asia?"/>
+      <mstns:LEVEL NAME="Smoker?"/>
+      <mstns:LEVEL NAME="Has lung cancer"/>
+      <mstns:LEVEL NAME="Has tuberculosis"/>
+      <mstns:LEVEL NAME="Tuberculosis or cancer"/>
+    </mstns:ROOT>
+  </mstns:HIERARCHY>
+  <mstns:NETWORK>
+    <mstns:VARIABLES>
+      <mstns:VAR YPOS="0" XPOS="0" TYPE="discrete" NAME="X">
+        <mstns:LABEL>Positive X-ray?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="200" XPOS="400" TYPE="discrete" NAME="B">
+        <mstns:LABEL>Has bronchitis</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="35" XPOS="250" TYPE="discrete" NAME="D">
+        <mstns:LABEL>Dyspnoea?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="301" XPOS="35" TYPE="discrete" NAME="A">
+        <mstns:LABEL>Visit to Asia?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="301" XPOS="299" TYPE="discrete" NAME="S">
+        <mstns:LABEL>Smoker?</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="200" XPOS="200" TYPE="discrete" NAME="L">
+        <mstns:LABEL>Has lung cancer</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="200" XPOS="35" TYPE="discrete" NAME="T">
+        <mstns:LABEL>Has tuberculosis</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+      <mstns:VAR YPOS="101" XPOS="99" TYPE="discrete" NAME="E">
+        <mstns:LABEL>Tuberculosis or cancer</mstns:LABEL>
+        <mstns:STATENAME>yes</mstns:STATENAME>
+        <mstns:STATENAME>no</mstns:STATENAME>
+      </mstns:VAR>
+    </mstns:VARIABLES>
+    <mstns:STRUCTURE>
+      <mstns:ARC CHILD="X" PARENT="E"/>
+      <mstns:ARC CHILD="B" PARENT="S"/>
+      <mstns:ARC CHILD="D" PARENT="B"/>
+      <mstns:ARC CHILD="D" PARENT="E"/>
+      <mstns:ARC CHILD="L" PARENT="S"/>
+      <mstns:ARC CHILD="T" PARENT="A"/>
+      <mstns:ARC CHILD="E" PARENT="T"/>
+      <mstns:ARC CHILD="E" PARENT="L"/>
+    </mstns:STRUCTURE>
+    <mstns:POTENTIAL>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="X"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="E"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.98</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.02</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.95</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="B"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="S"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.6</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.4</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.7</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="D"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="E"/>
+          <mstns:CONDLEM NAME="B"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.8</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.2</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.7</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.3</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.9</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="A"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="S"/>
+        <mstns:CONDSET/>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.5</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="L"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="S"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.1</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.9</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="T"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="A"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">0.05</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.95</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.01</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.99</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+      <mstns:POT>
+        <mstns:PRIVATE NAME="E"/>
+        <mstns:CONDSET>
+          <mstns:CONDLEM NAME="L"/>
+          <mstns:CONDLEM NAME="T"/>
+        </mstns:CONDSET>
+        <mstns:DPIS>
+          <mstns:DPI INDEXES="0">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="0">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="1">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">1.0</mstns:DPI>
+          <mstns:DPI INDEXES="2">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">0.0</mstns:DPI>
+          <mstns:DPI INDEXES="3">1.0</mstns:DPI>
+        </mstns:DPIS>
+      </mstns:POT>
+    </mstns:POTENTIAL>
+  </mstns:NETWORK>
+</mstns:BIF>

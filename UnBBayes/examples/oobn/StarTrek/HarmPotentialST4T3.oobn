@@ -1,0 +1,43 @@
+class HarmPotentialST4T3
+{
+	 inputs =  ( );
+	 outputs =  ( );
+     node_size = (0 0);
+     name = "HarmPotentialST4T3";
+     tree = "(StarShip0,StarShip_ZoneEShips,StarShip_ZoneFShips,HarmPotential,CloakMode,StarshipClass,OperatorSpecies,Starship_DistFromOwn,Zone8,ZoneNature,ZoneMD,ZoneFShips,ZoneMDPrev,ZoneEShips,DistanceTimeslice15,DistFromOwn,DistFromOwnPrev,DistanceTimeslice18,DistanceTimeslice21,C24)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+     UnBBayes_Color_Utility = "-16711681";
+     UnBBayes_Color_Decision = "-14336";
+
+	 instance StarShip0 : StarShip (StarShip_ZoneFShips = Zone8_ZoneFShips, StarShip_ZoneEShips = Zone8_ZoneEShips, Starship_DistFromOwn = DistanceTimeslice15_DistFromOwn; StarShip0_CloakMode = CloakMode, StarShip0_StarshipClass = StarshipClass, StarShip0_HarmPotential = HarmPotential, StarShip0_OperatorSpecies = OperatorSpecies)
+	 {
+     label = "StarShip0";
+     position = (534 370);
+	 }
+
+	 instance Zone8 : Zone (; Zone8_ZoneFShips = ZoneFShips, Zone8_ZoneMD = ZoneMD, Zone8_ZoneNature = ZoneNature, Zone8_ZoneEShips = ZoneEShips)
+	 {
+     label = "Zone8";
+     position = (537 127);
+	 }
+
+	 instance DistanceTimeslice15 : DistanceTimeslice (DistFromOwnPrev = DistanceTimeslice18_DistFromOwn; DistanceTimeslice15_DistFromOwn = DistFromOwn)
+	 {
+     label = "DistanceTimeslice15";
+     position = (356 301);
+	 }
+
+	 instance DistanceTimeslice18 : DistanceTimeslice (DistFromOwnPrev = DistanceTimeslice21_DistFromOwn; DistanceTimeslice18_DistFromOwn = DistFromOwn)
+	 {
+     label = "DistanceTimeslice18";
+     position = (228 231);
+	 }
+
+	 instance DistanceTimeslice21 : DistanceTimeslice (; DistanceTimeslice21_DistFromOwn = DistFromOwn)
+	 {
+     label = "DistanceTimeslice21";
+     position = (123 159);
+	 }
+
+} % class HarmPotentialST4T3

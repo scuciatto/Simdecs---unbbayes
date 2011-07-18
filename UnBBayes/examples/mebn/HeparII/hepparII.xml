@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.5" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_5.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>hepparII</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>36</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>-16711681</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>-14336</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>-256</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>-16711936</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>-16711936</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="History of alcohol abuse"/>
+      <xbifns:level name="Hepatotoxic medications"/>
+      <xbifns:level name="Toxic hepatitis"/>
+      <xbifns:level name="INR"/>
+      <xbifns:level name="Haemorrhagie diathesis"/>
+      <xbifns:level name="Hepatic encephalopathy"/>
+      <xbifns:level name="Blood urea"/>
+      <xbifns:level name="Increased liver density"/>
+      <xbifns:level name="ALT"/>
+      <xbifns:level name="AST"/>
+      <xbifns:level name="Enlarged spleen"/>
+      <xbifns:level name="Impaired consciousness"/>
+      <xbifns:level name="Jaundice"/>
+      <xbifns:level name="Age"/>
+      <xbifns:level name="Sex"/>
+      <xbifns:level name="PBC"/>
+      <xbifns:level name="Functional hyperbilirubinemia"/>
+      <xbifns:level name="Fatigue"/>
+      <xbifns:level name="Itching"/>
+      <xbifns:level name="Total bilirubin"/>
+      <xbifns:level name="Joints swelling"/>
+      <xbifns:level name="Yellowing of the skin"/>
+      <xbifns:level name="Platelet count"/>
+      <xbifns:level name="Musculo-skeletal pain"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable yPos="475" xPos="270" type="DiscreteProbabilistic" name="alcoholism">
+        <xbifns:description>History of alcohol abuse</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="478" xPos="423" type="DiscreteProbabilistic" name="hepatotoxic">
+        <xbifns:description>Hepatotoxic medications</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="358" xPos="323" type="DiscreteProbabilistic" name="THepatitis">
+        <xbifns:description>Toxic hepatitis</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="472" xPos="581" type="DiscreteProbabilistic" name="sex">
+        <xbifns:description>Sex</xbifns:description>
+        <xbifns:state name="female"/>
+        <xbifns:state name="male"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="470" xPos="761" type="DiscreteProbabilistic" name="age">
+        <xbifns:description>Age</xbifns:description>
+        <xbifns:state name="age65_100"/>
+        <xbifns:state name="age51_65"/>
+        <xbifns:state name="age31_50"/>
+        <xbifns:state name="age0_30"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="349" xPos="699" type="DiscreteProbabilistic" name="PBC">
+        <xbifns:description>PBC</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="351" xPos="526" type="DiscreteProbabilistic" name="Hyperbilirubinemia">
+        <xbifns:description>Functional hyperbilirubinemia</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="285" xPos="81" type="DiscreteProbabilistic" name="fatigue">
+        <xbifns:description>Fatigue</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="188" xPos="605" type="DiscreteProbabilistic" name="bilirubin">
+        <xbifns:description>Total bilirubin</xbifns:description>
+        <xbifns:state name="a88_20"/>
+        <xbifns:state name="a19_7"/>
+        <xbifns:state name="a6_2"/>
+        <xbifns:state name="a1_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="35" xPos="481" type="DiscreteProbabilistic" name="itching">
+        <xbifns:description>Itching</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="37" xPos="349" type="DiscreteProbabilistic" name="skin">
+        <xbifns:description>Yellowing of the skin</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="319" xPos="910" type="DiscreteProbabilistic" name="joints">
+        <xbifns:description>Joints swelling</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="212" xPos="936" type="DiscreteProbabilistic" name="pain">
+        <xbifns:description>Musculo-skeletal pain</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="193" xPos="441" type="DiscreteProbabilistic" name="platelet">
+        <xbifns:description>Platelet count</xbifns:description>
+        <xbifns:state name="a597_300"/>
+        <xbifns:state name="a299_150"/>
+        <xbifns:state name="a149_100"/>
+        <xbifns:state name="a99_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="231" xPos="290" type="DiscreteProbabilistic" name="inr">
+        <xbifns:description>INR</xbifns:description>
+        <xbifns:state name="a200_110"/>
+        <xbifns:state name="a109_70"/>
+        <xbifns:state name="a69_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="89" xPos="224" type="DiscreteProbabilistic" name="bleeding">
+        <xbifns:description>Haemorrhagie diathesis</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="179" xPos="759" type="DiscreteProbabilistic" name="encephalopathy">
+        <xbifns:description>Hepatic encephalopathy</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="79" xPos="686" type="DiscreteProbabilistic" name="urea">
+        <xbifns:description>Blood urea</xbifns:description>
+        <xbifns:state name="a165_50"/>
+        <xbifns:state name="a49_40"/>
+        <xbifns:state name="a39_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="1" xPos="816" type="DiscreteProbabilistic" name="density">
+        <xbifns:description>Increased liver density</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="123" xPos="79" type="DiscreteProbabilistic" name="alt">
+        <xbifns:description>ALT</xbifns:description>
+        <xbifns:state name="a850_200"/>
+        <xbifns:state name="a199_100"/>
+        <xbifns:state name="a99_35"/>
+        <xbifns:state name="a34_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="368" xPos="81" type="DiscreteProbabilistic" name="ast">
+        <xbifns:description>AST</xbifns:description>
+        <xbifns:state name="a700_400"/>
+        <xbifns:state name="a399_150"/>
+        <xbifns:state name="a149_40"/>
+        <xbifns:state name="a39_0"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="216" xPos="87" type="DiscreteProbabilistic" name="spleen">
+        <xbifns:description>Enlarged spleen</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="98" xPos="901" type="DiscreteProbabilistic" name="consciousness">
+        <xbifns:description>Impaired consciousness</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+      <xbifns:variable yPos="35" xPos="579" type="DiscreteProbabilistic" name="jaundice">
+        <xbifns:description>Jaundice</xbifns:description>
+        <xbifns:state name="present"/>
+        <xbifns:state name="absent"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="THepatitis" parent="hepatotoxic"/>
+      <xbifns:edge child="THepatitis" parent="alcoholism"/>
+      <xbifns:edge child="PBC" parent="sex"/>
+      <xbifns:edge child="PBC" parent="age"/>
+      <xbifns:edge child="Hyperbilirubinemia" parent="age"/>
+      <xbifns:edge child="Hyperbilirubinemia" parent="sex"/>
+      <xbifns:edge child="fatigue" parent="THepatitis"/>
+      <xbifns:edge child="bilirubin" parent="Hyperbilirubinemia"/>
+      <xbifns:edge child="bilirubin" parent="PBC"/>
+      <xbifns:edge child="itching" parent="bilirubin"/>
+      <xbifns:edge child="skin" parent="bilirubin"/>
+      <xbifns:edge child="joints" parent="PBC"/>
+      <xbifns:edge child="pain" parent="PBC"/>
+      <xbifns:edge child="pain" parent="joints"/>
+      <xbifns:edge child="platelet" parent="PBC"/>
+      <xbifns:edge child="inr" parent="THepatitis"/>
+      <xbifns:edge child="inr" parent="Hyperbilirubinemia"/>
+      <xbifns:edge child="bleeding" parent="platelet"/>
+      <xbifns:edge child="bleeding" parent="inr"/>
+      <xbifns:edge child="encephalopathy" parent="PBC"/>
+      <xbifns:edge child="urea" parent="encephalopathy"/>
+      <xbifns:edge child="density" parent="encephalopathy"/>
+      <xbifns:edge child="alt" parent="THepatitis"/>
+      <xbifns:edge child="ast" parent="THepatitis"/>
+      <xbifns:edge child="spleen" parent="THepatitis"/>
+      <xbifns:edge child="consciousness" parent="encephalopathy"/>
+      <xbifns:edge child="jaundice" parent="bilirubin"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="alcoholism"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.13590843975543976</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8640915751457214</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="hepatotoxic"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.08154506236314774</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9184549450874329</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="THepatitis"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="alcoholism"/>
+          <xbifns:parent index="1" name="hepatotoxic"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.001919390051625669</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9980806112289429</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.08888889104127884</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9111111164093018</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.032608699053525925</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.967391312122345</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="sex"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5979971289634705</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.40200287103652954</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="age"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.07725322246551514</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.3876967132091522</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.39771100878715515</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.1373390555381775</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="PBC"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="age"/>
+          <xbifns:parent index="1" name="sex"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.6571428775787354</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.34285715222358704</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.700564980506897</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.299435019493103</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.6149425506591797</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.3850574791431427</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.3684210479259491</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.6315789222717285</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.08510638028383255</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.914893627166748</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.06730768829584122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.932692289352417</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.0015600599581375718</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.9984399676322937</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Hyperbilirubinemia"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="sex"/>
+          <xbifns:parent index="1" name="age"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0028490000404417515</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9971510171890259</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.00523559981957078</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9947643876075745</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.011299439705908298</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9887005686759949</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.021276600658893585</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.978723406791687</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.04597701132297516</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.954023003578186</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.07692307978868484</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.9230769276618958</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.21875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.78125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.453125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.546875</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="fatigue"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="THepatitis"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.6363636255264282</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.3636363744735718</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6236559152603149</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.37634408473968506</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="bilirubin"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="PBC"/>
+          <xbifns:parent index="1" name="Hyperbilirubinemia"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.043478261679410934</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.21739129722118378</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.3478260934352875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.3913043439388275</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.01449275016784668</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.11594203114509583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.3913043439388275</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.47826087474823</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.040816329419612885</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.1428571343421936</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.40816327929496765</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.40816327929496765</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.028301889076828957</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.1603773534297943</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.3679245412349701</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.4433962404727936</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="itching"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="bilirubin"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6865671873092651</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.31343284249305725</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.5477386713027954</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.4522612988948822</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.3333333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.6666666865348816</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="skin"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="bilirubin"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.9937888383865356</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.0062111797742545605</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.89552241563797</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10447760671377182</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.7035176157951355</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.2964824140071869</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.18225419521331787</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8177458047866821</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="joints"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="PBC"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.12857143580913544</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8714285492897034</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.10023865848779678</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.8997613191604614</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="pain"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="joints"/>
+          <xbifns:parent index="1" name="PBC"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.3888888955116272</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.6111111044883728</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.14754098653793335</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.8524590134620667</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8095238208770752</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.190476194024086</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.1830238699913025</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8169761300086975</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="platelet"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="PBC"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0654761865735054</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.636904776096344</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.1785714328289032</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.1190476194024086</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.06896551698446274</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.4655172526836395</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.27586206793785095</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.18965516984462738</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="inr"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Hyperbilirubinemia"/>
+          <xbifns:parent index="1" name="THepatitis"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.017543859779834747</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8421052694320679</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.14035087823867798</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.012987010180950165</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.8181818127632141</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.16883116960525513</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.021505380049347878</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8172042965888977</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.16129031777381897</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.01666666939854622</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.18333333730697632</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="bleeding"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="inr"/>
+          <xbifns:parent index="1" name="platelet"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.1428571343421936</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.8571428656578064</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.10638298094272614</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.8936170339584351</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.09090909361839294</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.9090909361839294</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.1304347813129425</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8695652484893799</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.13734939694404602</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.8626505732536316</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.42500001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.574999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.13333332538604736</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.8666666746139526</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.5</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.25581395626068115</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.7441860437393188</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.6666666865348816</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.3333333432674408</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="encephalopathy"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="PBC"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.05325444042682648</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.9467455744743347</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.0517241396009922</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9482758641242981</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="urea"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="encephalopathy"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.21739129722118378</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.1304347813129425</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6521739363670349</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.03550295904278755</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.06508875638246536</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.8994082808494568</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="density"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="encephalopathy"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.739130437374115</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.260869562625885</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.37721893191337585</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.6227810978889465</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="alt"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="THepatitis"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.05882352963089943</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.1568627506494522</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.4117647111415863</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.37254902720451355</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.06849315017461777</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.16438356041908264</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.42465752363204956</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.34246575832366943</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ast"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="THepatitis"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.019607840105891228</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.13725489377975464</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.47058823704719543</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.37254902720451355</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.0277777798473835</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.1527777761220932</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.4861111044883728</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.3333333432674408</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="spleen"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="THepatitis"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.3235294222831726</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.6764705777168274</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.37037035822868347</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.6296296119689941</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="consciousness"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="encephalopathy"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.30434784293174744</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.695652186870575</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.01627218909561634</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.9837278127670288</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="jaundice"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="bilirubin"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.5671641826629639</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.43283581733703613</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.3467336595058441</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.6532663106918335</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.1942445933818817</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8057553768157959</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

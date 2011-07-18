@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<p><b>Loading a Database</b></p>
+<p>The first step is loading a database: a set of classified instances stored 
+  on a file:</p>
+<ol>
+  <li>Click <b>File &gt; Open</b> <img src="open.gif" width="16" height="16"></li>
+  <li>Choose a file. Two formats are supported: arff and txt</li>
+  <li>Click <b>Open</b></li>
+  <li>The system asks if the file is compacted. On another words, if there is 
+    an attribute defining each instance's weight. In afirmative case, click <b>Yes</b>, 
+    and then choose the weight attribute. Otherwise, click <b>No</b>.</li>
+</ol>
+<p>The file loaded has to be on the form imposed by its format. Otherwise, the 
+  loading will cause an error. To know how are these forms, see on <b>examples</b> 
+  folder, there are many example files on both formats.</p>
+<p>The arff format determines which attributes are numeric or nominal, the txt 
+  format doesn't. If an attribute on a txt file has only numeric values and the 
+  number of values exceeds the number of states allowed defined on the global 
+  options (on main window: <b>Global Options &gt; Preferences</b>...), the attribute 
+  is considered numeric, otherwise, nominal.</p>
+<p>In case of a sucessfull loading, the <b>Attributes</b> tab is enabled (see 
+  below). The class attribute is presented on the left, while the others are on 
+  the right. Each attribute is represented as a folder containing its possible 
+  values. By default, the class attribute is the last one on the loaded file. 
+  The user can change the class attribute through the combo box located on this 
+  same screen. The option of learning is enabled too. </p>
+<p align="center"><img src="file_loaded.JPG" width="459" height="374"></p>
+</body>
+</html>

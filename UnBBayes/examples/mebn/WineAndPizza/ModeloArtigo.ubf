@@ -1,0 +1,202 @@
+% Cabeçalho UBF
+Version=0.03
+PrOwl="ModeloArtigo.owl"
+
+% Declaração de MTheory - UBF
+MTheory=NovaMEBN
+NextMFrag=6
+NextResident=12
+NextInput=12
+NextContext=4
+NextEntity=1
+
+% Declaração de MFrags e nós UBF
+
+% MFrag
+MFrag=ToppedBy_MFrag
+NextOrdinaryVar=4
+
+% Nós Residentes
+
+
+Node=ToppedBy
+Type=DomainResidentNode
+Position=320.0,273.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=t
+Type=OrdinalVar
+Position=403.0,123.0
+Size=35,35
+
+Node=p
+Type=OrdinalVar
+Position=192.0,124.0
+Size=35,35
+
+% MFrag
+MFrag=ServedTogether_MFrag
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=ServedTogether
+Type=DomainResidentNode
+Position=332.0,264.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=w
+Type=OrdinalVar
+Position=445.0,123.0
+Size=35,35
+
+Node=p
+Type=OrdinalVar
+Position=181.0,121.0
+Size=35,35
+
+% MFrag
+MFrag=PizzaTopping_MFrag
+NextOrdinaryVar=4
+
+% Nós Residentes
+
+
+Node=PizzaTopping
+Type=DomainResidentNode
+Position=337.0,380.0
+Size=35,35
+
+% nós Input
+
+
+Node=IX9
+Type=GenerativeInputNode
+Position=180.0,257.0
+Size=35,35
+
+Node=IX10
+Type=GenerativeInputNode
+Position=508.0,262.0
+Size=35,35
+
+% Nós de Contexto
+
+
+Node=CX3
+Type=ContextNode
+Position=338.0,195.0
+Size=35,35
+
+Node=CX2
+Type=ContextNode
+Position=344.0,118.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=t
+Type=OrdinalVar
+Position=498.0,64.0
+Size=35,35
+
+Node=w
+Type=OrdinalVar
+Position=309.0,59.0
+Size=35,35
+
+Node=p
+Type=OrdinalVar
+Position=128.0,61.0
+Size=35,35
+
+% MFrag
+MFrag=Wine_MFrag
+NextOrdinaryVar=3
+
+% Nós Residentes
+
+
+Node=WineType
+Type=DomainResidentNode
+Position=326.0,200.0
+Size=35,35
+
+Node=WineColour
+Type=DomainResidentNode
+Position=528.0,338.0
+Size=35,35
+
+Node=WineFlavour
+Type=DomainResidentNode
+Position=331.0,340.0
+Size=35,35
+
+Node=WineBody
+Type=DomainResidentNode
+Position=134.0,336.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=w
+Type=OrdinalVar
+Position=128.0,84.0
+Size=35,35
+
+% MFrag
+MFrag=PizzaBase_MFrag
+NextOrdinaryVar=6
+
+% Nós Residentes
+
+
+Node=PizzaBase
+Type=DomainResidentNode
+Position=352.0,386.0
+Size=35,35
+
+% nós Input
+
+
+Node=IX7
+Type=GenerativeInputNode
+Position=498.0,226.0
+Size=35,35
+
+Node=IX6
+Type=GenerativeInputNode
+Position=196.0,231.0
+Size=35,35
+
+% Nós de Contexto
+
+
+Node=CX1
+Type=ContextNode
+Position=341.0,153.0
+Size=35,35
+
+% Variáveis Ordinárias
+
+
+Node=w
+Type=OrdinalVar
+Position=436.0,63.0
+Size=35,35
+
+Node=p
+Type=OrdinalVar
+Position=262.0,63.0
+Size=35,35
+
+% Instâncias de Entidades Objetos

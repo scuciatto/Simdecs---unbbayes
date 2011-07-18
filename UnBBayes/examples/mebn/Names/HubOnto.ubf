@@ -1,0 +1,150 @@
+% UBF file header
+Version=0.03
+PrOwl="HubOnto.owl"
+
+% UBF MTheory declaration
+MTheory=HubMapping
+NextMFrag=4
+NextResident=14
+NextInput=6
+NextContext=1
+NextEntity=1
+
+% UBF MFrags and Nodes declaration
+
+% MFrag
+MFrag=CallerData
+NextOrdinaryVar=4
+
+% Resident nodes
+
+
+Node=CountryOfBirth
+Type=DomainResidentNode
+Position=131.0,121.0
+Size=209,60
+Color=-66914
+
+Node=EthnicGroup
+Type=DomainResidentNode
+Position=302.0,213.0
+Size=196,60
+Color=-66914
+
+Node=Citizenship
+Type=DomainResidentNode
+Position=45.0,213.0
+Size=189,60
+Color=-66914
+
+% Ordinary Variables
+
+
+Node=pCaller
+Type=OrdinalVar
+Position=36.0,7.0
+Size=192,60
+Color=-5178237
+
+Node=call
+Type=OrdinalVar
+Position=270.0,6.0
+Size=211,60
+Color=-5178237
+
+% MFrag
+MFrag=CallAttributes
+NextOrdinaryVar=2
+
+% Resident nodes
+
+
+Node=Duration
+Type=DomainResidentNode
+Position=150.0,195.0
+Size=136,60
+Color=-66914
+
+Node=StartTime
+Type=DomainResidentNode
+Position=145.0,128.0
+Size=147,60
+Color=-66914
+
+Node=CountryOfOrigin
+Type=DomainResidentNode
+Position=135.0,69.0
+Size=173,60
+Color=-66914
+
+% Ordinary Variables
+
+
+Node=call
+Type=OrdinalVar
+Position=109.0,0.0
+Size=217,60
+Color=-5178237
+
+% MFrag
+MFrag=NamingMFrag
+NextOrdinaryVar=6
+
+% Resident nodes
+
+
+Node=COConvention
+Type=DomainResidentNode
+Position=181.0,235.0
+Size=240,60
+Color=-66914
+
+Node=NameMapping
+Type=DomainResidentNode
+Position=390.0,318.0
+Size=209,60
+Color=-66914
+
+% Input nodes
+
+
+Node=IX3
+Type=GenerativeInputNode
+Position=286.0,133.0
+Size=194,60
+Color=-2302756
+
+Node=IX5
+Type=GenerativeInputNode
+Position=502.0,133.0
+Size=189,60
+Color=-2302756
+
+Node=IX1
+Type=GenerativeInputNode
+Position=42.0,129.0
+Size=212,60
+Color=-2302756
+
+% Ordinary Variables
+
+
+Node=pCaller
+Type=OrdinalVar
+Position=248.0,60.0
+Size=237,60
+Color=-5178237
+
+Node=call
+Type=OrdinalVar
+Position=455.0,0.0
+Size=208,60
+Color=-5178237
+
+Node=callerCountry
+Type=OrdinalVar
+Position=47.0,6.0
+Size=269,60
+Color=-5178237
+
+% Object Entity Instances

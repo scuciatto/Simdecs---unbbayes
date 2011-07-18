@@ -1,0 +1,361 @@
+<?xml version="1.0" ?>
+<xs:schema id="XMLBIF"
+	targetNamespace="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd"
+	xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd"
+	xmlns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="XMLBIF">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="header" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="version" type="xs:double"
+									minOccurs="0" />
+								<xs:element name="name" type="xs:string" minOccurs="0" />
+								<xs:element name="creator" type="xs:string"
+									minOccurs="0" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="staticProperty" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Properties usually used by the GUI.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="nodeSize" type="xs:int" minOccurs="0" />
+								<xs:element name="nodeFontName" type="xs:string"
+									minOccurs="0" />
+								<xs:element name="nodeFontSize" type="xs:int"
+									minOccurs="0" />
+								<xs:element name="colorUtilityNode" type="xs:int"
+									minOccurs="0" />
+								<xs:element name="colorDecisionNode" type="xs:int"
+									minOccurs="0" />
+								<xs:element name="colorDiscreteProbabilisticNode"
+									type="xs:int" minOccurs="0" />
+								<xs:element name="colorContinuousProbilisticNode"
+									type="xs:int" minOccurs="0" />
+								<xs:element name="colorExplanationNode" type="xs:int"
+									minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Color of the node that has metaphore descriptions.</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="hierarchy" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="root" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="level" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:attribute name="name" type="xs:string" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="name" type="xs:string" />
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="network" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="variables" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="variable" minOccurs="0"
+												maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="description" type="xs:string"
+															minOccurs="0" />
+														<xs:element name="mmedia" type="xs:base64Binary"
+															minOccurs="0" />
+														<xs:element name="state" minOccurs="0"
+															maxOccurs="unbounded">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="description" type="xs:string"
+																		minOccurs="0" />
+																	<xs:element name="mmedia" type="xs:base64Binary"
+																		minOccurs="0" />
+																</xs:sequence>
+																<xs:attribute name="name" type="xs:string" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="metaphore" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>
+																Used to explain the conclusions the network gets based on evidences (other variables).
+															</xs:documentation>
+															</xs:annotation>
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="description" type="xs:string"
+																		minOccurs="0" maxOccurs="1" />
+																	<xs:element name="explanation" minOccurs="0"
+																		maxOccurs="unbounded">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="comments" type="xs:string"
+																					minOccurs="0" />
+																			</xs:sequence>
+																			<xs:attribute name="evidence" type="xs:string" />
+																			<xs:attribute name="evidenceType">
+																				<xs:simpleType>
+																					<xs:restriction base="xs:string">
+																						<xs:enumeration value="Trigger" />
+																						<xs:enumeration value="Exclusive" />
+																						<xs:enumeration value="Necessary" />
+																						<xs:enumeration value="Complementary" />
+																						<xs:enumeration value="NA" />
+																					</xs:restriction>
+																				</xs:simpleType>
+																			</xs:attribute>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+													<xs:attribute name="name" type="xs:string" />
+													<xs:attribute name="type">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="DiscreteProbabilistic" />
+																<xs:enumeration value="ContinuousProbabilistic" />
+																<xs:enumeration value="Decision" />
+																<xs:enumeration value="Utility" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													<xs:attribute name="xPos" type="xs:int" />
+													<xs:attribute name="yPos" type="xs:int" />
+													<xs:attribute name="width" type="xs:float" />
+													<xs:attribute name="height" type="xs:float" />
+													<xs:attribute name="rgbColor" type="xs:int" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+									<xs:key name="variableId">
+										<xs:annotation>
+											<xs:documentation>The variable id is its name.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./variable" />
+										<xs:field xpath="@name" />
+									</xs:key>
+									<xs:key name="stateId">
+										<xs:annotation>
+											<xs:documentation>The state id is its name.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./variable/state" />
+										<xs:field xpath="@name" />
+									</xs:key>
+									<xs:keyref name="evidenceVariableIdRef" refer="variableId">
+										<xs:annotation>
+											<xs:documentation>The explanation is based on the evidences, which are other variables.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./variable/metaphor/explanation" />
+										<xs:field xpath="@evidence" />
+									</xs:keyref>
+								</xs:element>
+								<xs:element name="structure" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="edge" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:attribute name="parent" type="xs:string" />
+													<xs:attribute name="child" type="xs:string" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+									<xs:keyref name="edgeParentVariableIdRef" refer="variableId">
+										<xs:annotation>
+											<xs:documentation>The parent must be a valid variable.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./edge" />
+										<xs:field xpath="@parent" />
+									</xs:keyref>
+									<xs:keyref name="edgeChildVariableIdRef" refer="variableId">
+										<xs:annotation>
+											<xs:documentation>The child must be a valid variable.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./edge" />
+										<xs:field xpath="@child" />
+									</xs:keyref>
+									<xs:key name="edgeId">
+										<xs:annotation>
+											<xs:documentation>The variable id is its parent and child.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./edge" />
+										<xs:field xpath="@parent" />
+										<xs:field xpath="@child" />
+									</xs:key>
+								</xs:element>
+								<xs:element name="conditionalDistributionSet"
+									minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="conditionalDistribution"
+												minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="owner">
+															<xs:complexType>
+																<xs:attribute name="name" type="xs:string" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="parents" minOccurs="0">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="parent" minOccurs="0"
+																		maxOccurs="unbounded">
+																		<xs:complexType>
+																			<xs:attribute name="name" type="xs:string" />
+																			<xs:attribute name="index" type="xs:int" />
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+															<xs:unique name="uniqueConditionalParentInDistribution">
+																<xs:selector xpath="./parent" />
+																<xs:field xpath="@name" />
+															</xs:unique>
+															<xs:unique name="uniqueConditionalParentIndexInDistribution">
+																<xs:selector xpath="./parent" />
+																<xs:field xpath="@index" />
+															</xs:unique>
+														</xs:element>
+														<xs:choice>
+															<xs:element name="CPT">
+																<xs:annotation>
+																	<xs:documentation>Conditional Probabilistic Table. Used for discrete variables.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="dependentParentIndex"
+																			maxOccurs="unbounded">
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:double">
+																						<xs:attribute name="index" type="xs:int" />
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="normal">
+																<xs:annotation>
+																	<xs:documentation>Follows SumOf(k[i] * CPND[i]) + N(mean, variance), where CPND is the continuous parent node distribution. Used for continuous variables.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="function" maxOccurs="unbounded">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="mean" type="xs:double" />
+																					<xs:element name="variance" type="xs:double" />
+																					<xs:element name="constants" minOccurs="0">
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="constant"
+																									maxOccurs="unbounded">
+																									<xs:complexType>
+																										<xs:simpleContent>
+																											<xs:extension base="xs:double">
+																												<xs:attribute name="index"
+																													type="xs:int">
+																													<xs:annotation>
+																														<xs:documentation>The index is always related to the continuous parents list when in ascendent order given its name.</xs:documentation>
+																													</xs:annotation>
+																												</xs:attribute>
+																											</xs:extension>
+																										</xs:simpleContent>
+																									</xs:complexType>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																				<xs:attribute name="index" type="xs:int">
+																					<xs:annotation>
+																						<xs:documentation>The index is always related to the discrete parents list when in ascendent order given its name.</xs:documentation>
+																					</xs:annotation>
+																				</xs:attribute>
+																			</xs:complexType>
+																			<xs:keyref name="normalParentConstantVariableIdRef"
+																				refer="variableId">
+																				<xs:annotation>
+																					<xs:documentation>The parent associated to the constant must be a valid variable.</xs:documentation>
+																				</xs:annotation>
+																				<xs:selector xpath="./constants/constant" />
+																				<xs:field xpath="@parent" />
+																			</xs:keyref>
+																			<xs:unique name="uniqueNormalIndexConstant">
+																				<xs:selector xpath="./constants/constant" />
+																				<xs:field xpath="@index" />
+																			</xs:unique>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>
+													</xs:sequence>
+													<xs:attribute name="type">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Discrete" />
+																<xs:enumeration value="Continuous" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+									<xs:keyref name="distributionOwnerVariableIdRef"
+										refer="variableId">
+										<xs:annotation>
+											<xs:documentation>The distribution owner must be a valid variable.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./conditionalDistribution/owner" />
+										<xs:field xpath="@name" />
+									</xs:keyref>
+									<xs:keyref name="distributionParentVariableIdRef"
+										refer="variableId">
+										<xs:annotation>
+											<xs:documentation>The conditional parent must be a valid variable.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./conditionalDistribution/parents/parent" />
+										<xs:field xpath="@name" />
+									</xs:keyref>
+									<xs:key name="distributionId">
+										<xs:annotation>
+											<xs:documentation>The variable id is its parent and child.</xs:documentation>
+										</xs:annotation>
+										<xs:selector xpath="./conditionalDistribution/owner" />
+										<xs:field xpath="@name" />
+									</xs:key>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+			<xs:attribute name="version" type="xs:double" fixed="0.6" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

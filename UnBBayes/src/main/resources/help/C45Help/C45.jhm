@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+
+
+<!-- Images -->
+
+
+<!-- Topics -->
+
+   <mapID target="Overview_Id3" url="HTML/overview_id3.htm"/>
+   <mapID target="Overview_C45" url="HTML/overview_c45.htm"/>
+   <mapID target="Learning_Classification" url="HTML/learning_classification.htm"/>   
+   <mapID target="Load_Database" url="HTML/load_database.htm"/>
+   <mapID target="Load_Save_Model" url="HTML/load_save_model.htm"/>   
+   <mapID target="Set_Preferences" url="HTML/set_preferences.htm"/>
+
+<!-- Index Bookmarks -->
+
+
+</map>

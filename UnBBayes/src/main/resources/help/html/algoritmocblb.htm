@@ -1,0 +1,257 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ALGORITMO K2</title>
+</head>
+
+<body>
+
+<p align="center"><font color="#0000FF" size="4">ALGORITMO CBL-B</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para utilizar o
+algoritmo CBL-B seleciona a opcao IC-&gt;CBL-B</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font FACE="Times New Roman">Este
+algoritmo aprende uma rede Bayesiana a partir da</font>   </font> <font FACE="Times New Roman"><font size="4">distribuição
+de probabilidades P derivada da amostra e usa a informação mútua,</font></p>
+<p ALIGN="LEFT"><font size="4">marginal e condicional para mensurar a dependência entre
+variáveis.&nbsp;</font></p>
+</font><p align="left"><font size="4">&nbsp;&nbsp;&nbsp; A diferença entre o CBL-A e o CBL-B,
+é que o primeiro necessita que seja feita uma ordenação a priori das variáveis,
+e o segundo infere tal</font></p>
+<p align="left"><font size="4">&nbsp;ordenação dos dados. Ambos assumem que os dados não
+possuem valores ausentes.&nbsp;&nbsp;&nbsp;&nbsp;O algoritmo CBL-A é o seguinte:</font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="4">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000"> Algoritmo:</font></b></font></p>
+<table border="1" width="57%" height="179">
+  <tr>
+    <td width="100%" height="173" align="right">
+      <ol>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;LeAmostra;
+          % Define X, Dx, Dados como globais</font></li>
+        <li>
+          <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Separadores
+          </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">{};
+          Esboçar;</font></font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Alargar;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Refinar;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Orientar; %
+          Passos 2 e 3 do IC de Pearl [5]</font></li>
+        <li>
+          <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Pa </font><font FACE="Symbol">&lt;-
+          </font><font FACE="Times New Roman">DefineFamílias(Es)</font></font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">AchaParâmetrosGravaRede
+          } % Usa X, Dx, Dados e Pa</font></li>
+      </ol>
+    </td>
+  </tr>
+</table>
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> </p>
+<p><font size="4">&nbsp; <b><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Esboçar:</font></b></font></p>
+<table border="1" width="42%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">P1. Inicializa</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      n&lt;-<font FACE="Symbol"> </font>|X| ; Vs </font><font face="Symbol">&lt;-</font><font FACE="Times New Roman"><font FACE="Symbol">
+      </font>{0,1,2,3,...,n-1}; Es&lt;-<font FACE="Symbol">&#8592; </font>{} ;</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Leia o limite <font FACE="Symbol">&#949;</font><font FACE="Times New Roman">;</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">P2. Ms</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Ms&lt;-<font FACE="Symbol"> </font>{(m,<i>a</i>,<i>b</i>) | a,b&#1028;V,
+      <i>a</i>&lt;<i>b</i>, m </font><font face="Symbol">&lt;-</font><font FACE="Times New Roman"><font FACE="Symbol">
+      </font>I(<i>a</i>,<i>b</i>), m&gt;<font FACE="Symbol">&#949;</font>}</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Ls&lt;-</font><font FACE="Symbol"> </font><font FACE="Times New Roman">Ordenação(Ms,
+      &gt;, m);</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4"><font FACE="Times New Roman">P3.
+      Para cada (m,</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,</font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">)
+      em Ls, faça</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;
+      Se não há Caminhos(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">,
+      Es,&quot;n&quot;), então</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      { Es&lt;<font FACE="Symbol">&#8592; </font>{{<i>a</i>,<i>b</i>}}</font><font face="Symbol">U</font><font FACE="Times New Roman">Es
+      ; e,</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Ls </font><font face="Symbol">&lt;-</font><font FACE="Times New Roman"><font FACE="Symbol">
+      </font>Ls – {(m,<i>a</i>,<i>b</i>)} };</font></font></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alargar:</font></b></font></p>
+<table border="1" width="32%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P4. Para cada
+      (m,</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,</font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">)
+      em Ls, Faça</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Se PrecisaConectar(a,b,Es,&quot;n&quot;), então</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Es&lt;-</font><font FACE="Symbol"> </font><font FACE="Times New Roman">{{a,b}}UEs
+      ;</font></font></td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="left"><b><font FACE="Arial" size="4" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Refinar:</font></b></p>
+<table border="1" width="42%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P5. Para cada
+      {</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">}
+      em Es, faça</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Es </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">Es
+      –{{</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">}};</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Se há Caminhos(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">,
+      Esx,&quot;n&quot;) e</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      não PrecisaConectar(a,b,Es,&quot;n&quot;), então Es&lt;-Esx;</font></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font FACE="Arial" SIZE="2" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp; Orientar:</font></b></font></p>
+
+<table border="1" width="49%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">
+      P6. Para cada </font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c
+      </font></i><font FACE="Times New Roman">em Vs, faça % Acha as
+      estruturas-v</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Se
+      ({</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">},Z)</font><font face="Symbol" size="2">&lt;-</font><font FACE="Times New Roman" SIZE="2">Separadores
+      e c</font><font FACE="Symbol" SIZE="2">.</font><font FACE="Times New Roman" SIZE="2">Z,
+      Ou ({</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">},Z)</font><font FACE="Symbol" SIZE="2">.</font><font FACE="Times New Roman">Separadores,então </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Es </font><font FACE="Symbol" SIZE="2">&lt;-
+      </font><font FACE="Times New Roman" SIZE="2">(Es - {{</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman" SIZE="2">},{</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman" SIZE="2">}})
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman" SIZE="2">{(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman" SIZE="2">),(</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman">)}; </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P7. Para cada </font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c
+      </font></i><font FACE="Times New Roman">em Vs, faça % aplica a
+      regra 1-CBL</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Se
+      (</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">)&lt;-</font><font FACE="Symbol" SIZE="2">
+      </font><font FACE="Times New Roman" SIZE="2">Es, {</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman" SIZE="2">}</font><font face="Symbol" size="2">&lt;-</font><font FACE="Times New Roman" SIZE="2">Es,
+      </font><i><font FACE="Times New Roman" SIZE="2">a </font></i><font FACE="Times New Roman" SIZE="2">e
+      </font><i><font FACE="Times New Roman" SIZE="2">c </font></i><font FACE="Times New Roman">não
+      são adjacentes, então</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Es&lt;-</font><font FACE="Symbol" SIZE="2">
+      </font><font FACE="Times New Roman" SIZE="2">(Es - {{</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman" SIZE="2">}})
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman" SIZE="2">{(</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">c</font></i><font FACE="Times New Roman">)}
+      ;</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P8. Para cada {</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">}
+      em Es, faça % Aplique a regra 2-CBL</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Se
+      há um caminho(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">,
+      Es, &quot;o&quot;), então</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Es&lt;-</font><font FACE="Symbol" SIZE="2"> </font><font FACE="Times New Roman" SIZE="2">(Es
+      - {{</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">}})
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman" SIZE="2">{(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)}</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">P9. Para cada {a,b} em Es, faça</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Es&lt;-</font><font FACE="Symbol">&#8592;
+      </font><font FACE="Times New Roman" SIZE="2">(Es - {{</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">}})
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman" SIZE="2">{OrientaçãoUsuário(a,b)};</font></font></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font FACE="Arial" SIZE="2" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp; Precisa Conectar:</font></b></font></p>
+
+<table border="1" width="57%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Função
+      PrecisaConectar(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">,
+      Es, tipo)</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Global: Separadores</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">1)&nbsp;&nbsp;&nbsp;
+      Z&lt;-</font><font FACE="Symbol"> </font><font FACE="Times New Roman">MenorSeparador(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">,
+      Es, tipo);</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">2)
+      &nbsp;&nbsp; m </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">I(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">|Z)
+      ; % informação mútua, equação (4).</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">3)
+      &nbsp;&nbsp; Se m &lt; </font><font FACE="Symbol">&#949;</font><font FACE="Times New Roman">,
+      então</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      { Separadores </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">Separadores
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman">{({</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      b}, Z)};</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Retorna (False) }; % não precisa conectar </font><i><font FACE="Times New Roman">a
+      </font></i><font FACE="Times New Roman">e </font></font><i><font FACE="Times New Roman" size="3">b</font></p>
+      </i>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">4) Enquanto |Z| &gt;
+      1, faça</font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      a. { Para i de 0 a |Z|-1, faça</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      { Zi </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">Z
+      – {i-ésimo nó de Z};</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      mi </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">I(</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      </font><i><font FACE="Times New Roman">b</font></i><font FACE="Times New Roman">|Zi)
+      };</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      b. k </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">arg
+      mini {m0,m1, …m|Z|-1}</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      c. &lt;-e mk &lt; </font><font FACE="Symbol">&#949;</font><font FACE="Times New Roman">,
+      então % mk = min {m0,m1, …m|Z|-1}</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      { Separadores&lt;-</font><font FACE="Symbol"> </font><font FACE="Times New Roman">Separadores
+      </font><font FACE="Symbol">&#8746; </font><font FACE="Times New Roman">{({</font><i><font FACE="Times New Roman">a</font></i><font FACE="Times New Roman">,
+      b}, Zk)};</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Retorna (False) }; % não precisa conectar </font><i><font FACE="Times New Roman">a
+      </font></i><font FACE="Times New Roman">e </font></font><i><font FACE="Times New Roman" size="3">b</font></p>
+      </i>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Senão</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Se mk &gt; </font><font FACE="Symbol">&#949;</font><font FACE="Times New Roman">,
+      então Retorna(True) % precisa conectar</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Senão { m </font><font FACE="Symbol">&lt;- </font><font FACE="Times New Roman">mk;
+      Z&lt;-</font><font FACE="Symbol"> </font><font FACE="Times New Roman">Zk;
+      } ;</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">5) Retorna(True). %
+      precisa conectar.</font></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

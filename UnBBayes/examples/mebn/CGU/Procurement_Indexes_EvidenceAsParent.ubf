@@ -1,0 +1,159 @@
+% UBF file header
+Version=0.03
+PrOwl="Procurement_Indexes_EvidenceAsParent.owl"
+
+% UBF MTheory declaration
+MTheory=FraudDetection_MT
+NextMFrag=4
+NextResident=8
+NextInput=5
+NextContext=4
+NextEntity=1
+
+% UBF MFrags and Nodes declaration
+
+% MFrag
+MFrag=ProcurementRequirement_MF
+NextOrdinaryVar=3
+
+% Resident nodes
+
+
+Node=ExperienceInOnlyOneContract
+Type=DomainResidentNode
+Position=563.0,121.0
+Size=254,60
+Color=-66914
+
+Node=IndexProcurement
+Type=DomainResidentNode
+Position=118.0,121.0
+Size=181,60
+Color=-66914
+
+Node=IndexMinValue
+Type=DomainResidentNode
+Position=287.0,121.0
+Size=160,60
+Color=-66914
+
+Node=IndexType
+Type=DomainResidentNode
+Position=434.0,121.0
+Size=137,60
+Color=-66914
+
+% Context nodes
+
+
+Node=CX1
+Type=ContextNode
+Position=542.0,72.0
+Size=241,60
+Color=-5178237
+
+% Ordinary Variables
+
+
+Node=proc
+Type=OrdinalVar
+Position=331.0,72.0
+Size=212,60
+Color=-5178237
+
+Node=ind
+Type=OrdinalVar
+Position=178.0,72.0
+Size=163,60
+Color=-5178237
+
+% MFrag
+MFrag=DirectingProcurementByIndexes_MF
+NextOrdinaryVar=3
+
+% Resident nodes
+
+
+Node=IsProcurementDirectedByIndexes
+Type=DomainResidentNode
+Position=270.0,159.0
+Size=273,60
+Color=-66914
+
+% Input nodes
+
+
+Node=IX1
+Type=GenerativeInputNode
+Position=235.0,103.0
+Size=160,60
+Color=-2302756
+
+Node=IX2
+Type=GenerativeInputNode
+Position=424.0,103.0
+Size=137,60
+Color=-2302756
+
+% Context nodes
+
+
+Node=CX2
+Type=ContextNode
+Position=473.0,57.0
+Size=241,60
+Color=-5178237
+
+% Ordinary Variables
+
+
+Node=ind
+Type=OrdinalVar
+Position=120.0,57.0
+Size=163,60
+Color=-5178237
+
+Node=proc
+Type=OrdinalVar
+Position=273.0,57.0
+Size=212,60
+Color=-5178237
+
+% MFrag
+MFrag=DirectingProcurement_MF
+NextOrdinaryVar=2
+
+% Resident nodes
+
+
+Node=IsProcurementDirected
+Type=DomainResidentNode
+Position=317.0,146.0
+Size=215,60
+Color=-66914
+
+% Input nodes
+
+
+Node=IX3
+Type=GenerativeInputNode
+Position=158.0,89.0
+Size=273,60
+Color=-2302756
+
+Node=IX4
+Type=GenerativeInputNode
+Position=423.0,89.0
+Size=254,60
+Color=-2302756
+
+% Ordinary Variables
+
+
+Node=proc
+Type=OrdinalVar
+Position=320.0,40.0
+Size=212,60
+Color=-5178237
+
+% Object Entity Instances

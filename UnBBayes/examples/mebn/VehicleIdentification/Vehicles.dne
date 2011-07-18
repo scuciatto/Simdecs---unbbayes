@@ -1,0 +1,192 @@
+// ~->[DNET-1]->~
+
+// File created by DCSite at IET using Netica 1.12 on Sep 11, 2003 at 19:05:34.
+
+bnet Vehicles {
+whenchanged = 1063321526;
+
+visual V2 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (-4, -23, 856, 463);
+	resolution = 72;
+	drawingbounds = (1080, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node ObjectType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (TrackedVehicle, WheeledVehicle, NonVehicle);
+	parents = ();
+	probs = 
+		// TrackedVehicle WheeledVehicle NonVehicle 
+		  (0.1,         0.1,         0.8);
+	numcases = 1;
+	whenchanged = 1063320716;
+	belief = (0.318457, 0.661191, 0.0203523);
+	visual V2 {
+		center = (366, 42);
+		height = 3;
+		};
+	};
+
+node TerrainType {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = (ObjectType);
+	probs = 
+		// Road         OffRoad      VeryRough      // ObjectType     
+		 ((0.5,         0.3,         0.2),          // TrackedVehicle 
+		  (0.9,         0.1,         0),            // WheeledVehicle 
+		  (0.3333333,   0.3333333,   0.3333333));   // NonVehicle     ;
+	numcases = 1;
+	whenchanged = 1063320743;
+	belief = (0.990353, 0.006479, 0.00316812);
+	visual V2 {
+		center = (144, 144);
+		height = 1;
+		};
+	};
+
+node Speed {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Stationary, Slow, Medium, Fast, VeryFast);
+	parents = (ObjectType, TerrainType);
+	probs = 
+		// Stationary   Slow         Medium       Fast         VeryFast        // ObjectType     TerrainType 
+		(((0.01,        0.3,         0.69,        0,           0),             // TrackedVehicle Road        
+		  (0.05,        0.94,        0.01,        0,           0),             // TrackedVehicle OffRoad     
+		  (0.2,         0.8,         0,           0,           0)),            // TrackedVehicle VeryRough   
+		 ((0.01,        0.05,        0.25,        0.65,        0.04),          // WheeledVehicle Road        
+		  (0.4,         0.6,         0,           0,           0),             // WheeledVehicle OffRoad     
+		  (0.2,         0.2,         0.2,         0.2,         0.2)),          // WheeledVehicle VeryRough   
+		 ((0.99,        0.01,        0,           0,           0),             // NonVehicle     Road        
+		  (0.99,        0.01,        0,           0,           0),             // NonVehicle     OffRoad     
+		  (0.99,        0.01,        0,           0,           0)));           // NonVehicle     VeryRough   ;
+	numcases = 
+		                  // ObjectType     TerrainType 
+		 ((1,             // TrackedVehicle Road        
+		   1,             // TrackedVehicle OffRoad     
+		   1),            // TrackedVehicle VeryRough   
+		  (1,             // WheeledVehicle Road        
+		   1,             // WheeledVehicle OffRoad     
+		   1),            // WheeledVehicle VeryRough   
+		  (1,             // NonVehicle     Road        
+		   1,             // NonVehicle     OffRoad     
+		   1));           // NonVehicle     VeryRough   ;
+	whenchanged = 1063321212;
+	belief = (0.0174333, 0.0633248, 0.644241, 0.270834, 0.00416667);
+	visual V2 {
+		center = (366, 318);
+		height = 6;
+		};
+	};
+
+node Weather {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Clear, Cloudy);
+	parents = ();
+	probs = 
+		// Clear        Cloudy       
+		  (0.75,        0.25);
+	whenchanged = 1063321513;
+	evidence = Cloudy;
+	belief = (0, 1);
+	visual V2 {
+		center = (606, 36);
+		height = 5;
+		};
+	};
+
+node ImageTypeReport {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Tracked, Wheeled, NonVehicle);
+	parents = (ObjectType, Weather);
+	probs = 
+		// Tracked      Wheeled      NonVehicle      // ObjectType     Weather 
+		(((0.8,         0.15,        0.05),          // TrackedVehicle Clear   
+		  (0.6,         0.3,         0.1)),          // TrackedVehicle Cloudy  
+		 ((0.1,         0.8,         0.1),           // WheeledVehicle Clear   
+		  (0.2,         0.6,         0.2)),          // WheeledVehicle Cloudy  
+		 ((0.05,        0.05,        0.9),           // NonVehicle     Clear   
+		  (0.15,        0.15,        0.7)));         // NonVehicle     Cloudy  ;
+	numcases = 
+		                  // ObjectType     Weather 
+		 ((1,             // TrackedVehicle Clear   
+		   1),            // TrackedVehicle Cloudy  
+		  (1,             // WheeledVehicle Clear   
+		   1),            // WheeledVehicle Cloudy  
+		  (1,             // NonVehicle     Clear   
+		   1));           // NonVehicle     Cloudy  ;
+	whenchanged = 1063321516;
+	evidence = Wheeled;
+	belief = (0, 1, 0);
+	visual V2 {
+		center = (576, 198);
+		height = 4;
+		};
+	};
+
+node MTI {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Slow, Medium, Fast, NoReport);
+	parents = (Speed);
+	probs = 
+		// Slow         Medium       Fast         NoReport       // Speed      
+		 ((0.01,        0.01,        0.01,        0.97),         // Stationary 
+		  (0.7,         0.19,        0.01,        0.1),          // Slow       
+		  (0.1,         0.7,         0.12,        0.08),         // Medium     
+		  (0.05,        0.2,         0.7,         0.05),         // Fast       
+		  (0.01,        0.05,        0.89,        0.05));        // VeryFast   ;
+	whenchanged = 1063321520;
+	evidence = Medium;
+	belief = (0, 1, 0, 0);
+	visual V2 {
+		center = (606, 366);
+		height = 7;
+		};
+	};
+
+node GISReport {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (Road, OffRoad, VeryRough);
+	parents = (TerrainType);
+	probs = 
+		// Road         OffRoad      VeryRough      // TerrainType 
+		 ((0.85,        0.1,         0.05),         // Road        
+		  (0.05,        0.85,        0.1),          // OffRoad     
+		  (0.05,        0.1,         0.85));        // VeryRough   ;
+	numcases = 1;
+	whenchanged = 1063321526;
+	evidence = Road;
+	belief = (1, 0, 0);
+	visual V2 {
+		center = (132, 300);
+		height = 2;
+		};
+	};
+ElimOrder = (GISReport, Weather, ImageTypeReport, MTI, ObjectType, TerrainType, Speed);
+};

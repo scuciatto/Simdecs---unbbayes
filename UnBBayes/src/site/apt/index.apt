@@ -1,0 +1,67 @@
+ -----
+ The UnBBayes Site
+ -----
+ The UnBBayes Team
+ -----
+
+UnBBayes Overview
+~~~~~~~~~~~~~~~~~
+
+  This is our maven site for UnBBayes. UnBBayes is an open source software for modeling, learning and reasoning upon 
+  probabilistic networks.
+ 
+  It has support to:
+  
+      * Probabilistic Networks:
+      
+          * Bayesian Network (BN)
+          
+          		* Junction Tree
+          		
+          		* Likelihood Weighting
+          		
+          		* Gibbs
+          
+          * Influence Diagram (ID)
+          
+          * Multiply Sectioned Bayesian Network (MSBN)
+          
+          * Hybrid Bayesian Network (HBN)
+          
+              * Gaussian Mixture - Propagation under development
+          
+          * Object-Oriented Bayesian Network (OOBN)
+          
+      * FOL Probabilistic Network:
+      
+          * Multi-Entity Bayesian Network (MEBN)
+          
+          * Probabilistic Ontology Language (PR-OWL)
+          
+      * Learning Bayesian Network:
+      
+          * K2
+          
+          * B
+          
+          * CBL-A
+          
+          * CBL-B
+          
+          * Incremental Learning
+          
+      * Sampling
+      
+          * Logic
+          
+          * Likelihood Weighting
+          
+          * Gibbs
+          
+      * Classification Performance Evaluation
+      
+          * Evaluation using Logic Sampling
+          
+          * Evaluation using Likelihood Weighting Sampling
+ 
+ 

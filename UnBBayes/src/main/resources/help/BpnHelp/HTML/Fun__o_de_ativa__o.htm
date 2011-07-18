@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Solutionsoft HelpBreeze JavaHelp Edition">
+<TITLE>O Neur?io Artificial</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY>
+<P><FONT size=4><STRONG>Função de ativação</STRONG></FONT></P>
+<P> </P>
+<P class=MsoBodyText>A função de ativação tem a função de restringir a amplitude 
+da saída de um neurônio, limitando a amplitude do valor de saída a um valor 
+finito. Usualmente este intervalo de amplitude pode ser escrito como o intervalo 
+fechado [0,1] ou [-1,1].</P>
+<P class=MsoBodyText>Podemos identificar&nbsp;alguns tipos de função de 
+ativação, a função de limiar e a função sigmoidal.</P>
+<P>A função de limiar é simplesmente um funão que retorna 1 se a entrada for 
+maior ou igual a 0 e retorna 0 se a entrada for menor que zero.</P>
+<P>A&nbsp;função de ativação&nbsp;sigmoidal,&nbsp;é a função de ativação mais 
+utilizada na construção de redes neurais. Esta função é caracterizada pelo 
+gráfico em forma de "S". Um exemplo de função sigmóidal é a função logística, 
+definida na equação abaixo:</P>
+<P align=center><EM>f</EM>(<EM>v</EM>) = 1 / (1 + exp(-<EM>av</EM>))</P>
+<P>onde <I style="mso-bidi-font-style: normal">a</I> é o parâmetro de inclinação 
+da função sigmóide.</P>
+<P class=MsoBodyText>Variando o parâmetro <I 
+style="mso-bidi-font-style: normal">a</I>, varia-se a inclinação da função, 
+quando este parâmetro é muito grande, se aproximando do infinito, a função 
+sigmóide se torna uma função de limiar simplesmente. Uma característica 
+importante das funções sigmoidais é a sua diferenciabilidade, o que não ocorre 
+com os demais tipos de função de ativação.</P>
+<P>Algumas vezes é desejável que a função de ativação trabalhe no intervalo 
+[-1,1] e não [0,1], como visto até agora, assumindo uma forma anti-simétrica com 
+relação à origem. A função tangente hiperbólica, definida abaixo:</P>
+<P align=center><EM>f</EM>(<EM>v</EM>) = tanh(<EM>v</EM>)</P>
+<P>é um bom exemplo de função com intervalo [-1,1].</P>
+</BODY>
+</HTML>

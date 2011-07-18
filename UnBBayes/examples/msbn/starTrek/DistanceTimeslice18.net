@@ -1,0 +1,40 @@
+net
+{
+     node_size = (0 0);
+     name = "DistanceTimeslice18";
+     tree = "(DistFromOwnPrev,DistFromOwn)";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node DistanceTimeslice21_DistFromOwn
+{
+     label = "DistFromOwnPrev";
+     position = (319 202);
+     color = (-256);
+     states = ("Phaser2Range" "Phaser1Range" "TorpedoRange" "OutOfRange" "PulseCanonRange" "Absurd");
+}
+
+node DistanceTimeslice18_DistFromOwn
+{
+     label = "DistFromOwn";
+     position = (321 342);
+     color = (-256);
+     states = ("Phaser2Range" "Phaser1Range" "TorpedoRange" "OutOfRange" "PulseCanonRange" "Absurd");
+}
+
+potential (DistanceTimeslice21_DistFromOwn)
+{
+ data = ( 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 );
+}
+
+potential (DistanceTimeslice18_DistFromOwn | DistanceTimeslice21_DistFromOwn)
+{
+ data = (( 0.4 0.25 0.25 0.06 0.04 0.0 )
+( 0.25 0.4 0.07 0.03 0.25 0.0 )
+( 0.25 0.07 0.4 0.25 0.03 0.0 )
+( 0.05 0.04 0.3 0.6 0.01 0.0 )
+( 0.1 0.35 0.04 0.01 0.5 0.0 )
+( 0.2 0.2 0.2 0.2 0.2 0.0 ));
+}
+

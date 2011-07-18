@@ -1,0 +1,348 @@
+net 
+{
+    node_size = (76 36);
+}
+
+node alcoholism
+{
+    label = "History of alcohol abuse";
+    position = (270 475);
+    states = ("present"  "absent");
+}
+
+node hepatotoxic
+{
+    label = "Hepatotoxic medications";
+    position = (423 478);
+    states = ("present"  "absent");
+}
+
+node THepatitis
+{
+    label = "Toxic hepatitis";
+    position = (323 358);
+    states = ("present"  "absent");
+}
+
+node sex
+{
+    label = "Sex";
+    position = (581 472);
+    states = ("female"  "male");
+}
+
+node age
+{
+    label = "Age";
+    position = (761 470);
+    states = ("age65_100"  "age51_65"  "age31_50"  "age0_30");
+}
+
+node PBC
+{
+    label = "PBC";
+    position = (699 349);
+    states = ("present"  "absent");
+}
+
+node Hyperbilirubinemia
+{
+    label = "Functional hyperbilirubinemia";
+    position = (526 351);
+    states = ("present"  "absent");
+}
+
+node fatigue
+{
+    label = "Fatigue";
+    position = (81 285);
+    states = ("present"  "absent");
+}
+
+node bilirubin
+{
+    label = "Total bilirubin";
+    position = (605 188);
+    states = ("a88_20"  "a19_7"  "a6_2"  "a1_0");
+}
+
+node itching
+{
+    label = "Itching";
+    position = (481 0);
+    states = ("present"  "absent");
+}
+
+node skin
+{
+    label = "Yellowing of the skin";
+    position = (349 37);
+    states = ("present"  "absent");
+}
+
+node joints
+{
+    label = "Joints swelling";
+    position = (910 319);
+    states = ("present"  "absent");
+}
+
+node pain
+{
+    label = "Musculo-skeletal pain";
+    position = (936 212);
+    states = ("present"  "absent");
+}
+
+node platelet
+{
+    label = "Platelet count";
+    position = (441 193);
+    states = ("a597_300"  "a299_150"  "a149_100"  "a99_0");
+}
+
+node inr
+{
+    label = "INR";
+    position = (290 231);
+    states = ("a200_110"  "a109_70"  "a69_0");
+}
+
+node bleeding
+{
+    label = "Haemorrhagie diathesis";
+    position = (224 89);
+    states = ("present"  "absent");
+}
+
+node encephalopathy
+{
+    label = "Hepatic encephalopathy";
+    position = (759 179);
+    states = ("present"  "absent");
+}
+
+node urea
+{
+    label = "Blood urea";
+    position = (686 79);
+    states = ("a165_50"  "a49_40"  "a39_0");
+}
+
+node density
+{
+    label = "Increased liver density";
+    position = (816 1);
+    states = ("present"  "absent");
+}
+
+node alt
+{
+    label = "ALT";
+    position = (79 123);
+    states = ("a850_200"  "a199_100"  "a99_35"  "a34_0");
+}
+
+node ast
+{
+    label = "AST";
+    position = (81 368);
+    states = ("a700_400"  "a399_150"  "a149_40"  "a39_0");
+}
+
+node spleen
+{
+    label = "Enlarged spleen";
+    position = (87 216);
+    states = ("present"  "absent");
+}
+
+node consciousness
+{
+    label = "Impaired consciousness";
+    position = (901 98);
+    states = ("present"  "absent");
+}
+
+node jaundice
+{
+    label = "Jaundice";
+    position = (579 -18);
+    states = ("present"  "absent");
+}
+
+potential (alcoholism |)
+{
+    data = (0.13590844 0.86409156);
+}
+
+potential (hepatotoxic |)
+{
+    data = (0.08154506 0.91845494);
+}
+
+potential (THepatitis | hepatotoxic alcoholism)
+{
+    data = (((0.20000000 0.80000000)
+        (0.00191939 0.99808061))
+        ((0.08888889 0.91111111)
+        (0.03260870 0.96739130)));
+}
+
+potential (sex |)
+{
+    data = (0.59799714 0.40200286);
+}
+
+potential (age |)
+{
+    data = (0.07725322 0.38769671 0.39771102 0.13733906);
+}
+
+potential (PBC | sex age)
+{
+    data = (((0.65714286 0.34285714)
+        (0.70056497 0.29943503)
+        (0.61494253 0.38505747)
+        (0.12500000 0.87500000))
+        ((0.36842105 0.63157895)
+        (0.08510638 0.91489362)
+        (0.06730769 0.93269231)
+        (0.00156006 0.99843994)));
+}
+
+potential (Hyperbilirubinemia | age sex)
+{
+    data = (((0.00284900 0.99715100)
+        (0.00523560 0.99476440))
+        ((0.01129944 0.98870056)
+        (0.02127660 0.97872340))
+        ((0.04597701 0.95402299)
+        (0.07692308 0.92307692))
+        ((0.21875000 0.78125000)
+        (0.45312500 0.54687500)));
+}
+
+potential (fatigue | THepatitis)
+{
+    data = ((0.63636364 0.36363636)
+        (0.62365591 0.37634409));
+}
+
+potential (bilirubin | Hyperbilirubinemia PBC)
+{
+    data = (((0.04347826 0.21739130 0.34782609 0.39130435)
+        (0.01449275 0.11594203 0.39130435 0.47826087))
+        ((0.04081633 0.14285714 0.40816327 0.40816327)
+        (0.02830189 0.16037736 0.36792453 0.44339623)));
+}
+
+potential (itching | bilirubin)
+{
+    data = ((0.87500000 0.12500000)
+        (0.68656716 0.31343284)
+        (0.54773869 0.45226131)
+        (0.33333333 0.66666667));
+}
+
+potential (skin | bilirubin)
+{
+    data = ((0.99378882 0.00621118)
+        (0.89552239 0.10447761)
+        (0.70351759 0.29648241)
+        (0.18225420 0.81774580));
+}
+
+potential (joints | PBC)
+{
+    data = ((0.12857143 0.87142857)
+        (0.10023866 0.89976134));
+}
+
+potential (pain | PBC joints)
+{
+    data = (((0.38888889 0.61111111)
+        (0.14754098 0.85245902))
+        ((0.80952381 0.19047619)
+        (0.18302387 0.81697613)));
+}
+
+potential (platelet | PBC)
+{
+    data = ((0.06547619 0.63690476 0.17857143 0.11904762)
+        (0.06896552 0.46551724 0.27586207 0.18965517));
+}
+
+potential (inr | THepatitis Hyperbilirubinemia)
+{
+    data = (((0.01754386 0.84210526 0.14035088)
+        (0.01298701 0.81818182 0.16883117))
+        ((0.02150538 0.81720430 0.16129032)
+        (0.01666667 0.80000000 0.18333333)));
+}
+
+potential (bleeding | platelet inr)
+{
+    data = (((0.14285714 0.85714286)
+        (0.10638298 0.89361702)
+        (0.09090909 0.90909091))
+        ((0.13043478 0.86956522)
+        (0.13734940 0.86265060)
+        (0.42500000 0.57500000))
+        ((0.20000000 0.80000000)
+        (0.13333333 0.86666667)
+        (0.25000000 0.75000000))
+        ((0.50000000 0.50000000)
+        (0.25581395 0.74418605)
+        (0.66666667 0.33333333)));
+}
+
+potential (encephalopathy | PBC)
+{
+    data = ((0.05325444 0.94674556)
+        (0.05172414 0.94827586));
+}
+
+potential (urea | encephalopathy)
+{
+    data = ((0.21739130 0.13043478 0.65217391)
+        (0.03550296 0.06508876 0.89940828));
+}
+
+potential (density | encephalopathy)
+{
+    data = ((0.73913043 0.26086957)
+        (0.37721893 0.62278107));
+}
+
+potential (alt | THepatitis)
+{
+    data = ((0.05882353 0.15686275 0.41176471 0.37254902)
+        (0.06849315 0.16438356 0.42465753 0.34246575));
+}
+
+potential (ast | THepatitis)
+{
+    data = ((0.01960784 0.13725490 0.47058824 0.37254902)
+        (0.02777778 0.15277778 0.48611111 0.33333333));
+}
+
+potential (spleen | THepatitis)
+{
+    data = ((0.32352941 0.67647059)
+        (0.37037037 0.62962963));
+}
+
+potential (consciousness | encephalopathy)
+{
+    data = ((0.30434783 0.69565217)
+        (0.01627219 0.98372781));
+}
+
+potential (jaundice | bilirubin)
+{
+    data = ((0.75000000 0.25000000)
+        (0.56716418 0.43283582)
+        (0.34673367 0.65326633)
+        (0.19424460 0.80575540));
+}

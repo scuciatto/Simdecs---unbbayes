@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<toc>
+	<tocitem text="Ajuda do UnBBayes">
+		<tocitem text="Introducao" target="introducao"/>
+		<tocitem text="Componentes" target="controles">
+			<tocitem text="Comandos da Rede">
+				<tocitem text="Nova Rede" target="novarede"/>
+				<tocitem text="Abrir Rede" target="abrirrede"/>
+				<tocitem text="Salvar Rede" target="salvarrede"/>
+				<tocitem text="Compilar Rede" target="compilarrede"/>
+			</tocitem>
+			<tocitem text="Criando uma Rede Bayesiana">
+				<tocitem text="Inserir No" target="inserirno"/>
+				<tocitem text="Inserir Arco" target="inserirarco"/>
+			</tocitem>
+			<tocitem text="Opcoes Globais" target="opcoesglobais"/>
+			<tocitem text="Aprendizagem" target="aprendizagem"/>
+			<tocitem text="Look-and-Feel">
+				<tocitem text="Metal" target="metal"/>
+				<tocitem text="Motif" target="motif"/>
+				<tocitem text="Windows" target="windows"/>
+			</tocitem>
+		</tocitem>
+	</tocitem>
+</toc>

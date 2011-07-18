@@ -1,0 +1,693 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<xbifns:XMLBIF version="0.6" xmlns:xbifns="http://unbbayes.sourceforge.net/xml/XMLBIF_0_6.xsd">
+  <xbifns:header>
+    <xbifns:version>1.0</xbifns:version>
+    <xbifns:name>Threat_Assessment_v3</xbifns:name>
+    <xbifns:creator>UnBBayes</xbifns:creator>
+  </xbifns:header>
+  <xbifns:staticProperty>
+    <xbifns:nodeSize>0</xbifns:nodeSize>
+    <xbifns:nodeFontSize>0</xbifns:nodeFontSize>
+    <xbifns:colorUtilityNode>0</xbifns:colorUtilityNode>
+    <xbifns:colorDecisionNode>0</xbifns:colorDecisionNode>
+    <xbifns:colorDiscreteProbabilisticNode>0</xbifns:colorDiscreteProbabilisticNode>
+    <xbifns:colorContinuousProbilisticNode>0</xbifns:colorContinuousProbilisticNode>
+    <xbifns:colorExplanationNode>0</xbifns:colorExplanationNode>
+  </xbifns:staticProperty>
+  <xbifns:hierarchy>
+    <xbifns:root name="root">
+      <xbifns:level name="Hostility"/>
+      <xbifns:level name="IDPlatform"/>
+      <xbifns:level name="Airlane"/>
+      <xbifns:level name="IFF"/>
+      <xbifns:level name="ATR"/>
+      <xbifns:level name="Speed"/>
+      <xbifns:level name="Altitude"/>
+      <xbifns:level name="OnDataLink"/>
+      <xbifns:level name="ESM"/>
+      <xbifns:level name="Heading"/>
+      <xbifns:level name="AttackProfile"/>
+      <xbifns:level name="Intelligence"/>
+      <xbifns:level name="Threat"/>
+    </xbifns:root>
+  </xbifns:hierarchy>
+  <xbifns:network>
+    <xbifns:variables>
+      <xbifns:variable rgbColor="-256" height="158.0" width="250.0" yPos="80" xPos="507" type="DiscreteProbabilistic" name="Hostility">
+        <xbifns:description>Hostility</xbifns:description>
+        <xbifns:state name="Friendly"/>
+        <xbifns:state name="AssumedFriend"/>
+        <xbifns:state name="Neutral"/>
+        <xbifns:state name="Suspect"/>
+        <xbifns:state name="Hostile"/>
+        <xbifns:state name="Unknown"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="194.0" width="250.0" yPos="249" xPos="507" type="DiscreteProbabilistic" name="IDPlatform">
+        <xbifns:description>IDPlatform</xbifns:description>
+        <xbifns:state name="UAV"/>
+        <xbifns:state name="FencerASM"/>
+        <xbifns:state name="FlankerAAM"/>
+        <xbifns:state name="MRR"/>
+        <xbifns:state name="Airliner"/>
+        <xbifns:state name="Friendly"/>
+        <xbifns:state name="Private"/>
+        <xbifns:state name="OtherAirTrack"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="86.0" width="250.0" yPos="89" xPos="826" type="DiscreteProbabilistic" name="Airlane">
+        <xbifns:description>Airlane</xbifns:description>
+        <xbifns:state name="Conform"/>
+        <xbifns:state name="Unconform"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="158.0" width="250.0" yPos="93" xPos="226" type="DiscreteProbabilistic" name="IFF">
+        <xbifns:description>IFF</xbifns:description>
+        <xbifns:state name="Mode3"/>
+        <xbifns:state name="Emergency"/>
+        <xbifns:state name="Mode4"/>
+        <xbifns:state name="Garbled"/>
+        <xbifns:state name="Incorrect"/>
+        <xbifns:state name="None"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="194.0" width="250.0" yPos="258" xPos="226" type="DiscreteProbabilistic" name="ATR">
+        <xbifns:description>ATR</xbifns:description>
+        <xbifns:state name="UAV"/>
+        <xbifns:state name="FencerASM"/>
+        <xbifns:state name="FlankerAAM"/>
+        <xbifns:state name="MRR"/>
+        <xbifns:state name="Airliner"/>
+        <xbifns:state name="Friendly"/>
+        <xbifns:state name="Private"/>
+        <xbifns:state name="OtherAirTrack"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="122.0" width="250.0" yPos="504" xPos="226" type="DiscreteProbabilistic" name="Speed">
+        <xbifns:description>Speed</xbifns:description>
+        <xbifns:state name="Super"/>
+        <xbifns:state name="High"/>
+        <xbifns:state name="Cruise"/>
+        <xbifns:state name="Low"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="122.0" width="250.0" yPos="459" xPos="507" type="DiscreteProbabilistic" name="Altitude">
+        <xbifns:description>Altitude</xbifns:description>
+        <xbifns:state name="High"/>
+        <xbifns:state name="Cruise"/>
+        <xbifns:state name="Med"/>
+        <xbifns:state name="Low"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="86.0" width="250.0" yPos="228" xPos="826" type="DiscreteProbabilistic" name="OnDataLink">
+        <xbifns:description>OnDataLink</xbifns:description>
+        <xbifns:state name="True"/>
+        <xbifns:state name="False"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="104.0" width="250.0" yPos="318" xPos="826" type="DiscreteProbabilistic" name="ESM">
+        <xbifns:description>ESM</xbifns:description>
+        <xbifns:state name="ThreatESM"/>
+        <xbifns:state name="FriendESM"/>
+        <xbifns:state name="UnknownESM"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="104.0" width="250.0" yPos="440" xPos="826" type="DiscreteProbabilistic" name="Heading">
+        <xbifns:description>Heading</xbifns:description>
+        <xbifns:state name="Less45DegreeHVA"/>
+        <xbifns:state name="Less90DegreeHVA"/>
+        <xbifns:state name="Gtr90DegreeHVA"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="86.0" width="250.0" yPos="588" xPos="507" type="DiscreteProbabilistic" name="AttackProfile">
+        <xbifns:description>AttackProfile</xbifns:description>
+        <xbifns:state name="Aggresive"/>
+        <xbifns:state name="Passive"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="86.0" width="250.0" yPos="693" xPos="507" type="DiscreteProbabilistic" name="Intelligence">
+        <xbifns:description>Intelligence</xbifns:description>
+        <xbifns:state name="AttackExpected"/>
+        <xbifns:state name="AttackUnexpected"/>
+      </xbifns:variable>
+      <xbifns:variable rgbColor="-256" height="86.0" width="250.0" yPos="623" xPos="826" type="DiscreteProbabilistic" name="Threat">
+        <xbifns:description>Threat</xbifns:description>
+        <xbifns:state name="High"/>
+        <xbifns:state name="Low"/>
+      </xbifns:variable>
+    </xbifns:variables>
+    <xbifns:structure>
+      <xbifns:edge child="IDPlatform" parent="Hostility"/>
+      <xbifns:edge child="Airlane" parent="Hostility"/>
+      <xbifns:edge child="IFF" parent="IDPlatform"/>
+      <xbifns:edge child="ATR" parent="IDPlatform"/>
+      <xbifns:edge child="Speed" parent="IDPlatform"/>
+      <xbifns:edge child="Altitude" parent="IDPlatform"/>
+      <xbifns:edge child="OnDataLink" parent="IDPlatform"/>
+      <xbifns:edge child="ESM" parent="IDPlatform"/>
+      <xbifns:edge child="AttackProfile" parent="Speed"/>
+      <xbifns:edge child="AttackProfile" parent="Altitude"/>
+      <xbifns:edge child="AttackProfile" parent="Heading"/>
+      <xbifns:edge child="Threat" parent="AttackProfile"/>
+      <xbifns:edge child="Threat" parent="Intelligence"/>
+      <xbifns:edge child="Threat" parent="IDPlatform"/>
+    </xbifns:structure>
+    <xbifns:conditionalDistributionSet>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Hostility"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.05000000074505806</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.15000000596046448</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.05000000074505806</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IDPlatform"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Hostility"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.04514672979712486</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.04514672979712486</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.04514672979712486</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.04514672979712486</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.27088040113449097</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.4514671862125397</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.05191873013973236</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.04514672979712486</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0833333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.0833333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.0833333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.0833333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.20833329856395721</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.125</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.0833333432674408</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.0952381119132042</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.14285710453987122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.14285710453987122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.14285710453987122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.0952381119132042</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.0952381119132042</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.14285710453987122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.14285710453987122</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.18181820213794708</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.13636359572410583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.13636359572410583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.13636359572410583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.09090910851955414</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.04545455053448677</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.13636359572410583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.13636359572410583</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.20833329856395721</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.20833329856395721</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.0416666604578495</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.0416666604578495</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.0833333283662796</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.0833333283662796</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.13333329558372498</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.13333329558372498</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.13333329558372498</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.06666667759418488</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.06666667759418488</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.13333329558372498</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.13333329558372498</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Airlane"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Hostility"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.10000000149011612</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">1.0</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.800000011920929</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="IFF"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.043227389454841614</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.13447029888629913</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.2053205966949463</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.2891392111778259</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.1953916996717453</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.13245080411434174</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.38145679235458374</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.1777341067790985</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.07664808630943298</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.031723860651254654</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.15445010364055634</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.17798709869384766</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.06235622987151146</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.12153209745883942</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.3880273997783661</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.21756979823112488</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.028297290205955505</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.18221710622310638</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.06789539754390717</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.211899995803833</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.16033490002155304</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.4384390115737915</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.05863169953227043</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.062798872590065</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.11410669982433319</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.13805030286312103</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.12472379952669144</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.4747113883495331</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.06355098634958267</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.08485669642686844</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.14131979644298553</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.11278869956731796</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.1278821974992752</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.42367470264434814</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.015602460131049156</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.17873220145702362</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.06059904024004936</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.5763546824455261</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.04505617916584015</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.058496251702308655</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.11091530323028564</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.1485784947872162</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.16666670143604279</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ATR"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.5797809958457947</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.04928813874721527</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.04897499084472656</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.10364740341901779</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.05980291962623596</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.1009439006447792</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.04311364144086838</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.01444793026894331</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.0020706478971987963</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.6410292983055115</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.05197060853242874</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.11696899682283401</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.009743320755660534</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.038009170442819595</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.07511136680841446</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.06509651988744736</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.03326398879289627</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.029899200424551964</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.6112838983535767</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.06416957080364227</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.12118279933929443</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.023669369518756866</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.03886355832219124</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.07766766846179962</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.010079329833388329</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.06006082147359848</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.038016609847545624</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.6639705896377563</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.06186870113015175</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.08738452196121216</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.03878850117325783</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.03983087092638016</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.06801266968250275</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.05703654885292053</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.010203680023550987</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.04807263985276222</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.6568812131881714</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.07958530634641647</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.03225532919168472</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.04795265942811966</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.07573375850915909</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.07573375850915909</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.024024730548262596</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.037781521677970886</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.021191570907831192</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.6732553243637085</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.016545629128813744</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.07573375850915909</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.05967633053660393</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.03702652081847191</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.006984589155763388</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.09129160642623901</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.04203229025006294</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.005057475995272398</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.6030737161636353</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.15485739707946777</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.0015155839500948787</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.06776999682188034</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.11569619923830032</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.08852312713861465</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.0899745374917984</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.03672046959400177</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.05998000130057335</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">0.5398200750350952</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Speed"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.0736842229962349</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.4736841917037964</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.3684209883213043</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.08421052247285843</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.10960490256547928</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.42219799757003784</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.30378979444503784</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.16440729796886444</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.09382694959640503</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.4190520942211151</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.31428900361061096</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.17283199727535248</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.07495210319757462</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.40286749601364136</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.38164520263671875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.14053520560264587</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.057431381195783615</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.48311761021614075</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.3445883095264435</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.11486279964447021</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.08376310020685196</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.4267868995666504</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.34718769788742065</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.1422622948884964</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.07136765867471695</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.45579999685287476</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.3644022047519684</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.10843019932508469</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.08057851344347</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.43919751048088074</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.3906922936439514</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.08953166753053665</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Altitude"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.16787350177764893</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5036203861236572</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.27254819869995117</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.05595783144235611</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.1931529939174652</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.42873141169548035</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.21715480089187622</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.16096079349517822</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.18156349658966064</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.4318852126598358</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.1848141998052597</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.2017371952533722</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.17190919816493988</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.4340992867946625</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.3028982877731323</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.09109315276145935</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.20353519916534424</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.4299424886703491</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.24440120160579681</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.12212110310792923</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.24744810163974762</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.40864768624305725</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.2262527048587799</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.11765140295028687</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.1623585969209671</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.43055960536003113</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.2722044885158539</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.13487720489501953</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.2626543939113617</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.4015347957611084</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.20988169312477112</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.12592899799346924</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="OnDataLink"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.800000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.23958590626716614</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.7604141235351562</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.2765178978443146</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.723482072353363</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.30000001192092896</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.699999988079071</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.49391210079193115</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.5060878992080688</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.75</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.25</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.12976540625095367</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.8702346086502075</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.09070292860269547</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.909296989440918</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="ESM"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.27593550086021423</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.31567248702049255</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.4083920121192932</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.33217039704322815</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.2671307921409607</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.4006989002227783</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.2565999925136566</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.2815192937850952</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.46188071370124817</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.25894030928611755</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.3187960088253021</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.4222637116909027</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.23781940340995789</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.37798720598220825</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.3841933012008667</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.18983469903469086</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.5036848187446594</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.3064804971218109</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.21339890360832214</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.2681143879890442</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.5184866786003113</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.2111515998840332</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.3034032881259918</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.48544520139694214</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Heading"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.20000000298023224</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.6000000238418579</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="AttackProfile"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="Heading"/>
+          <xbifns:parent index="1" name="Altitude"/>
+          <xbifns:parent index="2" name="Speed"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.16920700669288635</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.830793023109436</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.19402539730072021</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.8059746026992798</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.23131220042705536</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.7686877846717834</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.11455979943275452</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.8854401707649231</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.14486579596996307</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.8551341891288757</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.18425680696964264</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.815743088722229</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.33000001311302185</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.6700000166893005</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.36000001430511475</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.6399999856948853</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.44999998807907104</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.550000011920929</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.19402539730072021</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.8059746026992798</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.2313116043806076</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.7686883807182312</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.265300989151001</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.734699010848999</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.14486579596996307</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.8551341891288757</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.1842568963766098</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.815743088722229</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.22017879784107208</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.7798212170600891</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.3431372046470642</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.6568626761436462</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.38461539149284363</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.615384578704834</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.4285714030265808</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.5714285969734192</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.4285714030265808</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.5714285969734192</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.4761905074119568</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.5238096117973328</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.6000000238418579</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.4000000059604645</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.14421199262142181</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.855787992477417</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.16148680448532104</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.838513195514679</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.17807839810848236</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.8219215869903564</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.08286368101835251</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.9171363115310669</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.11935059726238251</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.8806493878364563</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.15304550528526306</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.8469545245170593</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.26373618841171265</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.7362638115882874</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.30434781312942505</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">0.695652186870575</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="64">0.3478260934352875</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="65">0.6521738767623901</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="66">0.3333333134651184</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="67">0.6666666865348816</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="68">0.3888888955116272</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="69">0.6111111044883728</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="70">0.5294116735458374</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="71">0.47058820724487305</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="72">0.12621040642261505</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="73">0.8737894892692566</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="74">0.16148680448532104</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="75">0.838513195514679</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="76">0.18613019585609436</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="77">0.8138697743415833</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="78">0.10147739946842194</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="79">0.8985226154327393</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="80">0.11935059726238251</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="81">0.8806493878364563</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="82">0.15304550528526306</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="83">0.8469545245170593</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="84">0.22988510131835938</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="85">0.7701150178909302</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="86">0.25581398606300354</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="87">0.7441859841346741</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="88">0.30232560634613037</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="89">0.6976745128631592</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="90">0.29411759972572327</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="91">0.7058823704719543</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="92">0.3529411852359772</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="93">0.6470587849617004</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="94">0.46666669845581055</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="95">0.533333420753479</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Intelligence"/>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.8999999761581421</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.10000000149011612</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+      <xbifns:conditionalDistribution type="Discrete">
+        <xbifns:owner name="Threat"/>
+        <xbifns:parents>
+          <xbifns:parent index="0" name="IDPlatform"/>
+          <xbifns:parent index="1" name="Intelligence"/>
+          <xbifns:parent index="2" name="AttackProfile"/>
+        </xbifns:parents>
+        <xbifns:CPT>
+          <xbifns:dependentParentIndex index="0">0.44492340087890625</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="1">0.5550765991210938</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="2">0.529738187789917</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="3">0.470261812210083</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="4">0.529738187789917</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="5">0.470261812210083</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="6">0.529738187789917</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="7">0.470261812210083</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="8">0.3374324142932892</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="9">0.6625676155090332</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="10">0.2307697981595993</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="11">0.7692301869392395</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="12">0.3756710886955261</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="13">0.6243289113044739</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="14">0.4259273111820221</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="15">0.5740727186203003</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="16">0.16666939854621887</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="17">0.8333305716514587</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="18">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="19">0.8333333134651184</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="20">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="21">0.8333333134651184</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="22">0.16666939854621887</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="23">0.8333305716514587</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="24">0.08223201334476471</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="25">0.9177680015563965</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="26">0.05263200029730797</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="27">0.9473680257797241</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="28">0.16666939854621887</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="29">0.8333305716514587</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="30">0.21052919328212738</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="31">0.7894707918167114</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="32">0.4532124102115631</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="33">0.5467876195907593</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="34">0.4532124102115631</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="35">0.5467876195907593</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="36">0.45321181416511536</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="37">0.546788215637207</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="38">0.4532124102115631</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="39">0.5467876195907593</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="40">0.24242030084133148</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="41">0.7575796842575073</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="42">0.16666670143604279</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="43">0.8333333134651184</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="44">0.32483750581741333</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="45">0.6751623749732971</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="46">0.40122079849243164</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="47">0.5987792015075684</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="48">0.10714290291070938</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="49">0.8928570747375488</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="50">0.11242599785327911</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="51">0.8875740170478821</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="52">0.11242599785327911</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="53">0.8875740170478821</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="54">0.11242599785327911</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="55">0.8875740170478821</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="56">0.030725989490747452</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="57">0.9692739844322205</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="58">0.020216209813952446</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="59">0.9797837734222412</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="60">0.07270027697086334</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="61">0.927299976348877</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="62">0.08692476898431778</xbifns:dependentParentIndex>
+          <xbifns:dependentParentIndex index="63">0.9130752086639404</xbifns:dependentParentIndex>
+        </xbifns:CPT>
+      </xbifns:conditionalDistribution>
+    </xbifns:conditionalDistributionSet>
+  </xbifns:network>
+</xbifns:XMLBIF>

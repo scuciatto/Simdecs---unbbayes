@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Taxa de Aprendizagem e Momentum</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../javahelp.css">
+</HEAD>
+<BODY BGCOLOR=#ffffff>
+<p><font size="4"><b>Taxa de Aprendizagem e Momentum</b></font></p>
+<p class="MsoBodyText">A taxa de aprendizagem influi diretamente no aprendizado
+da rede. Quanto menor a taxa de aprendizagem a trajetória dos pesos sinápticos
+no espaço de pesos será mais suave, pois menores serão as variações destes
+pesos de uma iteração para outra. Porém como as variações de peso são
+pequenas entre as<span style="mso-spacerun: yes">&nbsp; </span>iterações, a
+aprendizagem é lenta. Se for utilizada uma taxa de aprendizagem muito alta, a
+variação dos pesos sinápticos entre iterações será maior, o que pode
+tornar a rede instável, fazendo com que o erro médio quadrado oscile.</p>
+<p class="MsoBodyText"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">Uma maneira de aumentar a taxa de aprendizagem
+evitando que a rede fique instável é modificar a regra delta incluindo um
+termo de momentum (<span style="background-repeat: repeat; background-attachment: scroll; mso-highlight: yellow; background-position: 0%">Rumelhart
+et al, 1986a</span>), como é mostrado na equação abaixo:</span></p>
+<p class="MsoBodyText" align="center"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#916;<i>w<sub>ji</sub></i>(<i>n</i>) =
+&#945;&#916;<i>w<sub>ji</sub></i>(<i>n</i> - 1) + &#951;&#948;<i><sub>j</sub></i>(<i>n</i>)<i>y<sub>i</sub></i>(<i>n</i>)</span></p>
+<p class="MsoBodyText"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">onde </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:PT-BR;mso-fareast-language:
+PT-BR;mso-bidi-language:AR-SA">&#945;</span><span style="font-size:
+12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:PT-BR;mso-fareast-language:PT-BR;mso-bidi-language:AR-SA"> é
+a constante de momento, que é normalmente positiva.</span></p>
+</BODY>
+</HTML>

@@ -1,0 +1,175 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ALGORITMO K2</title>
+</head>
+
+<body>
+
+<p align="center"><font color="#0000FF" size="4">ALGORITMO CBL-A</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp; Para utilizar o algoritmo CBL-A seleciona a
+opção IC-&gt;CBL-A&nbsp;</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp; Este algoritmo assume que:</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As variáveis
+presentes no banco de dados são discretas e não existem valores ausentes ou
+ocultos;</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O volume de dados é
+grande o suficiente para realizar o teste de independência condicional.</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+existe uma ordenação das variáveis antes da construção da rede;</font></p>
+<p align="left"><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;O algoritmo CBL-A é o seguinte:</font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="4">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font color="#FF0000"> Algoritmo:</font></b></font></p>
+<table border="1" width="57%" height="214">
+  <tr>
+    <td width="100%" height="208" align="right">
+      <ol>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">LeAmostra;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font face="Times New Roman" size="4">Y&lt;-
+          OrdenaVariáveis(X,|X|);</font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Esboçar;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Alargar;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">Refinar;</font></li>
+        <li>
+          <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Pa </font><font FACE="Symbol">&lt;-
+          </font><font FACE="Times New Roman">DefineFamílias(Es)</font></font></li>
+        <li>
+          <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">AchaParâmetrosGravaRede</font></li>
+      </ol>
+    </td>
+  </tr>
+</table>
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font> </p>
+<p><font size="4">&nbsp; <b><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Esboçar:</font></b></font></p>
+<table border="1" width="100%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">
+      1. Inicializa</font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      n&lt;- |X|
+      ; Vs </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">{0,1,2,3,...,n-1};
+      Es </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman">{}
+      ; </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Leia o limite </font><font FACE="Symbol" SIZE="2">&#949;</font><font FACE="Times New Roman">; </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P2.Ms </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">{(m,</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">)
+      | i,k&#1028;V,
+      i&lt;k, </font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font face="Symbol" size="2">&lt;-</font><font FACE="Times New Roman" SIZE="2">Y[i],
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font face="Symbol" size="2">&lt;-</font><font FACE="Times New Roman" SIZE="2">Y[k],
+      m &lt;</font><font face="Symbol" size="2">-
+      </font><font FACE="Times New Roman" SIZE="2">I(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman" SIZE="2">),
+      m&gt;</font><font FACE="Symbol" SIZE="2">&#949;</font><font FACE="Times New Roman">} </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Ls </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman">Ordenação(Ms,
+      &gt;, m);</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">P3. Para cada (m,</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)
+      em Ls, faça</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Se não há CaminhosAbertos(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">,
+      Es), então </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      { Es </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">{(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)
+      U Es ; e, </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Ls </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">Ls
+      – {(m,</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)}
+      };
+      </font>
+      </font></p>
+      <p>&nbsp;</td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <b><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alargar:</font></b></font></p>
+<table border="1" width="100%" height="117">
+  <tr>
+    <td width="100%" height="111">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">
+      P4. Para cada (m,</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,</font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)
+      em Ls, Faça </font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Se PrecisaConectar(a,b,Es,&quot;o&quot;), então </font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Es </font><font face="Symbol" size="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">{(a,b)}</font><font face="Arial">U
+      </font><font FACE="Times New Roman">Es
+      ;
+      </font>
+      </font></p>
+      <p>&nbsp;</td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="left"><b><font FACE="Arial" size="4" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Refinar:</font></b></p>
+<table border="1" width="100%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">
+      P5. Para cada (</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)
+      em Es, faça </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Esx </font><font face="Symbol">&lt;
+      - </font><font FACE="Times New Roman" SIZE="2">Es
+      –{(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">)};</font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">Se há caminhos(</font><i><font FACE="Times New Roman" SIZE="2">a</font></i><font FACE="Times New Roman" SIZE="2">,
+      </font><i><font FACE="Times New Roman" SIZE="2">b</font></i><font FACE="Times New Roman">,
+      Esx,&quot;o&quot;) e </font></font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">não
+      PrecisaConectar(a,b,Es,&quot;o&quot;), então Es </font><font face="Symbol">&lt;-</font><font FACE="Times New Roman">Esx; </font></font></p>
+      <p>&nbsp;</td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font FACE="Arial" SIZE="2" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Define Família:</font></b></font></p>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">
+      1. Pa </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman">arranjo
+      de n elementos nulos; </font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">2. Para cada (i,k) em Es, Faça </font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">3. Pa[k] </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman" SIZE="2">{i}</font><font face="Arial" size="2">U</font>Pa[k]
+      ;</font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">4. Retorna(Pa) ;</font></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+
+<p align="left"><font size="4">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font FACE="Arial" SIZE="2" color="#FF0000">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Acha parâmetros e grava a rede:</font></b></font></p>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="100%">
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">
+      1. Para i=0 até n-1, faça </font></p>
+      <p ALIGN="LEFT"><font size="4"><font FACE="Times New Roman">
+      2. Nijk[i] </font><font FACE="Symbol" SIZE="2">&lt;- </font><font FACE="Times New Roman">ContaNijk(i,
+      Pa[i]);</font></font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">3. Prob ;</font></p>
+      <p ALIGN="LEFT"><font FACE="Times New Roman" size="4">4. GravaRede }</font></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

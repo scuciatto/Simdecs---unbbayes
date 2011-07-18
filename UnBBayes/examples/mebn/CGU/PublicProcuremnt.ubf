@@ -1,0 +1,55 @@
+% UBF file header
+Version=0.03
+PrOwl="PublicProcuremnt.owl"
+
+% UBF MTheory declaration
+MTheory=PublicProcurement
+NextMFrag=2
+NextResident=2
+NextInput=1
+NextContext=1
+NextEntity=1
+
+% UBF MFrags and Nodes declaration
+
+% MFrag
+MFrag=Contract_MFrag
+NextOrdinaryVar=6
+
+% Resident nodes
+
+
+Node=HasContract
+Type=DomainResidentNode
+Position=265.0,112.0
+Size=349,60
+Color=-66914
+
+% Ordinary Variables
+
+
+Node=contractor
+Type=OrdinalVar
+Position=453.0,26.0
+Size=246,60
+Color=-5178237
+
+Node=contracted
+Type=OrdinalVar
+Position=33.0,26.0
+Size=233,60
+Color=-5178237
+
+Node=origin
+Type=OrdinalVar
+Position=251.0,26.0
+Size=218,60
+Color=-5178237
+
+Node=contract
+Type=OrdinalVar
+Position=684.0,26.0
+Size=207,60
+Color=-5178237
+
+% Object Entity Instances

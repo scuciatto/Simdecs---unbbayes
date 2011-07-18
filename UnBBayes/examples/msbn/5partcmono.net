@@ -1,0 +1,327 @@
+net
+{
+    node_size = (80 40);
+    HR_Groups_GroupColors = "";
+    HR_Groups_GroupNames = "";
+    HR_Groups_UserGroupsNo = "0";
+    HR_Color_Decision = "17";
+    HR_Color_Utility = "36";
+    HR_Color_ContinuosChance = "48";
+    HR_Color_DiscreteChance = "16";
+    HR_Monitor_InitSD = "2";
+    HR_Monitor_InitStates = "5";
+    HR_Monitor_OpenGraph = "0";
+    HR_Monitor_GraphPrecision = "100";
+    HR_Monitor_AutoUpdGraph = "0";
+    HR_Compile_ApproxEpsilon = "0.00001";
+    HR_Compile_Approximate = "0";
+    HR_Compile_Compress = "0";
+    HR_Compile_TriangMethod = "0";
+    HR_Propagate_AutoNormal = "1";
+    HR_Propagate_AutoSum = "1";
+    HR_Propagate_Auto = "0";
+    HR_Font_Italic = "0";
+    HR_Font_Weight = "400";
+    HR_Font_Size = "-12";
+    HR_Font_Name = "Arial";
+    HR_Grid_GridShow = "0";
+    HR_Grid_GridSnap = "1";
+    HR_Grid_Y = "10";
+    HR_Grid_X = "10";
+}
+
+node var_12
+{
+    label = "var_12";
+    position = (570 -190);
+    states = ("y" "n");
+}
+
+node var_10
+{
+    label = "var_10";
+    position = (560 -50);
+    states = ("y" "n");
+}
+
+node var_11
+{
+    label = "var_11";
+    position = (407 -180);
+    states = ("y" "n");
+}
+
+node var_8
+{
+    label = "var_8";
+    position = (500 260);
+    states = ("y" "n");
+}
+
+node var_7
+{
+    label = "var_7";
+    position = (88 -94);
+    states = ("y" "n");
+}
+
+node var_9
+{
+    label = "var_9";
+    position = (160 -190);
+    states = ("y" "n");
+}
+
+node H
+{
+    label = "H";
+    position = (570 110);
+    states = ("y" "n");
+}
+
+node F
+{
+    label = "F";
+    position = (500 190);
+    states = ("y" "n");
+}
+
+node G
+{
+    label = "G";
+    position = (490 20);
+    states = ("y" "n");
+}
+
+node var_5
+{
+    label = "var_5";
+    position = (410 100);
+    states = ("y" "n");
+}
+
+node E
+{
+    label = "E";
+    position = (380 210);
+    states = ("y" "n");
+}
+
+node var_6
+{
+    label = "var_6";
+    position = (290 -60);
+    states = ("y" "n");
+}
+
+node D
+{
+    label = "D";
+    position = (280 140);
+    states = ("H" "M" "L");
+}
+
+node var_3
+{
+    label = "var_3";
+    position = (370 20);
+    states = ("y" "n");
+}
+
+node var_4
+{
+    label = "var_4";
+    position = (10 230);
+    states = ("y" "n");
+}
+
+node var_2
+{
+    label = "var_2";
+    position = (120 150);
+    states = ("y" "n");
+}
+
+node C
+{
+    label = "C";
+    position = (210 220);
+    states = ("y" "n");
+}
+
+node B
+{
+    label = "B";
+    position = (180 80);
+    states = ("y" "n");
+}
+
+node A
+{
+    label = "A";
+    position = (50 90);
+    states = ("y" "n");
+}
+
+node var_1
+{
+    label = "var_1";
+    position = (130 0);
+    states = ("y" "n");
+}
+
+node var_0
+{
+    label = "var_0";
+    states = ("y" "n");
+}
+
+potential (var_12 | var_11 var_10)
+{
+ data = ((( 0.02 0.98 )	%  y  y
+	  ( 0.85 0.15 ))	%  y  n
+	 (( 0.25 0.75 )	%  n  y
+	  ( 0.15 0.85 )));	%  n  n
+}
+
+potential (var_10 | G H)
+{
+ data = ((( 0.05 0.95 )	%  y  y
+	  ( 0.8 0.2 ))	%  y  n
+	 (( 0.7 0.3 )	%  n  y
+	  ( 0.6 0.4 )));	%  n  n
+}
+
+potential (var_11 | G)
+{
+ data = (( 0.9 0.1 )	%  y
+	 ( 0.3 0.7 ));	%  n
+}
+
+potential (var_8 | E F)
+{
+ data = ((( 0.1 0.9 )	%  y  y
+	  ( 0.25 0.75 ))	%  y  n
+	 (( 0.05 0.95 )	%  n  y
+	  ( 0.8 0.2 )));	%  n  n
+}
+
+potential (var_7 | var_9)
+{
+ data = (( 0.15 0.85 )	%  y
+	 ( 0.35 0.65 ));	%  n
+}
+
+potential (var_9 | C E)
+{
+ data = ((( 0.8 0.2 )	%  y  y
+	  ( 0.6 0.4 ))	%  y  n
+	 (( 0.7 0.3 )	%  n  y
+	  ( 0.05 0.95 )));	%  n  n
+}
+
+potential (H | G)
+{
+ data = (( 0.4 0.6 )	%  y
+	 ( 0.6 0.4 ));	%  n
+}
+
+potential (F | var_6 E H)
+{
+ data = (((( 0.02 0.98 )	%  y  y  y
+	   ( 0.35 0.65 ))	%  y  y  n
+	  (( 0.15 0.85 )	%  y  n  y
+	   ( 0.7 0.3 )))	%  y  n  n
+	 ((( 0.1 0.9 )	%  n  y  y
+	   ( 0.4 0.6 ))	%  n  y  n
+	  (( 0.6 0.4 )	%  n  n  y
+	   ( 0.8 0.2 ))));	%  n  n  n
+}
+
+potential (G | var_6)
+{
+ data = (( 0.35 0.65 )	%  y
+	 ( 0.95 0.05 ));	%  n
+}
+
+potential (var_5 | D E)
+{
+ data = ((( 0.9 0.1 )	%  H  y
+	  ( 0.6 0.4 ))	%  H  n
+	 (( 0.8 0.2 )	%  M  y
+	  ( 0.5 0.5 ))	%  M  n
+	 (( 0.7 0.3 )	%  L  y
+	  ( 0.4 0.6 )));	%  L  n
+}
+
+potential (E | var_6)
+{
+ data = (( 0.25 0.75 )	%  y
+	 ( 0.6 0.4 ));	%  n
+}
+
+potential (var_6)
+{
+ data = ( 0.1 0.9 );
+}
+
+potential (D | B var_3)
+{
+ data = ((( 0.1 0.2 0.7 )	%  y  y
+	  ( 0.3 0.4 0.3 ))	%  y  n
+	 (( 0.5 0.5 0 )	%  n  y
+	  ( 0.6 0.4 0 )));	%  n  n
+}
+
+potential (var_3)
+{
+ data = ( 0.65 0.35 );
+}
+
+potential (var_4 | var_2)
+{
+ data = (( 0.3 0.7 )	%  y
+	 ( 0.9 0.1 ));	%  n
+}
+
+potential (var_2 | A C B)
+{
+ data = (((( 0.1 0.9 )	%  y  y  y
+	   ( 0.3 0.7 ))	%  y  y  n
+	  (( 0.4 0.6 )	%  y  n  y
+	   ( 0.5 0.5 )))	%  y  n  n
+	 ((( 0.7 0.3 )	%  n  y  y
+	   ( 0.9 0.1 ))	%  n  y  n
+	  (( 0.95 0.05 )	%  n  n  y
+	   ( 0.75 0.25 ))));	%  n  n  n
+}
+
+potential (C | E)
+{
+ data = (( 0.2 0.8 )	%  y
+	 ( 0.1 0.9 ));	%  n
+}
+
+potential (B | var_0)
+{
+ data = (( 0.9 0.1 )	%  y
+	 ( 0.6 0.4 ));	%  n
+}
+
+potential (A | var_0 var_1)
+{
+ data = ((( 0.3 0.7 )	%  y  y
+	  ( 0.2 0.8 ))	%  y  n
+	 (( 0.6 0.4 )	%  n  y
+	  ( 0.7 0.3 )));	%  n  n
+}
+
+potential (var_1)
+{
+ data = ( 0.2 0.8 );
+}
+
+potential (var_0)
+{
+ data = ( 0.4 0.6 );
+}

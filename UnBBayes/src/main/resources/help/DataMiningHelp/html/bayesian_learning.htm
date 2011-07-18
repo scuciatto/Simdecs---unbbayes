@@ -1,0 +1,3318 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Bayesian Learning</title>
+</head>
+
+<body>
+
+<h1><u>Bayesian Learning</u></h1>
+<hr>
+<p class="MsoBodyText" style="text-indent:35.4pt">A aprendizagem Bayesiana dá
+uma visão probabilística à inferência. Ela é baseada na idéia de que instâncias
+de interesse são governadas por distribuições de probabilidade e que decisões
+extras podem ser feitas medindo estas probabilidades junto ao conjunto de
+treinamento. Esta aprendizagem é interessante para machine learning dado que
+ela provê uma base para algoritmos de aprendizagem que manipulam probabilidades
+diretamente e cria um framework para a análise da operação de outros
+algoritmos que não manipulam probabilidades diretamente.</p>
+<p class="MsoBodyText" style="text-indent:35.4pt">Uma dificuldade prática em
+aplicar métodos bayesianos é que eles tipicamente requerem conhecimento
+inicial de muitas probabilidades. Quando estas probabilidades não são
+conhecidas à priori elas devem ser estimadas baseadas em alguma experiência
+anterior, dados disponíveis anteriormente, ou ainda, em alguma suposição dada
+na forma de distribuições estatísticas. Uma segunda dificuldade prática é o
+significante custo computacional para uma hipótese bayesiana ótima no caso
+geral. Em algumas situações específicas este custo computacional pode ser
+significantemente reduzido.</p>
+<p class="MsoNormal" style="text-align:justify">O classificador Naive Bayes</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+O algoritmo naive bayes é baseado no Teorema de Bayes e é ótimo para
+probabilidades múltiplas quando os eventos são independentes. Assumir que os
+atributos de uma classe são independentes no conjunto de treinamento é muito
+simplista, pois o que os torna interessante é que os atributos apresentam
+diferentes relacionamentos levando a um esquema simples que trabalhe bem na prática.</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">Embora exista
+esta desvantagem o classificador naive bayes funciona muito bem na prática,
+principalmente quando combinado com outros algoritmos.</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">Uma diferença
+interessante entre o naive bayes e os outros métodos de aprendizagem
+considerados é que não há uma procura explícita pelo espaço de hipóteses
+possíveis. A hipótese é formada sem procura, simplesmente obtêm-se a hipótese
+contando a freqüência de várias combinações de dados em um conjunto de
+treinamento.</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l1 level1 lfo8;tab-stops:list 18.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Exemplo do uso de Naive Bayes</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;&nbsp;<o:p>
+</o:p>
+</p>
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 1.5pt 0cm 1.5pt">
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span style="color:black;layout-grid-mode:
+  line"><font size="3">Age<o:p>
+      </o:p>
+      </font></span></b></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <h1><span style="font-family:&quot;Times New Roman&quot;"><font size="3">Spectacle
+      prescription<o:p>
+      </o:p>
+      </font></span></h1>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span style="color:black;layout-grid-mode:
+  line"><font size="3">Astigmatism<o:p>
+      </o:p>
+      </font></span></b></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span style="color:black;layout-grid-mode:
+  line"><font size="3">Tear production rate<o:p>
+      </o:p>
+      </font></span></b></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><b style="mso-bidi-font-weight:normal"><span style="color:black;layout-grid-mode:
+  line"><font size="3">Recommended lences<o:p>
+      </o:p>
+      </font></span></b></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Soft<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hard<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Soft<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Young<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hard<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Soft<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hard<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Soft<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Pre-presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Myope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hard<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">No<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Soft<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Reduced<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr style="height:12.5pt">
+    <td width="87" valign="top" style="width:65.3pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.5pt 0cm 1.5pt;
+  height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Presbyopic<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Hypermetrope<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="104" valign="top" style="width:78.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Yes<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="142" valign="top" style="width:106.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">Normal<o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td width="151" valign="top" style="width:4.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 1.5pt 0cm 1.5pt;height:12.5pt">
+      <p class="MsoNormal"><span style="color:black;layout-grid-mode:line">None<o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="text-align:justify">Problema1.</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">A tabela
+abaixo mostra as probabilidades associadas de cada valor de um atributo com os
+valores da classe do problema1:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 3.5pt 0cm 3.5pt">
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Age</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Young</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Pre-presbyopic</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Presbyopic</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">6</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Hard</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">6 / 15</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1 / 5</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1 / 4</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Spetacle
+      prescription</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Myope</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Hypermetrope</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">7</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">8</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Hard</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">7 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">8 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">1 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Astigmatism</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">No</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Yes</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">7</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">8</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Hard</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">7 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">8 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Tear
+      production rate</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Reduced</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Normal</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">12</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Hard</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">12 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3 / 15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5 / 5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4 / 4</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Recommended
+      lences</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Hard</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">15</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Hard</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">15 / 24</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5 / 24</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4 / 24</p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Por exemplo, na tabela acima o valor Normal do atributo Tear production
+rate ocorre 3 vezes para None, 5 para Soft e 4 para Hard. Logo abaixo as informações
+são escritas na forma de frações, ou probabilidades observadas. Por exemplo,
+das 15 vezes em que o valor da classe None ocorre, em 12 delas o valor de Tear
+production rate é Reduced, dando a fração 12 / 15.</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Agora suponhamos que se queira determinar a probabilidade do valor None
+da classe quando os valores dos atributos são E<sub>1</sub>(Age = Young), E<sub>2</sub>(Spetacle
+presciption = Myope), E<sub>3</sub>(Astigmatism = Yes), E<sub>4</sub>(Tear
+production rate = Normal). Utillizando o teorema de Bayes, chamaremos de evidência
+E a combinação dos valores acima. Assumindo que estes valores são
+independentes (dada a classe), sua probabilidade combinada é obtida pela
+multiplicação das probabilidades da evidência, então</p>
+<p class="MsoNormal" align="center" style="text-align:center"><span style="mso-text-raise:-12.0pt"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1028" type="#_x0000_t75" style='width:351pt;
+ height:29.25pt' o:ole="" fillcolor="window">
+ <v:imagedata src="file:///C:/WINDOWS/TEMP/msoclip1/01/clip_image001.wmz"
+  o:title=""/>
+</v:shape><![endif]-->
+<img src="gifs/bayesi1.gif" v:shapes="_x0000_i1028" width="468" height="39"></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1076570275">
+ </o:OLEObject>
+</xml><![endif]-->
+,</p>
+<p class="MsoNormal" style="text-align:justify">após este cálculo a
+probabilidade deve ser normalizada para que a soma dos valores da classe dê 1,
+fazendo assim que o denominador da fórmula acima desapareça.</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">&nbsp;&nbsp;&nbsp;
+Um problema com este método é que se um valor particular de um atributo não
+ocorre no conjunto de treinamento em conjunção com cada valor da classe,
+ocorrem discrepâncias no método. Suponha que estivéssemos calculando a
+probabilidade no exemplo acima do valor Soft no atributo Astigmatism quando o
+valor da classe é Yes. Esta probabilidade seria zero fazendo com que a
+multiplicação da fórmula acima dê zero não importando o quão grande fossem
+os outros termos acima.</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Uma estratégia para se resolver este problema é utilizar uma técnica
+chamada estimador de Laplace. Cada numerador das probabilidades acima tem seu
+valor adicionado em 1 enquanto que o denominador é adicionado ao número de
+valores da classe. Por exemplo, quando a classe = none, Age é Young para 4 instâncias,
+Pre-presbyopic para 5 instâncias e Presbyopic para 6 instâncias. Suas
+respectivas probabilidades são 4 / 15, 5 / 15, 6 / 15. Então usando o
+estimador de Laplace teríamos 5 / 18, 6 / 18, 7 / 18. Este método assegura que
+um valor de atributo que ocorra zero vezes receba uma probabilidade diferente de
+zero, ainda pequena.</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Usando o estimador de Laplace e normalizando estes números temos então:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 3.5pt 0cm 3.5pt">
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Age</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Young</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Pre-presbyopic</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Presbyopic</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.27777778</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.33333333</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.38888889</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.375</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.375</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.25</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.42857143</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.28571429</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.28571429</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Spetacle
+      prescription</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Myope</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Hypermetrope</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.47058824<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.52941176</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.42857143</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.57142857</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.66666667<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.33333333</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Astigmatism</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">No</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Yes</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.47058824<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.52941176</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.85714286<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.14285714</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.16666667<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.83333333</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Tear
+      production rate</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Reduced</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Normal</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.76470588<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.23529412</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.14285714<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.85714286</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.16666667<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.83333333</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Recommended
+      lences</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">None</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Soft</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Hard</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(None)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.59259259</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Soft)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.22222222</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="144" valign="top" style="width:108.05pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Pr(Hard)</p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="144" valign="top" style="width:108.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0.18518519</p>
+    </td>
+  </tr>
+</table>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Estes probabilidades estão então prontas para serem usadas na fórmula
+dada acima derivada do teorema de Bayes. Continuando o problema acima, temos:</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ None | E ] = 0.27778 x
+0.47059 x 0.52941 x 0.23529 x 0.59259 = 0.009649251</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ Soft | E ] = 0.375 x 0.42857
+x 0.14286 x 0.85741 x 0.22222 = 0.00437457</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ Hard | E ] = 0.42857 x
+0.66667 x 0.83333 x 0.83333 x 0.18519 = 0.03674386</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Normalizando os valores, temos:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de None: <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.009649251</u> = 19%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.050767681</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de Soft:<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.00437457</u> = 8.62%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.050767681</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de Hard: <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.03674386</u> = 72.38%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.050767681</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l1 level1 lfo8;tab-stops:list 18.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Missing values</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">Missing
+values não é um problema grave para o Naive Bayes. Se o atributo Age estivesse
+faltando no problema1, o cálculo das probabilidades simplesmente omitiria este
+atributo, resultando em</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ None | E ] = 0.47059 x
+0.52941 x 0.23529 x 0.59259 = 0.03473703</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ Soft | E ] = 0.42857 x
+0.14286 x 0.85741 x 0.22222 = 0.01166552</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ Hard | E ] = 0.66667 x
+0.83333 x 0.83333 x 0.18519 = 0.08573585</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Os números acima são individualmente um pouco maiores que antes porque
+um dos atributos está faltando. Normalizando os valores, temos:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de None: <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.03473703</u> = 26.29%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.1321384</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de Soft:<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.01166552</u> = 8.83%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.1321384</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de Hard: <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.08573585</u> = 64.88%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.1321384</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Se estivesse faltando um valor no conjunto de treinamento, ele
+simplesmente não seria incluído na contagem das freqüências. As taxas de
+probabilidade são baseadas no número de valores que realmente ocorrem do que
+no número total de instâncias.</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="margin-left:18.0pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l1 level1 lfo8;tab-stops:list 18.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Atributos numéricos</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">Valores numéricos
+são geralmente manipulados assumindo-se que eles têm uma distribuição de
+probabilidade normal ou Gaussiana. Para os atributos nominais o cálculo é
+feito como antes, enquanto que para os atributos numéricos é calculada a média
+e o desvio padrão para cada classe e para cada atributo numérico. Então para
+o problema2 teríamos:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 3.5pt 0cm 3.5pt">
+  <tr>
+    <td width="123" colspan="4" valign="top" style="width:92.55pt;border:solid windowtext .5pt;
+  border-bottom:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Outlook</p>
+    </td>
+    <td width="123" colspan="3" valign="top" style="width:92.55pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Temperature</p>
+    </td>
+    <td width="123" colspan="3" valign="top" style="width:92.55pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Humidity</p>
+    </td>
+    <td width="123" colspan="3" valign="top" style="width:92.55pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Windy</p>
+    </td>
+    <td width="82" colspan="2" valign="top" style="width:61.7pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" align="center" style="text-align:center">Play</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:solid windowtext .5pt;
+  border-right:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Yes</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">No</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Yes</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">No</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Yes</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">No</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Yes</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">No</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">Yes</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">No</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-left:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">S</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border:none;
+  border-right:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="41" rowspan="3" valign="top" style="width:30.85pt;border:none;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">83</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">85</p>
+    </td>
+    <td width="41" rowspan="9" valign="top" style="width:30.85pt;border:none;
+  border-bottom:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">86</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">85</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">F</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">6</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-top:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">9</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:solid windowtext .5pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-left:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">O</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border:none;
+  border-right:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">70</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">80</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">96</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">90</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">T</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="82" colspan="2" rowspan="8" valign="top" style="width:61.7pt;border-top:
+  none;border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-left:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">R</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border:none;
+  border-right:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">68</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">65</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">80</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">70</p>
+    </td>
+    <td width="123" colspan="3" rowspan="7" valign="top" style="width:92.55pt;border-top:
+  none;border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="123" colspan="3" rowspan="6" valign="top" style="width:92.25pt;border:
+  solid windowtext .5pt;border-top:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="42" colspan="2" rowspan="6" valign="top" style="width:31.15pt;border:none;
+  border-bottom:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">64</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">72</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">65</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">95</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">69</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">71</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">70</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">91</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">75</p>
+    </td>
+    <td width="41" rowspan="4" valign="top" style="width:30.85pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">80</p>
+    </td>
+    <td width="41" rowspan="4" valign="top" style="width:30.85pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">75</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">70</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">72</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">90</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-bottom:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">81</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border:none;border-bottom:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">75</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">S</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2/9</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3/5</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">M</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">73</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">74.6</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">M</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-left-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">79.1</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">86.2</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">F</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">6/9</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2/5</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">9/14</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">5/14</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">O</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">4/9</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">0/5</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">DP</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">6.2</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">7.9</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">DP</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">10.2</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">9.7</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">T</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3/9</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3/5</p>
+    </td>
+    <td width="82" colspan="2" valign="top" style="width:61.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="41" valign="top" style="width:30.85pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">R</p>
+    </td>
+    <td width="41" valign="top" style="width:30.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">3/9</p>
+    </td>
+    <td width="41" colspan="2" valign="top" style="width:30.85pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">2/5</p>
+    </td>
+    <td width="452" colspan="11" valign="top" style="width:339.35pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 3.5pt 0cm 3.5pt">
+      <p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr height="0">
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="0" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+    <td width="41" style="border:none">&nbsp;</td>
+  </tr>
+</table>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">Onde S =
+Sunny, O = Overcast, R = Rainy, F = False, T = True, M = Média, DP = Desvio
+Padrão. A Média é simplemente a soma dos valores dividido pelo número de
+valores do atributo. O desvio padrão é a raiz quadrada da variância.</p>
+<p class="MsoNormal" style="text-align:justify;text-indent:35.4pt">A função de
+densidade de probabilidade para uma distribuição normal com média M e desvio
+padrão D é a expressão</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-text-raise:-13.0pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1025" type="#_x0000_t75" style='width:162pt;height:59.25pt' o:ole=""
+ fillcolor="window">
+ <v:imagedata src="file:///C:/WINDOWS/TEMP/msoclip1/01/clip_image003.wmz"
+  o:title=""/>
+</v:shape><![endif]-->
+<img src="gifs/bayesi2.gif" v:shapes="_x0000_i1025" width="216" height="79"></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1076570277">
+ </o:OLEObject>
+</xml><![endif]-->
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Considerando a classe Yes quando Temperature = 66, então o valor da função
+de densidade de probabilidade é</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-text-raise:-13.0pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:275.25pt;height:42pt' o:ole=""
+ fillcolor="window">
+ <v:imagedata src="file:///C:/WINDOWS/TEMP/msoclip1/01/clip_image005.wmz"
+  o:title=""/>
+</v:shape><![endif]-->
+<img src="gifs/bayesi3.gif" v:shapes="_x0000_i1026" width="367" height="56"></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1076570278">
+ </o:OLEObject>
+</xml><![endif]-->
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Da mesma forma, considerando a classe Yes quando Humidity tem valor = 90,
+temos</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-text-raise:-5.0pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:174.75pt;height:19.5pt'
+ o:ole="" fillcolor="window">
+ <v:imagedata src="file:///C:/WINDOWS/TEMP/msoclip1/01/clip_image007.wmz"
+  o:title=""/>
+</v:shape><![endif]-->
+<img src="gifs/bayesi4.gif" v:shapes="_x0000_i1027" width="233" height="26"></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1076570279">
+ </o:OLEObject>
+</xml><![endif]-->
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Caso tenhamos uma nova instância no problema2 onde os valores dos
+atributos são E<sub>1</sub>(Outlook = Sunny), E<sub>2</sub>(Temperature = 66),
+E<sub>3</sub>(Humidity = 90), E<sub>4</sub>(Windy = True). O cálculo das
+probabilidades dos valores da classe é</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ Yes | E ] = 2/9 x 0.0340 x
+0.0221 x 3/9 x 9/14 = 0.000036</p>
+<p class="MsoNormal" style="text-align:justify">Pr[ No | E] = 3/5 x 0.0291 x
+0.0380 x 3/5 x 5/14 = 0.000136</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Normalizando os valores temos:</p>
+<p class="MsoNormal" style="text-align:justify">&nbsp;<o:p>
+</o:p>
+</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de Yes = <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.000036</u> = 20.9%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-spacerun:
+yes">&nbsp;</span><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.000172</p>
+<p class="MsoNormal" style="text-align:justify">Probabilidade de No =<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><u>0.000136</u> = 79.1%</p>
+<p class="MsoNormal" style="text-align:justify"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0.000172</p>
+
+</body>
+
+</html>

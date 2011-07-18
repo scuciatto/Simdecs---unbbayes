@@ -1,0 +1,1799 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY LahoreBombing_NonProbabilistic "http://www.pr-owl.org/ontologies/2009/7/LahoreBombing_NonProbabilistic.owl#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2006/12/owl2-xml#"
+     xml:base="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:LahoreBombing_NonProbabilistic="http://www.pr-owl.org/ontologies/2009/7/LahoreBombing_NonProbabilistic.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     URI="http://www.pr-owl.org/ontologies/2009/7/LahoreBombing_NonProbabilistic.owl">
+    <Annotation annotationURI="&rdfs;comment">
+        <Constant datatypeURI="&xsd;string"
+            >This is a non-probabilistic version of Lahore Bombing ontology.
+Lahore Bombing ontology is found as an example of Multi-Entity Bayesian Network usage at http://unbbayes.sourceforge.net/</Constant>
+    </Annotation>
+    <Annotation annotationURI="&rdfs;label">
+        <Constant datatypeURI="&xsd;string"
+            >Non Probabilistic Lahore Bombing Ontology</Constant>
+    </Annotation>
+    <Annotation annotationURI="&dc;date">
+        <Constant datatypeURI="&xsd;date">07/22/2009</Constant>
+    </Annotation>
+    <Annotation annotationURI="&owl;versionInfo">
+        <Constant datatypeURI="&xsd;float">0.1</Constant>
+    </Annotation>
+    <Annotation annotationURI="&dc;creator">
+        <Constant datatypeURI="&xsd;string"
+            >Shou Matsumoto (cardialfly@[gmail | yahoo].com)</Constant>
+    </Annotation>
+    <Annotation annotationURI="&dc;contributor">
+        <Constant datatypeURI="&xsd;string"
+            >Marcelo Ladeira (mladeira@unb.br);
+Paulo Cesar G. da Costa (pcosta@gmu.edu);
+Rommel Novaes Carvalho (rommel.carvalho@gmail.com);
+Laecio Lima dos Santos (laecio@gmail.com);</Constant>
+    </Annotation>
+    <Annotation annotationURI="&dc;title">
+        <Constant datatypeURI="&xsd;string"
+            >Non-Probabilistic Lahore Bombing</Constant>
+    </Annotation>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Abstract"/>
+        <Class URI="&owl;Thing"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Abstract"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Abstract"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Untangible elements</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Abstract"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This represents a plan which is currently active.  It was introduced in order to be a complement of inactive plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This class represents an agent, which is commonly some person that can do something to change their environment.
+In this ontology, we may (somehow) consider &quot;secret agents&quot; or terrorists at this category.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This class represents plans to attack some entity, like a plan to strike a place.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlan"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;ExplosiveResidueReport"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Set of persons who participates at a strike plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlanAgent"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;CellPhone"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Phone"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;CellPhone"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A particular type of telephone, a portable one.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;CellPhone"/>
+    </Declaration>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Tangible elements</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Ideal"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Abstract"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Ideal"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This class represents ideas and/or thoughts.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Ideal"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a politically important place, where might be a Venue</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+                <Constant datatypeURI="&xsd;boolean">false</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This class represents a plan which is currently inactive. It was introduced in order to be a complement of active plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;InactivePlan"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            </ObjectComplementOf>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A venue where an attack plan will not be executed</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a category of persons which neither are agents nor weapon suppliers</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;NormalPerson"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;ImportantPlace"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+                <Constant datatypeURI="&xsd;boolean">false</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Modeling complementar counterparts usually makes the reasoning more useful.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a counterpart of an ImportantPlace. This is a not-politically importan place, </Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;NotImportantPlace"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >As the name suggests, this class represents conceptually a person.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonLocatedByHUMINTReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonLocatedByHUMINTReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonLocatedByHUMINTReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a set of persons who the HUMINT system reported that the person was at a given place at a given moment</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonLocatedByHUMINTReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonLocatedByHUMINTReport"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonReportedByMissingCarReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonReportedByMissingCarReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonReportedByMissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a set of persons who the missing car report system has detected that a car of this person is missing at a place.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonReportedByMissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;PersonReportedByMissingCarReport"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Phone"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Phone"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A telephone, a tool we use to make a call.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Phone"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A place, geographic position, country, city, building, avenue, etc.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasHUMINTLocationReport"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a place where HUMINT system reported that an agent was there at a given moment</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByMissingCarReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMissingCarReport"/>
+                <Class URI="&owl;Thing"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByMissingCarReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByMissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a place where the missing car report reports a car of a person is missing</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByMissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByMissingCarReport"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Ideal"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This class represents a &quot;plan&quot;, meaning &quot;schedules&quot; for the future, or what we want to do for the future.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlanExecutor"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlanExecutor"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlanExecutor"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is someone who executes some plan</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlanExecutor"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlanExecutor"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+                <ObjectIntersectionOf>
+                    <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+                        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A venue which is a target of some plan</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Concrete"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >As a name suggests, this class represents a tool, or any concrete utility which may help someone to do something.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Tool"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;PlaceReportedByHUMINTReport"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A Venue of some event.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+    </DisjointClasses>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A venue where an attack plan will be executed</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectComplementOf>
+                <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectExactCardinality cardinality="0">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >A venue where an attack plan will not be executed</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Modeling complementar counterparts usually makes the reasoning more useful.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;VenueWithoutBomb"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </SubClassOf>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a set of persons who can be categorize as a weapon supplier for a given plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant
+                >These classes do not appear in the original probabilistic ontology. It was added into this deterministic ontology because of some tecnical restrictions of OWL that makes it difficult do specify complex logical implications to object properties.
+By using classes which have some equivalencies to object properties, we can create rich implications to object properties as well. Also, it is easier to query individuals, because they become &quot;categorized&quot; by object properties.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+            </ObjectMinCardinality>
+            <ObjectExactCardinality cardinality="0">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Property indicating that an agent is at some place</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Property indicating that an agent will excecute a plan</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasHUMINTLocationReport"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+            </ObjectMinCardinality>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Report generated by HUMINT system.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="0">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Report telling that a car of a person is missing at a given place. We do not model a car class since it does not appear at the original probabilistic ontology and we are not interested to describe a car - we only need to know that a car of a person is missing at given place..</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;VenueWithBomb"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Tells that an agent will plant an explosive at a place</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Simply, tells us that a person resides at a given place.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <SymmetricObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+    </SymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <ObjectUnionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <ObjectUnionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;ActivePlan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <SubObjectPropertyChain>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        </SubObjectPropertyChain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Related at social network</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <SymmetricObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+    </SymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Rivals at social network</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;WpnMtrlSuppliedBy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;WeaponSupplier"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;AttackPlan"/>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Tells that a person is responsible to supply a weapon for a plan. If a plan envolves a weapon supplier, we may assume it is an attack plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;WpnMtrlSuppliedBy"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;WpnMtrlSuppliedBy"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;WpnMtrlSuppliedBy"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;expects"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;expects"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+    </InverseObjectProperties>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;expects"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;expects"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;AgentAt"/>
+    </InverseObjectProperties>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+    </InverseFunctionalObjectProperty>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasAgent"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasExplosivesPlantedBy"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasHUMINTLocationReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasHUMINTLocationReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasHUMINTLocationReport"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMeetingVenue"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMeetingVenue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMeetingVenue"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMissingCarReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMissingCarReport"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+    </InverseObjectProperties>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMissingCarReport"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMissingCarReport"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasPlanAgent"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasPlanAgent"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasPlanAgent"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+    </InverseObjectProperties>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+    </Declaration>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Properties that are inverse to main properties</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasPlanAgent"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Agent"/>
+            <ObjectExactCardinality cardinality="0">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;expects"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <SubObjectPropertyChain>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;Executes"/>
+        </SubObjectPropertyChain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <SubObjectPropertyChain>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SuppliesWpnMtrl"/>
+        </SubObjectPropertyChain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Tells that a person is an agent of a plan</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isAgentOf"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasTarget"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExecutedBy"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <SubObjectPropertyChain>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        </SubObjectPropertyChain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <SubObjectPropertyChain>
+            <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        </SubObjectPropertyChain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+    </SubObjectPropertyOf>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Indicates that a person should be present at a given place.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasMeetingVenue"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isResidedBy"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;hasPlanAgent"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Indicates that a place (venue) is the meeting place decided for a plan.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isMeetingVenue"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isResidedBy"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isResidedBy"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+    </InverseObjectProperties>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isResidedBy"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >These properties were added into this ontology as a inverse propery for those properties representing the random variables originally declared at Probabilistic Lahore Ontology. By doing this. it becomes possible to declare restrictions by 2 ways (and we may select the most convenient one to do so).</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isResidedBy"/>
+    </Declaration>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Venue"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+            <DataHasValue>
+                <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+                <Constant datatypeURI="&xsd;boolean">true</Constant>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </ObjectPropertyRange>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Indicates that a place is a target of a given plan. We are not sure yet if this plan is an &quot;attack&quot; plan without more precise information.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >This is a property representing a random variable with same name, at probabilistic Lahore Ontology.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isTarget"/>
+    </Declaration>
+    <InverseObjectProperties>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;inverseProperties"/>
+    </InverseObjectProperties>
+    <EntityAnnotation>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Properties that has an equivalent random variable at probabilistic Lahore ontology</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;mainProperties"/>
+    </Declaration>
+    <DataPropertyDomain>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;ExplosiveResidueReport"/>
+        <ObjectIntersectionOf>
+            <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&LahoreBombing_NonProbabilistic;PlantsExplosives"/>
+                <Class URI="&LahoreBombing_NonProbabilistic;TargetVenue"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;ExplosiveResidueReport"/>
+        <Datatype URI="&xsd;boolean"/>
+    </DataPropertyRange>
+    <Declaration>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;ExplosiveResidueReport"/>
+    </Declaration>
+    <DataPropertyDomain>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+        <Datatype URI="&xsd;boolean"/>
+    </DataPropertyRange>
+    <Declaration>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+    </Declaration>
+    <DataPropertyDomain>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+        <Datatype URI="&xsd;boolean"/>
+    </DataPropertyRange>
+    <EntityAnnotation>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+        <Annotation annotationURI="&rdfs;comment">
+            <Constant datatypeURI="&xsd;string"
+                >Represents the random variable &quot;PoliticalImportance&quot;, which its values can be Low or High. If High, it is politically important. If Low, then it is not very important.</Constant>
+        </Annotation>
+    </EntityAnnotation>
+    <Declaration>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+    </Declaration>
+    <DataPropertyDomain>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+        <Datatype URI="&xsd;boolean"/>
+    </DataPropertyRange>
+    <Declaration>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;AD"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isWeaponSupplier"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;AD"/>
+        <Constant datatypeURI="&xsd;boolean">true</Constant>
+    </DataPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;AD"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;C"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;ResidesAt"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;C"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;C"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;AD"/>
+    </ObjectPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;C"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isPoliticallyImportant"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+        <Constant datatypeURI="&xsd;boolean">true</Constant>
+    </DataPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Plan"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ConfAtk"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;isActivePlan"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ConfAtk"/>
+        <Constant datatypeURI="&xsd;boolean">true</Constant>
+    </DataPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ConfAtk"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;P"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;P"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;AD"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty URI="&LahoreBombing_NonProbabilistic;ExplosiveResidueReport"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;P"/>
+        <Constant datatypeURI="&xsd;boolean">true</Constant>
+    </DataPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;P"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Place"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </ClassAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;HUMINTLocationReport"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;MissingCarReport"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRelated"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;C"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+    </ObjectPropertyAssertion>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </NegativeObjectPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class URI="&LahoreBombing_NonProbabilistic;Person"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;V"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;SNRival"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;V"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;TL6"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;V"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;Conf"/>
+    </ObjectPropertyAssertion>
+    <NegativeObjectPropertyAssertion>
+        <ObjectProperty URI="&LahoreBombing_NonProbabilistic;isExpectedAt"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;V"/>
+        <Individual URI="&LahoreBombing_NonProbabilistic;ResC"/>
+    </NegativeObjectPropertyAssertion>
+    <Declaration>
+        <Individual URI="&LahoreBombing_NonProbabilistic;V"/>
+    </Declaration>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

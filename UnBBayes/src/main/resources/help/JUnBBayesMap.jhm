@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<map>
+	<mapID target="introducao" url="./html/introducao.htm"/>
+	<mapID target="controles" url="./html/controles.htm"/>
+	<mapID target="novarede" url="./html/novarede.htm"/>
+	<mapID target="abrirrede" url="./html/abrirrede.htm"/>
+	<mapID target="salvarrede" url="./html/salvarrede.htm"/>
+	<mapID target="inserirno" url="./html/inserirno.htm"/>
+	<mapID target="inserirarco" url="./html/inserirarco.htm"/>
+	<mapID target="compilarrede" url="./html/compilarrede.htm"/>
+	<mapID target="aprendizagem" url="./html/aprendizagem.htm"/>
+	<mapID target="algoritmob" url="./html/algoritmoB.htm" />
+	<mapID target="algoritmok2" url="./html/algoritmok2.htm" />
+	<mapID target="variaveis" url="./html/variaveis.htm" />
+	<mapID target="compactados" url="./html/compactados.htm" />
+	<mapID target="pontuacao" url="./html/pontuacao.htm" />
+	<mapID target="metricagh" url="./html/metricagh.htm" />
+	<mapID target="ic" url="./html/ic.htm" />
+	<mapID target="algoritmocbla" url="./html/algoritmocbla.htm" />
+	<mapID target="algoritmocblb" url="./html/algoritmocblb.htm" />
+	<mapID target="parametro" url="./html/parametro.htm" />
+	<mapID target="opcoesglobais" url="./html/opcoesglobais.htm"/>
+	<mapID target="metal" url="./html/metal.htm"/>
+	<mapID target="motif" url="./html/motif.htm"/>
+	<mapID target="windows" url="./html/windows.htm"/>
+	<mapID target="adicionarestado" url="./html/adicionarestado.htm"/>
+	<mapID target="removerestado" url="./html/removerestado.htm"/>
+	<mapID target="adicionarestado" url="./html/adicionarestado.htm"/>
+	<mapID target="editardescricao" url="./html/editardescricao.htm"/>
+	<mapID target="editarsigla" url="./html/editarsigla.htm"/>
+	<mapID target="expandirarvore" url="./html/expandirarvore.htm"/>
+	<mapID target="contrairarvore" url="./html/contrairarvore.htm"/>
+	<mapID target="propagarevidencias" url="./html/propagarevidencias.htm"/>
+	<mapID target="selecionar" url="./html/selecionar.htm"/>
+	<mapID target="copiar" url="./html/copiar.htm"/>
+
+	<mapID target="colar" url="./html/colar.htm"/>
+	<mapID target="imprimir" url="./html/imprimir.htm"/>
+	<mapID target="visualisar" url="./html/visualisar.htm"/>
+	<mapID target="imprimirtabela" url="./html/imprimirtabela.htm"/>
+	<mapID target="visualisartabela" url="./html/visualisartabele.htm"/>
+	<mapID target="likelihood" url="./html/likelihood.htm"/>
+	<mapID target="certeza" url="./html/certeza.htm"/>
+	<mapID target="edicaorede" url="./html/edicaorede.htm"/>
+	<mapID target="log" url="./html/log.htm"/>
+	<mapID target="ajuda" url="./html/ajuda.htm"/>
+	<mapID target="modografico" url="./html/modografico.htm"/>
+	<mapID target="modotexto" url="./html/modotexto.htm"/>
+	<mapID target="jhelp" url="./html/jhelp.htm"/>
+	<mapID target="doc" url="./documentacao/index.html"/>
+	<mapID target="iaprendizagem" url="../icons/learn.gif"/>
+	<mapID target="imais" url="../icons/more.gif"/>
+	<mapID target="imenos" url="../icons/less.gif"/>
+	<mapID target="inovo" url="../icons/new.gif"/>
+	<mapID target="iabrir" url="../icons/open.gif"/>
+	<mapID target="isalvar" url="../icons/save.gif"/>
+	<mapID target="icompilar" url="../icons/compile.gif"/>
+	<mapID target="iarco" url="../icons/arc.gif"/>
+	<mapID target="ino" url="../icons/ellipsis.gif"/>
+	<mapID target="iselecionar" url="../icons/selection.gif"/>
+	<mapID target="iopcaoglobal" url="../icons/global-options.gif"/>
+	<mapID target="imetal" url="../icons/metal.gif"/>
+	<mapID target="imotif" url="../icons/motif.gif"/>
+	<mapID target="iwindows" url="../icons/windows.gif"/>
+	<mapID target="iimprimir" url="../icons/print.gif"/>
+	<mapID target="iimprimirtabela" url="../icons/print-table.gif"/>
+	<mapID target="ivisualisar" url="../icons/preview-print.gif"/>
+	<mapID target="ivisualisartabela" url="../icons/preview-table.gif"/>
+	<mapID target="iajuda" url="../icons/help.gif"/>
+	<mapID target="ipropagar" url="../icons/propagate.gif"/>
+	<mapID target="iexpandir" url="../icons/expand-nodes.gif"/>
+	<mapID target="icontrair" url="../icons/contract-nodes.gif"/>
+	<mapID target="ieditar" url="../icons/edit.gif"/>
+	<mapID target="ilog" url="../icons/information.gif"/>
+	<mapID target="itext" url="../icons/text-file.gif"/>
+	<mapID target="irede" url="../icons/net-file.gif"/>
+	<mapID target="iunbbayes" url="../icons/unbbayes.gif"/>
+	<mapID target="iintroduction" url="../icons/introduction.gif"/>
+	<mapID target="icomponents" url="../icons/components.gif"/>
+	<mapID target="icomands" url="../icons/comands.gif"/>
+	<mapID target="ipaste" url="../icons/paste.gif"/>
+	<mapID target="icopy" url="../icons/copy.gif"/>
+	<mapID target="itext_edition" url="../icons/text_edition.gif"/>
+	<mapID target="itree" url="../icons/tree.gif"/>
+	<mapID target="ilikelihood" url="../icons/likelihood.gif"/>
+	<mapID target="icertain" url="../icons/certain.gif"/>
+	<mapID target="ilnf" url="../icons/lnf.gif"/>
+	<mapID target="iapi_use" url="../icons/api_use.gif"/>
+	<mapID target="idocumentation" url="../icons/documentation.gif"/>
+	<mapID target="branco" url="./html/branco.htm"/>
+</map>
